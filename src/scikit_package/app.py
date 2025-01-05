@@ -1,5 +1,6 @@
-from argparse import ArgumentParser
 import subprocess
+from argparse import ArgumentParser
+
 
 def create():
     run_cookiecutter()
