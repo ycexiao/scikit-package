@@ -8,19 +8,12 @@
 How to release Python package
 ===============================
 
-Overview
-~~~~~~~~
-
-This guide is written for those who have just cookiecuttered.
-
-If you already have a conda package and if you are interested in just release a new version, read the instruction here.
-
 PyPI/GitHub release
 ~~~~~~~~~~~~~~~~~~~~
 
 .. _release-instructions-contributor:
 
-Make sure you have your package cookiecuttered. Otherwise, please start from the Getting started page :ref:`here <getting-started>`
+.. important::  Make sure you have your proejct is standarlized with scikit-package. Otherwise, please start from the Getting started page :ref:`here <getting-started>`.
 
 #. In the repository, create an issue on GitHub with the "Release" option as shown below:
 
@@ -45,8 +38,8 @@ Instructions for Project Owner for release
 
 #. Run the following::
 
-    # For pre-release, use *.*.*rc* i.g. 1.0.0rc0
-    # For release, use *.*.* i.g. 1.0.0
+    # For pre-release, use *.*.*rc* e.g., 1.0.0rc0
+    # For release, use *.*.* e.g., 1.0.0
     git tag <version-number>
     git push upstream <version-number>
 

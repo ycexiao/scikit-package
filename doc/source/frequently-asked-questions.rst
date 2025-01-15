@@ -8,7 +8,7 @@
 Frequently asked questions (FAQ)
 ================================
 
-Here, you will learn how to customize the ``bg-cookiecutter`` template for your own project, such as setting the line-width and including/excluding files for PyPI distribution. We also provide design decisions for the current setup of the ``bg-cookiecutter`` template.
+Here, you will learn how to customize the ``scikit-package`` template for your own project, such as setting the line-width and including/excluding files for PyPI distribution. We also provide design decisions for the current setup of the ``scikit-package`` template.
 
 Pre-commit
 ----------
@@ -18,8 +18,8 @@ How do I modify line-width limits?
 
 Three files need to be modified:
 
-1. In ``.isort.cfg``, modify ``line_length``
-2. In ``.flake8``, modify ``max-line-length``
+1. In ``.isort.cfg``, modify ``line_length``.
+2. In ``.flake8``, modify ``max-line-length``.
 3. In ``pyproject.toml``, modify ``line-length`` under ``[tool.black]``.
 
 .. _codespell-add-word:
@@ -42,7 +42,7 @@ To ignore a specific file extension, add ``*.ext`` to the ``skip`` section under
 Project setup
 -------------
 
-I read ``bg-cookiecutter`` supports a namespace package. What is it and how do I set it up?
+I read ``scikit-package`` supports a namespace package. What is it and how do I set it up?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In plain English, a namespace package refers to a package that is organized in a way that allows importing and installing a package like ``pip install diffpy.pdffit2``. The package starts with an ``org-name`` or similar, and each package has a separate repository, i.e., https://github.com/diffpy/diffpy.pdffit2. The consistency in naming can be beneficial for research groups by organizing research software projects and maintaining branding, as demonstrated by software projects in https://www.diffpy.org/.
@@ -81,7 +81,7 @@ Notice that there is a ``diffpy`` folder under ``src``. The package name is ``di
 Now, I am interested in setting up a namespace package. How do I set it up?
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Our ``bg-cookiecutter`` handles a namespace package automatically for you! This is what makes our cookiecutter unique. All you have to do while creating a cookiecutter package is to provide your package name as e.g., ``diffpy.my_project`` when prompted by ``cookiecutter https://github.com/Billingegroup/cookiecutter``. The cookiecutter will automatically create a namespace package for you based on the existence of the ``.`` that separates the ``diffpy`` and ``my_project``.
+Our ``scikit-package`` handles a namespace package automatically for you! This is what makes our scikit-package unique. All you have to do while creating a scikit-package package is to provide your package name as e.g., ``diffpy.my_project`` when prompted by ``scikit-package https://github.com/Billingegroup/scikit-package``. The scikit-package will automatically create a namespace package for you based on the existence of the ``.`` that separates the ``diffpy`` and ``my_project``.
 
 Release
 -------
@@ -135,13 +135,10 @@ The conda-forge CI uses the source code distributed via PyPI to build a Conda pa
 Billinge Group standards
 ------------------------
 
-News file for each pull request?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Please follow the guidelines :ref:`here <news-file-guide>`.
 
-Please refer to the guide :ref:`here <news-file-guide>`.
-
-GitHub commit messages and issue titles
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How we communicate via GitHub commit messages and issue titles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For commit messages and issue titles, we add prefixes adopted from https://www.conventionalcommits.org:
 
@@ -160,17 +157,55 @@ For commit messages and issue titles, we add prefixes adopted from https://www.c
   revert: Reverts a previous commit.
   release: A new package version is being prepared.
 
-- Example 1: "feat: create a ``DiffractionObject.morph_to()`` method."
-- Example 2: "bug: handle divide by zero error in ``DiffractionObject.scale_to``."
+- Example 1: "feat: create a ``DiffractionObject.morph_to()`` method"
+- Example 2: "bug: handle divide by zero error in ``DiffractionObject.scale_to``"
 
-Please see an example here: https://github.com/Billingegroup/scikit-package/issues. There are a few benefits to adding prefixes to GitHub issue titles. First, it helps us prioritize tasks from the notifications/emails. Second, it helps reference issues in a comment within an issue or pull request and organize tasks.
+Please see an example here: https://github.com/Billingegroup/scikit-package/issues. There are a few benefits to adding prefixes to GitHub issue titles. First, it helps us prioritize tasks from the notifications. Second, it helps reference issues in a comment within an issue or pull request and organize tasks.
 
-A commit message is written for PR reviewers and for debuggers. Avoid verbosity for a quick overview. An ideal commit message communicates file(s) of interest, the reason for the modification, and what modifications were made. Ex) “Move all files from docs to doc for cookiecutting."
+.. attention:: A commit message is written for PR reviewers and for debuggers. Avoid verbosity for a quick overview. An ideal commit message communicates file(s) of interest, the reason for the modification, and what modifications were made. e.g., “chore: move all files from docs to doc for scikit-packaging."
 
-Test with Pytest
-^^^^^^^^^^^^^^^^
+How we communciate development progress with news files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please use the following list and the example snippets below from the ``diffpy.utils`` package:
+Please refer to the process of generating a news file for each PR :ref:`here<news-file-guide>`.
+
+GitHub Pull Request practices
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Have a theme for each PR to reduce cognitive overload for the reviewer.
+
+#. Make PRs small with the possibility of rejection.
+
+#. Write “closes #<issue-number>” in the PR comment to automatically close the issue when the PR is merged. See `GitHub documentation <https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue>`_.
+
+#. Review your own PR. Start as a draft PR, visit “Files changed”, add comments, and then request a review. In-line comments are needed if the changes are not obvious for the reviewer.
+
+#. If another commit was pushed after “ready for review”, write another comment “ready for review after fixing ____” so that the reviewer is directed to the PR, not the file changes by the new commit.
+
+#. PR from a new branch if it contains a meaningless commit history.
+
+#. Do not force push. Use ``git revert`` to unwind the previous commit.
+
+#. If you’ve made a mistake but have not used ``git add``, use ``git restore <file-name>``.
+
+#.  Before CI is integrated, include local test passing results in each PR to save time for the reviewer.
+
+#.  For migrating files from one folder to another folder, use ``git mv``.
+
+#. For writing release news, “changed” refers to what would affect the user. “Fixed” refers to bugs or refactoring.
+
+#. No news file is needed for fixing typos or grammatical errors.
+
+#. Each PR is designed to address an issue on GitHub. If there is no issue, make one.
+
+#. For deleting files generated by the OS such as ``.DS_Store`` use ``git rm`` instead of ``git add`` to also remove from the Git index (staging area).
+
+#. When a PR is closed for any reason, add a single sentence in the comment explaining why the PR is being closed. If a new PR is created, add the new PR link in the comment.
+
+How we write tests with Pytest
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following practices have been developed to ensure consistency in writing tests:
 
 #. Comment starts with a uppercase letter (PEP8 standard) unless it's a name starting with a lowercase letter like a function name.
 
@@ -180,7 +215,7 @@ Please use the following list and the example snippets below from the ``diffpy.u
 
 #. If applicable, group similar test conditions under a single case. Numerate each test condition.
 
-#. Divide a test case comment into two parts: ``x, y, z conditions, expect...``
+#. Divide a test case comment into two parts: ``x, y, z (conditions), expect...``. Ensure there is a ``expect`` keyword after the test conditions provided.
 
 #. Use descriptive yet concise variable names for expected values (e.g., ``expected_xarrays`` instead of ``expected``)
 
@@ -269,8 +304,8 @@ Pytest example 2 - multi-line arguments
 
 1. Comment starts with a uppercase letter (PEP8 standard) unless it's a name starting with a lowercase letter like a function name.
 
-Docstring
-^^^^^^^^^
+How we write docstrings
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Please bookmark the following:
 
@@ -288,56 +323,35 @@ In the group, we follow the NumPy standard:
 
 #. "The" is used for the starting description of attribute/parameter/return
 
+#. Full docstrings are not required for private functions.
+
 For examples, please refer to https://github.com/diffpy/diffpy.utils/blob/main/src/diffpy/utils/diffraction_objects.py. 
 
-Error message design
-^^^^^^^^^^^^^^^^^^^^
+How we design error message
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Divide an error message into two sections: (1) reason for error, (2) what to do to fix it. Ex) "Both release and pre-release specified. Please re-run the command specifying either release or pre_release.” Error messages are for users. Consider users without programming knowledge. 
+
+How we write file names
+^^^^^^^^^^^^^^^^^^^^^^^
+
+For public-facing documents accessible via URLs, use minus signs ``-`` between words:
+
+- For project names, i.e., ``https://github.com/billingegroup/bg-mpl-stylesheets``
+
+- For doc/file paths, i.e., ``doc/source/frequently-asked-questions.rst``
+
+For CLI, also use minus signs ``-`` for args:
+
+- i.e., ``gh pr list --author "@sbillinge"``
 
 Other considerations for maintaining group infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Be extremely careful with changes that are visible to users.
-- Try not to pass down technical debt to future members. Do the extra work so that others can save time. i.g., making a PR to the cookiecutter repo once an issue has been identified in a cookiecuttered project.
+- Try not to pass down technical debt to future members. Do the extra work so that others can save time. i.e, making a PR to the scikit-package repo once an issue has been identified in a scikit-packageed project.
 reducing compute time, especially when computing resources are not the primary constraint.
 - It is easier to remove things (e.g., dependencies) we don't want than to add things that are needed in certain circumstances.
-
-Pull request tips
-^^^^^^^^^^^^^^^^^
-
-#. Have a theme for each PR to reduce cognitive overload for the reviewer.
-
-#. Make PRs small with the possibility of rejection.
-
-#. Write “closes #<issue-number>” in the PR comment to automatically close the issue when the PR is merged. See `GitHub documentation <https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue>`_.
-
-#. Review your own PR. Start as a draft PR, visit “Files changed”, add comments, and then request a review. In-line comments are needed if the changes are not obvious for the reviewer.
-
-#. If another commit was pushed after “ready for review”, write another comment “ready for review after fixing ____” so that the reviewer is directed to the PR, not the file changes by the new commit.
-
-#. PR from a new branch if it contains a meaningless commit history.
-
-#. Do not force push. Use ``git revert`` to unwind the previous commit.
-
-#. If you’ve made a mistake but have not used ``git add``, use ``git restore <file-name>``.
-
-#.  Before CI is integrated, include local test passing results in each PR to save time for the reviewer.
-
-#.  For migrating files from one folder to another folder, use ``git mv``.
-
-#. For writing release news, “changed” refers to what would affect the user. “Fixed” refers to bugs or refactoring.
-
-#. No news file is needed for fixing typos or grammatical errors.
-
-#. Each PR is designed to address an issue on GitHub. If there is no issue, make one.
-
-#. For deleting files generated by the OS such as ``.DS_Store`` use ``git rm`` instead of ``git add`` to also remove from the Git index (staging area).
-
-#. When a PR is closed for any reason, add a single sentence in the comment explaining why the PR is being closed. If a new PR is created, add the new PR link in the comment.
-
-File name conventions
-^^^^^^^^^^^^^^^^^^^^^
-
 
 Documentation
 -------------
@@ -439,7 +453,7 @@ Dependency management
 Why are both pip.txt and conda.txt provided?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Our preferred choice for installing the cookiecuttered package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new_env <package-name>``. Additionally, the environment is tested via conda-forge CI before the Conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
+Our preferred choice for installing the scikit-packageed package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new_env <package-name>``. Additionally, the environment is tested via conda-forge CI before the Conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
 
 However, we also want to allow users to install the package via ``pip``. To support this, we provide a separate file for pip dependencies, ``pip.txt``. In most cases, the dependencies listed in ``conda.txt`` and ``pip.txt`` will be identical. However, there can be exceptions. For example, ``matplotlib-base`` is preferred for Conda installations, while ``matplotlib`` is used for pip installations.
 
@@ -456,7 +470,7 @@ GitHub allows multiple contributors to work on a software project simultaneously
 What is the general the workflow?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Since cookiecutting requires a basic understanding of GitHub's workflow, we will provide you with a brief overview and how to set up your repository.
+Since sk-packaging requires a basic understanding of GitHub's workflow, we will provide you with a brief overview and how to set up your repository.
 
 First, if you are working on a package from an organization like ``github.com/diffpy`` or ``github.com/Billingegroup``, you first copy the repository of the organization to your GitHub user account. This process is called ``forking``.
 
@@ -464,14 +478,14 @@ Then, you will download the forked repository in your GitHub account to your loc
 
 In the cloned repository on your local machine, you will make edits. You want to first add a description for the changes by "committing" with a message describing the changes. Then you will upload these changes to the ``forked`` repository in your account. This process of updating code from the local computer to the repository hosted by GitHub is called ``pushing``.
 
-From the forked repository, you then want to upload changes to the repository under ``github.com/Billingegroup/cookiecutter``, for example. This process is done through a process called ``pull request``. The Project Owner reviews this pull request and merges it into the Billinge group's repository. If you are the contributor as well as the Project Owner, you would be the one who reviews your own code and merges your changes.
+From the forked repository, you then want to upload changes to the repository under ``github.com/Billingegroup/scikit-package``, for example. This process is done through a process called ``pull request``. The Project Owner reviews this pull request and merges it into the Billinge group's repository. If you are the contributor as well as the Project Owner, you would be the one who reviews your own code and merges your changes.
 
-I have a general understanding of fork, clone, commit, push, and pull request. How do I set up my repository for cookiecutting?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+I have a general understanding of fork, clone, commit, push, and pull request. How do I set up my repository for packaging?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Please be familiar with the terminology such as "fork", "clone", "push", and "pull request" :ref:`above <github-workflow-overview>`.
 
-You may fork the repository using the "Fork" button on the top right corner of the repository page. This will copy the repository to your GitHub account. e.g., ``github.com/Billingegroup/cookiecutter`` to ``github.com/sbillinge/cookiecutter``.
+You may fork the repository using the "Fork" button on the top right corner of the repository page. This will copy the repository to your GitHub account. e.g., ``github.com/Billingegroup/scikit-package`` to ``github.com/sbillinge/scikit-package``.
 
 Then download the forked repository under your account to the local machine by cloning:
 
@@ -487,7 +501,7 @@ Now, you also want to link with the repository of the organization by adding the
 
 .. note::
 
-   What is ``upstream``? The repository that you forked from, e.g. ``Billingegroup/cookiecutting`` is referred to as the ``upstream`` repository.
+   What is ``upstream``? The repository that you forked from, e.g. ``Billingegroup/scikit-package`` is referred to as the ``upstream`` repository.
 
 Verify that you have the ``upstream`` URL set up as the organization.
 
@@ -499,18 +513,18 @@ Notice that you also have ``origin`` with an URL linking to your forked reposito
 
 .. note::
 
-  What is ``remote``? The term ``remote`` is the opposite of ``local``. In other words, ``remote`` refers to the repository that is hosted by GitHub. e.g., ``github.com/Billingegroup/cookiecutter`` or ``github.com/sbillinge``.
+  What is ``remote``? The term ``remote`` is the opposite of ``local``. In other words, ``remote`` refers to the repository that is hosted by GitHub. e.g., ``github.com/Billingegroup/scikit-package`` or ``github.com/sbillinge``.
 
 Do you have a general summary of each term used in the GitHub workflow?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:fork: The process of copying a repository from an organization to your GitHub account. e.g., ``github.com/Billingegroup/cookiecutter`` to ``github.com/sbillinge/cookiecutter``.
+:fork: The process of copying a repository from an organization to your GitHub account. e.g., ``github.com/Billingegroup/scikit-package`` to ``github.com/sbillinge/scikit-package``.
 
-:upstream: The repository of the original source code. e.g., ``github.com/Billingegroup/cookiecutter``.
+:upstream: The repository of the original source code. e.g., ``github.com/Billingegroup/scikit-package``.
 
-:origin: The forked repository under your account. e.g., ``github.com/sbillinge/cookiecutter``.
+:origin: The forked repository under your account. e.g., ``github.com/sbillinge/scikit-package``.
 
-:remote: The repository that is hosted by GitHub. e.g., ``github.com/Billingegroup/cookiecutter`` or ``github.com/sbillinge/cookiecutter``.
+:remote: The repository that is hosted by GitHub. e.g., ``github.com/Billingegroup/scikit-package`` or ``github.com/sbillinge/scikit-package``.
 
 :branch: The branch serves as a folder that contains the files of the repository. The ``main`` branch is the branch that is used for the final version of the code. Many branches can be created for different features or bug fixes that are later merged into the ``main`` branch.
 

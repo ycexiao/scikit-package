@@ -22,7 +22,7 @@ Overview
 The process is divided into three steps:
 
 
-1. :ref:`Prepare recipe: <conda-forge-recipe-prepare>` You will learn to prepare package information in a file called ``meta.yaml`` using our group's cookiecutting template. The file serves as a recipe for building your conda package. The recipe contains the package version, the source code, the dependencies, the license, etc.
+1. :ref:`Prepare recipe: <conda-forge-recipe-prepare>` You will learn to prepare package information in a file called ``meta.yaml`` using our group's scikit-package template. The file serves as a recipe for building your conda package. The recipe contains the package version, the source code, the dependencies, the license, etc.
 
 2. :ref:`Upload therecipe: <conda-forge-recipe-upload>` Once you have the ``meta.yaml`` generated, you will create a pull request the staged-recipe repository in the conda-forge repository `here <https://github.com/conda-forge/staged-recipes>`_
 
@@ -39,7 +39,7 @@ Hence, in Step 1, we will generate ``meta.yaml`` using the Billinge group's temp
 
 If you are interested in learning more about each component within ``meta.yaml``, read :ref:`Appendix 1 <meta-yaml-info>` located at the end of this document.
 
-1. Install ``cookiecutter`` via ``pip install cookiecutter`` and run ``cookiecutter https://github.com/billingegroup/staged-recipes-cookiecutter``
+1. Install ``scikit-package`` via ``pip install scikit-package`` and run ``package conda-forge``
 
 2. Answer the following questions. Default values in parentheses are used if no value is provided.
 
@@ -57,7 +57,7 @@ If you are interested in learning more about each component within ``meta.yaml``
 
  :full_description: A full description of the project
 
- :license_file: The license file that is located in your project repository. i.g., ``LICENSE.rst``.
+ :license_file: The license file that is located in your project repository. i.e., ``LICENSE.rst``.
 
  :maintainers: You may have multiple maintainers ``sbillinge, bobleesj`` or just ``sbillinge``
 
@@ -79,7 +79,7 @@ Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 
 .. _conda-forge-recipe-upload:
 
-2. Upload ``meta.yaml`` to conda-forge for initial review
+1. Upload ``meta.yaml`` to conda-forge for initial review
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Fork https://github.com/conda-forge/staged-recipes and clone your forked repository

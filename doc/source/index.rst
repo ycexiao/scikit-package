@@ -7,7 +7,7 @@
 | Software version |release|.
 | Last updated |today|.
 
-Welcome to Billinge Group's Python cookiecutter documentation!
+Welcome to Billinge Group's Python scikit-package documentation!
 
 Statement of need
 -----------------
