@@ -58,7 +58,7 @@ We offer the following ways to help guide you through the scikit-package process
 1. Pre-commit workflow
 ----------------------
 
-.. Important:: Are you starting a new proejct? Skip this section and go to :ref:`2. scikit-package main workflow <scikit-package-workflow-main>`!
+.. Important:: Are you starting a new project? Skip this section and go to :ref:`2. scikit-package main workflow <scikit-package-workflow-main>`!
 
 #. Fork the repository and clone your forked your repository to your local. If you are not familiar with GitHub workflows, please refer our brief guide provided :ref:`here <github-workflow-overview>`.
 
@@ -117,7 +117,7 @@ We offer the following ways to help guide you through the scikit-package process
     .. note::
 
         Q1. Do you want to ignore certain spelling recommendations by Codespell? Please refer to this section in the FAQ :ref:`here <codespell-add-word>`.
-        
+
         Q2. Do you want to prevent certain automatic modifications on specific file types? You can add the folder or extension to the ``exclude`` section in ``.pre-commit-config.yaml``. Check <https://github.com/Billingegroup/scikit-package/blob/main/.pre-commit-config.yaml>`_.
 
 #. At this point, you may have flake8 errors but we want to address them in a separate pull request. Hence, git add and commit and push the automatic changes made by ``precommit`` and create a pull request to ``main``. The commit message can be ``style: apply pre-commit without manual modification`` and the pull request title can be ``scikit-package: Apply pre-commit to project directory with no manual edits``.

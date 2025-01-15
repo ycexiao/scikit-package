@@ -13,7 +13,7 @@ PyPI/GitHub release
 
 .. _release-instructions-contributor:
 
-.. important::  Make sure you have your proejct is standarlized with scikit-package. Otherwise, please start from the Getting started page :ref:`here <getting-started>`.
+.. important::  Make sure you have your project is standarlized with scikit-package. Otherwise, please start from the Getting started page :ref:`here <getting-started>`.
 
 #. In the repository, create an issue on GitHub with the "Release" option as shown below:
 

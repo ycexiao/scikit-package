@@ -219,7 +219,7 @@ The following practices have been developed to ensure consistency in writing tes
 
 #. Use descriptive yet concise variable names for expected values (e.g., ``expected_xarrays`` instead of ``expected``)
 
-#. Order test cases from the most general to edge cases. This helps readers understand the basic function behavior first before utilizing or encountering unusual features or behaviors. 
+#. Order test cases from the most general to edge cases. This helps readers understand the basic function behavior first before utilizing or encountering unusual features or behaviors.
 
 #. Consider moving reusable code objects to ``conftest.py``. See warning messages and objects defined in https://github.com/diffpy/diffpy.utils/blob/main/tests/conftest.py available in each test function in https://github.com/diffpy/diffpy.utils/blob/main/tests/test_diffraction_objects.py/
 
@@ -325,12 +325,12 @@ In the group, we follow the NumPy standard:
 
 #. Full docstrings are not required for private functions.
 
-For examples, please refer to https://github.com/diffpy/diffpy.utils/blob/main/src/diffpy/utils/diffraction_objects.py. 
+For examples, please refer to https://github.com/diffpy/diffpy.utils/blob/main/src/diffpy/utils/diffraction_objects.py.
 
 How we design error message
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Divide an error message into two sections: (1) reason for error, (2) what to do to fix it. Ex) "Both release and pre-release specified. Please re-run the command specifying either release or pre_release.” Error messages are for users. Consider users without programming knowledge. 
+Divide an error message into two sections: (1) reason for error, (2) what to do to fix it. Ex) "Both release and pre-release specified. Please re-run the command specifying either release or pre_release.” Error messages are for users. Consider users without programming knowledge.
 
 How we write file names
 ^^^^^^^^^^^^^^^^^^^^^^^
