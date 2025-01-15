@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# bg-cookiecutter documentation build configuration file, created by
+# scikit-package documentation build configuration file, created by
 # sphinx-quickstart on Thu Jan 30 15:49:41 2014.
 #
 # This file is execfile()d with the current directory set to its
@@ -24,6 +24,16 @@ from pathlib import Path
 # sys.path.insert(0, str(Path(".").resolve()))
 sys.path.insert(0, str(Path("../..").resolve()))
 sys.path.insert(0, str(Path("../../src").resolve()))
+
+# Here provide the default values for the Python version range
+PYTHON_MAX_VERSION = 3.13
+PYTHON_MIN_VERSION = 3.11
+
+# Replace e.g., |PYTHON_MAX_VERSION| with actual value in .rst files
+rst_epilog = f"""
+.. |PYTHON_MAX_VERSION| replace:: {PYTHON_MAX_VERSION}
+.. |PYTHON_MIN_VERSION| replace:: {PYTHON_MIN_VERSION}
+"""
 
 # abbreviations
 ab_authors = "Billinge Group members and community contributors"
@@ -61,7 +71,7 @@ source_suffix = [".rst", ".md"]
 master_doc = "index"
 
 # General information about the project.
-project = "bg-cookiecutter"
+project = "scikit-package"
 copyright = "%Y, The Trustees of Columbia University in the City of New York"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -111,7 +121,7 @@ exclude_patterns = ["build"]
 pygments_style = "sphinx"
 
 # A list of ignored prefixes for module index sorting.
-modindex_common_prefix = ["bg-cookiecutter"]
+modindex_common_prefix = ["scikit-package"]
 
 # Display all warnings for missing links.
 nitpicky = True
@@ -202,7 +212,7 @@ html_theme_options = {
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-basename = "bg-cookiecutter".replace(" ", "").replace(".", "")
+basename = "scikit-package".replace(" ", "").replace(".", "")
 htmlhelp_basename = basename + "doc"
 
 
@@ -223,8 +233,8 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "bg-cookiecutter.tex",
-        "bg-cookiecutter Documentation",
+        "scikit-package.tex",
+        "scikit-package Documentation",
         ab_authors,
         "manual",
     ),
@@ -258,8 +268,8 @@ latex_documents = [
 man_pages = [
     (
         "index",
-        "bg-cookiecutter",
-        "bg-cookiecutter Documentation",
+        "scikit-package",
+        "scikit-package Documentation",
         ab_authors,
         1,
     )
@@ -277,10 +287,10 @@ man_pages = [
 texinfo_documents = [
     (
         "index",
-        "bg-cookiecutter",
-        "bg-cookiecutter Documentation",
+        "scikit-package",
+        "scikit-package Documentation",
         ab_authors,
-        "bg-cookiecutter",
+        "scikit-package",
         "One line description of project.",
         "Miscellaneous",
     ),

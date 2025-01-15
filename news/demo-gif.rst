@@ -1,7 +1,6 @@
 **Added:**
 
-* Add full description of `scikit-package` in `pyproject.toml`.
-* Add motivating statements under the Statement of need section in `index.rst`.
+* Add demo .gif file used in README.rst in generating a package and building documentation with `scikit-package`.
 
 **Changed:**
 

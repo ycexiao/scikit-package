@@ -1,7 +1,6 @@
 **Added:**
 
-* Add full description of `scikit-package` in `pyproject.toml`.
-* Add motivating statements under the Statement of need section in `index.rst`.
+* Configure `PYTHON_MAX_VERSION` and `PYTHON_MIN_VERSION` in `doc/source/conf.py` to increase maintainability throughout the documentation.
 
 **Changed:**
 

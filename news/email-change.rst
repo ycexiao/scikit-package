@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* sub section titles in doc to improve readability and navigation working with conda-forge package
+* Update corresponding email to sb2896@columbia.edu.
 
 **Security:**
 

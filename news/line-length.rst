@@ -1,10 +1,10 @@
 **Added:**
 
-* Add instructions for Codecov setup in documentation.
+* <news item>
 
 **Changed:**
 
-* <news item>
+* Change default line-length to 79 characters in `black`, `flake`, and `isort` configuration files for PEP8 compatibility.
 
 **Deprecated:**
 

@@ -1,10 +1,10 @@
 **Added:**
 
-* Add instructions for Codecov setup in documentation.
+* <news item>
 
 **Changed:**
 
-* <news item>
+* Change question and default answer format on user prompt on C extension and headless GUI with improved wording.
 
 **Deprecated:**
 

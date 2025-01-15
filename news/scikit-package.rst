@@ -1,10 +1,10 @@
 **Added:**
 
-* Add instructions for Codecov setup in documentation.
+* <news item>
 
 **Changed:**
 
-* <news item>
+* Rename repositroy and package name to `scikit-package`.
 
 **Deprecated:**
 

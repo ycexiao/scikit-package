@@ -1,4 +1,4 @@
-name: bg-cookiecutter
+name: scikit-package
 channels:
   - conda-forge
 dependencies:
