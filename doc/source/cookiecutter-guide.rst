@@ -325,6 +325,8 @@ Motivation and audience
 
 ``.rst`` files under the ``news`` directory are used to compile and update the ``CHANGELOG.rst`` file during releases. Hence, these news items are of interest to both developers and technical users looking for specific keywords.
 
+.. _news-item-format:
+
 Guidelines for writing news items
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
