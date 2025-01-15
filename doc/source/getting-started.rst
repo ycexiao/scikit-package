@@ -13,7 +13,7 @@ Cookiecutting refers to the process of standardizing a Python package structure 
 Are you here for cookiecutting?
 -------------------------------
 
-1. You have an existing Python package. Do you want to standardize your package with ``bg-cookiecutter``? Please follow the full instructions :ref:`here <cookiecutter-title>`.
+1. You have an existing Python package. Do you want to standardize your package with ``bg-cookiecutter``? Please follow the full instructions :ref:`here <scikit-package-header>`.
 
 2. You already have a bg-cookiecuttered package. Do you want to use the latest version of ``bg-cookiecutter`` to re-cookiecut your package? Please follow the instructions in :ref:`here <cookiecutter-workflow-main>`.
 

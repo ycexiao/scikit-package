@@ -95,7 +95,7 @@ Table of contents
    :maxdepth: 2
 
    getting-started
-   cookiecutter-guide
+   skpackage-guide
    release-guide
    conda-forge-guide
    frequently-asked-questions

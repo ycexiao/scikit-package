@@ -1,64 +1,64 @@
 :tocdepth: -1
 
-.. index:: cookiecutter-guide
+.. index:: scikit-package-guide
 
-.. _cookiecutter-title:
+.. _scikit-package-header:
 
-===============================
-How to cookiecut Python package
-===============================
+==========================================================
+How to standarlize your Python package with scikit-package
+==========================================================
 
-.. _cookiecutter-installation:
+.. _scikit-package-installation:
 
 Installation
 ------------
 
-To get started, install ``cookiecutter``, ``black``, and ``pre-commit`` in a new conda environment. Follow the steps below:
+To get started, install ``scikit-package``, ``black``, and ``pre-commit`` in a new conda environment. Follow the steps below:
 
-Create a new environment named ``cookiecutter_env``: ::
+Create a new environment named ``scikit-package_env``: ::
 
-        conda create -n cookiecutter_env python=3.13
+        conda create -n scikit-package_env python=3.13
 
 Activate the environment: ::
 
-        conda activate cookiecutter_env
+        conda activate scikit-package_env
 
 Install packages: ::
 
-        pip install cookiecutter black pre-commit
+        pip install scikit-package black pre-commit
 
-You are now ready to cookiecut your Python package!
+You are now ready to scikit-package Python package!
 
 Overview
 --------
 
-We have divided the cookiecutting process into four workflows:
+We have divided the scikit-package process into four workflows:
 
-1. :ref:`Pre-commit workflow: <cookiecutter-workflow-pre-commit>` you will use automatic formatting tools to standardize your package with PEP8 before migrating it to the Billinge group's project structure with ``cookiecutter``. Then, the ``pre-commit`` library installed is used ensure the code is in good shape. You can skip this step if you are starting a new project.
+1. :ref:`Pre-commit workflow: <scikit-package-workflow-pre-commit>` you will use automatic formatting tools to standardize your package with PEP8 before migrating it to the Billinge group's project structure with ``scikit-package``. Then, the ``pre-commit`` library installed is used ensure the code is in good shape. You can skip this step if you are starting a new project.
 
-2. :ref:`Cookiecutting workflow: <cookiecutter-workflow-main>` After your code is formatted, you will use the ``cookiecutter`` library to generate a new project inside the package directory. The new project contains dynamically filled templates based on your inputs such as repository name, license, and contributors. Then, you will move files from the old to the new structure using Git.
+2. :ref:`scikit-package workflow: <scikit-package-workflow-main>` After your code is formatted, you will use the ``scikit-package`` library to generate a new project inside the package directory. The new project contains dynamically filled templates based on your inputs such as repository name, license, and contributors. Then, you will move files from the old to the new structure using Git.
 
-3. :ref:`API documentation build workflow: <cookiecutter-workflow-api>` Once you have cookiecuttered the package, you will use our Python script to automatically generate API documentation for your package and render the documentation locally.
+3. :ref:`API documentation build workflow: <scikit-package-workflow-api>` Once you have scikit-packageed the package, you will use our Python script to automatically generate API documentation for your package and render the documentation locally.
 
-4. :ref:`Final sign-off: <cookiecutter-workflow-final>` After you've checked the licenses, README, and documentation, you will host your package documentation online. Once you are done with this page, we will guide you on how to release your package on a separate page :ref:`here <release-guide>`.
+4. :ref:`Final sign-off: <scikit-package-workflow-final>` After you've checked the licenses, README, and documentation, you will host your package documentation online. Once you are done with this page, we will guide you on how to release your package on a separate page :ref:`here <release-guide>`.
 
 Tips and how to receive support
 -------------------------------
 
-We offer the following ways to help guide you through the cookiecutting process:
+We offer the following ways to help guide you through the scikit-package process:
 
-1. You may cross-check with the Billinge group's up-to-date cookiecuttered package, ``diffpy.utils``: https://github.com/diffpy/diffpy.utils.
+1. You may cross-check with the Billinge group's up-to-date scikit-packageed package, ``diffpy.utils``: https://github.com/diffpy/diffpy.utils.
 
-2. If you have any questions, first read the :ref:`FAQ <frequently-asked-questions>` for how to customize your package and certain design decisions in the cookiecutter template.
+2. If you have any questions, first read the :ref:`FAQ <frequently-asked-questions>` for how to customize your package and certain design decisions in the scikit-package template.
 
-3. After you've cross-checked and searched through the FAQ, please feel free to ask questions by creating an issue on the Cookiecutter repository `here <https://github.com/Billingegroup/cookiecutter/issues>`_.
+3. After you've cross-checked and searched through the FAQ, please feel free to ask questions by creating an issue on the scikit-package repository `here <https://github.com/Billingegroup/scikit-package/issues>`_.
 
-.. _cookiecutter-workflow-pre-commit:
+.. _scikit-package-workflow-pre-commit:
 
 1. Pre-commit workflow
 ----------------------
 
-.. Important:: Skip this section and go to :ref:`2. Cookiecutter main workflow <cookiecutter-workflow-main>` if you are starting a new project!
+.. Important:: Skip this section and go to :ref:`2. scikit-package main workflow <scikit-package-workflow-main>` if you are starting a new project!
 
 #. Fork and clone the repository.
 
@@ -104,11 +104,11 @@ We offer the following ways to help guide you through the cookiecutting process:
 
 #. git add and commit the changes. The commit message can be ``git commit -m "style: apply black to all files in the project directory"``.
 
-#. Create a pull request into ``main``. The pull request title can be ``cookiecut: Apply black to project directory with no manual edits``.
+#. Create a pull request into ``main``. The pull request title can be ``scikit-package Apply black to project directory with no manual edits``.
 
 #. After the ``black`` branch has been merged to ``main``, type ``git checkout main && git pull upstream main`` and create a new branch called ``precommit`` by typing ``git checkout -b precommit``.
 
-#. Copy and paste two files of ``.flake8`` `here <https://github.com/Billingegroup/cookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/.flake8>`_ and ``.pre-commit-config.yaml`` `here <https://github.com/Billingegroup/cookiecutter/blob/main/%7B%7B%20cookiecutter.repo_name%20%7D%7D/.pre-commit-config.yaml>`_ to your project directory. Cross-check with https://github.com/diffpy/diffpy.utils.
+#. Copy and paste two files of ``.flake8`` `here <https://github.com/Billingegroup/scikit-package/blob/main/%7B%7B%20scikit-package.repo_name%20%7D%7D/.flake8>`_ and ``.pre-commit-config.yaml`` `here <https://github.com/Billingegroup/scikit-package/blob/main/%7B%7B%20scikit-package.repo_name%20%7D%7D/.pre-commit-config.yaml>`_ to your project directory. Cross-check with https://github.com/diffpy/diffpy.utils.
 
 #. Run ``pre-commit run --all-files`` in your Terminal. This will attempt to lint your code such as docstrings, extra spaces, across all file types such as ``.yml``, ``.md``, ``.rst``, etc. However, most likely, you will have to manually fix some of the errors raised by ``flake8``.
 
@@ -116,11 +116,11 @@ We offer the following ways to help guide you through the cookiecutting process:
 
     .. note::
 
-        Q1. Do you want to prevent certain automatic modifications on files? You can add the folder or extension to the ``exclude`` section in ``.pre-commit-config.yaml`` with an example shown `here <https://github.com/Billingegroup/cookiecutter/blob/main/.pre-commit-config.yaml>`_.
+        Q1. Do you want to prevent certain automatic modifications on files? You can add the folder or extension to the ``exclude`` section in ``.pre-commit-config.yaml`` with an example shown `here <https://github.com/Billingegroup/scikit-package/blob/main/.pre-commit-config.yaml>`_.
 
         Q2. Do you want to ignore certain spelling recommendations by Codespell? Please refer to this section in the FAQ :ref:`here <codespell-add-word>`.
 
-#. At this point, you may have flake8 errors but we want to address them in a separate pull request. Hence, git add and commit and push the automatic changes made by ``precommit`` and create a pull request to ``main``. The commit message can be ``style: apply pre-commit without manual modification`` and the pull request title can be ``cookiecut: Apply pre-commit to project directory with no manual edits``.
+#. At this point, you may have flake8 errors but we want to address them in a separate pull request. Hence, git add and commit and push the automatic changes made by ``precommit`` and create a pull request to ``main``. The commit message can be ``style: apply pre-commit without manual modification`` and the pull request title can be ``scikit-package Apply pre-commit to project directory with no manual edits``.
 
 #. After the ``precommit`` branch has been merged to ``main``, run ``git checkout main && git pull upstream main`` and create a new branch called ``flake8`` by typing ``git checkout -b flake8``. If you have many flake8 errors and types, feel free to create one branch for each specific type of error, like ``flake8-length``.
 
@@ -130,15 +130,15 @@ Here are some tips to reduce cognitive overload:
 
     2. Create multiple PRs, each containing a specific theme (e.g., "Fix docstring line-length flake8 errors" using the ``flake8-length`` branch, etc.) to reduce cognitive overload for the reviewer.
 
-    3. If you are unsure, suppress the flake8 error by adding ``# noqa: <error-code>`` at the end of the line. For example, ``import numpy as np # noqa: E000`` but make sure you create an issue for this so that you can revisit them after cookiecutting.
+    3. If you are unsure, suppress the flake8 error by adding ``# noqa: <error-code>`` at the end of the line. For example, ``import numpy as np # noqa: E000`` but make sure you create an issue for this so that you can revisit them after scikit-package.
 
-For each `flake8` branch, create a PR request to ``main``. Since you are fixing flake8 errors, the commit message can be ``style: fix flake8 <readable-error-type> errors`` and the pull request title can be ``cookiecut: Fix flake8 <readable-error-type> errors``. In each PR, feel free to communicate the remaining flake8 issues in each pull request to track progress.
+For each `flake8` branch, create a PR request to ``main``. Since you are fixing flake8 errors, the commit message can be ``style: fix flake8 <readable-error-type> errors`` and the pull request title can be ``scikit-package Fix flake8 <readable-error-type> errors``. In each PR, feel free to communicate the remaining flake8 issues in each pull request to track progress.
 
 Congratulations! You have successfully completed the pre-commit workflow. You may proceed to the section to now transform your package structure!
 
-.. _cookiecutter-workflow-main:
+.. _scikit-package-workflow-main:
 
-1. Cookiecutter main workflow
+1. scikit-package main workflow
 -----------------------------
 
 If you are migrating an existing project,
@@ -151,9 +151,9 @@ If you are migrating an existing project,
 
     If you are unsure, please ask for help.
 
-If you are here starting a new project, the :ref:`1, Pre-commit workflow <cookiecutter-workflow-pre-commit>` section is completed in the project template. Visit `installation <_cookiecutter-installation>`_ section and download the dependencies that we will be using.
+If you are here starting a new project, the :ref:`1, Pre-commit workflow <scikit-package-workflow-pre-commit>` section is completed in the project template. Visit `installation <_scikit-package-installation>`_ section and download the dependencies that we will be using.
 
-1. Type ``cookiecutter https://github.com/billingegroup/cookiecutter`` inside the package directory.
+1. Type ``scikit-package https://github.com/billingegroup/scikit-package`` inside the package directory.
 
 2. Answer the questions as the following -- note that (default) means to hit enter without modifying anything:
 
@@ -179,19 +179,19 @@ If you are here starting a new project, the :ref:`1, Pre-commit workflow <cookie
 
 :workflow_version: Version of the reuseuable workflow to use. ``v0`` is the default.
 
-.. Important:: Skip the rest of Cookiecutter main workflow if you are starting a new project! Proceed to the :ref:`3. API documentation workflow<cookiecutter-workflow-api>` below. Otherwise, please continue!
+.. Important:: Skip the rest of scikit-package main workflow if you are starting a new project! Proceed to the :ref:`3. API documentation workflow<scikit-package-workflow-api>` below. Otherwise, please continue!
 
-3. cd into the new ``diffpy.<package_name>/`` directory (e.g., in our example ``pwd`` would return ``~/dev/diffpy.pdfmorph/diffpy.pdfmorph``) (we will refer to the nested directory as the "**cookiecutter**" directory and ``~/dev/diffpy.pdfmorph/`` as the "**main**" directory).
+3. cd into the new ``diffpy.<package_name>/`` directory (e.g., in our example ``pwd`` would return ``~/dev/diffpy.pdfmorph/diffpy.pdfmorph``) (we will refer to the nested directory as the "**scikit-package**" directory and ``~/dev/diffpy.pdfmorph/`` as the "**main**" directory).
 
 4. Type ``ls -als`` (if you have the alias, this is ``ll``) compare the directory structures in this directory tree to that in the original repo to see what is different (ignore files at this point). Nothing to do here, just get familiar with the differences.
 
-5. Type ``mv ../.git .`` to move the ``.git`` directory from the main repo to the cookiecutter repo.
+5. Type ``mv ../.git .`` to move the ``.git`` directory from the main repo to the scikit-package repo.
 
-6. Create a new branch for all the changes, e.g., ``git checkout -b cookierelease``.
+6. Create a new branch for all the changes, e.g., ``git checkout -b package-release``.
 
-7. Type ``cp -n -r ../src .`` to copy the source code from the main to the cookiecutter repo, without overwriting existing files in the destination. If there is no src directory, it will be something like ``cp -n -r ../diffpy ./src``.
+7. Type ``cp -n -r ../src .`` to copy the source code from the main to the scikit-package repo, without overwriting existing files in the destination. If there is no src directory, it will be something like ``cp -n -r ../diffpy ./src``.
 
-8. Type ``git status`` to see a list of files that have been (1) untracked, (2) deleted, (3) modified. Untracked files are in the cookiecutter but not in the original repo, deleted files are in the original but haven't been moved over, and modified files are in both but have been changed.
+8. Type ``git status`` to see a list of files that have been (1) untracked, (2) deleted, (3) modified. Untracked files are in the scikit-package but not in the original repo, deleted files are in the original but haven't been moved over, and modified files are in both but have been changed.
 
 9.  Let's now copy over any documentation, similar to what we did with the src files. We want to copy over everything in the ``doc/<path>/source`` file from the old repo to the ``doc/source`` file in the new repo.
 
@@ -201,23 +201,23 @@ If you are here starting a new project, the :ref:`1, Pre-commit workflow <cookie
 
 10. Now we will work on correcting all the things that are wrong.
 
-    1. Add and commit each of the (1) untracked files to the git repo. These files are in the cookiecutter repo but not in the main repo, so can simply be "git added". Do it one (or a few) at a time to make it easier to rewind by having multiple commits.
+    1. Add and commit each of the (1) untracked files to the git repo. These files are in the scikit-package repo but not in the main repo, so can simply be "git added". Do it one (or a few) at a time to make it easier to rewind by having multiple commits.
 
-    2. Make a PR of your ``cookierelease`` branch by pushing your fork and opening a PR.
+    2. Make a PR of your ``package-release`` branch by pushing your fork and opening a PR.
 
-    3. Files showing as (2) "deleted" upon git status are in the main repo but not in the cookiecutter repo. We took care of most of these by moving over the src tree, but let's do the rest now. Go down the list and for <filename> in the ``git status`` "delete" files type ``cp -n ../<filepath>/<filename> ./<target_filepath>``. Do not move files that we do not want. If you are unsure, feel free to confirm with Simon.
+    3. Files showing as (2) "deleted" upon git status are in the main repo but not in the scikit-package repo. We took care of most of these by moving over the src tree, but let's do the rest now. Go down the list and for <filename> in the ``git status`` "delete" files type ``cp -n ../<filepath>/<filename> ./<target_filepath>``. Do not move files that we do not want. If you are unsure, feel free to confirm with Simon.
 
-    4. Files that have been (3) modified exist in both places and need to be merged **manually**. Do these one at a time. First open the file in PyCharm, then select ``Git|current file|show diff`` and the differences will show up. Select anything you want to inherit from the file in the main repo. For example, you want to copy useful information such as LICENSE and README files from the main repo to the cookiecutter repo.
+    4. Files that have been (3) modified exist in both places and need to be merged **manually**. Do these one at a time. First open the file in PyCharm, then select ``Git|current file|show diff`` and the differences will show up. Select anything you want to inherit from the file in the main repo. For example, you want to copy useful information such as LICENSE and README files from the main repo to the scikit-package repo.
 
     5. Any files that we moved over from the old place, but put into a new location in the new repo, we need to delete them from git. For example, files that were in ``doc/manual/source/`` in the old repo but are not ``doc/source`` we correct by typing ``git add doc/manual/source``.
 
 11. Run pytest ``python -m pytest`` or ``pytest`` to make sure everything is working. There should be no errors if all tests passed previously when you were working on pre-commit. You may encounter deprecation warnings. There might be several possibilities:
 
- fixes separate from cookiecuttering. Remember to add it to Github issue.
+ fixes separate from scikit-packageing. Remember to add it to Github issue.
 
-    2. Most ``pkg_resources`` deprecation warnings will be fixed by cookiecutter, but if you are in a diffpy package using unittests and see this warning you can fix them by replacing ``from pkg_resources import resource_filename`` with ``from importlib import resources`` and change ``path = resource_filename(__name__, p)`` to ``path = str(resources.files(__name__).joinpath(p))``. If you see ``collected 0 items no tests ran`` you might want to rename testing files as ``test_*.py``. Refer to the [migration guide](https://importlib-resources.readthedocs.io/en/latest/migration.html).
+    2. Most ``pkg_resources`` deprecation warnings will be fixed by scikit-package, but if you are in a diffpy package using unittests and see this warning you can fix them by replacing ``from pkg_resources import resource_filename`` with ``from importlib import resources`` and change ``path = resource_filename(__name__, p)`` to ``path = str(resources.files(__name__).joinpath(p))``. If you see ``collected 0 items no tests ran`` you might want to rename testing files as ``test_*.py``. Refer to the [migration guide](https://importlib-resources.readthedocs.io/en/latest/migration.html).
 
-.. _cookiecutter-workflow-api:
+.. _scikit-package-workflow-api:
 
 3. API documentation workflow
 -----------------------------
@@ -228,7 +228,7 @@ When you see files with ``..automodule::`` within them, these are API documentat
 
 1. Make sure you have our release scripts repository. Go to ``dev`` and run ``git clone https://github.com/Billingegroup/release-scripts.git``.
 
-2. Enter your cookiecutter package directory. For example, I would run ``cd ./diffpy.pdfmorph/diffpy.pdfmorph``.
+2. Enter your scikit-package package directory. For example, I would run ``cd ./diffpy.pdfmorph/diffpy.pdfmorph``.
 
 3. Build the package using ``python -m build``. You may have to install ``python-build`` first.
 
@@ -245,12 +245,12 @@ In the case of ``PDFmorph``, this was done by adding ``autodoc_mock_imports = ["
 Congratulations! You may now commit the changes made by ``auto_api.py`` (and yourself) and push this commit to the cloud!
 Make a PR! It will be merged, trust!
 
-.. _cookiecutter-workflow-final:
+.. _scikit-package-workflow-final:
 
 4. Final sign-off
 -----------------
 
-#. For the ``cookierelease`` activity make a ``<branchname>.rst`` file by copying ``TEMPLATE.rst`` in the news folder and under "fixed" put ``Repo structure modified to the new diffpy standard``
+#. For the ``package-release`` activity make a ``<branchname>.rst`` file by copying ``TEMPLATE.rst`` in the news folder and under "fixed" put ``Repo structure modified to the new diffpy standard``
 
 #. If a new Python version has been added under "added" add `Python 3.xx, 3,xx support`. If a previous version has been removed, under "fixed", add a new item `Python 3.xx, 3.xx, support`.
 
@@ -265,7 +265,7 @@ Make a PR! It will be merged, trust!
 Appendix 1. How to test your package locally
 --------------------------------------------
 
-Ensure your package has been cookiecuttered. We will use the ``diffpy.utils`` package as an example. In the package directory, follow these instructions:
+Ensure your package has been scikit-packageed. We will use the ``diffpy.utils`` package as an example. In the package directory, follow these instructions:
 
 .. code-block:: bash
 
