@@ -1,5 +1,4 @@
-#######
-|title|
+
 #######
 
 .. |title| replace:: scikit-package documentation
@@ -96,8 +95,8 @@ Table of contents
    :maxdepth: 2
 
    getting-started
-   scikit-package-migration-guide
-   scikit-package-new-project-guide
+   migration-guide
+   new-project-guide
    release-guide
    conda-forge-guide
    frequently-asked-questions

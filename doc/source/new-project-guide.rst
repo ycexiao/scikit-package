@@ -1,6 +1,6 @@
 :tocdepth: -1
 
-.. index:: scikit-package-new-project-guide
+.. index:: new-project-guide
 
 .. _scikit-package-new-project-header:
 
@@ -21,6 +21,10 @@ scikit-package main workflow
 
 .. include:: snippets/package-create-user-inputs.rst
 
+.. _new-project-guide-build-package:
+
+3. Ensure you can build your project
+4. 
 Check your documentation
 ------------------------
 
@@ -53,3 +57,7 @@ Here, we will not use a PR workflow. Instead, the goal here is to host your proj
     git commit -m "skpkg: start a new project with scikit-package"
     git branch -M main
     git push --set-upstream origin main
+
+Hello world
+
+:ref:`Helo <migration-guide-move-files>`

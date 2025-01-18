@@ -211,13 +211,21 @@ def main():
     if "{{ cookiecutter.project_needs_c_code_compiled }}" == "Yes":
         wrapper_setup()
     update_workflow()
-    print(
-        "\nCongratulations! A new cookiecuttered project is created! Enter the directory with cd <package_name>."
-        "\nIf you have any additional questions, "
-        "please read our FAQ section or leave issues below: "
-        "  \n\nFAQ: https://Billingegroup.github.io/cookiecutter/frequently-asked-questions"
-        "  \nGitHub issues: https://github.com/Billingegroup/cookiecutter/issues\n"
-        )
+    print(f"""
+    Congratulations! A new Python project is created!
+    Enter the directory with `cd {{cookiecutter.project_name}}`.
+
+    Are you starting a new project? Build your project and docs next:
+    https://billingegroup.github.io/scikit-package/new-project-guide.html#build-project
+
+    Are you migrating an existing project? Move files to the new directory next:
+    https://billingegroup.github.io/scikit-package/migration-guide.html#move-files
+
+    If you have any additional questions, please read our FAQ section or leave issues below:
+
+    FAQ: https://billingegroup.github.io/scikit-package/frequently-asked-questions
+    GitHub issues: https://github.com/Billingegroup/scikit-package/issues
+    """)
 
     # Dynamically check if the user has selected a non-default Python version
     max_python_version = "3.13"

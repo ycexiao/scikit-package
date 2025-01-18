@@ -5,7 +5,7 @@ If you are starting a new project, the :ref:`1, Pre-commit workflow <scikit-pack
 
 2. Answer the questions as follows.
 
-``proj`` stands for "project" and ``gh`` for "GitHub". 
+``proj`` stands for "project" and ``gh`` for "GitHub".
 
 :proj_owner_name: e.g., ``Simon J. L. Billinge``.
 
@@ -37,4 +37,4 @@ If you are starting a new project, the :ref:`1, Pre-commit workflow <scikit-pack
 
 :needs_c_code_compiled: Whether the package requires C/C++ code that requires building the package. For pure Python packages, type ``1`` to select ``No``.
 
-:has_gui_tests: Whehter the package runs headless testing in GitHub CI. If your package does not contain a GUI, type ``1`` to select ``No``.
+:has_gui_tests: Whether the package runs headless testing in GitHub CI. If your package does not contain a GUI, type ``1`` to select ``No``.

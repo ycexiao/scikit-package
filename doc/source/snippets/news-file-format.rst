@@ -35,4 +35,3 @@ Where to place the news item in ``<branch-name>.rst``?
 - ``**Removed:**`` includes the opposite of the "Added" section, referring to features or functionality that have been removed.
 
 .. _codecov-token-setup:
-

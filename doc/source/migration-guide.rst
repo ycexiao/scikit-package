@@ -1,8 +1,8 @@
 :tocdepth: -1
 
-.. index:: scikit-package-guide
+.. index:: migration-guide
 
-.. _scikit-package-header:
+.. _scikit-package-migration-guide:
 
 ===============================================================
 How to migrate your existing Python package with scikit-package
@@ -132,6 +132,8 @@ If you are migrating an existing project,
 
 .. include:: snippets/package-create-user-inputs.rst
 
+.. _migration-guide-move-files:
+
 1. cd into the new ``diffpy.<package_name>/`` directory (e.g., in our example ``pwd`` would return ``~/dev/diffpy.pdfmorph/diffpy.pdfmorph``) (we will refer to the nested directory as the "**scikit-package**" directory and ``~/dev/diffpy.pdfmorph/`` as the "**main**" directory).
 
 2. Type ``ls -als`` (if you have the alias, this is ``ll``) compare the directory structures in this directory tree to that in the original repo to see what is different (ignore files at this point). Nothing to do here, just get familiar with the differences.
@@ -156,7 +158,7 @@ If you are migrating an existing project,
 
     2. Make a PR of your ``package-release`` branch by pushing your fork and opening a PR.
 
-    3. Files showing as (2) "deleted" upon git status are in the main repo but not in the scikit-package repo. We took care of most of these by moving over the src tree, but let's do the rest now. Go down the list and for <filename> in the ``git status`` "delete" files type ``cp -n ../<filepath>/<filename> ./<target_filepath>``. Do not move files that we do not want. If you are unsure, please confirm with Projet Owner.
+    3. Files showing as (2) "deleted" upon git status are in the main repo but not in the scikit-package repo. We took care of most of these by moving over the src tree, but let's do the rest now. Go down the list and for <filename> in the ``git status`` "delete" files type ``cp -n ../<filepath>/<filename> ./<target_filepath>``. Do not move files that we do not want. If you are unsure, please confirm with Project Owner.
 
     4. Files that have been (3) modified exist in both places and need to be merged **manually**. Do these one at a time. First open the file in PyCharm, then select ``Git|current file|show diff`` and the differences will show up. Select anything you want to inherit from the file in the main repo. For example, you want to copy useful information such as LICENSE and README files from the main repo to the scikit-package repo.
 
