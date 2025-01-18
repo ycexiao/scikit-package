@@ -117,10 +117,8 @@ Congratulations! You have successfully completed the pre-commit workflow. You ma
 
 .. _scikit-package-workflow-main:
 
-2. scikit-package main workflow
--------------------------------
-
-If you are migrating an existing project,
+1. Migration workflow
+---------------------
 
 .. Attention:: Ensure no files are overwritten or lost.
 
@@ -128,17 +126,17 @@ If you are migrating an existing project,
 
     - Do NOT delete project-specific content such as project descriptions in README, license information, authors, tutorials, examples.
 
-    If you are unsure, please ask for help.
+    - Ensure you have a ``src`` directory like ``/Users/imac/dev/my-package/src``. If your package is structured in ``/Users/imac/dev/my-package/my-package/<code>``, make sure you change it to ``/Users/imac/dev/my-package/src/<code>`` and have these changes committed and merged to ``main`` before proceeding to the next step.
 
 .. include:: snippets/package-create-user-inputs.rst
 
 .. _migration-guide-move-files:
 
-1. cd into the new ``diffpy.<package_name>/`` directory (e.g., in our example ``pwd`` would return ``~/dev/diffpy.pdfmorph/diffpy.pdfmorph``) (we will refer to the nested directory as the "**scikit-package**" directory and ``~/dev/diffpy.pdfmorph/`` as the "**main**" directory).
+1. cd into the new ``<package-name>`` directory (e.g., in our example ``pwd`` would return ``~/dev/diffpy.pdfmorph/diffpy.pdfmorph``) (we will refer to the nested directory as the repackaged directory and ``~/dev/diffpy.pdfmorph/``.
 
-2. Type ``ls -als`` (if you have the alias, this is ``ll``) compare the directory structures in this directory tree to that in the original repo to see what is different (ignore files at this point). Nothing to do here, just get familiar with the differences.
+2. Type ``ls -als`` compare the directory structures in this directory tree to that in the original repo to see what is different (ignore files at this point). Nothing to do here, just get familiar with the differences.
 
-3. Type ``mv ../.git .`` to move ``.git`` to the new project directory created by ``scikit-package``. Please note that there is a ``.`` after ``mv ../.git``.
+3. Type ``mv ../.git .`` to move ``.git`` to the re-packaged directory created by ``scikit-package``. Please note that there is a ``.`` after ``mv ../.git``.
 
 4. Create a new branch for all the changes, e.g., ``git checkout -b package-release``.
 
@@ -210,5 +208,3 @@ Congratulations! You may now commit the changes made by ``auto_api.py`` (and you
 #. Run through the documentation online and do the same, fix grammar and make sure all links work.
 
 #. Follow the instructions on setting up GitHub pages here.
-
-

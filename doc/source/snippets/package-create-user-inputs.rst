@@ -1,6 +1,3 @@
-
-If you are starting a new project, the :ref:`1, Pre-commit workflow <scikit-package-workflow-pre-commit>` section is completed in the project template. Visit the `installation <_scikit-package-installation>`_ section and download the dependencies that we will be using.
-
 1. Type ``package create`` inside the project directory.
 
 2. Answer the questions as follows.
