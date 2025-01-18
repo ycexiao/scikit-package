@@ -16,6 +16,24 @@ Your research impact can be amplified by distributing your contributions through
 
 ``scikit-package`` provides research-quality documents suitable for open-source development and supports Python versions compatible with the `SPEC0 <https://scientific-python.org/specs/spec-0000/>`_ proposal through automated workflows. Additionally, it offers a streamlined process for building and distributing your scientific software, ensuring reproducibility across all major operating systems. With ``scikit-package``, you can focus on developing your scientific code while ensuring it reaches a broader audience.
 
+
+Who are using ``scikit-package``?
+----------------------------------
+
+The full list of packages is as follows:
+
+- `diffpy.pdffit2 <https://github.com/diffpy/diffpy.pdffit2>`_
+- `diffpy.fourigui <https://github.com/diffpy/diffpy.fourigui>`_
+- `diffpy.pdfgui <https://github.com/diffpy/diffpy.pdfgui>`_
+- `diffpy.utils <https://github.com/diffpy/diffpy.utils>`_
+- `diffpy.structure <https://github.com/diffpy/diffpy.structure>`_
+- `diffpy.labpdfproc <https://github.com/diffpy/diffpy.labpdfproc>`_
+- `diffpy.pdfmorph <https://github.com/diffpy/diffpy.pdfmorph>`_
+- `diffpy.snmf <https://github.com/diffpy/diffpy.snmf>`_
+- `diffpy.srmise <https://github.com/diffpy/diffpy.srmise>`_
+- `regolith <https://github.com/regro/regolith>`_
+- `bg-mpl-stylesheets <https://github.com/Billingegroup/bg-mpl-stylesheets>`_
+
 What are the useful features?
 -----------------------------
 
@@ -52,23 +70,6 @@ How can I contribute?
 
 Do you have any new features? Please make an issue via the GitHub issue tracker for further discussions. For a minor typo or grammatically incorrect sentence, please make a pull request. Before making a PR, please run ``pre-commit run --all-files`` to ensure the code is formatted.
 
-Who are using ``scikit-package``?
-----------------------------------
-
-The full list of packages is as follows:
-
-- `diffpy.pdffit2 <https://github.com/diffpy/diffpy.pdffit2>`_
-- `diffpy.fourigui <https://github.com/diffpy/diffpy.fourigui>`_
-- `diffpy.pdfgui <https://github.com/diffpy/diffpy.pdfgui>`_
-- `diffpy.utils <https://github.com/diffpy/diffpy.utils>`_
-- `diffpy.structure <https://github.com/diffpy/diffpy.structure>`_
-- `diffpy.labpdfproc <https://github.com/diffpy/diffpy.labpdfproc>`_
-- `diffpy.pdfmorph <https://github.com/diffpy/diffpy.pdfmorph>`_
-- `diffpy.snmf <https://github.com/diffpy/diffpy.snmf>`_
-- `diffpy.srmise <https://github.com/diffpy/diffpy.srmise>`_
-- `regolith <https://github.com/regro/regolith>`_
-- `bg-mpl-stylesheets <https://github.com/Billingegroup/bg-mpl-stylesheets>`_
-
 =======
 Authors
 =======
@@ -95,7 +96,8 @@ Table of contents
    :maxdepth: 2
 
    getting-started
-   scikit-package-guide
+   scikit-package-migration-guide
+   scikit-package-new-project-guide
    release-guide
    conda-forge-guide
    frequently-asked-questions
