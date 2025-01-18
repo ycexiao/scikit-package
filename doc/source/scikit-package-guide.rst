@@ -25,7 +25,7 @@ Activate the environment: ::
 
 Install packages: ::
 
-    pip install scikit-package black pre-commit
+    conda install scikit-package black pre-commit
 
 You are now ready to scikit-package your Python project!
 
@@ -98,11 +98,11 @@ We offer the following ways to help guide you through the scikit-package process
 
 #. Run ``black src`` in your Terminal. If your source code is in a different directory, replace ``src`` with the appropriate directory path. This will automatically format your code to PEP8 standards given the line-length provided under ``line-length`` above in ``pyproject.toml``.
 
-#. Add and commit the automatic changes by ``black``. The commit message can be ``git commit -m "style: apply black to src directory with black configured in pyproject.toml"``.
+#. Add and commit the automatic changes by ``black``. The commit message can be ``git commit -m "skpkg: apply black to src directory with black configured in pyproject.toml"``.
 
 #. Run ``black .`` Here, you are running black across the entire package directory. Then, test your package with unit tests locally.
 
-#. git add and commit the changes. The commit message can be ``git commit -m "style: apply black to all files in the project directory"``.
+#. git add and commit the changes. The commit message can be ``git commit -m "skpkg: apply black to all files in the project directory"``.
 
 #. Create a pull request into ``main``. The pull request title can be ``scikit-package: Apply black to project directory with no manual edits``.
 

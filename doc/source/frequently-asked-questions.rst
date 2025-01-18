@@ -13,6 +13,8 @@ Here, you will learn how to customize the ``scikit-package`` template for your o
 Pre-commit
 ----------
 
+``Pre-commit`` attempts to automatically fix code style issues. The following questions are used to customize the ``pre-commit`` configuration for your project's needs.
+
 How do I modify line-width limits?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -21,6 +23,14 @@ Three files need to be modified:
 1. In ``.isort.cfg``, modify ``line_length``.
 2. In ``.flake8``, modify ``max-line-length``.
 3. In ``pyproject.toml``, modify ``line-length`` under ``[tool.black]``.
+
+
+How do I skip a specific file for ``flake8`` and ``black``?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To skip files checked by ``flake8``, include the file path in ``.flake8`` under the ``exclude`` section.
+
+To prevent ``black`` from formatting, include the file path in ``pyproject.toml`` under the ``[tool.black]`` section.
 
 .. _codespell-add-word:
 
@@ -156,6 +166,7 @@ For commit messages and issue titles, we add prefixes adopted from https://www.c
   ci: Updates to CI configuration files and scripts.
   revert: Reverts a previous commit.
   release: A new package version is being prepared.
+  skpkg: Using scikit-package to create a new package or maintain an existing package.
 
 - Example 1: "feat: create a ``DiffractionObject.morph_to()`` method"
 - Example 2: "bug: handle divide by zero error in ``DiffractionObject.scale_to``"
@@ -387,7 +398,7 @@ GitHub Actions
 How do I set different Python versions for GitHub CI?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The default is Python 3.13 for ``_tests-on-pr.yml`` and ``_publish-docs-on-release.yml``. Python 3.11, 3.12, and 3.13 are used for ``_matrix-and-codecov-on-merge-to-main.yml``. To override the default, modify the three ``.yml`` files above in ``.github/workflows/`` as shown below:
+The default is Python 3.13 for ``./github/workflows/tests-on-pr.yml`` and ``./github/workflows/publish-docs-on-release.yml``. Python 3.11, 3.12, and 3.13 are used for ``./github/workflows/matrix-and-codecov-on-merge-to-main.yml``. To override the default, modify the three ``.yml`` files above in ``.github/workflows/`` as shown below:
 
 1. Add ``python_version`` in ``.github/workflows/tests-on-pr.yml``:
 
