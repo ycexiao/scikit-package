@@ -1,6 +1,6 @@
-1. Type ``package create`` inside the project directory.
+#. Type ``package create`` inside the project directory.
 
-2. Answer the questions as follows.
+#. Answer the questions as follows.
 
 ``proj`` stands for "project" and ``gh`` for "GitHub".
 
@@ -35,3 +35,7 @@
 :needs_c_code_compiled: Whether the package requires C/C++ code that requires building the package. For pure Python packages, type ``1`` to select ``No``.
 
 :has_gui_tests: Whether the package runs headless testing in GitHub CI. If your package does not contain a GUI, type ``1`` to select ``No``.
+
+#. Type ``ls`` to see the project directory.
+
+#. Type ``cd <package_dir_name>`` to change the directory to the re-packaged directory.

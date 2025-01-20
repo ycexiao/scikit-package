@@ -37,17 +37,7 @@ To prevent ``black`` from formatting, include the file path in ``pyproject.toml`
 How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To ignore a word, add it to ``.codespell/ignore_words.txt``.
-
-To ignore a specific line, add it to ``.codespell/ignore_lines.txt``. See the example below:
-
-.. code-block:: text
-
-  ;; src/translation.py
-  ;; The following single-line comment is written in German.
-  # Hallo Welt
-
-To ignore a specific file extension, add ``*.ext`` to the ``skip`` section under ``[tool.codespell]`` in ``pyproject.toml``. For example, to ignore ``.cif`` and ``.dat`` files, use ``skip = "*.cif,*.dat"``.
+.. include:: snippets/codespell-ignore.rst
 
 Project setup
 -------------
@@ -145,8 +135,6 @@ The conda-forge CI uses the source code distributed via PyPI to build a Conda pa
 Billinge Group standards
 ------------------------
 
-Please follow the guidelines :ref:`here <news-file-guide>`.
-
 How we communicate via GitHub commit messages and issue titles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -175,10 +163,10 @@ Please see an example here: https://github.com/Billingegroup/scikit-package/issu
 
 .. attention:: A commit message is written for PR reviewers and for debuggers. Avoid verbosity for a quick overview. An ideal commit message communicates file(s) of interest, the reason for the modification, and what modifications were made. e.g., “chore: move all files from docs to doc for scikit-packaging."
 
-How we communciate development progress with news files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How we write CHANGELOG.rst with news files in PRs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please refer to the process of generating a news file for each PR :ref:`here<news-file-guide>`.
+.. include:: snippets/news-file-format.rst
 
 GitHub Pull Request practices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -394,6 +382,8 @@ Please read our pre-release section in the conda-forge release guide :ref:`here 
 
 GitHub Actions
 --------------
+
+.. _github-actions-python-versions:
 
 How do I set different Python versions for GitHub CI?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,6 +1,3 @@
-How to build documentation locally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Follow these steps sequentially:
 
 .. code-block:: bash
@@ -23,3 +20,5 @@ To run as a single command:
 .. code-block:: bash
 
     cd doc && make html && open build/html/index.html && cd ..
+
+Your default browser will open the documentation in a new window.
