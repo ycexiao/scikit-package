@@ -24,7 +24,6 @@ def __gen_init__(module_name):
 # See LICENSE.rst for license information.
 #
 ##############################################################################
-
 \"\"\"Blank namespace package for module {module_name}.\"\"\"
 
 
