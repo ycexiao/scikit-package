@@ -10,10 +10,8 @@ How to start a new Python project with scikit-package
 
 .. include:: snippets/scikit-installation.rst
 
-Overview
-
 scikit-package main workflow
------------------------------
+----------------------------
 
 1. Type ``package create`` inside the project directory.
 
@@ -21,21 +19,8 @@ scikit-package main workflow
 
 .. include:: snippets/package-create-user-inputs.rst
 
-.. _new-project-guide-build-package:
-
-3. Ensure you can build your project
-4.
-Check your documentation
-------------------------
-
-# Build your documentation locally:
-
-.. include:: snippets/doc-build-instruction.rst
-
-Host your project on GitHub
----------------------------
-
-Here, we will not use a PR workflow. Instead, the goal here is to host your project on GitHub.
+Host your new project on GitHub
+-------------------------------
 
 #. Make sure you have a GitHub account.
 
@@ -57,7 +42,3 @@ Here, we will not use a PR workflow. Instead, the goal here is to host your proj
     git commit -m "skpkg: start a new project with scikit-package"
     git branch -M main
     git push --set-upstream origin main
-
-Hello world
-
-:ref:`Helo <migration-guide-move-files>`
