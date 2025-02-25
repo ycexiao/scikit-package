@@ -4,6 +4,14 @@ Release Notes
 
 .. current developments
 
+0.0.2
+=====
+
+**Changed:**
+
+* Provide separate documentation instructions for starting a new project vs. migrating an existing package.
+
+
 0.0.1
 =====
 
