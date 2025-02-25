@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: fix typos after 0.0.2 in documenation.
+* no news added: fix typos after 0.0.2 in documentation.
 
 **Changed:**
 
