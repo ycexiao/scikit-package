@@ -22,7 +22,7 @@
 
 :package_dist_name: The name in the package distribution in PyPI and conda-forge. If your package name contains ``_``, replace it with ``-``. e.g., ``my-package``. For a namespace package, use e.g., ``diffpy.my-package``.
 
-:package_dir_name: The name of the package directory. e.g., ``src/my_package``. Unlike ``project_name``, it must be lowercase so that it can be imported as ``import my_package``.
+:package_dir_name: The name of the package directory under ``src``. Unlike ``project_name``, it must be lowercase so that it can be imported as ``import my_package``.
 
 :proj_short_description: e.g., ``Python package for doing science.``
 
