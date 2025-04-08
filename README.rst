@@ -6,7 +6,7 @@
 
 .. |Icon| image:: logos/scikit-package_logo_text.png
         :target: https://Billingegroup.github.io/scikit-package
-        :height: 200px
+        :height: 150px
 
 |PyPi| |Forge| |PythonVersion| |PR|
 
