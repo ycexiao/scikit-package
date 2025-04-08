@@ -1,12 +1,12 @@
-|Icon| |title|_
+|Icon|
 ===============
 
 .. |title| replace:: scikit-package
 .. _title: https://Billingegroup.github.io/scikit-package
 
-.. |Icon| image:: https://avatars.githubusercontent.com/Billingegroup
+.. |Icon| image:: logos/scikit-package_logo_text.png
         :target: https://Billingegroup.github.io/scikit-package
-        :height: 100px
+        :height: 150px
 
 |PyPi| |Forge| |PythonVersion| |PR|
 
