@@ -90,7 +90,7 @@ def add_supermodules(ROOT, name):
     # Get the necessary modules given the period spacings
     module_names = name.split(".")
     for i, module in enumerate(module_names):
-        module_names[i] = module.strip()
+        module_names[i] = module.strip().lower()
 
     # The last module is not a namespace module
     ns_module_names = module_names[:-1]
