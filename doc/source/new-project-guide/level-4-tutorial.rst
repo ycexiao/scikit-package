@@ -7,7 +7,7 @@ First, you need to create a new conda environment. You can do this by running th
 
     conda create -n <project-name>_env scikit-package
     conda activate <project-name>_env
-    
+
 Initiate a project
 ^^^^^^^^^^^^^^^^^^
 
@@ -18,20 +18,20 @@ Initiate a project
 
 Then it will ask you the following questions:
 
-    [1/6] project_name (diffpy.my-project): 
+    [1/6] project_name (diffpy.my-project):
 
-    [2/6] project_owner_github_username (sbillinge): 
+    [2/6] project_owner_github_username (sbillinge):
 
-    [3/6] github_org (diffpy): 
+    [3/6] github_org (diffpy):
 
-    [4/6] github_repo_name (diffpy.my-project): 
+    [4/6] github_repo_name (diffpy.my-project):
 
-    [5/6] conda_pypi_package_dist_name (diffpy.my-project): 
+    [5/6] conda_pypi_package_dist_name (diffpy.my-project):
 
-    [6/6] package_dir_name (diffpy.my_project): 
+    [6/6] package_dir_name (diffpy.my_project):
 
 
-.. important:: 
+.. important::
 
     Use lowercase letters with each space separated by ``"-"``. This naming practice is recommended by GitHub and PyPI. ``"_"`` is used for ``package_dir_name``, which is the name for importing the package in Python.
 
@@ -72,7 +72,7 @@ The goal is to reuse the code in ``calculator.py`` across all files in the proje
 .. code-block:: bash
 
     pip install -e .
-    
+
 It also installs the dependencies listed in ``requirements/pip.txt``. The ``-e`` flag indicates that you want to install the package in "editable" mode, which means that any changes you make to the source code will be reflected immediately without needing to reinstall the package. This is useful for development purposes.
 
 Ensure the package is installed by running the following command:
@@ -131,8 +131,8 @@ Then, feel free to run ``pre-commit`` to automate your code formatting manually 
 While you can run ``pre-commit`` manually, it is also possible to have these ``pre-commit`` hooks run automatically when you make a commit.
 
 
-.. note:: 
-    
+.. note::
+
     Here, we assume you are familiar with the general GitHub workflow. If you are not, please refer to the FAQ guide on GitHub workflow.
 
 First, ensure that git is initialized in your project folder. You can do this by running the following command:
@@ -144,7 +144,7 @@ First, ensure that git is initialized in your project folder. You can do this by
 
 Then ensure that ``pre-commit`` is run automatically before a new commit is made:
 
-.. code-block:: 
+.. code-block::
 
     pre-commit install
 
@@ -166,7 +166,7 @@ To double check that the previous commit was successful, you can run the followi
 (optional, important) Set up ``pre-commit CI`` in your GitHub repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you maintain a project from multiple contributorss, you want to ensure the codebase always passes ``pre-commit`` hooks defined in ``.pre-commit-config.yaml``. Often, external contributors may not have ``pre-commit`` installed locally and attempt to create a pull request (PR). 
+If you maintain a project from multiple contributorss, you want to ensure the codebase always passes ``pre-commit`` hooks defined in ``.pre-commit-config.yaml``. Often, external contributors may not have ``pre-commit`` installed locally and attempt to create a pull request (PR).
 
 The ``pre-commit-CI`` app installed in the GitHub repository will first try to lint and format the code in the PR, and then check against the hooks again. If any of the hooks fail, it wilgl clearly mark the pull request with a failed check.
 
