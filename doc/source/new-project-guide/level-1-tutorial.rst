@@ -57,9 +57,9 @@ Here is the full content of the ``calculator.py`` file:
 
 Are you having trouble running the code?
 
-.. note:: 
+.. note::
 
-    For those who are not familiar with Python, ensure you have ``numpy`` installed by running ``pip install numpy`` or ``conda install numpy`` in your command-line tool. 
+    For those who are not familiar with Python, ensure you have ``numpy`` installed by running ``pip install numpy`` or ``conda install numpy`` in your command-line tool.
 
     If your code still does not run, please ensure conda is installed on your local computer. conda is an open-source package and environment management system that allows you to create isolated environments to install software, including Python and its packages. The instructions for conda installation can be found at https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html.
 
@@ -72,10 +72,9 @@ Are you having trouble running the code?
 
         # Activate the environment
         conda activate <project-name>_env
-        
+
         # Install numpy
         conda install numpy
 
         # Run the script
         python calculator.py
-

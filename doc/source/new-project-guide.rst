@@ -4,9 +4,9 @@
 
 .. _scikit-package-new-project-header:
 
-==============================================
-Start a new Python project with scikit-package
-==============================================
+==========================
+Start a new Python project
+==========================
 
 There are 5 levels of reusing code. Here is an overview for each level:
 
@@ -40,10 +40,17 @@ There are 5 levels of reusing code. Here is an overview for each level:
      - ``package create public``
 
 
+If you are familiar with Python, we recommend you to start with level 3, where you get to create a project with ``scikit-package`` and also utilize automated linting features and tests folder setup which are useful for sharing codes or uploading your code via GitHub.
 
 .. include:: new-project-guide/level-1-tutorial.rst
 
 .. include:: new-project-guide/level-2-tutorial.rst
+
+.. include:: new-project-guide/level-3-tutorial.rst
+
+.. include:: new-project-guide/level-4-tutorial.rst
+  
+
 
 
 .. .. include:: snippets/scikit-installation.rst

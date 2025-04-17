@@ -1,7 +1,7 @@
 Level 2. Reuse code across files
 --------------------------------
 
-In Level 1, you learned to use a block of code in a single file. Here, the goal is to resue the same code across multiple files.
+In Level 1, you learned to use a block of code in a single file. Here, the goal is to reuse the same code across multiple files.
 
 Here is the project structure for this example:
 
@@ -34,23 +34,9 @@ For ``file_one.py`` and ``file_one.py``, you are able to import the function ``d
     v2 = [3, 4]
     print(dot_product(v1, v2))  # returns 11
 
-    # file_two.py
-    from calculator import dot_product
-
-    v3 = [5, 6]
-    v4 = [7, 8]
-    print(dot_product(v3, v4))  # returns 83`
-
 If you want to just import the module, you may also do this:
 
 .. code-block:: python
-
-    # file_one.py
-    import calculator
-
-    v1 = [1, 2]
-    v2 = [3, 4]
-    print(calculator.dot_product(v1, v2))  # returns 11
 
     # file_two.py
     import calculator
@@ -60,4 +46,4 @@ If you want to just import the module, you may also do this:
     print(calculator.dot_product(v3, v4))  # returns 83
 
 
-If you have trouble running the code, ensure you follow the instructions in Level 1 on settin up a conda environment and installing the numpy package :ref:`here<_setup-up-conda-environment>`.
+Having trouble running code? If you have trouble running the code, ensure you follow the instructions in Level 1 on setting up a conda environment and installing the numpy package.
