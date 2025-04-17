@@ -2,22 +2,27 @@ import subprocess
 from argparse import ArgumentParser
 
 
-def create():
-    run_cookiecutter()
+def create(package_type):
+    if package_type == "workspace":
+        run_cookiecutter("https://github.com/Billingegroup/scikit-package-workspace")
+    elif package_type == "system":
+        run_cookiecutter("https://github.com/Billingegroup/scikit-package-system")
+    elif package_type == "public":
+        run_cookiecutter("https://github.com/Billingegroup/scikit-package")
 
 
 def update():
     # FIXME: Implement the update command.
     # As of now it does the same as the create command.
-    run_cookiecutter()
+    run_cookiecutter("https://github.com/Billingegroup/scikit-package")
 
 
-def run_cookiecutter():
+def run_cookiecutter(repo_url):
     try:
         subprocess.run(
             [
                 "cookiecutter",
-                "https://github.com/Billingegroup/scikit-package",
+                repo_url,
             ],
             check=True,
         )
@@ -28,7 +33,28 @@ def run_cookiecutter():
 def setup_subparsers(parser):
     # Create "create" subparser
     parser_create = parser.add_parser("create", help="Create a new package")
-    parser_create.set_defaults(func=create)
+    
+    # Add subcommands under "create" for different 
+    sub_create = parser_create.add_subparsers(dest="package_type", required=True)
+    
+    # "workspace" subcommand
+    parser_create_workspace = sub_create.add_parser(
+        "workspace", help="Create a workspace package"
+    )
+    parser_create_workspace.set_defaults(func=create, package_type="workspace")
+    
+    # "system" subcommand
+    parser_create_system = sub_create.add_parser(
+        "system", help="Create a system package"
+    )
+    parser_create_system.set_defaults(func=create, package_type="system")
+    
+    # "public" subcommand
+    parser_create_public = sub_create.add_parser(
+        "public", help="Create a public package"
+    )
+    parser_create_public.set_defaults(func=create, package_type="public")
+    
     # Create "update" subparser
     parser_update = parser.add_parser(
         "update", help="Update an existing package"
@@ -41,7 +67,9 @@ def main():
 
     Examples
     --------
-    >>> package create
+    >>> package create workspace
+    >>> package create system
+    >>> package create public
     >>> package update
     """
 
@@ -51,7 +79,7 @@ def main():
     subparsers = parser.add_subparsers(dest="command", required=True)
     setup_subparsers(subparsers)
     args = parser.parse_args()
-    args.func()
+    args.func(args.package_type)
 
 
 if __name__ == "__main__":
