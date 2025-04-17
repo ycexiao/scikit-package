@@ -4,9 +4,13 @@ from argparse import ArgumentParser
 
 def create(package_type):
     if package_type == "workspace":
-        run_cookiecutter("https://github.com/Billingegroup/scikit-package-workspace")
+        run_cookiecutter(
+            "https://github.com/Billingegroup/scikit-package-workspace"
+        )
     elif package_type == "system":
-        run_cookiecutter("https://github.com/Billingegroup/scikit-package-system")
+        run_cookiecutter(
+            "https://github.com/Billingegroup/scikit-package-system"
+        )
     elif package_type == "public":
         run_cookiecutter("https://github.com/Billingegroup/scikit-package")
 
@@ -33,28 +37,30 @@ def run_cookiecutter(repo_url):
 def setup_subparsers(parser):
     # Create "create" subparser
     parser_create = parser.add_parser("create", help="Create a new package")
-    
-    # Add subcommands under "create" for different 
-    sub_create = parser_create.add_subparsers(dest="package_type", required=True)
-    
+
+    # Add subcommands under "create" for different
+    sub_create = parser_create.add_subparsers(
+        dest="package_type", required=True
+    )
+
     # "workspace" subcommand
     parser_create_workspace = sub_create.add_parser(
         "workspace", help="Create a workspace package"
     )
     parser_create_workspace.set_defaults(func=create, package_type="workspace")
-    
+
     # "system" subcommand
     parser_create_system = sub_create.add_parser(
         "system", help="Create a system package"
     )
     parser_create_system.set_defaults(func=create, package_type="system")
-    
+
     # "public" subcommand
     parser_create_public = sub_create.add_parser(
         "public", help="Create a public package"
     )
     parser_create_public.set_defaults(func=create, package_type="public")
-    
+
     # Create "update" subparser
     parser_update = parser.add_parser(
         "update", help="Update an existing package"
