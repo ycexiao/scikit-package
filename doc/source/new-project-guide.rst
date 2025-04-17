@@ -49,7 +49,7 @@ If you are familiar with Python, we recommend you to start with level 3, where y
 .. include:: new-project-guide/level-3-tutorial.rst
 
 .. include:: new-project-guide/level-4-tutorial.rst
-  
+
 
 
 .. .. include:: snippets/scikit-installation.rst

@@ -156,7 +156,7 @@ You can set it up as follows by first initializing the git repository and then r
 
 This attempts to first run all the hooks defined in the ``.pre-commit-config.yaml`` file. If any of the hooks fail, the commit will be aborted, and you will need to fix the issues before trying to make a commit again.
 
-To double chekc that the previous commit was successful, you can run the following command:
+To double check that the previous commit was successful, you can run the following command:
 
 .. code-block:: bash
 
@@ -168,7 +168,7 @@ To double chekc that the previous commit was successful, you can run the followi
 
 If you maintain a project from multiple contributorss, you want to ensure the codebase always passes ``pre-commit`` hooks defined in ``.pre-commit-config.yaml``. Often, external contributors may not have ``pre-commit`` installed locally and attempt to create a pull request (PR). 
 
-The ``pre-commit-CI`` app installed in the GitHub repository will first try to lint and format the code in the PR, and then check against the hooks again. If any of the hooks fail, it will clearly mark the pull request with a failed check.
+The ``pre-commit-CI`` app installed in the GitHub repository will first try to lint and format the code in the PR, and then check against the hooks again. If any of the hooks fail, it wilgl clearly mark the pull request with a failed check.
 
 Please see Appendix 1 below on how to set up ``pre-commit CI`` in your GitHub repository.
 

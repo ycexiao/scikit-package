@@ -14,7 +14,7 @@ Initiate a project
 ^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
-     
+
      package create workspace
 
 You will then be asked to enter the ``project-name``. The default value is ``workspace_folder``.
@@ -43,7 +43,7 @@ You will then have a folder structure as shown below.
           ├── __init__.py
           └── test_calculator.py
 
-.. note:: 
+.. note::
 
      ``calculator.py`` is the template code where you can define functions that are imported across the project folders ``proj_one`` and ``proj_two``. The ``__init__.py`` files are required and empty files that indicate to Python that the directories contain Python modules.
 
@@ -104,7 +104,7 @@ Notice that the ``tests`` folder contains a test file called ``test_calculator.p
 Or you can simply run:
 
 .. code-block:: bash
-     
+
      pytest
 
 ``pytest`` is a testing framework for Python. It will automatically discover and run all the test files in the ``tests`` folder.
@@ -121,7 +121,7 @@ You may want to format your code automatically. Notice that there is a file call
 To use ``pre-commit``, you need to install it first.
 
 .. code-block:: bash
-     
+
      pip install pre-commit
 
 Then you can initialize a local Git folder in your project folder by running:
@@ -144,7 +144,7 @@ It will then show the following:
      prettier.................................................................Passed
      docformatter.............................................................Passed
 
-.. note:: 
+.. note::
 
     ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
 
