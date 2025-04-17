@@ -52,7 +52,6 @@ If you are familiar with Python, we recommend you to start with level 3, where y
   
 
 
-
 .. .. include:: snippets/scikit-installation.rst
 
 .. scikit-package main workflow

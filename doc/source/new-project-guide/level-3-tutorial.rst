@@ -10,7 +10,6 @@ First, create a conda environment for your project and install ``scikit-package`
     conda create -n <project-name>_env scikit-package
     conda activate <project-name>_env
 
-
 Initiate a project
 ^^^^^^^^^^^^^^^^^^
 
@@ -111,8 +110,11 @@ Or you can simply run:
 ``pytest`` is a testing framework for Python. It will automatically discover and run all the test files in the ``tests`` folder.
 
 
-Automatic code formatting
-^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _pre-commit-manual:
+
+Automatic code formatting with ``pre-`commit``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You may want to format your code automatically. Notice that there is a file called ``.pre-commit-config.yaml`` in the root directory of your project. This file is used to configure pre-commit hooks, which are scripts that run automatically before you commit your code to Git. However, we are not using GitHub here, but we will just simply run the pre-commit hooks manually in Level 3 for simplicity.
 
@@ -147,7 +149,7 @@ It will then show the following:
     ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
 
 
-You are ready to start Level 4
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What's next?
+^^^^^^^^^^^^
 
 In Level 4, you will learn to set up this ``pre-commit`` with GitHub Actions to automatically format the code. Then, you will also learn to setup a **locally installabe package** that you don't have to manually set the ``PYTHONPATH`` environment variable.
