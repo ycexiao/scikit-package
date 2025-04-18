@@ -12,7 +12,7 @@
 
 **Removed:**
 
-* Remove requirements/README.txt containing instructions for listing dependencies. since they are already provided in the official documentation.
+* Remove requirements/README.txt containing instructions for listing dependencies for the package. The instruction is already provided in the official documentation.
 
 **Fixed:**
 
