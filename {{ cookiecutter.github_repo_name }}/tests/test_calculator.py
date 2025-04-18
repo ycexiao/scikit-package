@@ -53,10 +53,10 @@ def test_dot_product_3D_np_array():
     "a, b, expected",
     [
         # Test whether the dot product function works with 2D and 3D vectors
-        # C1: lists given, expect no error
+        # C1: lists, expect no error
         ([1, 2], [3, 4], 11.0),
         ([1, 2, 3], [4, 5, 6], 32.0),
-        # C2: tuples given, expect no error
+        # C2: tuples, expect no error
         ((1, 2), (3, 4), 11.0),
         ((1, 2, 3), (4, 5, 6), 32.0),
         # C3: numpy arrays, expect no error
