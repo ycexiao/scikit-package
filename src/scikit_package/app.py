@@ -16,7 +16,7 @@ def create(package_type):
 def update():
     # FIXME: Implement the update command.
     # As of now it does the same as the create command.
-    run_cookiecutter("")
+    run_cookiecutter(SKPKG_GITHUB_URL)
 
 
 def run_cookiecutter(repo_url):
