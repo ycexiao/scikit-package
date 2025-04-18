@@ -205,7 +205,7 @@ def update_workflow():
 def main():
     """Execute when user runs cookiecutter."""
     if "." in "{{ cookiecutter.project_name }}":
-        add_supermodules(ROOT, "{{ cookiecutter.project_name }}")
+        add_supermodules(ROOT, "{{ cookiecutter.package_dir_name }}")
     if "{{ cookiecutter.project_needs_c_code_compiled }}" == "Yes":
         wrapper_setup()
     update_workflow()
