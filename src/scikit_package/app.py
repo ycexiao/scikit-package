@@ -2,23 +2,25 @@ import subprocess
 from argparse import ArgumentParser
 
 
+SKPKG_GITHUB_URL = "https://github.com/Billingegroup/scikit-package"
+
 def create(package_type):
     if package_type == "workspace":
         run_cookiecutter(
-            "https://github.com/Billingegroup/scikit-package-workspace"
+            f"{SKPKG_GITHUB_URL}-workspace"
         )
     elif package_type == "system":
         run_cookiecutter(
-            "https://github.com/Billingegroup/scikit-package-system"
+            f"{SKPKG_GITHUB_URL}-system"
         )
     elif package_type == "public":
-        run_cookiecutter("https://github.com/Billingegroup/scikit-package")
+        run_cookiecutter(SKPKG_GITHUB_URL)
 
 
 def update():
     # FIXME: Implement the update command.
     # As of now it does the same as the create command.
-    run_cookiecutter("https://github.com/Billingegroup/scikit-package")
+    run_cookiecutter("")
 
 
 def run_cookiecutter(repo_url):
