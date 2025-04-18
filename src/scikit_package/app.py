@@ -1,18 +1,14 @@
 import subprocess
 from argparse import ArgumentParser
 
-
 SKPKG_GITHUB_URL = "https://github.com/Billingegroup/scikit-package"
+
 
 def create(package_type):
     if package_type == "workspace":
-        run_cookiecutter(
-            f"{SKPKG_GITHUB_URL}-workspace"
-        )
+        run_cookiecutter(f"{SKPKG_GITHUB_URL}-workspace")
     elif package_type == "system":
-        run_cookiecutter(
-            f"{SKPKG_GITHUB_URL}-system"
-        )
+        run_cookiecutter(f"{SKPKG_GITHUB_URL}-system")
     elif package_type == "public":
         run_cookiecutter(SKPKG_GITHUB_URL)
 
