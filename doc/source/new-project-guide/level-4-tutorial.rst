@@ -1,35 +1,54 @@
 Level 4. Reuse code across all files
 ------------------------------------
 
+Overview
+^^^^^^^^
+
+In Level 3, you learned to reuse code acorss multiple projects. Here, you will learn to reuse code across all files in your local computer by turning your project into an installable Python package. Hence, Level 4 is also referred to as ``system``.
+
+This way, you can also share your Python scripts as a zip file with your colleagues so that the code can be installed and reused on their computers.
+
+This tutorial will take about 5 to 15 minutes.
+
+Prerequisites
+^^^^^^^^^^^^^
+
+We assume you have at least hosted one project on GitHub. If you are new to GitHub, please refer to the FAQ guide on GitHub workflow.
+
 .. include:: snippets/scikit-installation.rst
 
-Initiate a project
-^^^^^^^^^^^^^^^^^^
+Initiate a project with ``scikit-package``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
     package create system
 
-
 Then it will ask you the following questions:
 
-    [1/6] project_name (diffpy.my-project):
+    :[1/6]: project_name (diffpy.my-project)
 
-    [2/6] project_owner_github_username (sbillinge):
+    :[2/6]: project_owner_github_username (sbillinge):
 
-    [3/6] github_org (diffpy):
+    :[3/6]: github_org (diffpy):
 
-    [4/6] github_repo_name (diffpy.my-project):
+    :[4/6]: github_repo_name (diffpy.my-project):
 
-    [5/6] conda_pypi_package_dist_name (diffpy.my-project):
+    :[5/6]: conda_pypi_package_dist_name (diffpy.my-project):
 
-    [6/6] package_dir_name (diffpy.my_project):
+    :[6/6]: package_dir_name (diffpy.my_project):
 
+Please follow the naming practices recommended by PyPI and GitHub:
 
 .. important::
 
-    Use lowercase letters with each space separated by ``"-"``. This naming practice is recommended by GitHub and PyPI. ``"_"`` is used for ``package_dir_name``, which is the name for importing the package in Python.
+    Use lowercase letters with each space replaced by ``"-"``. The only instance where an underscore ``"_"`` is for ``package_dir_name``. Underscores are ONLY ALLOWED for importing the package in Python. For example, if you set the ``package_dir_name`` as ``diffpy.my_project``, you will be able to import the package using ``import diffpy.my_project``.
 
+Do you want to import your package with the identifier (group name, organization name) attached, like in ``import <org-name>.<project-name>``.
+
+.. note::
+
+    If you want to be able to ``import diffpy.pdffit``, all you need to do is set the ``project_name`` as ``diffpy.pdffit`` when you create a new project by running the command ``package create system``.
 
 ``cd`` into the project directory created by the ``package create`` command above:
 
@@ -37,11 +56,16 @@ Then it will ask you the following questions:
 
     cd <project-name>
 
-You will then have a folder structure as shown below.
+
+Folder structure
+^^^^^^^^^^^^^^^^
+
+When you ``cd`` into the new directory, you will see a folder structure as shown below:
+
 
 .. code-block:: text
 
-     diffpy.utils/
+     diffpy.my_project/
         ├── README.rst
         ├── environment.yml
         ├── pyproject.toml
@@ -53,7 +77,7 @@ You will then have a folder structure as shown below.
         ├── src
         │   └── diffpy
         │       ├── __init__.py
-        │       └── utils
+        │       └── my_project
         │           ├── __init__.py
         │           └── calculator.py
         └── tests
@@ -62,15 +86,15 @@ You will then have a folder structure as shown below.
 Install package
 ^^^^^^^^^^^^^^^
 
-The goal is to reuse the code in ``calculator.py`` across all files in the project. First, you need to build and install the package locally.
+The goal is to reuse the code in ``calculator.py``  First, you need to build and install the package locally.
 
 .. code-block:: bash
 
     pip install -e .
 
-It also installs the dependencies listed in ``requirements/pip.txt``. The ``-e`` flag indicates that you want to install the package in "editable" mode, which means that any changes you make to the source code will be reflected immediately without needing to reinstall the package. This is useful for development purposes.
+What is the ``-e`` flag?
 
-Ensure the package is installed by running the following command:
+    ``pip instasll`` will also the dependencies listed in ``requirements/pip.txt``. The ``-e`` flag indicates that you want to install the package in "editable" mode, which means that any changes you make to the source code will be reflected immediately without needing to reinstall the package. This is useful for development purposes.
 
 Check installation
 ^^^^^^^^^^^^^^^^^^
@@ -89,63 +113,76 @@ Install the testing dependencies that are required for testing.
 
 .. code-block:: bash
 
-    pip install -r requirements/test.txt
+    conda install --file requirements/test.txt
 
 Then, run the tests using the following command:
 
 .. code-block:: bash
 
-    pytest tests
+    pytest
 
-It should pass. That means the scripts located under ``tests`` are able to import the installed package.
-
+It should pass. That means the scripts located under ``tests`` are able to import the installed package. Great!
 
 Reuse code across any files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It's time to use the code across any file. Create a Python file anywhere on your computer. Then, simply import the package and use the function ``dot_product`` defined in ``calculator.py``. Here is an example of how to do this:
+It's time to use the code across any file. Create a Python file anywhere on your computer. Then, import your installed package and use the function ``dot_product`` defined in ``calculator.py``.
+
+Here is an example of how to do this:
 
 .. code-block:: python
 
     # any python file
-    from diffpy.utils import calculator
+    from diffpy.my_project import calculator
 
     v1 = [1, 2]
     v2 = [3, 4]
     print(calculator.dot_product(v1, v2))  # returns 11
 
-Use ``pre-commit`` to format code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Automate running ``pre-commit`` with git commit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``pre-commit`` is a tool that helps you automatically format your code and check for common issues before committing changes to your Git repository. It can be used to ensure that your code adheres to certain style guidelines and best practices.
+As we have done in Level 3, ``pre-commit`` is a tool that helps you automatically format your code and check for common issues before committing changes to your Git repository.
 
-Then, feel free to run ``pre-commit`` to automate your code formatting manually by following the instructions provided at the end of Level 3 :ref:`here<pre-commit-manual>`.
+In Level 3, we manually executed ``pre-commit`` with the following command ``pre-commit run --all-files``. This is useful for running the hooks on all files in your project, but it can be tedious to remember to do this every time you make a commit.
 
+But ultimately, ``pre-committ`` works with Git/GitHub. So, let's first host your project on GitHub first.
 
-(optional) Automate running pre-commit when a new git commit is attempted
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: snippets/github-host-project.rst
 
-While you can run ``pre-commit`` manually, it is also possible to have these ``pre-commit`` hooks run automatically when you make a commit.
+Now that your project is hosted with the basic ``README.md`` hosted in the ``main`` branch, we now want to update the code using the pull request workflow instead of pushing the code directly to the ``main`` branch which is public facing and "the source of truth".
 
-
-.. note::
-
-    Here, we assume you are familiar with the general GitHub workflow. If you are not, please refer to the FAQ guide on GitHub workflow.
-
-First, ensure that git is initialized in your project folder. You can do this by running the following command:
+In your CLI, run
 
 .. code-block:: bash
 
     git init
+    pre-commit install
     git add .
 
-Then ensure that ``pre-commit`` is run automatically before a new commit is made:
 
-.. code-block::
+Now, attempt to make a new commit. 
 
-    pre-commit install
+.. code-block:: bash
+    
+    git commit -m "skpkg: first commit"
 
-You can set it up as follows by first initializing the git repository and then running the following commands:
+You will see that the hook that prevents you pushing your code to ``main`` fails. This is a good sign! We do not want to directly push our code to ``main``.
+
+.. code-block:: bash
+
+    Prevent Commit to Main Branch............................................Failed
+    - hook id: no-commit-to-branch
+    - exit code: 1
+
+Since one of the hooks failed, the commit is not created. You can confirm this by running the following command:
+
+.. code-block:: bash
+
+    git log
+
+
+Now, attempt to make a new commit.
 
 .. code-block:: bash
 
@@ -159,9 +196,8 @@ To double check that the previous commit was successful, you can run the followi
 
     git log
 
-
-(optional, important) Set up ``pre-commit CI`` in your GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Set up ``pre-commit CI`` in your GitHub repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you maintain a project from multiple contributorss, you want to ensure the codebase always passes ``pre-commit`` hooks defined in ``.pre-commit-config.yaml``. Often, external contributors may not have ``pre-commit`` installed locally and attempt to create a pull request (PR).
 
@@ -169,8 +205,8 @@ The ``pre-commit-CI`` app installed in the GitHub repository will first try to l
 
 Please see Appendix 1 below on how to set up ``pre-commit CI`` in your GitHub repository.
 
-(optional) Set up ``Codecov`` in your GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Set up ``Codecov`` in your GitHub repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Codecov is a tool that helps you track the code coverage of your tests. It provides a web interface to visualize the coverage data and can be integrated with GitHub Actions to automatically upload coverage reports after running tests. This is important because when a new feature is requested, we want to ensure the contributor writes tests. If no tests are written for the new code, it will result in failed checks. See Appendix 2 below on how to set up ``Codecov`` in your GitHub repository.
 

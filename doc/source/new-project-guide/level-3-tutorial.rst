@@ -145,6 +145,7 @@ Since ``pre-commit`` is meant to work with ``Git``, create a local Git folder in
 .. code-block:: bash
 
      git init
+     git add .
 
 .. note::
 
@@ -168,6 +169,7 @@ It will then show the following:
 
     ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
 
+Run ``pre-commit run --all-files`` frequently while developing code.
 
 What's next?
 ^^^^^^^^^^^^
