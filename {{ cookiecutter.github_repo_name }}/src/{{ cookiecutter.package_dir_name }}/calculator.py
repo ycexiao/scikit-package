@@ -28,7 +28,7 @@ def dot_product(a, b):
     >>> dot_product(a, b)
     32.0
 
-    Compute the dot product of two tuples
+    Compute the dot product of two tuples:
     >>> a = (1, 2, 3)
     >>> b = (4, 5, 6)
     >>> dot_product(a, b)
