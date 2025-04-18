@@ -1,12 +1,7 @@
 Level 4. Reuse code across all files
 ------------------------------------
 
-First, you need to create a new conda environment. You can do this by running the following command in your terminal:
-
-.. code-block:: bash
-
-    conda create -n <project-name>_env scikit-package
-    conda activate <project-name>_env
+.. include:: snippets/scikit-installation.rst
 
 Initiate a project
 ^^^^^^^^^^^^^^^^^^

@@ -64,11 +64,3 @@ Check the ``pip.txt``, ``conda.txt``, and ``test.txt``, and ``doc.txt`` files un
 .. note::
 
     Why is it required to list dependencies both under ``pip.txt`` and ``conda.txt``? Please refer to the FAQ section :ref:`here<faq-pip-conda-both-provided>`.
-
-
-
-
-
-
-
-

@@ -3,12 +3,7 @@ Level 3. Reuse code across projects
 
 Unlike Levels 1 and 2, from Level 3 through Level 5, you will set up a working environment for your project with conda and use ``scikit-package`` to initiate a new project.
 
-First, create a conda environment for your project and install ``scikit-package`` at the same time.
-
-.. code-block:: bash
-
-    conda create -n <project-name>_env scikit-package
-    conda activate <project-name>_env
+.. include:: snippets/scikit-installation.rst
 
 Initiate a project
 ^^^^^^^^^^^^^^^^^^

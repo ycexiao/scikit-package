@@ -1,5 +1,5 @@
 Host your new project on GitHub
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Visit ``https://github.com/new``.
 
