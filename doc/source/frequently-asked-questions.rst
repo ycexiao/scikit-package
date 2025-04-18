@@ -168,7 +168,7 @@ How we write CHANGELOG.rst with news files in PRs
 
 .. include:: snippets/news-file-format.rst
 
-GitHub Pull Request practices
+l Request practices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Have a theme for each PR to reduce cognitive overload for the reviewer.
@@ -460,6 +460,8 @@ Why are both pip.txt and conda.txt provided?
 Our preferred choice for installing the scikit-packaged package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new_env <package-name>``. Additionally, the environment is tested via conda-forge CI before the Conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
 
 However, we also want to allow users to install the package via ``pip``. To support this, we provide a separate file for pip dependencies, ``pip.txt``. In most cases, the dependencies listed in ``conda.txt`` and ``pip.txt`` will be identical. However, there can be exceptions. For example, ``matplotlib-base`` is preferred for Conda installations, while ``matplotlib`` is used for pip installations.
+
+.. _faq-github-workflow:
 
 GitHub workflow
 ---------------

@@ -3,7 +3,7 @@
 Install ``scikit-package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new environment named ``<project>_env`` and install ``scikit-package`` and ``pre-commit`` at the same time:
+Create a new environment named ``<project>_env``, e.g., ``skpkg_env``. Install ``scikit-package`` and ``pre-commit`` simultaneously by running the following command:
 
 .. code-block:: bash
 
@@ -15,7 +15,7 @@ Activate the environment:
 
     conda activate <project>_env
 
-Confirm you have the latest version of ``scikit-package`` provided on GitHub:
+Confirm that you have the latest version of ``scikit-package`` available on GitHub:
 
 .. code-block:: bash
 
