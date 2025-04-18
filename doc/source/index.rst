@@ -95,8 +95,8 @@ Table of contents
    :maxdepth: 2
 
    getting-started
-   migration-guide
    new-project-guide
+   migration-guide
    release-guide
    conda-forge-guide
    frequently-asked-questions

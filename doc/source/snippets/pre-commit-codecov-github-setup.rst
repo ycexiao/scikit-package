@@ -1,15 +1,34 @@
+.. _pre-commit-github-repo-setup:
+
+Appendix 1. How to configure pre-commit CI via GitHub Apps
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``Pre-commit CI`` is available as a GitHub app that executes pre-commit hooks in each pull request. This GitHub app will automatically attempt to lint code and format docstrings according to the hooks provided in ``.pre-commit-config.yaml``. If all passes, it will give you a green checkmark as shown below.
+
+.. image:: ./img/precommit-PR.png
+   :alt: pre-commit-PR-automatic-check
+
+To configure ``pre-commit CI``, follow the simple steps below:
+
+#. Visit https://github.com/apps/pre-commit-ci and click "Configure".
+
+#. Select the repository(s).
+
+#. Done!
+
+
 
 .. _codecov-token-setup:
 
-Appendix 4. Codecov token setup for the repository
---------------------------------------------------
+Appendix 2. Codecov token setup for the repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For each PR, we use ``Codecov`` to report the test coverage percentage change as shown below.
 
 .. image:: ./img/codecov-pr.png
    :alt: codecov-in-pr-comment
 
-To do so, the repository owner (Prof. Billinge) needs to provide a ``CODECOV_TOKEN`` at the repository level. This token is used to authenticate the GitHub CI with Codecov. Please follow the step-by-step guide below.
+To do so, the repository owner needs to provide a ``CODECOV_TOKEN``.  Please follow the step-by-step guide below.
 
 1. Visit https://app.codecov.io/
 
