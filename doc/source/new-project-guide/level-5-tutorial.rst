@@ -3,9 +3,6 @@ Level 5. Share code as public package
 -------------------------------------
 
 
-.. include:: snippets/scikit-installation.rst
-
-
 
 Prerequisites
 ^^^^^^^^^^^^^^
@@ -13,6 +10,10 @@ Prerequisites
 Here, you will learn how to create a new project with ``scikit-package`` that not only builds new packages but also uses GitHub CI to release your package to PyPI and conda-forge.
 
 Level 5 assumes you are familiar with ``pre-commit``, GitHub workflows, and GitHub CI. If you are not familiar with these, we recommend starting from Level 3 and progressing sequentially to Level 4.
+
+
+.. include:: snippets/scikit-installation.rst
+
 
 Overview
 ^^^^^^^^
@@ -150,8 +151,8 @@ If you want to remove one of the hooks, you can delete the following block in th
 
 
 .. include:: snippets/news-file-format.rst
-    
+
 Setup GitHub Actions CI
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-(Wait for the PR to be merged. Just copy and paste that section)
+.. include:: snippets/pre-commit-codecov-github-setup.rst

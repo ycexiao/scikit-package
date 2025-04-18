@@ -4,9 +4,9 @@
 
 .. _scikit-package-migration-guide:
 
-===============================================================
-How to migrate your existing Python package with scikit-package
-===============================================================
+==============================================================
+Migrate your existing code with scikit-package
+==============================================================
 
 .. include:: snippets/scikit-installation.rst
 

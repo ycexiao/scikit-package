@@ -1,7 +1,9 @@
 .. _pre-commit-github-repo-setup:
 
 Appendix 1. How to configure pre-commit CI via GitHub Apps
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``pre-commit`` is a framework for managing and maintaining multi-language pre-commit hooks. It allows you to automatically format your code, check for errors, and enforce coding standards before committing changes to your repository.
 
 ``Pre-commit CI`` is available as a GitHub app that executes pre-commit hooks in each pull request. This GitHub app will automatically attempt to lint code and format docstrings according to the hooks provided in ``.pre-commit-config.yaml``. If all passes, it will give you a green checkmark as shown below.
 

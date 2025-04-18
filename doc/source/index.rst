@@ -95,7 +95,8 @@ Table of contents
    :maxdepth: 2
 
    getting-started
-   new-project-guide
+   start-new-project-no-package
+   start-new-project-package
    migration-guide
    release-guide
    conda-forge-guide

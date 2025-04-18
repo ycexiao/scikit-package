@@ -115,7 +115,9 @@ It's time to use the code across any file. Create a Python file anywhere on your
     print(calculator.dot_product(v1, v2))  # returns 11
 
 Use ``pre-commit`` to format code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``pre-commit`` is a tool that helps you automatically format your code and check for common issues before committing changes to your Git repository. It can be used to ensure that your code adheres to certain style guidelines and best practices.
 
 Then, feel free to run ``pre-commit`` to automate your code formatting manually by following the instructions provided at the end of Level 3 :ref:`here<pre-commit-manual>`.
 
@@ -159,7 +161,7 @@ To double check that the previous commit was successful, you can run the followi
 
 
 (optional, important) Set up ``pre-commit CI`` in your GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you maintain a project from multiple contributorss, you want to ensure the codebase always passes ``pre-commit`` hooks defined in ``.pre-commit-config.yaml``. Often, external contributors may not have ``pre-commit`` installed locally and attempt to create a pull request (PR).
 
