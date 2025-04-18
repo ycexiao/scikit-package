@@ -451,6 +451,9 @@ Another key difference is that with ``pull_request_target``, the ``.yml`` file *
 Dependency management
 ---------------------
 
+
+.. _faq-pip-conda-both-provided:
+
 Why are both pip.txt and conda.txt provided?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
