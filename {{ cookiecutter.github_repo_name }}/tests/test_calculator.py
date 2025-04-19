@@ -1,35 +1,39 @@
+import numpy as np
 import pytest
-from {{cookiecutter.package_dir_name}} import calculator
+from {{cookiecutter.package_dir_name}} import calculator as calc
 
 
-def test_dot_product_2D():
-    """Test the dot product function with 2D vectors."""
+def test_dot_product_2D_list():
     a = [1, 2]
     b = [3, 4]
-    expected = 11
-    actual = calculator.dot_product(a, b)
+    expected = 11.0
+    actual = calc.dot_product(a, b)
     assert actual == expected
 
 
-def test_dot_product_3D():
-    """Test the dot product function with 3D vectors."""
+def test_dot_product_3D_list():
     a = [1, 2, 3]
     b = [4, 5, 6]
-    expected = 32
-    actual = calculator.dot_product(a, b)
+    expected = 32.0
+    actual = calc.dot_product(a, b)
     assert actual == expected
-
 
 @pytest.mark.parametrize(
     "a, b, expected",
     [
-        # Test whether the doc product function works with different vector sizes
-        # 2D vectors, expect 11
-        ([1, 2], [3, 4], 11),
-        # 3D vectors, exppect 32
-        ([1, 2, 3], [4, 5, 6], 32),
+        # Test whether the dot product function works with 2D and 3D vectors
+        # C1: lists, expect correct float output
+        ([1, 2], [3, 4], 11.0),
+        ([1, 2, 3], [4, 5, 6], 32.0),
+        # C2: tuples, expect correct float output
+        ((1, 2), (3, 4), 11.0),
+        ((1, 2, 3), (4, 5, 6), 32.0),
+        # C3: numpy arrays, expect correct float output
+        (np.array([1, 2]), np.array([3, 4]), 11.0),
+        (np.array([1, 2, 3]), np.array([4, 5, 6]), 32.0),
     ]
+
 )
 def test_dot_product(a, b, expected):
-    actual = calculator.dot_product(a, b)
+    actual = calc.dot_product(a, b)
     assert actual == expected
