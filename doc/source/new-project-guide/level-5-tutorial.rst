@@ -1,4 +1,3 @@
-
 Level 5. Share code as public package
 -------------------------------------
 
@@ -54,9 +53,21 @@ There are some important files and folders you need to pay attention to.
 
 We will go through the important files and folders with examples together.
 
+
+
 .. include:: snippets/naming-practice-namespace.rst
 
 .. include:: new-project-guide/level-4-5-shared-install-tests-host.rst
+
+.. note:: 
+    
+    What is Codecov? 
+    
+        Codecov is a tool that helps you track the code coverage of your tests. It provides a web interface to visualize the coverage data and can be integrated with GitHub Actions to automatically upload coverage reports after running tests on each PR.
+
+    Where is the code for ``tests-on-PR``?
+
+        The code for the ``tests-on-PR`` GitHub Action is located in the ``.github/workflows`` directory of your GitHub repository. It is a YAML file that defines the workflow for running tests on pull requests. The workflow is triggered whenever a pull request is opened or updated, and it runs the tests using pytest and uploads the coverage report to Codecov.
 
 Add news items in your pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

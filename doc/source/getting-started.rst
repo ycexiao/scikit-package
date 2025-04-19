@@ -9,6 +9,8 @@ Getting started
 ===============
 
 
+.. include:: snippets/five-levels-table.rst
+
 - Are you here to start a new project? You can get started by creating a new lightweight Python project with ``scikit-package``. See :ref:`here <start-new-project-no-package>`.
 
 - Are you experienced with GitHub and you are interested in turning into an installable Python package to code available locally and also distribute to the public? See :ref:`here <start-new-project-package>`.

@@ -96,7 +96,8 @@ Table of contents
 
    getting-started
    start-new-project-no-package
-   start-new-project-package
+   start-new-project-package-lightweight
+   start-new-project-package-full
    release-guide
    conda-forge-guide
    migration-guide
