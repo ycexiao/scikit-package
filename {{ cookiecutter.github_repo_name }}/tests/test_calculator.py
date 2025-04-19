@@ -18,37 +18,6 @@ def test_dot_product_3D_list():
     actual = calc.dot_product(a, b)
     assert actual == expected
 
-def test_dot_product_2D_tuple():
-    a = (1, 2)
-    b = (3, 4)
-    expected = 11.0
-    actual = calc.dot_product(a, b)
-    assert actual == expected
-
-
-def test_dot_product_3D_tuple():
-    a = (1, 2, 3)
-    b = (4, 5, 6)
-    expected = 32.0
-    actual = calc.dot_product(a, b)
-    assert actual == expected
-
-
-def test_dot_product_2D_np_array():
-    a = np.array([1, 2])
-    b = np.array([3, 4])
-    expected = 11.0
-    actual = calc.dot_product(a, b)
-    assert actual == expected
-
-
-def test_dot_product_3D_np_array():
-    a = np.array([1, 2, 3])
-    b = np.array([4, 5, 6])
-    expected = 32.0
-    actual = calc.dot_product(a, b)
-    assert actual == expected
-
 @pytest.mark.parametrize(
     "a, b, expected",
     [

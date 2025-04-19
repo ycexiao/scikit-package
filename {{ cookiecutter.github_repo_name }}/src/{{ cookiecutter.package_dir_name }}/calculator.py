@@ -4,13 +4,14 @@ import numpy as np
 def dot_product(a, b):
     """Compute the dot product of two vectors of any size.
 
-    Ensure that the inputs of a and b are of the same size.
-    The supported types are Python list, Python tuple, and NumyPy array.
+    Ensure that the inputs, a and b, are of the same size.
+    The supported types are "array_like" objects, which can
+    be converted to a NumPy array. Examples include lists and tuples.
 
     Parameters
     ----------
     a : array_like
-        The first input of vector.
+        The first input vector.
     b : array_like
         The second input vector.
 
@@ -25,18 +26,6 @@ def dot_product(a, b):
     Compute the dot product of two lists:
     >>> a = [1, 2, 3]
     >>> b = [4, 5, 6]
-    >>> dot_product(a, b)
-    32.0
-
-    Compute the dot product of two tuples:
-    >>> a = (1, 2, 3)
-    >>> b = (4, 5, 6)
-    >>> dot_product(a, b)
-    32.0
-
-    Compute the dot product of two numpy arrays:
-    >>> a = np.array([1, 2, 3])
-    >>> b = np.array([4, 5, 6])
     >>> dot_product(a, b)
     32.0
     """
