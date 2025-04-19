@@ -1,15 +1,13 @@
 .. _news-file-guide:
 
-We require that each PR includes a news item of ``<branch-name>.rst`` file under the ``news`` directory.
+Why do we need a news file?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is an example PR containing the news file: https://github.com/Billingegroup/scikit-package/pull/299/files
+We want to write good ``CHANGELOG.rst`` for each release version. These news items are of interest to both developers and technical users looking for specific keywords. 
 
-How are the new files used?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We can streamline the process of writing ``CHANGELOG.rst`` for each release by compiling the news items from the ``news`` directory.
 
-``.rst`` files under the ``news`` directory are used to compile and update the ``CHANGELOG.rst`` file during releases. These news items are of interest to both developers and technical users looking for specific keywords.
-
-Here an example ``CHANGELOG.rst``: https://github.com/Billingegroup/scikit-package/blob/main/CHANGELOG.rst
+Here an example ``CHANGELOG.rst`` https://github.com/Billingegroup/scikit-package/blob/main/CHANGELOG.rst
 
 Guidelines for writing news
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

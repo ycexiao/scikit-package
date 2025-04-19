@@ -5,22 +5,29 @@ Level 5. Share code as public package
 Overview
 ^^^^^^^^
 
-If you are familiar with Python, we recommend you to start with level 3, where you get to create a project with ``scikit-package`` and also utilize automated linting features and tests folder setup which are useful for sharing codes or uploading your code via GitHub.
+Here you will learn how to use GitHub CI to release your package to PyPI and conda-forge.
 
-Here, you will learn how to create a new project with ``scikit-package`` that not only builds new packages but also uses GitHub CI to release your package to PyPI and conda-forge.
+What's the difference between level 4 and level 5?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+For completeness, we will repeat the steps from Level 4 from installing ``scikit-package``, hosting your project on GitHub, and setting up ``pre-commit CI`` and ``Codecov`` via GitHub Actions.
 
-Prerequisites
-^^^^^^^^^^^^^^
+If you are not ready to share your code with the world, we recommend you continue developing code in Level 4 and conitnue to beneift the simple strcutre. 
 
+Here are a few powertful extra features of Level 5:
 
-Level 5 assumes you are familiar with ``pre-commit``, GitHub workflows, and GitHub CI. If you are not familiar with these, we recommend starting from Level 3 and progressing sequentially to Level 4.
+- Build documentation locally with Sphinx with liveloading.
+- Build and host documentation on GitHub Pages with public URL
+- Use GitHub tag to release your package to to GitHub and PyPI
+- Use PyPI's uploaded source code to create conda-forge package
 
+Create a new project with ``scikit-package``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: snippets/scikit-installation.rst
+.. include:: snippets/package-public-user-inputs.rst
 
-Folder structure
-^^^^^^^^^^^^^^^^
+Check folder structure
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Here is the structure. We will go through each file and folder.
 
@@ -47,110 +54,28 @@ There are some important files and folders you need to pay attention to.
 
 We will go through the important files and folders with examples together.
 
-Install the package locally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: snippets/naming-practice-namespace.rst
 
-As we did in Level 4, we will install the package and run the code and tests.
+.. include:: new-project-guide/level-4-5-shared-install-tests-host.rst
 
-.. code-block:: bash
+Add news items in your pull request
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    pip install -e .
+We require that each PR includes a news item of ``<branch-name>.rst`` file under the ``news`` directory. 
 
-.. note::
+#. Create a copy of  ``news/TEMPLATE.rst``.
+#. Name the file as ``news/<branch-name>.rst``. e.g., ``news/skpkg-proj.rst``.
+#. Do not delete ``news/TEMPLATE.rst``. Leave as it is.
+#. Do not modify other section headers in the rst file. Replace ``* <news item>`` with your news item.
+#. Check this example PR containing the news file: https://github.com/Billingegroup/scikit-package/pull/299/files
+#. ``git add news/skpkg-proj.rst`` and ``git commit -m "chore: Add news item"``
 
-    The above command will install all the packages listed in the ``requirements/pip.txt`` file.
+How do you write coomand news file and commit messages?
 
-Ensure your package is installed correctly by running:
+    For news news, check the guidelines :ref:`here<faq-news-item-practice>`.
 
-.. code-block:: bash
+    For commit messages, check the guidelines :ref:`here<faq-github-commit-issue-practice>`.
 
-    pip list
-
-Run the tests locally
-^^^^^^^^^^^^^^^^^^^^^^
-
-Install the test requirements.
-
-.. code-block:: bash
-
-    conda install --file requirements/test.txt
-
-Run the tests with ``pytest``. The test files are located in the ``tests`` folder.
-
-.. code-block:: bash
-
-    pytest
-
-Build documentation docally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To reload the HTML file each time you save a change, you can install the ``sphinx-autobuild`` package: ::
-
-    pip install sphinx-reload
-
-Then run the command:
-
-.. code-block:: bash
-
-    sphinx-reload doc
-
-Automate formatting with ``pre-commit`` locally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Initialize the ``.git`` folder in your project folder:
-
-.. code-block:: bash
-
-    git init
-    git checkout -b new-project
-    git add README.rst
-
-Install ``pre-commit``: ::
-
-    conda install pre-commit
-
-Run ``pre-commit`` hooks manually and lint the code in the project folder:
-
-.. code-block:: bash
-
-    pre-commit run --all-files
-
-You are now ready to host your project on GitHub, either as a public or private repository.
-
-.. include:: snippets/github-host-project.rst
-
-Automate ``pre-commit`` locally before commit
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-You want to ensure ``pre-commit`` hooks are automatically running. One of the important features is preventing you from making commits directly to the ``main`` branch.
-
-Set up the ``pre-commit`` hooks by running the command:
-
-.. code-block:: bash
-
-    pre-commit install
-
-If you attempt to push your code to the ``main`` branch, it will prevent you from doing so.
-
-If you want to remove one of the hooks, you can delete the following block in the ``.pre-commit-config.yaml`` file. For example, you can remove the hook that prevents making commits to the ``main`` branch:
-
-.. code-block:: yaml
-
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: no-commit-to-branch
-        name: Prevent Commit to Main Branch
-        args: ["--branch", "main"]
-        stages: [pre-commit]
-
-.. note::
-
-    If you are working on a public repository, we highly recommend that you develop your code via pull requests.
-
-
-
-.. include:: snippets/news-file-format.rst
 
 Setup GitHub Actions CI
 ^^^^^^^^^^^^^^^^^^^^^^^

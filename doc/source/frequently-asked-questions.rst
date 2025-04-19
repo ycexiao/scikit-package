@@ -135,6 +135,8 @@ The conda-forge CI uses the source code distributed via PyPI to build a Conda pa
 Billinge Group standards
 ------------------------
 
+.. _faq-github-commit-issue-practice:
+
 How we communicate via GitHub commit messages and issue titles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -162,6 +164,8 @@ For commit messages and issue titles, we add prefixes adopted from https://www.c
 Please see an example here: https://github.com/Billingegroup/scikit-package/issues. There are a few benefits to adding prefixes to GitHub issue titles. First, it helps us prioritize tasks from the notifications. Second, it helps reference issues in a comment within an issue or pull request and organize tasks.
 
 .. attention:: A commit message is written for PR reviewers and for debuggers. Avoid verbosity for a quick overview. An ideal commit message communicates file(s) of interest, the reason for the modification, and what modifications were made. e.g., “chore: move all files from docs to doc for scikit-packaging."
+
+.. _faq-news-item-practice:
 
 How we write CHANGELOG.rst with news files in PRs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

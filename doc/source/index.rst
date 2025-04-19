@@ -97,9 +97,9 @@ Table of contents
    getting-started
    start-new-project-no-package
    start-new-project-package
-   migration-guide
    release-guide
    conda-forge-guide
+   migration-guide
    frequently-asked-questions
    license
    release
