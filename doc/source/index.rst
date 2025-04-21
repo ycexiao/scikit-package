@@ -95,10 +95,12 @@ Table of contents
    :maxdepth: 2
 
    getting-started
-   new-project-guide
+   start-new-project-no-package
+   start-new-project-package-lightweight
+   start-new-project-package-full
+   pypi-release-guide
+   conda-forge-release-guide
    migration-guide
-   release-guide
-   conda-forge-guide
    frequently-asked-questions
    license
    release

@@ -1,10 +1,12 @@
 :tocdepth: -1
 
-==================================
-How to release conda-forge package
-==================================
+.. _conda-forge-release-guide:
 
-.. _create-feedstock:
+====================
+Release conda package
+====================
+
+.. _conda-create-feedstock:
 
 I already have a conda-forge feedstock. I want to release a new package version. How do I do that?
 --------------------------------------------------------------------------------------------------
@@ -62,7 +64,7 @@ If you are interested in learning more about each component within ``meta.yaml``
 
  :build_requirements: copy ``requirements/build.txt`` from the project repo. It should be empty for pure Python packages.
 
- :host_requirements: Type ``python >=3.11, setuptools, setuptools-git-versioning >=2.0, pip`` from ``requirements/host.txt``.
+ :host_requirements: Type ``python {{ python_min }}, setuptools, setuptools-git-versioning >=2.0, pip``.
 
  :runtime_requirements: Type the runtime dependencies from  ``requirements/conda.txt``.
 
@@ -78,7 +80,7 @@ Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 
 .. _conda-forge-recipe-upload:
 
-1. Upload ``meta.yaml`` to conda-forge for initial review
+2. Upload ``meta.yaml`` to conda-forge for initial review
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Fork https://github.com/conda-forge/staged-recipes and clone your forked repository
@@ -112,8 +114,8 @@ Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 
 .. _conda-forge-feedstock-release:
 
-Use the conda-forge feedstock to release a new version
-------------------------------------------------------
+4. Use the conda-forge feedstock to release a new version
+----------------------------------------------------------
 
 We release a new package once we have the ``version`` and ``SHA256`` sections in ``meta.yaml`` in ``https://github.com/conda-forge/<package-name>-feedstock`` located in the ``main`` branch. The conda-forge team asks to only modify ``meta.yaml``.
 
@@ -151,30 +153,35 @@ First, we will copy the ``SHA256`` value from `pypi.org <http://pypi.org>`_:
 .. _conda-forge-pre-release:
 
 Appendix 1. How do I do pre-release?
-------------------------------------------------------------------------------
+-------------------------------------
 
 Generate ``meta.yaml`` by following ``Step 1`` and ``Step 2`` under ``conda-forge: release for the first time`` above. Here are two differences required for pre-release:
 
-1. Create ``recipe/conda_build_config.yaml`` containing::
+#. Create ``recipe/conda_build_config.yaml`` containing::
 
     channel_targets:
        - conda-forge <package-name>_rc
 
-See an example here: https://github.com/conda-forge/diffpy.pdffit2-feedstock/blob/rc/recipe/conda_build_config.yaml
+#. See an example here: https://github.com/conda-forge/diffpy.pdffit2-feedstock/blob/rc/recipe/conda_build_config.yaml
 
-1. Make a PR into ``rc`` instead of ``main``. Re-render once the PR is created.
+#. Make a PR into ``rc`` instead of ``main``.
 
-To install the pre-release build::
+#. Re-render once the PR is created.
 
-    conda install -c conda-forge/label/<package-name>_rc -c conda-forge <package-name>
+#. To install your ``rc`` version, use the command:
 
-For more, read the documentation for pre-release: https://conda-forge.org/docs/maintainer/knowledge_base/#pre-release-builds
+    .. code-block:: bash
+
+        conda install -c conda-forge/label/<package-name>_rc -c conda-forge <package-name>
+
+For more, read the conda-forge official documentation for pre-release: https://conda-forge.org/docs/maintainer/knowledge_base/#pre-release-builds
+
+.. _conda-forge-add-admin:
 
 Appendix 2. Add a new admin to the conda-forge feedstock
 --------------------------------------------------------
 
 Check whether you are an admin listed in the ``meta.yaml`` in the feedstock repository. Create an issue with the title/comment: ``@conda-forge-admin, please add user @username``. Please see an example issue `here <https://github.com/conda-forge/diffpy.pdffit2-feedstock/issues/21>`_.
-
 
 .. _meta-yaml-info:
 
@@ -183,14 +190,10 @@ Appendix 3. Background info on ``meta.yml``
 
 The ``meta.yaml`` file contains information about dependencies, the package version, the license, the documentation link, and the maintainer(s) of the package. In ``meta.yaml``, there are 3 important keywords under the ``requirements`` section: ``build``, ``host``, and ``run`` that are used to specify dependencies.
 
-- ``build`` dependencies used for compiling but are not needed on the host where the package will be used. Examples include compilers, CMake, Make, pkg-config, etc.
+    - ``build`` dependencies used for compiling but are not needed on the host where the package will be used. Examples include compilers, CMake, Make, pkg-config, etc.
 
-- ``host`` dependencies are required during the building of the package. Examples include setuptools, pip, etc.
+    - ``host`` dependencies are required during the building of the package. Examples include setuptools, pip, etc.
 
-- ``run`` dependencies are required during runtime. Examples include matplotlib-base, numpy, etc.
+    - ``run`` dependencies are required during runtime. Examples include matplotlib-base, numpy, etc.
 
-To avoid any confusion, there is a separate YAML section called ``build`` above the ``requirements`` section. This section is for setting up the entire operating system.
-
-For more information, please refer to the official documentation: https://conda-forge.org/docs/maintainer/adding_pkgs/#build-host-and-run
-
-.. _conda-forge-add-admin:
+To avoid any confusion, there is a separate YAML section called ``build`` above the ``requirements`` section. This section is for setting up the entire operating system. For more information, please refer to the official documentation: https://conda-forge.org/docs/maintainer/adding_pkgs/#build-host-and-run

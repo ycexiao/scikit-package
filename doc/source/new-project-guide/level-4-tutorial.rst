@@ -1,180 +1,375 @@
-Level 4. Reuse code across all files
-------------------------------------
+Overview
+^^^^^^^^
 
-First, you need to create a new conda environment. You can do this by running the following command in your terminal:
+In Level 3, you learned to reuse code across multiple projects. Here, you will learn to reuse code across all files on your local computer by turning your project into an installable Python package. Hence, Level 4 is also referred to as ``system``.
 
-.. code-block:: bash
+This tutorial may take about 10 to 15 minutes.
 
-    conda create -n <project-name>_env scikit-package
-    conda activate <project-name>_env
+Prerequisites
+^^^^^^^^^^^^^
 
-Initiate a project
-^^^^^^^^^^^^^^^^^^
+We assume you have at least hosted one project on GitHub. If you are new to GitHub, please refer to the FAQ guide on GitHub workflow :ref:`here <faq-github-workflow>`.
 
-.. code-block:: bash
-
-    package create system
+.. include:: snippets/scikit-installation.rst
 
 
-Then it will ask you the following questions:
+Initiate a project with ``scikit-package``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    [1/6] project_name (diffpy.my-project):
+#. Run the following command to create a new project with ``scikit-package``:
 
-    [2/6] project_owner_github_username (sbillinge):
+    .. code-block:: bash
 
-    [3/6] github_org (diffpy):
+        package create system
 
-    [4/6] github_repo_name (diffpy.my-project):
+#. Answer the following questions:
 
-    [5/6] conda_pypi_package_dist_name (diffpy.my-project):
+    :project_name: (my-project)
 
-    [6/6] package_dir_name (diffpy.my_project):
+    :github_org: (billingegroup)
+
+    :github_repo_name: (my-project)
+
+    :conda_pypi_package_dist_name: (my-project)
+
+    :package_dir_name: (my_project)
+
+    :project_owner_name: (Simon Billinge)
 
 
-.. important::
+#. ``cd`` into the project directory created by the ``package create`` command above:
 
-    Use lowercase letters with each space separated by ``"-"``. This naming practice is recommended by GitHub and PyPI. ``"_"`` is used for ``package_dir_name``, which is the name for importing the package in Python.
+    .. code-block:: bash
 
+        cd <project-name>
 
-``cd`` into the project directory created by the ``package create`` command above:
+#. Done! Let's proceed to the next section to check the folder structure.
 
-.. code-block:: bash
+Check folder structure
+^^^^^^^^^^^^^^^^^^^^^^
 
-    cd <project-name>
+#. When you ``cd`` into the new directory, you will see a folder structure as shown below:
 
-You will then have a folder structure as shown below.
+    .. code-block:: text
 
-.. code-block:: text
-
-     diffpy.utils/
+        my-package/
+        ├── LICENSE.rst
         ├── README.rst
         ├── environment.yml
         ├── pyproject.toml
         ├── requirements
-        │   ├── README.txt
         │   ├── conda.txt
         │   ├── pip.txt
         │   └── test.txt
         ├── src
-        │   └── diffpy
+        │   └── my_package
         │       ├── __init__.py
-        │       └── utils
-        │           ├── __init__.py
-        │           └── calculator.py
+        │       └── calculator.py
         └── tests
             └── test_calculator.py
 
-Install package
-^^^^^^^^^^^^^^^
+Install your package locally
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The goal is to reuse the code in ``calculator.py`` across all files in the project. First, you need to build and install the package locally.
+#. Build and install the package locally:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    pip install -e .
+        pip install -e .
 
-It also installs the dependencies listed in ``requirements/pip.txt``. The ``-e`` flag indicates that you want to install the package in "editable" mode, which means that any changes you make to the source code will be reflected immediately without needing to reinstall the package. This is useful for development purposes.
+    .. note:: What is the ``-e`` flag?
 
-Ensure the package is installed by running the following command:
+        ``pip install`` will also install the dependencies listed in ``requirements/pip.txt``. The ``-e`` flag indicates that you want to install the package in "editable" mode, which means that any changes you make to the source code will be reflected immediately without needing to reinstall the package. This is useful for development purposes.
 
-Check installation
-^^^^^^^^^^^^^^^^^^
+#. Check your package is installed in the conda environment:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    pip list
+        pip list
 
-You will see the package name in one of the lines in the output.
+#. Done! Let's now run unit tests with the locally installed package.
 
+Run tests with your locally installed package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Run tests
-^^^^^^^^^
+#. Install the testing dependencies for testing.
 
-Install the testing dependencies that are required for testing.
+    .. code-block:: bash
 
-.. code-block:: bash
+        conda install --file requirements/test.txt
 
-    pip install -r requirements/test.txt
+#. Then, run the tests using the following command:
 
-Then, run the tests using the following command:
+    .. code-block:: bash
 
-.. code-block:: bash
+        pytest
 
-    pytest tests
+#. Ensure tests all pass.
 
-It should pass. That means the scripts located under ``tests`` are able to import the installed package.
+#. Check that ``tests/test_calculator.py``. Notice you are importing the locally installed package.
 
+#. Congratulations! Your package is now available for use in any Python script or Jupyter notebook on your local computer.
 
-Reuse code across any files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-It's time to use the code across any file. Create a Python file anywhere on your computer. Then, simply import the package and use the function ``dot_product`` defined in ``calculator.py``. Here is an example of how to do this:
-
-.. code-block:: python
-
-    # any python file
-    from diffpy.utils import calculator
-
-    v1 = [1, 2]
-    v2 = [3, 4]
-    print(calculator.dot_product(v1, v2))  # returns 11
-
-Use ``pre-commit`` to format code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Then, feel free to run ``pre-commit`` to automate your code formatting manually by following the instructions provided at the end of Level 3 :ref:`here<pre-commit-manual>`.
-
-
-(optional) Automate running pre-commit when a new git commit is attempted
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-While you can run ``pre-commit`` manually, it is also possible to have these ``pre-commit`` hooks run automatically when you make a commit.
-
+#. Done! Let's now learn to automate your code formatting locally.
 
 .. note::
 
-    Here, we assume you are familiar with the general GitHub workflow. If you are not, please refer to the FAQ guide on GitHub workflow.
-
-First, ensure that git is initialized in your project folder. You can do this by running the following command:
-
-.. code-block:: bash
-
-    git init
-    git add .
-
-Then ensure that ``pre-commit`` is run automatically before a new commit is made:
-
-.. code-block::
-
-    pre-commit install
-
-You can set it up as follows by first initializing the git repository and then running the following commands:
-
-.. code-block:: bash
-
-    git commit -m "Test pre-commit hooks"
-
-This attempts to first run all the hooks defined in the ``.pre-commit-config.yaml`` file. If any of the hooks fail, the commit will be aborted, and you will need to fix the issues before trying to make a commit again.
-
-To double check that the previous commit was successful, you can run the following command:
-
-.. code-block:: bash
-
-    git log
+    Why is it required to list dependencies both under ``pip.txt`` and ``conda.txt``? Please refer to the FAQ section :ref:`here<_faq-dependency-management>`.
 
 
-(optional, important) Set up ``pre-commit CI`` in your GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Automatic code formatting with ``pre-commit``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you maintain a project from multiple contributorss, you want to ensure the codebase always passes ``pre-commit`` hooks defined in ``.pre-commit-config.yaml``. Often, external contributors may not have ``pre-commit`` installed locally and attempt to create a pull request (PR).
+Notice that there is a hidden file called ``.pre-commit-config.yaml`` in the root directory. This file is used to configure pre-commit "hooks". These hooks are checks that can be automatically executed when you commit your code to Git.
 
-The ``pre-commit-CI`` app installed in the GitHub repository will first try to lint and format the code in the PR, and then check against the hooks again. If any of the hooks fail, it wilgl clearly mark the pull request with a failed check.
+.. note::
 
-Please see Appendix 1 below on how to set up ``pre-commit CI`` in your GitHub repository.
+    If you are not familiar with Git/GitHub, don't worry. Here, we provide step-by-step instructions.
 
-(optional) Set up ``Codecov`` in your GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+#. Initialize a local Git repository in your project folder:
 
-Codecov is a tool that helps you track the code coverage of your tests. It provides a web interface to visualize the coverage data and can be integrated with GitHub Actions to automatically upload coverage reports after running tests. This is important because when a new feature is requested, we want to ensure the contributor writes tests. If no tests are written for the new code, it will result in failed checks. See Appendix 2 below on how to set up ``Codecov`` in your GitHub repository.
+    .. code-block:: bash
 
-.. include:: snippets/pre-commit-codecov-github-setup.rst
+        git init
+
+#. Add your files to the local Git repository:
+
+    .. code-block:: bash
+
+        git add .
+
+#. Format your code by running:
+
+    .. code-block:: bash
+
+        pre-commit run --all-files
+
+#. Ensure that all of the checks pass.
+
+    .. code-block:: text
+
+        black....................................................................Passed
+        prettier.................................................................Passed
+        docformatter.............................................................Passed
+
+    .. note::
+
+        ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
+
+
+#. Done! You have successfully formatted your code. But, let's also make sure these hooks are triggered automatically when you make a commit.
+
+Trigger pre-commit hooks automatically with Git commit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Configure ``pre-commit`` to run each time a new commit is made:
+
+    .. code-block:: bash
+
+        pre-commit install
+
+#. Let's now stage and commit the code:
+
+    .. code-block:: bash
+
+        git add .
+        git commit -m "skpkg: start a new project with skpkg system template"
+
+#. Notice that the hooks all pass. You will see the new commit in the git log:
+
+    .. code-block:: bash
+
+        git log
+
+    .. note::
+
+        If one or more of the hooks fail, no commit will be made. But, ``pre-commit`` will automatically lint your code too. If this is the case, simply re-enter the same commit message again.
+
+#. Done. Let's now push your code to GitHub, which is a remote/cloud Git repository.
+
+Create a new project on GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Visit `https://github.com/new <https://github.com/new>`_
+
+#. Choose and enter values for ``Owner`` and ``Repository name``.
+
+#. Choose ``Public`` or ``Private``.
+
+#. Check ``Add a README file``.
+
+#. Set ``None`` under ``Add .gitignore``.
+
+#. Set ``None`` under ``Choose a license``.
+
+#. Click the ``Create repository`` green button to create the repository.
+
+#. Done. Let's push your code from your local Git repository to the remote GitHub repository.
+
+
+Push your code to GitHub repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Set up the remote GitHub repository. Let's call this repository ``origin``, a common name for the remote repository.
+
+    .. code-block:: bash
+
+        git remote add origin https://github.com/<OWNER>/<project-name>.git
+
+
+#. Pull the code from the remote ``main`` branch. Recall we had a ``README.md`` file created.
+
+    .. code-block:: bash
+
+        git pull origin main
+
+#. Create a new local branch from the ``main`` branch. Let's call this branch ``skpkg-proj``.
+
+    .. code-block:: bash
+
+        git checkout -b skpkg-proj
+
+    .. note::
+
+        The ``-b`` flag indicates that you want to create a new branch if it does not already exist.
+
+
+#. Remove the ``README.md`` file. We already have a ``README.rst`` file created with ``scikit-package``.
+
+    .. code-block:: bash
+
+        rm README.md
+
+#. Let's now stage and commit the code.
+
+    .. code-block:: bash
+
+        git add README.md
+        git commit -m "chore: remove README.md file pulled from remote main branch"
+
+    .. note::
+
+        You may wonder why we ``git add README.md``. While we removed it from our local computer, we still have to let the local Git repository know manually that it has been removed. Recall that when you run ``git init``, it creates a hidden folder called ``.git`` in your local project directory.
+
+#. Let's now push our code to the new ``skpkg-proj`` local branch and push to the remote ``skpkg-proj`` branch.
+
+    .. code-block:: bash
+
+        git push --set-upstream origin skpkg-proj
+
+#. Visit your remote GitHub repository. You should see the new branch ``skpkg-proj``.
+
+#. Let's then merge the code from the remote ``skpkg-proj`` to the remote ``main`` branch via a pull request (PR).
+
+#. Done!
+
+Create a pull request from ``skpkg-proj`` to ``main``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Visit your GitHub repository.
+
+#. Click on the new green button that says ``Compare & pull request``.
+
+#. The PR title can be ``skpkg: start a new project with skpkg system template``.
+
+#. The ``base`` branch should be ``main`` and the ``compare`` branch should be ``skpkg-proj``.
+
+#. Click on the ``Create pull request`` button.
+
+#. Wait for ``Tests on PR`` to run and pass. It runs ``pytest`` on the incoming code in each pull request.
+
+#. While waiting, review the files that are changed. Ensure the only file removed is ``README.md``.
+
+#. Do not merge the PR yet! Let's set up ``pre-commit`` in this GitHub repository as well so that it runs the hooks in each PR.
+
+
+.. note:: Why do I need to set up ``pre-commit CI``?
+
+    While our code is formatted locally before anything is pushed to the remote repository, it may not be the case for others. Hence, we want to ensure the code is formatted automatically by ``pre-commit`` in each pull request. This is done by setting up ``pre-commit CI`` in the GitHub (remote) repository.
+
+
+Setup pre-commit CI in GitHub repository for public repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. important::
+
+    ``pre-commit CI`` is FREE for ``public`` repositories. If you are using a private repository, you may skip this section.
+
+.. include:: snippets/github-pre-commit-setup.rst
+
+
+Merge the pull request
+^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Merge the PR.
+
+#. Delete the ``skpkg-proj`` branch after merging.
+
+#. Check that your remote ``main`` branch is updated!
+
+#. Congratulations! You are done with Level 4!
+
+
+How to develop your code moving forward
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Assume that you have successfully followed the previous steps. Now, you want to add new code to your GitHub repository. Perhaps you are working with a group of people. Here is a high-level overview with step-by-step instructions on how to do that:
+
+#. Pull the latest code from the remote ``main`` branch:
+
+    .. code-block:: bash
+
+        git checkout main
+        git pull origin main
+
+    .. note::
+
+        Recall that we used the name ``origin`` as the nickname for the remote GitHub repository.
+
+#. Ensure that your local ``main`` branch is synced with the remote ``main`` branch by running:
+
+    .. code-block:: bash
+
+        git log
+
+#. Create a new local branch from the ``main`` branch. Let's call this branch ``skpkg-proj``:
+
+    .. code-block:: bash
+
+        git checkout -b <branch-name>
+
+#. Modify any file that you want. Then, stage and commit the changes:
+
+    .. code-block:: bash
+
+        git add <file-modified-added-deleted>
+        git commit -m "feat: <your commit message>"
+
+#. Push your code from ``<branch-name>`` to the remote ``<branch-name>`` branch:
+
+    .. code-block:: bash
+
+        git push --set-upstream origin <branch-name>
+
+#. Visit your GitHub repository.
+
+#. Create a PR from ``<branch-name>`` to ``main``.
+
+#. Wait for the ``Tests on PR`` and ``pre-commit`` checks to pass.
+
+#. Merge the PR, delete the branch.
+
+#. Repeat the steps in this section.
+
+#. Done!
+
+
+What's next?
+^^^^^^^^^^^^
+
+.. note::
+
+    Make sure you check out the best practices and Billinge group's guidelines for communications and examples in the FAQ section :ref:`here<frequently-asked-questions>`.
+
+
+Once you are ready to release your package to the wider world, let's proceed to :ref:`Level 5<start-new-project-package-full>` where you will learn to release your package to PyPI and conda-forge so that your package can be installed by anyone in the world.

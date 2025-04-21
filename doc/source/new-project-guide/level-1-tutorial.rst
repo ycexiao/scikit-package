@@ -1,14 +1,32 @@
 Level 1. Reuse code within a file
 ---------------------------------
 
-This is the simplest level of reusing code. For this tutorial, let's assume you have a function called ``dot_product`` which calculates the dot product of two vectors using NumPy. Here is the folder structure for this example:
+Overview
+^^^^^^^^
+
+By the end of the tutorial, you will be able to reuse code within a file by creating a function. This is the first step in reusing code in Python. You will learn how to create a function and call it multiple times within the same file.
+
+Prerequisites
+^^^^^^^^^^^^^
+
+We assume you have a basic understanding of executing a Python script in a command-line tool. We also assume that you have used the ``numpy`` Python library.
+
+
+Folder structure
+^^^^^^^^^^^^^^^^
+
+Here is the folder structure for this example:
 
 .. code-block:: text
 
     my_project/
     └── calculator.py
 
+Example code
+^^^^^^^^^^^^
+
 In the ``calculator.py`` file, define a function called ``dot_product`` that takes two vectors as input and returns their dot product:
+
 
 .. code-block:: python
 
@@ -19,7 +37,7 @@ In the ``calculator.py`` file, define a function called ``dot_product`` that tak
         """Calculate the dot product of two vectors."""
         return np.dot(a, b)
 
-Below, let's reuse the function within the same file:
+In the same file, copy and paste the block of code below to reuse the function ``dot_product``.
 
 .. code-block:: python
 
@@ -32,7 +50,19 @@ Below, let's reuse the function within the same file:
     v4 = [7, 8]
     print(dot_product(v3, v4))  # returns 83
 
-Then run ``python calculator.py`` in the command-line tool. You should see the outputs of 11 and 83 printed.
+Install ``numpy`` by running:
+
+.. code-block:: bash
+
+    pip install numpy
+
+Then run
+
+.. code-block:: bash
+
+    python calculator.py
+
+You should see the outputs of 11 and 83 printed.
 
 Here is the full content of the ``calculator.py`` file:
 
@@ -53,28 +83,23 @@ Here is the full content of the ``calculator.py`` file:
     v4 = [7, 8]
     print(dot_product(v3, v4))  # returns 83
 
-.. _setup-up-conda-environment:
 
 Are you having trouble running the code?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
-    For those who are not familiar with Python, ensure you have ``numpy`` installed by running ``pip install numpy`` or ``conda install numpy`` in your command-line tool.
+    For those who are not familiar with Python, ensure you have ``numpy`` installed by running ``pip install numpy`` or ``conda install numpy``.
 
-    If your code still does not run, please ensure conda is installed on your local computer. conda is an open-source package and environment management system that allows you to create isolated environments to install software, including Python and its packages. The instructions for conda installation can be found at https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html.
+    If your code still does not run, we recommend setting up a conda environment. conda is an open-source package and environment management software that allows you to create isolated environments to install software, including Python and its packages. The instructions for conda installation can be found at https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html.
 
     Once you have conda installed on your computer, run the following commands:
 
-    .. code-block:: bash
+Once you have conda installed on your computer, run the following commands:
 
-        # Create a new environment, specify the Python version, and install packages
-        conda create -n <project-name>_env
+.. include:: snippets/conda-env-setup-simple.rst
 
-        # Activate the environment
-        conda activate <project-name>_env
+What's next?
+^^^^^^^^^^^^
 
-        # Install numpy
-        conda install numpy
-
-        # Run the script
-        python calculator.py
+You may proceed to Level 2 below. You will learn to share the ``doc_product`` across multiple Python files and modules.
