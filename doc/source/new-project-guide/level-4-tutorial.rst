@@ -3,14 +3,12 @@ Overview
 
 In Level 3, you learned to reuse code across multiple projects. Here, you will learn to reuse code across all files on your local computer by turning your project into an installable Python package. Hence, Level 4 is also referred to as ``system``.
 
-In Level 4, you will also learn to utilize GitHub.
-
-This tutorial will take about 10 to 15 minutes.
+This tutorial may take about 10 to 15 minutes.
 
 Prerequisites
 ^^^^^^^^^^^^^
 
-We assume you have at least hosted one project on GitHub. If you are new to GitHub, please refer to the FAQ guide on GitHub workflow.
+We assume you have at least hosted one project on GitHub. If you are new to GitHub, please refer to the FAQ guide on GitHub workflow :ref:`here <faq-github-workflow>`.
 
 .. include:: snippets/scikit-installation.rst
 
@@ -196,7 +194,7 @@ Create a new project on GitHub
 
 #. Choose and enter values for ``Owner`` and ``Repository name``.
 
-#. Choose ``Public`` or ``Private``
+#. Choose ``Public`` or ``Private``.
 
 #. Check ``Add a README file``.
 
@@ -280,12 +278,12 @@ Create a pull request from ``skpkg-proj`` to ``main``
 
 #. Wait for ``Tests on PR`` to run and pass. It runs ``pytest`` on the incoming code in each pull request.
 
-#. While waiting, review the files that are changed. Ensure the only file removed is ``REAMDE.md``.
+#. While waiting, review the files that are changed. Ensure the only file removed is ``README.md``.
 
 #. Do not merge the PR yet! Let's set up ``pre-commit`` in this GitHub repository as well so that it runs the hooks in each PR.
 
 
-.. note:: Why do I need to setup ``pre-commit CI``?
+.. note:: Why do I need to set up ``pre-commit CI``?
 
     While our code is formatted locally before anything is pushed to the remote repository, it may not be the case for others. Hence, we want to ensure the code is formatted automatically by ``pre-commit`` in each pull request. This is done by setting up ``pre-commit CI`` in the GitHub (remote) repository.
 
@@ -295,7 +293,7 @@ Setup pre-commit CI in GitHub repository for public repository
 
 .. important::
 
-    ``pre-commit CI`` is FREE for ``public`` repositories. If you are using a private repositry, you may skip this section.
+    ``pre-commit CI`` is FREE for ``public`` repositories. If you are using a private repository, you may skip this section.
 
 .. include:: snippets/github-pre-commit-setup.rst
 
@@ -326,7 +324,7 @@ Assume that you have successfully followed the previous steps. Now, you want to 
 
     .. note::
 
-        Recall that we used the name ``origin`` as the nicnkname for the remote GitHub repository.
+        Recall that we used the name ``origin`` as the nickname for the remote GitHub repository.
 
 #. Ensure that your local ``main`` branch is synced with the remote ``main`` branch by running:
 
@@ -355,9 +353,9 @@ Assume that you have successfully followed the previous steps. Now, you want to 
 
 #. Visit your GitHub repository.
 
-#. Create a PR from ``<branch-name`` to ``main``.
+#. Create a PR from ``<branch-name>`` to ``main``.
 
-#. Wait for the ``Tests on PR`` and ``pre-commit`` checks to pass
+#. Wait for the ``Tests on PR`` and ``pre-commit`` checks to pass.
 
 #. Merge the PR, delete the branch.
 
@@ -374,4 +372,4 @@ What's next?
     Make sure you check out the best practices and Billinge group's guidelines for communications and examples in the FAQ section :ref:`here<frequently-asked-questions>`.
 
 
-Once you are ready to release your package to the wider world, let's proceed to Level 5 where you will learn release your package to PyPI and conda-forge so that you package can be installed by anyone in the world.
+Once you are ready to release your package to the wider world, let's proceed to :ref:`Level 5<start-new-project-package-full>` where you will learn to release your package to PyPI and conda-forge so that your package can be installed by anyone in the world.
