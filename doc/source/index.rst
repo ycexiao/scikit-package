@@ -98,8 +98,8 @@ Table of contents
    start-new-project-no-package
    start-new-project-package-lightweight
    start-new-project-package-full
-   release-guide
-   conda-forge-guide
+   pypi-release-guide
+   conda-forge-release-guide
    migration-guide
    frequently-asked-questions
    license

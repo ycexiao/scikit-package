@@ -32,7 +32,7 @@ To skip files checked by ``flake8``, include the file path in ``.flake8`` under 
 
 To prevent ``black`` from formatting, include the file path in ``pyproject.toml`` under the ``[tool.black]`` section.
 
-.. _codespell-add-word:
+.. _codespell-ignore:
 
 How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -459,10 +459,10 @@ Another key difference is that with ``pull_request_target``, the ``.yml`` file *
 Dependency management
 ---------------------
 
-.. _faq-pip-conda-both-provided:
+.. _faq-dependency-files:
 
-What are the the pip.txt, conda.txt, test.txt, docs.txt, and build.txt files?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What are ``docs.txt``, ``test.txt``, ``build.txt``, and ``conda.txt`` files under ``\requirements`` in Level 4 and Level 5?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :pip.txt: list all PyPI packages required to install the package via `pip install <package-name>`.
 
@@ -474,7 +474,11 @@ What are the the pip.txt, conda.txt, test.txt, docs.txt, and build.txt files?
 
 :build.txt: list all conda packages required for building the package in GitHub CI, including those specified in the build section of meta.yaml (conda-recipe).
 
-Why are both pip.txt and conda.txt provided?
+
+.. _faq-pip-conda-both-provided:
+
+
+Why are both ``pip.txt`` and ``conda.txt`` provided?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Our preferred choice for installing the scikit-packaged package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new_env <package-name>``. Additionally, the environment is tested via conda-forge CI before the Conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
