@@ -51,9 +51,7 @@ Go to your project directory
 
         package create public
 
-.. _level-5-user-input:
-
-#. Answer the following questions:
+#. Anwer the following questions:
 
     :proj_owner_name: e.g., Simon J. L. Billinge
 
@@ -249,7 +247,7 @@ Congratulations! You are done with migrating your package from Level 4 to Level 
 
     .. important::
 
-        For writing great news items, Python docstrings, tests, and commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
+    For writing great news items, Python docstring, tests, commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
 
 Build API documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^
