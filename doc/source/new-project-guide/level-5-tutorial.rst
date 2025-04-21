@@ -4,24 +4,22 @@ Level 5. Share code as public package
 Overview
 ^^^^^^^^
 
-In this guide, you will learn how to use GitHub CI to release your package to PyPI and conda-forge.
+In this guide, you will learn to migrate your package from Level 4 to Level 5. Once you have your package up to the Level 5 standard, you can share your code with the world.
 
 Prerequisites
 ^^^^^^^^^^^^^
 
-- You already have completed and created your scientific code in Level 4 where you have a lightweight Python package that can be installed locally. Your porject is hosted in a GitHub repository.
+- You have already completed and created your scientific code in Level 4, where you have a lightweight Python package that can be installed locally and have your project hosted on GitHub.
 
-What's the difference between level 4 and level 5?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What's the difference between Level 4 and Level 5?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Besides the final goal of releasing your package, you will also have the following features:
 
-- Develop documentation with Sphinx with liveloading.
-- Host documentation on public URL with GitHub Pages.
-- Use GitHub tag to release your package to to GitHub and PyPI
-- Maintain changelog and release notes automatically for each version.
-
-
+- Develop documentation with Sphinx with live loading.
+- Host documentation on a public URL with GitHub Pages.
+- Use GitHub tags to release your package to GitHub and PyPI.
+- Maintain changelogs and release notes automatically for each version.
 
 Create a new project with ``scikit-package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -33,12 +31,11 @@ Make sure you have the latest version of ``scikit-package`` installed as shown i
 Go to your project directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
 #. Visit your project directory and sync with the latest version of the main branch.
 
     .. code-block:: bash
 
-        cd <projet-name>
+        cd <project-name>
         git checkout main
         git pull origin main
 
@@ -48,13 +45,13 @@ Go to your project directory
 
         git checkout -b skpkg-public
 
-#. Create a enw project with ``scikit-package`` with the Level-5 ``public`` template.
+#. Create a new project with ``scikit-package`` using the Level-5 ``public`` template.
 
     .. code-block:: bash
 
         package create public
 
-#. Anwer the following questions:
+#. Answer the following questions:
 
     :proj_owner_name: e.g., Simon J. L. Billinge
 
@@ -66,7 +63,7 @@ Go to your project directory
 
     :license_holders: e.g., The Trustees of Columbia University in the City of New York.
 
-    :proj_name: For namespace package, use e.g., ``<org.projet-name>``.
+    :proj_name: For namespace packages, use e.g., ``<org.project-name>``.
 
     :gh_org: The GitHub organization name or owner's GitHub username. e.g., billingegroup or sbillinge.
 
@@ -76,19 +73,17 @@ Go to your project directory
 
     :package_dir_name: The name of the package directory under ``src``.
 
-    :proj_short_description: e.g., A Python package standard and generator for scientific code..
+    :proj_short_description: e.g., A Python package standard and generator for scientific code.
 
     :keywords: Each word is separated by a comma and a space. e.g., ``pdf, diffraction, neutron, x-ray``.
 
-    :min_python_version: The min Python version for package distribution.
+    :min_python_version: The minimum Python version for package distribution.
 
-    :max_python_version: The max Python version for package distribution.
+    :max_python_version: The maximum Python version for package distribution.
 
-    :needs_c_code_compiled: Whether C/C++ is compiled to build the package. For pure Python package, type ``1`` to select ``No``.
+    :needs_c_code_compiled: Whether C/C++ is compiled to build the package. For a pure Python package, type ``1`` to select ``No``.
 
     :has_gui_tests: Whether the package runs headless testing in GitHub CI. If your package does not contain a GUI, type ``1`` to select ``No``.
-
-
 
 #. Enter the Level 5 project.
 
@@ -96,7 +91,7 @@ Go to your project directory
 
         cd my-package
 
-#. Check that you have the following nested folder strcture. Here is the structure. We will go through each file and folder.
+#. Check that you have the following nested folder structure. Here is the structure. We will go through each file and folder.
 
     .. code-block:: text
 
@@ -122,11 +117,10 @@ Go to your project directory
         ├── src
         └── tests
 
-  
 Migration code from Level 4 to Level 5
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Move the local ``git`` repository from the Level 4 to Level 5 folder.
+#. Move the local ``git`` repository from the Level 4 to the Level 5 folder.
 
     .. code-block:: bash
 
@@ -154,50 +148,47 @@ Migration code from Level 4 to Level 5
         pip install -e .
         pytest
 
-#. Once the tests pass, now, let's manually migrate hand-written files like ``REAMDE.rst`` from Level 4 to Level 5.
+#. Once the tests pass, let's manually migrate hand-written files like ``README.rst`` from Level 4 to Level 5.
 
 #. Done!
 
 Build documentation locally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``/doc`` is the the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
+``/doc`` is the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
 
 .. include:: snippets/doc-local-build.rst
 
-
-
-Upload yor code to GitHub
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Upload your code to GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Let's now add all the files and folders to the GitHub repository.
 
 #. Since the template is expected to work out of the box from Level 4 to 5, we can simply git add all the files and folders to the GitHub repository.
 
-        .. code-block:: bash
+    .. code-block:: bash
 
-            git add .
-            git commit -m "skpkg: migrate from Level 4 to Level 5"
-            git push --set-upstream origin skpkg-public
+        git add .
+        git commit -m "skpkg: migrate from Level 4 to Level 5"
+        git push --set-upstream origin skpkg-public
 
+#. Let's not migrate our code to the ``main`` branch just yet since mistakes could happen. Let's create a new branch called ``skpkg-migration``.
 
-#. Let's not migrate our code to ``main`` branch just yet since mistakes could happen. Let's create a new branch called ``skpkg-migration``.
-
-#. Vist your GitHub repositoy. On the main page, notice the ``main`` branch clickable button, and it says, ``Find or create a branch``. 
+#. Visit your GitHub repository. On the main page, notice the ``main`` branch clickable button, and it says, ``Find or create a branch``.
 
 #. Enter ``skpkg-migration`` in the text box. Click on the ``Create branch: skpkg-migration from main`` button.
 
-#. Create a PR from ``skpkg-public`` to a new branch called ``skpkg-migration`` branch.
+#. Create a PR from ``skpkg-public`` to a new branch called ``skpkg-migration``.
 
-#. Set the PR title as ``skpkg: migrate from Level 4 to Level 5``
+#. Set the PR title as ``skpkg: migrate from Level 4 to Level 5``.
 
     .. note::
 
         There are some important files and folders that are different from Level 4. Don't worry about them. We will go through them one by one for each section throughout the guide.
-        
+
 #. Expect ``tests-on-PR`` to fail while ``pre-commit CI`` works.
 
-#. Merge the PR to ``skpkg-migration`` branch. It's okay that the CI fail. We will fix it in the following section.
+#. Merge the PR to the ``skpkg-migration`` branch. It's okay that the CI fails. We will fix it in the following section.
 
 #. Let's fix the ``Codecov`` CI error in the following section.
 
@@ -206,17 +197,16 @@ Setup Codecov token for GitHub repository
 
 .. include:: snippets/github-codecov-setup.rst
 
-
 Add news items in your pull request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are happy with the changess, let's merge the code from ``skpkg-migration`` to ``main`` branch. 
+If you are happy with the changes, let's merge the code from ``skpkg-migration`` to the ``main`` branch.
 
 However, before merging to ``main``, you are required to add a news item for the changes made in the PR. This is to ensure that the changes are documented in the ``CHANGELOG.rst`` when you create a new release as shown in https://billingegroup.github.io/scikit-package/release.html for example.
 
-We require that each PR includes a news item of ``<branch-name>.rst`` file under the ``news`` directory. 
+We require that each PR includes a news item as a ``<branch-name>.rst`` file under the ``news`` directory.
 
-#. Get the latest updates from the the remote GitHub repository
+#. Get the latest updates from the remote GitHub repository.
 
     .. code-block:: bash
 
@@ -225,16 +215,17 @@ We require that each PR includes a news item of ``<branch-name>.rst`` file under
 #. Check out the ``skpkg-migration`` branch and sync with the remote branch.
 
     .. code-block:: bash
+
         git checkout skpkg-migration
         git pull origin skpkg-migration
 
-#. Make a copy of  ``news/TEMPLATE.rst`` and rename it to ``news/<branch-name>.rst``. 
+#. Make a copy of ``news/TEMPLATE.rst`` and rename it to ``news/<branch-name>.rst``.
 
     .. code-block:: bash
 
         cp news/TEMPLATE.rst news/skpkg-migration.rst
 
-#. Do not delete ``news/TEMPLATE.rst``. Leave as it is.
+#. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
 
 #. Do not modify other section headers in the rst file. Replace ``* <news item>`` with your news item.
 
@@ -252,14 +243,16 @@ We require that each PR includes a news item of ``<branch-name>.rst`` file under
 
         How do you write good news and also what if no news is needed? Check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
 
+Congratulations! You are done with migrating your package from Level 4 to Level 5. You can now start writing docstrings for your Python code and tests for your code. Then, also write good documentation for your code, including Getting Started guides.
 
-What's next?
-^^^^^^^^^^^^
+    .. important::
 
-You should be writing docstrings and tests for your code. Then, also write a good documentation for your code including Getting started guides.
+        For writing great news items, Python docstrings, tests, and commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
 
 
-.. important::
+Ready for public release?
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    For writing great news items, Python docstring, tests, commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
+Please follow the release guide :ref:`here<release-guide>`.
+
 
