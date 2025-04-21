@@ -7,6 +7,8 @@ For each PR, we use ``Codecov`` to report the test coverage percentage change as
 
 To do so, the repository owner needs to provide a ``CODECOV_TOKEN``.  Please follow the step-by-step guide below.
 
+#. Ensure your GitHub repository is public.
+
 #. Visit https://app.codecov.io/
 
 #. Connect your repository or organization with Codecov by clicking ``Configure Codecov's GitHub app``, shown below:

@@ -1,24 +1,26 @@
-Follow these steps sequentially:
 
-.. code-block:: bash
+``/doc`` is the the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
 
-    # Create a new environment, specify the Python version and install packages
-    conda create -n <project-name>_env \
-        --file requirements/test.txt \
-        --file requirements/conda.txt \
-        --file requirements/build.txt
+#. Build the documentation locally by running:
 
-    # Activate the environment
-    conda activate diffpy_utils_env
+    .. code-block:: bash
 
-    cd doc
-    make html
-    open open build/html/index.html
+        conda install --file requirements/docs.txt
 
-To run as a single command:
+#. Then we will use an external tool called ``sphinx-reload`` to automatically reload the documentation when you make changes to ``.rst`` files.
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    cd doc && make html && open build/html/index.html && cd ..
+        pip install sphinx-reload
 
-Your default browser will open the documentation in a new window.
+    .. note::
+
+        ``sphinx-reload`` is only available via pip install.
+
+#. A HTML will appear automatically in your browser by running the following command:
+
+    .. code-block:: bash
+
+        sphinx-reload doc
+
+#. Done! Later, you will learn to host this documentation on GitHub Pages via public URL.

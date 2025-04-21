@@ -4,91 +4,262 @@ Level 5. Share code as public package
 Overview
 ^^^^^^^^
 
-Here you will learn how to use GitHub CI to release your package to PyPI and conda-forge.
+In this guide, you will learn how to use GitHub CI to release your package to PyPI and conda-forge.
+
+Prerequisites
+^^^^^^^^^^^^^
+
+- You already have completed and created your scientific code in Level 4 where you have a lightweight Python package that can be installed locally. Your porject is hosted in a GitHub repository.
 
 What's the difference between level 4 and level 5?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For completeness, we will repeat the steps from Level 4 from installing ``scikit-package``, hosting your project on GitHub, and setting up ``pre-commit CI`` and ``Codecov`` via GitHub Actions.
+Besides the final goal of releasing your package, you will also have the following features:
 
-If you are not ready to share your code with the world, we recommend you continue developing code in Level 4 and conitnue to beneift the simple strcutre. 
-
-Here are a few powertful extra features of Level 5:
-
-- Build documentation locally with Sphinx with liveloading.
-- Build and host documentation on GitHub Pages with public URL
+- Develop documentation with Sphinx with liveloading.
+- Host documentation on public URL with GitHub Pages.
 - Use GitHub tag to release your package to to GitHub and PyPI
-- Use PyPI's uploaded source code to create conda-forge package
+- Maintain changelog and release notes automatically for each version.
+
+
 
 Create a new project with ``scikit-package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: snippets/package-public-user-inputs.rst
+Make sure you have the latest version of ``scikit-package`` installed as shown in Level 4.
 
-Check folder structure
-^^^^^^^^^^^^^^^^^^^^^^^
+.. include:: snippets/scikit-installation.rst
 
-Here is the structure. We will go through each file and folder.
-
-.. code-block:: text
-
-    ├── AUTHORS.rst
-    ├── CHANGELOG.rst
-    ├── CODE_OF_CONDUCT.rst
-    ├── LICENSE.rst
-    ├── MANIFEST.in
-    ├── README.rst
-    ├── doc
-    ├── news
-    ├── pyproject.toml
-    ├── requirements
-    ├── src
-    └── tests
-
-There are some important files and folders you need to pay attention to.
-
-:CHANGELOG.rst: The list of changes made to the package for each version released. When a new release is created, the changelog is automatically updated.
-:/doc: The Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
-:/news: The folder where you will put news items for each pull request. The news items are then automatically compiled into the CHANGELOG.rst when a new release is created.
-
-We will go through the important files and folders with examples together.
+Go to your project directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
+#. Visit your project directory and sync with the latest version of the main branch.
 
-.. include:: snippets/naming-practice-namespace.rst
+    .. code-block:: bash
 
-.. include:: new-project-guide/level-4-5-shared-install-tests-host.rst
+        cd <projet-name>
+        git checkout main
+        git pull origin main
 
-.. note:: 
-    
-    What is Codecov? 
-    
-        Codecov is a tool that helps you track the code coverage of your tests. It provides a web interface to visualize the coverage data and can be integrated with GitHub Actions to automatically upload coverage reports after running tests on each PR.
+#. Create a new branch where you will initiate a new project.
 
-    Where is the code for ``tests-on-PR``?
+    .. code-block:: bash
 
-        The code for the ``tests-on-PR`` GitHub Action is located in the ``.github/workflows`` directory of your GitHub repository. It is a YAML file that defines the workflow for running tests on pull requests. The workflow is triggered whenever a pull request is opened or updated, and it runs the tests using pytest and uploads the coverage report to Codecov.
+        git checkout -b skpkg-public
+
+#. Create a enw project with ``scikit-package`` with the Level-5 ``public`` template.
+
+    .. code-block:: bash
+
+        package create public
+
+#. Anwer the following questions:
+
+    :proj_owner_name: e.g., Simon J. L. Billinge
+
+    :proj_owner_email: e.g., sbillinge@columbia.edu
+
+    :proj_owner_gh_username: e.g., sbillinge
+
+    :contributors: e.g., Billinge Group members and community contributors.
+
+    :license_holders: e.g., The Trustees of Columbia University in the City of New York.
+
+    :proj_name: For namespace package, use e.g., ``<org.projet-name>``.
+
+    :gh_org: The GitHub organization name or owner's GitHub username. e.g., billingegroup or sbillinge.
+
+    :gh_repo_name: e.g., my-package. The repository name of the project displayed on GitHub.
+
+    :package_dist_name: The name in the package distribution in PyPI and conda-forge.
+
+    :package_dir_name: The name of the package directory under ``src``.
+
+    :proj_short_description: e.g., A Python package standard and generator for scientific code..
+
+    :keywords: Each word is separated by a comma and a space. e.g., ``pdf, diffraction, neutron, x-ray``.
+
+    :min_python_version: The min Python version for package distribution.
+
+    :max_python_version: The max Python version for package distribution.
+
+    :needs_c_code_compiled: Whether C/C++ is compiled to build the package. For pure Python package, type ``1`` to select ``No``.
+
+    :has_gui_tests: Whether the package runs headless testing in GitHub CI. If your package does not contain a GUI, type ``1`` to select ``No``.
+
+
+
+#. Enter the Level 5 project.
+
+    .. code-block:: bash
+
+        cd my-package
+
+#. Check that you have the following nested folder strcture. Here is the structure. We will go through each file and folder.
+
+    .. code-block:: text
+
+        my-package     # (Level 4)
+        └── my-package # (Level 5)
+            ├── AUTHORS.rst
+            ├── CHANGELOG.rst
+            ├── CODE_OF_CONDUCT.rst
+            ├── LICENSE.rst
+            ├── MANIFEST.in
+            ├── README.rst
+            ├── doc
+            ├── news
+            ├── pyproject.toml
+            ├── requirements
+            ├── src
+            └── tests
+        ├── LICENSE.rst
+        ├── README.rst
+        ├── environment.yml
+        ├── pyproject.toml
+        ├── requirements
+        ├── src
+        └── tests
+
+  
+Migration code from Level 4 to Level 5
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Move the local ``git`` repository from the Level 4 to Level 5 folder.
+
+    .. code-block:: bash
+
+        mv ../.git .
+
+#. Move the ``src`` and ``tests`` folders from Level 4 to Level 5.
+
+    .. code-block:: bash
+
+        cp -n -r ../src .
+        cp -n -r ../tests .
+
+#. Copy the requirements files from Level 4 to Level 5.
+
+    .. code-block:: bash
+
+        cp ../requirements/conda.txt ./requirements/conda.txt
+        cp ../requirements/pip.txt ./requirements/pip.txt
+        cp ../requirements/test.txt ./requirements/test.txt
+
+#. At this point, you should be able to install the package locally and test it.
+
+    .. code-block:: bash
+
+        pip install -e .
+        pytest
+
+#. Once the tests pass, now, let's manually migrate hand-written files like ``REAMDE.rst`` from Level 4 to Level 5.
+
+#. Done!
+
+Build documentation locally
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+``/doc`` is the the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
+
+.. include:: snippets/doc-local-build.rst
+
+
+
+Upload yor code to GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Let's now add all the files and folders to the GitHub repository.
+
+#. Since the template is expected to work out of the box from Level 4 to 5, we can simply git add all the files and folders to the GitHub repository.
+
+        .. code-block:: bash
+
+            git add .
+            git commit -m "skpkg: migrate from Level 4 to Level 5"
+            git push --set-upstream origin skpkg-public
+
+
+#. Let's not migrate our code to ``main`` branch just yet since mistakes could happen. Let's create a new branch called ``skpkg-migration``.
+
+#. Vist your GitHub repositoy. On the main page, notice the ``main`` branch clickable button, and it says, ``Find or create a branch``. 
+
+#. Enter ``skpkg-migration`` in the text box. Click on the ``Create branch: skpkg-migration from main`` button.
+
+#. Create a PR from ``skpkg-public`` to a new branch called ``skpkg-migration`` branch.
+
+#. Set the PR title as ``skpkg: migrate from Level 4 to Level 5``
+
+    .. note::
+
+        There are some important files and folders that are different from Level 4. Don't worry about them. We will go through them one by one for each section throughout the guide.
+        
+#. Expect ``tests-on-PR`` to fail while ``pre-commit CI`` works.
+
+#. Merge the PR to ``skpkg-migration`` branch. It's okay that the CI fail. We will fix it in the following section.
+
+#. Let's fix the ``Codecov`` CI error in the following section.
+
+Setup Codecov token for GitHub repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. include:: snippets/github-codecov-setup.rst
+
 
 Add news items in your pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+If you are happy with the changess, let's merge the code from ``skpkg-migration`` to ``main`` branch. 
+
+However, before merging to ``main``, you are required to add a news item for the changes made in the PR. This is to ensure that the changes are documented in the ``CHANGELOG.rst`` when you create a new release as shown in https://billingegroup.github.io/scikit-package/release.html for example.
+
 We require that each PR includes a news item of ``<branch-name>.rst`` file under the ``news`` directory. 
 
-#. Create a copy of  ``news/TEMPLATE.rst``.
-#. Name the file as ``news/<branch-name>.rst``. e.g., ``news/skpkg-proj.rst``.
+#. Get the latest updates from the the remote GitHub repository
+
+    .. code-block:: bash
+
+        git fetch --all
+
+#. Check out the ``skpkg-migration`` branch and sync with the remote branch.
+
+    .. code-block:: bash
+        git checkout skpkg-migration
+        git pull origin skpkg-migration
+
+#. Make a copy of  ``news/TEMPLATE.rst`` and rename it to ``news/<branch-name>.rst``. 
+
+    .. code-block:: bash
+
+        cp news/TEMPLATE.rst news/skpkg-migration.rst
+
 #. Do not delete ``news/TEMPLATE.rst``. Leave as it is.
+
 #. Do not modify other section headers in the rst file. Replace ``* <news item>`` with your news item.
+
 #. Check this example PR containing the news file: https://github.com/Billingegroup/scikit-package/pull/299/files
-#. ``git add news/skpkg-proj.rst`` and ``git commit -m "chore: Add news item"``
 
-How do you write coomand news file and commit messages?
+#. Push the change to the remote GitHub repository.
 
-    For news news, check the guidelines :ref:`here<faq-news-item-practice>`.
+    .. code-block:: bash
 
-    For commit messages, check the guidelines :ref:`here<faq-github-commit-issue-practice>`.
+        git add news/skpkg-migration.rst
+        git commit -m "chore: Add news item for skpkg-migration"
+        git push origin skpkg-migration
+
+    .. note::
+
+        How do you write good news and also what if no news is needed? Check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
 
 
-Setup GitHub Actions CI
-^^^^^^^^^^^^^^^^^^^^^^^
+What's next?
+^^^^^^^^^^^^
 
-.. include:: snippets/pre-commit-codecov-github-setup.rst
+You should be writing docstrings and tests for your code. Then, also write a good documentation for your code including Getting started guides.
+
+
+.. important::
+
+    For writing great news items, Python docstring, tests, commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
+

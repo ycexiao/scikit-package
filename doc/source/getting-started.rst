@@ -9,10 +9,13 @@ Getting started
 ===============
 
 
-.. include:: snippets/five-levels-table.rst
 
-- Are you here to start a new project? You can get started by creating a new lightweight Python project with ``scikit-package``. See :ref:`here <start-new-project-no-package>`.
+.. include:: snippets/5-levels-table.rst
 
-- Are you experienced with GitHub and you are interested in turning into an installable Python package to code available locally and also distribute to the public? See :ref:`here <start-new-project-package>`.
+- Are you here to start a new project?
 
-- Are you here to standardize your existing Python package to the ``scikit-package`` standard? See :ref:`here <standardize-existing-project>`.
+    If you are **new** to programming in general, we recommend you start from Level 1-3 where you learn to reuse your scripts across files and folders.
+
+    If you have experience in developing scientic code in Python, we recommend you start from Level 4, where you learn to turn your porject into a lightweight Python package that can be installed locally.
+
+- Are you here to migrate your existing Python package to the ``scikit-package`` standard? See :ref:`here <standardize-existing-project>`.

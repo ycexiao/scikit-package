@@ -16,12 +16,13 @@ Guidelines for writing news
 - Do not modify other section headers in the rst file. Replace ``* <news item>``
 - Begin with "No news", "no news", or "no news added" for trivial changes with the following format:
 - For consistency, start with a capital letter and a verb. End with a period. Ex) ``Add automatic linting of .md, .yml, .rst files via prettier hook in pre-commit.``
+- If you do not need to write a news item, still write the following format so that the CI can pass while it's not later merged to the ``CHANGELOG.rst`` file.
 
-.. code-block:: text
+    .. code-block:: text
 
-    **Added:**
+        **Added:**
 
-    * No news: <brief reason>
+        * No news: <brief reason>
 
 Where to place the news item in ``<branch-name>.rst``?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

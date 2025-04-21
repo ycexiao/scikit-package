@@ -132,6 +132,8 @@ We decided to include test files in the PyPI source distribution to facilitate u
 
 The conda-forge CI uses the source code distributed via PyPI to build a Conda package. After building the package, we want to run pytest to ensure all unit tests pass before release. Therefore, test files must be included in the source code. In contrast, no documentation is distributed with the package, as it is already accessible from the GitHub repository and does not serve a practical purpose in the distribution package itself.
 
+.. _faq-billinge-group-standards:
+
 Billinge Group standards
 ------------------------
 
@@ -172,7 +174,7 @@ How we write CHANGELOG.rst with news files in PRs
 
 .. include:: snippets/news-file-format.rst
 
-l Request practices
+GitHub Pull Request practices
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Have a theme for each PR to reduce cognitive overload for the reviewer.
@@ -452,11 +454,25 @@ For the current GitHub CI for checking a news item, ``pull_request_target`` is u
 
 Another key difference is that with ``pull_request_target``, the ``.yml`` file **must already be merged** in the base branch at the time the pull request is opened or updated. For more, please refer to `GitHub docs <https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target>`_.
 
+.. _faq-dependency-management:
+
 Dependency management
 ---------------------
 
-
 .. _faq-pip-conda-both-provided:
+
+What are the the pip.txt, conda.txt, test.txt, docs.txt, and build.txt files?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:pip.txt: list all PyPI packages required to install the package via `pip install <package-name>`.
+
+:conda.txt: list all Conda packages required for running the package in GitHub CI. It should be typically identcal as the ``pip.txt`` file.
+
+:test.txt: packages required for the testing suite to ensure all tests pass.
+
+:docs.txt: packages required for building the package documentation page.
+
+:build.txt: list all conda packages required for building the package in GitHub CI, including those specified in the build section of meta.yaml (conda-recipe).
 
 Why are both pip.txt and conda.txt provided?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -615,3 +631,4 @@ Again, you checkout a new branch from the ``main`` branch. You can name it anyth
   git checkout -b docs-typo
 
 You repeat the process of git add, commit, push to your ``origin`` (your forked repository) and then make a PR to the ``upstream`` repository (the organization's repository).
+

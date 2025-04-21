@@ -6,7 +6,7 @@ Overview
 
 In Level 3, you learned to reuse code across multiple projects. Here, you will learn to reuse code across all files on your local computer by turning your project into an installable Python package. Hence, Level 4 is also referred to as ``system``.
 
-In Level 4, you will also learn to utilize GitHub
+In Level 4, you will also learn to utilize GitHub.
 
 This tutorial will take about 10 to 15 minutes.
 
@@ -27,7 +27,7 @@ Initiate a project with ``scikit-package``
 
         package create system
 
-#. Anwer the following questions
+#. Answer the following questions:
 
     :project_name: (my-project)
 
@@ -67,7 +67,7 @@ Check folder structure
         │   ├── pip.txt
         │   └── test.txt
         ├── src
-        │   └── my_pacakge
+        │   └── my_package
         │       ├── __init__.py
         │       └── calculator.py
         └── tests
@@ -111,23 +111,27 @@ Run tests with your locally installed package
 
 #. Ensure tests all pass. 
 
-#. Check that ``tests/test_calculator.py``. Notice you are importin the locally installed package.
+#. Check that ``tests/test_calculator.py``. Notice you are importing the locally installed package.
 
-#. Congratulations! Your package is now available for use in any Python script or Jupyter notebook in your local computer.
+#. Congratulations! Your package is now available for use in any Python script or Jupyter notebook on your local computer.
 
-#. Done! Let's nov learn to use automate your code formatting locally.
+#. Done! Let's now learn to automate your code formatting locally.
+
+.. note::
+
+    Why is it required to list dependencies both under ``pip.txt`` and ``conda.txt``? Please refer to the FAQ section :ref:`here<_faq-dependency-management>`.
 
 
 Automatic code formatting with ``pre-commit``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Notice that there is a hidden file called ``.pre-commit-config.yaml`` in the root directory. This file is used to configure pre-commit "hooks". These hooks are checks that are can be automatically executed when you commit your code to Git.
+Notice that there is a hidden file called ``.pre-commit-config.yaml`` in the root directory. This file is used to configure pre-commit "hooks". These hooks are checks that can be automatically executed when you commit your code to Git.
 
 .. note::
 
-    If you are not familiar wtih Git/GitHub, don't worry. Here, we provide step-by-step instructions here.
+    If you are not familiar with Git/GitHub, don't worry. Here, we provide step-by-step instructions.
 
-#. Initilize a local Git repository in your project folder:
+#. Initialize a local Git repository in your project folder:
 
     .. code-block:: bash
 
@@ -158,10 +162,10 @@ Notice that there is a hidden file called ``.pre-commit-config.yaml`` in the roo
         ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
 
 
-#. Done! You have successfully formatted your code. But, let's also make sure these hooks are triggerd automatically when you make a commit.
+#. Done! You have successfully formatted your code. But, let's also make sure these hooks are triggered automatically when you make a commit.
 
 Trigger pre-commit hooks automatically with Git commit
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Configure ``pre-commit`` to run each time a new commit is made:
 
@@ -184,9 +188,9 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. note::
         
-        If one or more of the hooks fail, no commit will be made. But, ``pre-committ`` will automatically lint your code too. If this is the case, simply re-enter the same commit message again.
+        If one or more of the hooks fail, no commit will be made. But, ``pre-commit`` will automatically lint your code too. If this is the case, simply re-enter the same commit message again.
 
-#. Done. Let's now push your code to GitHub which is a remote/cloud Git repository.
+#. Done. Let's now push your code to GitHub, which is a remote/cloud Git repository.
 
 Create a new project on GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,7 +199,7 @@ Create a new project on GitHub
 
 #. Choose and enter values for ``Owner`` and ``Repository name``.
 
-#. Choose either ``Public`` or ``Private`` for the repository visibility.
+#. Choose ``Public`` or ``Private``
 
 #. Check ``Add a README file``.
 
@@ -211,24 +215,18 @@ Create a new project on GitHub
 Push your code to GitHub repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Setup the remote GitHub repository. Let's call this repository ``origin``, a common name for the remote repository.
+#. Set up the remote GitHub repository. Let's call this repository ``origin``, a common name for the remote repository.
 
     .. code-block:: bash
 
         git remote add origin https://github.com/<OWNER>/<project-name>.git
         
 
-#. Pull the code from the remote ``main`` branch. Recall we had ``README.md`` file created.
+#. Pull the code from the remote ``main`` branch. Recall we had a ``README.md`` file created.
 
     .. code-block:: bash
         
         git pull origin main
-
-#. Remove the ``README.md`` file. We already have ``README.rst`` file created with ``scikit-package``.
-
-    .. code-block:: bash
-
-        rm README.md
 
 #. Create a new local branch from the ``main`` branch. Let's call this branch ``skpkg-proj``.
 
@@ -239,6 +237,13 @@ Push your code to GitHub repository
     .. note::
 
         The ``-b`` flag indicates that you want to create a new branch if it does not already exist.
+
+
+#. Remove the ``README.md`` file. We already have a ``README.rst`` file created with ``scikit-package``.
+
+    .. code-block:: bash
+
+        rm README.md
 
 #. Let's now stage and commit the code.
 
@@ -259,7 +264,9 @@ Push your code to GitHub repository
 
 #. Visit your remote GitHub repository. You should see the new branch ``skpkg-proj``.
 
-#. Done! Let's then push the code from the remote ``skpkg-proj`` to the remote ``main`` branch via a pull request (PR).
+#. Let's then merge the code from the remote ``skpkg-proj`` to the remote ``main`` branch via a pull request (PR).
+
+#. Done!
 
 Create a pull request from ``skpkg-proj`` to ``main``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -276,19 +283,47 @@ Create a pull request from ``skpkg-proj`` to ``main``
 
 #. Wait for ``Tests on PR`` to run and pass. It runs ``pytest`` on the incoming code in each pull request.
 
+#. While waiting, review the files that are changed. Ensure the only file removed is ``REAMDE.md``.
+
+#. Do not merge the PR yet! Let's set up ``pre-commit`` in this GitHub repository as well so that it runs the hooks in each PR.
+
+
+.. note:: Why do I need to setup ``pre-commit CI``?
+
+    While our code is formatted locally before anything is pushed to the remote repository, it may not be the case for others. Hence, we want to ensure the code is formatted automatically by ``pre-commit`` in each pull request. This is done by setting up ``pre-commit CI`` in the GitHub (remote) repository.
+
+
+Setup pre-commit CI in GitHub repository for public repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. important::
+
+    ``pre-commit CI`` is FREE for ``public`` repositories. If you are using a private repositry, you may skip this section.
+
+
+#. Visit https://github.com/apps/pre-commit-ci and click "Configure".
+
+#. Select the repository(s).
+
+#. let's attempt to activate the ``pre-commit CI`` by sending an empty commit to the ``skpkg-proj`` remote branch.
+
+    .. code-block:: bash
+
+        git commit --allow-empty -m "ci: empty commit to test pre-commit CI setup"
+        git push
+
+#. Notice you have an additional check in the pull request!
+
+Merge the pull request
+^^^^^^^^^^^^^^^^^^^^^^^
+
 #. Merge the PR.
 
-#. Check that your remote ``main`` branch is up to date with the ``skpkg-proj`` branch.
+#. Delete the ``skpkg-proj`` branch after merging.
 
-#. Done! Let's now also setup ``pre-commmit`` to run automatically as well.
+#. Check that your remote ``main`` branch is updated!
 
-Setup pre-commit CI in GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. include:: snippets/github-pre-commit-setup.rst
-
-
-
+#. Congratulations! You are done with Level 4!
 
 
 How to develop your code moving forward
@@ -305,7 +340,7 @@ Assume that you have successfully followed the previous steps. Now, you want to 
 
     .. note::
 
-        Recall that we referred to ``origin`` as the remote GitHub repository.
+        Recall that we used the name ``origin`` as the nicnkname for the remote GitHub repository.
 
 #. Ensure that your local ``main`` branch is synced with the remote ``main`` branch by running:
 
@@ -332,23 +367,25 @@ Assume that you have successfully followed the previous steps. Now, you want to 
 
         git push --set-upstream origin <branch-name>
 
-#. Visit your remote GitHub repository. You should see the new branch ``<branch-name>``.
+#. Visit your GitHub repository.
 
-#. Create a pull request from ``<branch-name>`` to ``main``.
+#. Create a PR from ``<branch-name`` to ``main``.
 
-#. Notice that you have ``Tests on PR`` and ``pre-commit`` checks.
+#. Wait for the ``Tests on PR`` and ``pre-commit`` checks to pass
 
-#. Wait for the checks to run and pass. If they do, merge the PR.
+#. Merge the PR, delete the branch.
 
-#. Done! Repeat the above!
+#. Repeat the steps in this section.
 
+#. Done!
+
+
+What's next?
+^^^^^^^^^^^^
 
 .. note::
 
     Make sure you check out the best practices and Billinge group's guidelines for communications and examples in the FAQ section :ref:`here<frequently-asked-questions>`.
 
 
-What's next?
-^^^^^^^^^^^^
-
-Now that you have learned to reuse code across all files on your local computer, it's time to learn how to share your code with others as a publicly installable package that is hosted on PyPI and conda-forge. In Level 5, we will do that!
+Once you are ready to release your package to the wider world, let's proceed to Level 5 where you will learn release your package to PyPI and conda-forge so that you package can be installed by anyone in the world.
