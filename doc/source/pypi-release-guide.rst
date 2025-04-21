@@ -11,7 +11,7 @@ Release package to GitHub and PyPI
 Overview
 ~~~~~~~~~~
 
-In this guide, you will learn to release your source code to GitHub and PyPI so that by the end of the guide, you can intall your package via ``pip install <package-name>``.
+In this guide, you will learn to release your source code to GitHub and PyPI so that by the end of the guide, you can install your package via ``pip install <package-name>``.
 
 PyPI/GitHub release
 ~~~~~~~~~~~~~~~~~~~~
@@ -69,7 +69,7 @@ Release your package for PyPI/GitHub release after pre-release
     git tag <version-number>
     git push upstream <version-number>
 
-#. Notice that the documentaiton is deployed. It will also update the ``CHANGELOG.rst``.
+#. Notice that the documentation is deployed. It will also update the ``CHANGELOG.rst``.
 
 #. Now that you have your source code uploaded to ``PyPI``, we will then now provide a conda package as well.
 
@@ -77,7 +77,7 @@ Release conda-forge package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-To support ``conda install <package-name>``, for your pakcage, follow the instructions :ref:`here<conda-forge-release-guide>`.
+To support ``conda install <package-name>``, for your package, follow the instructions :ref:`here<conda-forge-release-guide>`.
 
 .. _pypi-token-setup:
 
