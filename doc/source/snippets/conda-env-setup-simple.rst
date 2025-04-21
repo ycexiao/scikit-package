@@ -1,5 +1,5 @@
 .. code-block:: bash
-    
+
     # Create a new environment and install numpy in the environment
     conda create -n <project-name>_env numpy
 

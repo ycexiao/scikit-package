@@ -32,7 +32,7 @@ We will use a script to automate the process of generating the API documentation
 
         # Regular Python package, e.g., package name is regolith
         python ../release-scripts/auto_api.py regolith ./src/regolith ./doc/source/api/
-        
+
         # Namespace Python package, e.g., package name is diffpy.utils
         python ../release-scripts/auto_api.py diffpy.morph ./src/diffpy/pdfmorph ./doc/source/api
 

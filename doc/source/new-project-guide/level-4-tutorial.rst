@@ -104,7 +104,7 @@ Run tests with your locally installed package
 
         pytest
 
-#. Ensure tests all pass. 
+#. Ensure tests all pass.
 
 #. Check that ``tests/test_calculator.py``. Notice you are importing the locally installed package.
 
@@ -182,7 +182,7 @@ Trigger pre-commit hooks automatically with Git commit
         git log
 
     .. note::
-        
+
         If one or more of the hooks fail, no commit will be made. But, ``pre-commit`` will automatically lint your code too. If this is the case, simply re-enter the same commit message again.
 
 #. Done. Let's now push your code to GitHub, which is a remote/cloud Git repository.
@@ -215,12 +215,12 @@ Push your code to GitHub repository
     .. code-block:: bash
 
         git remote add origin https://github.com/<OWNER>/<project-name>.git
-        
+
 
 #. Pull the code from the remote ``main`` branch. Recall we had a ``README.md`` file created.
 
     .. code-block:: bash
-        
+
         git pull origin main
 
 #. Create a new local branch from the ``main`` branch. Let's call this branch ``skpkg-proj``.
@@ -243,7 +243,7 @@ Push your code to GitHub repository
 #. Let's now stage and commit the code.
 
     .. code-block:: bash
-        
+
         git add README.md
         git commit -m "chore: remove README.md file pulled from remote main branch"
 
@@ -346,7 +346,7 @@ Assume that you have successfully followed the previous steps. Now, you want to 
         git commit -m "feat: <your commit message>"
 
 #. Push your code from ``<branch-name>`` to the remote ``<branch-name>`` branch:
-    
+
     .. code-block:: bash
 
         git push --set-upstream origin <branch-name>

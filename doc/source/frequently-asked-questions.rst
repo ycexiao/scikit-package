@@ -635,4 +635,3 @@ Again, you checkout a new branch from the ``main`` branch. You can name it anyth
   git checkout -b docs-typo
 
 You repeat the process of git add, commit, push to your ``origin`` (your forked repository) and then make a PR to the ``upstream`` repository (the organization's repository).
-

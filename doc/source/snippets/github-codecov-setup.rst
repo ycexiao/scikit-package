@@ -36,4 +36,3 @@ To do so, the repository owner needs to provide a ``CODECOV_TOKEN``.  Please fol
         :alt: codecov-list-github-projects
 
 #. Done. The **Codecov token** is now set up for the repository. From now on, a new comment will be generated on each PR with the Codecov status automatically.
-

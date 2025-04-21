@@ -160,7 +160,7 @@ Your package will most likely have failed pre-commit hooks. We will manually fix
 #. For each PR, either the project owner or the maintainer will review the PR and merge it to ``package``. If you are the project owner, you can merge the PR yourself.
 
 
-1.4. Setup pre-commit hooks locally 
+1.4. Setup pre-commit hooks locally
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that ``pre-commit`` is passing, let's setup ``pre-commit`` hooks locally and in GitHub CI that they are automatically run when you push a commit to the remote repository.

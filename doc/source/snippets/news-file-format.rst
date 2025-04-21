@@ -3,7 +3,7 @@
 Why do we need a news file?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We want to write good ``CHANGELOG.rst`` for each release version. These news items are of interest to both developers and technical users looking for specific keywords. 
+We want to write good ``CHANGELOG.rst`` for each release version. These news items are of interest to both developers and technical users looking for specific keywords.
 
 We can streamline the process of writing ``CHANGELOG.rst`` for each release by compiling the news items from the ``news`` directory.
 
