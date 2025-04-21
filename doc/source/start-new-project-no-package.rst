@@ -4,12 +4,9 @@
 
 .. _start-new-project-no-package:
 
-=================================================================
-(Level 1-3) Reuse your scripts for early scientific research
-=================================================================
-
-
-Assume you have already followed a lightweight project with Level-4, which turns a project into a lightweight locally installable Python package.
+=======================================================================
+(Level 1-3) Reuse your scripts across files and folders without install
+=======================================================================
 
 .. include:: new-project-guide/level-1-tutorial.rst
 

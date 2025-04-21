@@ -1,6 +1,3 @@
-Level 4. Reuse code across all files
-------------------------------------
-
 Overview
 ^^^^^^^^
 

@@ -10,11 +10,11 @@
    * - 1
      - ``function``
      - Reuse code in the single file.
-     - (See tutorial)
+     - See Level 1 tutorial
    * - 2
      - ``module``
      - Reuse code across files.
-     - (See tutorial)
+     - See Level 2 tutorial
    * - 3
      - ``workspace``
      - Reuse code across project folders.

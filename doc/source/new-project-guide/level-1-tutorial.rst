@@ -4,12 +4,12 @@ Level 1. Reuse code within a file
 Overview
 ^^^^^^^^
 
-By the end of the tutorial, you will be able to reuse code within a file by creating a ``function``. This is the first step in reusing code in Python. You will learn how to create a function and call it multiple times within the same file. For Level 1 and 2, due to its simplicity, you don't need to install ``scikit-package``.
+By the end of the tutorial, you will be able to reuse code within a file by creating a function. This is the first step in reusing code in Python. You will learn how to create a function and call it multiple times within the same file.
 
 Prerequisites
 ^^^^^^^^^^^^^
 
-We assume you have a basic understanding of executing a Python script in a command-line tool. We also assume that you have used the ``numpy`` Python library before.
+We assume you have a basic understanding of executing a Python script in a command-line tool. We also assume that you have used the ``numpy`` Python library.
 
 
 Folder structure
@@ -83,7 +83,6 @@ Here is the full content of the ``calculator.py`` file:
     v4 = [7, 8]
     print(dot_product(v3, v4))  # returns 83
 
-.. _setup-up-conda-environment-with-numpy:
 
 Are you having trouble running the code?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -96,22 +95,11 @@ Are you having trouble running the code?
 
     Once you have conda installed on your computer, run the following commands:
 
-    .. code-block:: bash
+Once you have conda installed on your computer, run the following commands:
 
-        # Create a new environment and install numpy in the environment
-        conda create -n <project-name>_env numpy
-
-        # Activate the environment
-        conda activate <project-name>_env
-
-        # Check Python version
-        python --version
-
-        # Run the script
-        python calculator.py
-
+.. include:: snippets/conda-env-setup-simple.rst
 
 What's next?
 ^^^^^^^^^^^^
 
-You may proceed to Level 2 below. You will learn to share the ``doc_product`` across multiple Python files and modules instead.
+You may proceed to Level 2 below. You will learn to share the ``doc_product`` across multiple Python files and modules.

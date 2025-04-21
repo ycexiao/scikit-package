@@ -9,7 +9,7 @@ Release package to GitHub and PyPI
 =======================================
 
 Overview
-^^^^^^^^
+~~~~~~~~~~
 
 In this guide, you will learn to release your source code to GitHub and PyPI so that by the end of the guide, you can intall your package via ``pip install <package-name>``.
 
@@ -73,10 +73,11 @@ Release your package for PyPI/GitHub release after pre-release
 
 #. Now that you have your source code uploaded to ``PyPI``, we will then now provide a conda package as well.
 
-Host your package on conda-forge next
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Release conda-forge package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To support ``conda install <package-name>``, for your pakcage, follow the instructions here :ref:`here<conda-forge-guide>`.
+
+To support ``conda install <package-name>``, for your pakcage, follow the instructions :ref:`here<conda-forge-release-guide>`.
 
 .. _pypi-token-setup:
 

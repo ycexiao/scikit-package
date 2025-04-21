@@ -1,6 +1,6 @@
 :tocdepth: -1
 
-.. _conda-forge-guide:
+.. _conda-forge-release-guide:
 
 ====================
 Release conda package
