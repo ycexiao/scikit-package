@@ -206,7 +206,6 @@ Create a new project on GitHub
 
 #. Done. Let's push your code from your local Git repository to the remote GitHub repository.
 
-
 Push your code to GitHub repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -215,7 +214,6 @@ Push your code to GitHub repository
     .. code-block:: bash
 
         git remote add origin https://github.com/<OWNER>/<project-name>.git
-
 
 #. Pull the code from the remote ``main`` branch. Recall we had a ``README.md`` file created.
 
@@ -259,8 +257,6 @@ Push your code to GitHub repository
 
 #. Visit your remote GitHub repository. You should see the new branch ``skpkg-proj``.
 
-#. Let's then merge the code from the remote ``skpkg-proj`` to the remote ``main`` branch via a pull request (PR).
-
 #. Done!
 
 Create a pull request from ``skpkg-proj`` to ``main``
@@ -281,7 +277,6 @@ Create a pull request from ``skpkg-proj`` to ``main``
 #. While waiting, review the files that are changed. Ensure the only file removed is ``README.md``.
 
 #. Do not merge the PR yet! Let's set up ``pre-commit`` in this GitHub repository as well so that it runs the hooks in each PR.
-
 
 .. note:: Why do I need to set up ``pre-commit CI``?
 
