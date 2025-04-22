@@ -17,15 +17,18 @@ Here is how you can reuse a reusable block of ``.rst`` files across multiple pag
 
 .. include:: snippets/example-table.rst
 
-Here is how you can refer to a specific section in the documentation. You can use the ``ref`` tag to refer to a specific section in the documentation. For example, you can refer to the section below using the ``:ref:`` tag as shown :ref:`here <attach-image>`.
+.. warning::
+
+    Ensure that the ``.rst`` file you are including is not too long. If it is too long, it may be better to split it into multiple files and include them separately.
+
+Refer to a specific section in the documentation
+------------------------------------------------
+
+You can use the ``ref`` tag to refer to a specific section in the documentation. For example, you can refer to the section below using the ``:ref:`` tag as shown :ref:`here <attach-image>`.
 
 .. note::
 
     Please check the raw ``.rst`` file of this page to see the exact use of the ``:ref:`` tag.
-
-.. warning::
-
-    Ensure that the ``.rst`` file you are including is not too long. If it is too long, it may be better to split it into multiple files and include them separately.
 
 Embed your code snippets in the documentation
 ---------------------------------------------

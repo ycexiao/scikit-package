@@ -1,7 +1,3 @@
-
-
-.. _5-levels-table:
-
 .. list-table:: 5 levels of reusing/sharing code
    :widths: 5 15 40 40
    :header-rows: 1
