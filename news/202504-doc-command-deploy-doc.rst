@@ -1,6 +1,6 @@
 **Added:**
 
-* Add instructiosn on how to use alias shortcut for creating news file in Level 5.
+* Add instructions on how to use alias shortcut for creating news file in Level 5.
 
 **Changed:**
 
