@@ -181,7 +181,7 @@ Use underscores ``_`` in the following two cases:
 2. Project directory names, e.g., ``src/<project_directory_name>``. Modules and packages are imported with spaces replaced by underscores, like ``import bg_mpl_stylesheets``. Here is an example project: https://github.com/Billingegroup/bg-mpl-stylesheets/tree/main/src/bg_mpl_stylesheets.
 
 .. note::
-  
+
   ``scikit-package`` automatically creates a folder with underscores ``_`` for the project directory name and ``.py`` files.
 
   We recommend using a single word for folder names that contain Python scripts, e.g., ``src/example_package/parsers``, so that it can be imported as ``from example_package.parsers import <module>``. This follows Python conventions.
