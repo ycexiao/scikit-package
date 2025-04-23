@@ -3,7 +3,7 @@
 .. _conda-forge-release-guide:
 
 ====================
-Release conda package
+Create conda package
 ====================
 
 .. _conda-create-feedstock:

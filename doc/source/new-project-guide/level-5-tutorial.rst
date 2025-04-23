@@ -218,11 +218,17 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         git checkout skpkg-migration
         git pull origin skpkg-migration
 
-#. Make a copy of ``news/TEMPLATE.rst`` and rename it to ``news/<branch-name>.rst``.
+#. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``. We receommend use the following command to streamline this process.
 
     .. code-block:: bash
 
-        cp news/TEMPLATE.rst news/skpkg-migration.rst
+        cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst
+
+#. (optional) we recommend that you setup ``alias`` for the above command so that you can automate this news file creation process by just running ``cpnews`` command. You can add the following line to your ``~/.bashrc`` or ``~/.zshrc`` file and run ``source ~/.bashrc`` or ``source ~/.zshrc`` to apply the changes.
+
+    .. code-block:: bash
+
+        alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
 
@@ -248,8 +254,8 @@ Congratulations! You are done with migrating your package from Level 4 to Level 
 
         For writing great news items, Python docstrings, tests, and commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
 
-Build API documentation
-^^^^^^^^^^^^^^^^^^^^^^^^
+Build API reference documentation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to build the API documentation for your package like https://www.diffpy.org/diffpy.utils/api/diffpy.utils.html, please follow the instructions below.
 
