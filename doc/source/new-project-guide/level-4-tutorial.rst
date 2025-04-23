@@ -305,7 +305,7 @@ Merge the pull request
 #. Congratulations! You are done with Level 4!
 
 
-How to develop your code moving forward
+(Optional) How to develop your code moving forward
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Assume that you have successfully followed the previous steps. Now, you want to add new code to your GitHub repository. Perhaps you are working with a group of people. Here is a high-level overview with step-by-step instructions on how to do that:
