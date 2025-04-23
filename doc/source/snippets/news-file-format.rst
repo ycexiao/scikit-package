@@ -1,7 +1,7 @@
 .. _news-file-guide:
 
-Why do we need a news file?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Why do I need a news file for each PR?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We want to write good ``CHANGELOG.rst`` for each release version. These news items are of interest to both developers and technical users looking for specific keywords.
 
@@ -9,8 +9,8 @@ We can streamline the process of writing ``CHANGELOG.rst`` for each release by c
 
 Here an example ``CHANGELOG.rst`` https://github.com/Billingegroup/scikit-package/blob/main/CHANGELOG.rst
 
-Guidelines for writing news
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How do I write good a news item?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Do not remove ``news/TEMPLATE.rst``. Make a copy called ``<branch-name>.rst``.
 - Do not modify other section headers in the rst file. Replace ``* <news item>``

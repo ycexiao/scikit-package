@@ -4,7 +4,7 @@
 .. |title| replace:: scikit-package
 .. _title: https://Billingegroup.github.io/scikit-package
 
-.. |Icon| image:: logos/scikit-package_logo_text.png
+.. |Icon| image:: logos/scikit-package-logo-text.png
         :target: https://Billingegroup.github.io/scikit-package
         :height: 150px
 
