@@ -11,6 +11,8 @@ def create(package_type):
         run_cookiecutter(f"{SKPKG_GITHUB_URL}-system")
     elif package_type == "public":
         run_cookiecutter(SKPKG_GITHUB_URL)
+    elif package_type == "conda-forge":
+        run_cookiecutter(f"{SKPKG_GITHUB_URL}-conda-forge")
 
 
 def update():
@@ -58,6 +60,14 @@ def setup_subparsers(parser):
         "public", help="Create a public package"
     )
     parser_create_public.set_defaults(func=create, package_type="public")
+
+    # "conda-forge" subcommand
+    parser_create_conda_forge = sub_create.add_parser(
+        "conda-forge", help="Create a conda-forge recipe meta.yml file"
+    )
+    parser_create_conda_forge.set_defaults(
+        func=create, package_type="conda-forge"
+    )
 
     # Create "update" subparser
     parser_update = parser.add_parser(
