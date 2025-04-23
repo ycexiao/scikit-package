@@ -167,10 +167,26 @@ Please see an example here: https://github.com/Billingegroup/scikit-package/issu
 
 .. attention:: A commit message is written for PR reviewers and for debuggers. Avoid verbosity for a quick overview. An ideal commit message communicates file(s) of interest, the reason for the modification, and what modifications were made. e.g., “chore: move all files from docs to doc for scikit-packaging."
 
-.. _faq-news-item-practice:
+.. _faq-file-folder-naming-convention:
 
-How we write CHANGELOG.rst with news files in PRs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When should we use hyphens ``-`` or underscores ``_`` in file and folder names?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use hyphens ``-`` for project names, package names, GitHub repositories, folder names, branch names, and static files like ``.rst``, ``.md``, ``.yml``, and ``.png``. Check an example documentation of ``scikit-package`` here: https://github.com/Billingegroup/scikit-package/tree/main/doc/source.
+
+Use underscores ``_`` in the following two cases:
+
+1. Python files, e.g., ``tests/test_diffraction_objects.py``.
+
+2. Project directory names, e.g., ``src/<project_directory_name>``. Modules and packages are imported with spaces replaced by underscores, like ``import bg_mpl_stylesheets``. Here is an example project: https://github.com/Billingegroup/bg-mpl-stylesheets/tree/main/src/bg_mpl_stylesheets.
+
+.. note::
+  
+  ``scikit-package`` automatically creates a folder with underscores ``_`` for the project directory name and ``.py`` files.
+
+  We recommend using a single word for folder names that contain Python scripts, e.g., ``src/example_package/parsers``, so that it can be imported as ``from example_package.parsers import <module>``. This follows Python conventions.
+
+.. _faq-news-item-practice:
 
 .. include:: snippets/news-file-format.rst
 
@@ -479,7 +495,7 @@ What are ``docs.txt``, ``test.txt``, ``build.txt``, and ``conda.txt`` files unde
 
 
 Why are both ``pip.txt`` and ``conda.txt`` provided?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Our preferred choice for installing the scikit-packaged package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new_env <package-name>``. Additionally, the environment is tested via conda-forge CI before the Conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
 
@@ -491,7 +507,7 @@ GitHub workflow
 ---------------
 
 I am new to GitHub. Why do we use Git/GitHub?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 GitHub allows multiple contributors to work on a software project simultaneously under an organization like ``Billingegroup`` or ``diffpy``. There are two primary needs. First, we want to ensure that any changes under this organization are reviewed by the organization's project owner. Second, we want to ensure we add new changes from the latest version of the code, particularly when working with multiple contributors across different time zones. Hence, we use GitHub to serve the needs with a specific workflow below. Please see below for an overview of the GitHub workflow.
 
