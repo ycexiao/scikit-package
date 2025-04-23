@@ -35,17 +35,20 @@
 .. |Tracking| image:: https://img.shields.io/badge/issue_tracking-github-blue
         :target: https://github.com/Billingegroup/scikit-package/issues
 
-``scikit-package`` is a Python package standard and generator for scientific code. Use ``scikit-package`` to launch a new project or migrate existing ones to support the latest Python versions and streamline the process of distributing and maintaining your software package.
+``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications:
 
-- Automated `PEP8 <https://peps.python.org/pep-0008/>`_ and `PEP256 <https://peps.python.org/pep-0256/>`_ standard checks.
-- Automated PyPI/GitHub release, testing, documentation, and CHANGELOG updates.
-- Streamlined package release workflow with a checklist.
-- Latest Python version support compatible with `SPEC0 <https://scientific-python.org/specs/spec-0000/>`_.
-- Rich README template containing badges, installation, support, and contribution guide.
-- Automatic spelling check, linting for .json, .yml, and .md files.
+- We guide scientists reuse and share scientific code to amplify their research impact.
+
+- We help scientists save time so they can focus on developing scientific code.
+
+- We offer best practices based on the group's scientific software development experience.
 
 Demo
 ----
+
+Here is how you can use ``scikit-package`` to create a lightweight Python package (Level 4):
+
+(FIXME: replace this gif with Level 4 demo with file/folder names updated)
 
 .. image:: doc/source/gif/demo.gif
    :alt: scikit-package demo
@@ -54,7 +57,8 @@ Demo
 Getting started
 ---------------
 
-Are you interested in amplifying your scientific contribution by standarlizing and distributing your Python code? Begin with the ``Getting started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
+Are you interested in using ``scikig-package``? Begin with the ``Getting started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
+
 
 How to cite scikit-package
 ---------------------------
