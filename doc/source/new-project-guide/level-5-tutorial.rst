@@ -224,7 +224,7 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
 
         cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst
 
-#. (optional) If you are using a Linux shell, you can setup an alias ``alias`` to make the creation of the news file ready for editing much quicker and easier. Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file and run ``source ~/.bashrc`` or ``source ~/.zshrc`` to apply the changes.
+#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier. Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file and run ``source ~/.bashrc`` or ``source ~/.zshrc`` to apply the changes.
 
     .. code-block:: bash
 
