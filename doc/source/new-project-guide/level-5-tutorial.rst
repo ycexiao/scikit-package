@@ -218,13 +218,13 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         git checkout skpkg-migration
         git pull origin skpkg-migration
 
-#. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``. We receommend use the following command to streamline this process.
+#. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
 
     .. code-block:: bash
 
         cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst
 
-#. (optional) we recommend that you setup ``alias`` for the above command so that you can automate this news file creation process by just running ``cpnews`` command. You can add the following line to your ``~/.bashrc`` or ``~/.zshrc`` file and run ``source ~/.bashrc`` or ``source ~/.zshrc`` to apply the changes.
+#. (optional) If you are using a Linux shell, you can setup an alias ``alias`` to make the creation of the news file ready for editing much quicker and easier. Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file and run ``source ~/.bashrc`` or ``source ~/.zshrc`` to apply the changes.
 
     .. code-block:: bash
 
