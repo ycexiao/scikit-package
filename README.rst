@@ -48,20 +48,20 @@ Demo
 
 Here is how you can use ``scikit-package`` to create a lightweight Python package (Level 4):
 
-(FIXME: replace this gif with Level 4 demo with file/folder names updated)
+(FIXME: Replace this GIF with a Level 4 demo with updated file/folder names.)
 
 .. image:: doc/source/gif/demo.gif
-   :alt: scikit-package demo
-   :align: center
+        :alt: scikit-package demo
+        :align: center
 
 Getting started
 ---------------
 
-Are you interested in using ``scikig-package``? Begin with the ``Getting started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
+Are you interested in using ``scikit-package``? Begin with the ``Getting Started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
 
 
-How to cite scikit-package
----------------------------
+How to cite ``scikit-package``
+------------------------------
 
 If you use ``scikit-package`` to standardize your Python software, we would like you to cite scikit-package as follows:
 
