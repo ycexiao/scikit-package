@@ -37,11 +37,11 @@
 
 ``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications:
 
-- We guide scientists reuse and share scientific code to amplify their research impact.
+- We help scientists share scientific code to amplify research impact.
 
-- We help scientists save time so they can focus on developing scientific code.
+- We help scientists save time, allowing them to focus on writing scientific code.
 
-- We offer best practices based on the group's scientific software development experience.
+- We offer best practices from the group's experience in developing scientific software.
 
 Demo
 ----
