@@ -235,13 +235,16 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         source ~/.bashrc  # if you are using bash
         source ~/.zshrc  # if you are using zsh
 
-    Now, you can create a news file by running
+    Now, whenever you want to create a news file, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
+    
+    You can then open the project in an editor. The news file located under ``news`` will have the name ``<branch-name>.rst`` where ``<branch-name>`` is replaced by the current branch name.
+    
+    Add a description of the edits made in this PR. This should be a user-facing high-level summary of the edits made in this PR and will be automatically converted into the ``CHANGELOG.rst`` when the code is released.
 
-    .. code-block:: bash
+    .. note::
 
-        cpnews
+        How do I write good news items? What if the changes in the PR are trivial and no news is needed for ``CHANGELOG.rst``? Check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
 
-    Run ``git status`` to check that you have a new file called ``news/<branch-name>.rst``.
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
 
@@ -256,10 +259,6 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         git add news/skpkg-migration.rst
         git commit -m "chore: Add news item for skpkg-migration"
         git push origin skpkg-migration
-
-    .. note::
-
-        How do you write good news and also what if no news is needed? Check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
 
 Congratulations! You are done with migrating your package from Level 4 to Level 5. You can now start writing docstrings for your Python code and tests for your code. Then, also write good documentation for your code, including Getting Started guides.
 
