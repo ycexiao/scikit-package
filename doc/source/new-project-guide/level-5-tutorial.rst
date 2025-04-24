@@ -220,7 +220,7 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
 
 #. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
 
-#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier
+#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier:
 
     Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
 
