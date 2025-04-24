@@ -254,7 +254,7 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
 
         **Added:**
 
-        * Support public release with scikig-package by migrating the package from Level 4 to Level 5.
+        * Support public releases with scikit-package by migrating the package from Level 4 to Level 5 in the scikit-package standard.
 
 #. Push the change to the remote GitHub repository.
 
