@@ -10,4 +10,4 @@
     python --version
 
     # Run the script
-    python calculator.py
+    python <python_file_name>.py

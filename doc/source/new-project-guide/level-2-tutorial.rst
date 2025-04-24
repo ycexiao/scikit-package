@@ -21,7 +21,7 @@ Here is the project structure for this example:
 .. code-block:: text
 
     my_project/
-    ├── calculator.py
+    ├── shared_functions.py
     ├── file_one.py
     └── file_two.py
 
@@ -29,18 +29,18 @@ Here is the project structure for this example:
 Example code
 ^^^^^^^^^^^^^^
 
-In ``calculator.py``, define a function called ``dot_product`` that takes two vectors as input and returns their dot product:
+In ``shared_functions.py``, define a function called ``dot_product`` that takes two vectors as input and returns their dot product:
 
 .. code-block:: python
 
-    # calculator.py
+    # shared_functions.py
     import numpy as np
 
     def dot_product(a, b):
         """Calculate the dot product of two vectors."""
         return np.dot(a, b)
 
-For ``file_one.py`` and ``file_two.py``, you are able to import the function ``dot_product`` from the ``calculator.py`` file and use it in the same way as in Level 1.
+For ``file_one.py`` and ``file_two.py``, you are able to import the function ``dot_product`` from the ``shared_functions.py`` file and use it in the same way as in Level 1.
 
 This is the content of ``file_one.py``:
 

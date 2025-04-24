@@ -1,14 +1,16 @@
 Overview
 ^^^^^^^^
 
-In Level 3, you learned to reuse code across multiple projects. Here, you will learn to reuse code across all files on your local computer by turning your project into an installable Python package. Hence, Level 4 is also referred to as ``system``.
+In this section, you will use ``scikit-package`` to start a new project that is readily installable. This ensures that your code is available across all files on your local computer. Hence, Level 4 is also referred to as ``system``.
 
-This tutorial may take about 10 to 15 minutes.
+By the end of this tutorial, you will also have your package hosted on GitHub, where you will utilize GitHub Actions to run automatic linting and testing for the incoming code in your GitHub repository.
+
+This tutorial should take about 10 to 15 minutes.
 
 Prerequisites
 ^^^^^^^^^^^^^
 
-We assume you have at least hosted one project on GitHub. If you are new to GitHub, please refer to the FAQ guide on GitHub workflow :ref:`here <faq-github-workflow>`.
+For Level 4, we assume you have prior experience in developing scientific code in Python. Additionally, we assume you have hosted at least one project on GitHub. If you are new to GitHub, please refer to the FAQ guide on the GitHub workflow :ref:`here <faq-github-workflow>`.
 
 .. include:: snippets/scikit-installation.rst
 
@@ -64,9 +66,9 @@ Check folder structure
         ├── src
         │   └── my_package
         │       ├── __init__.py
-        │       └── calculator.py
+        │       └── functions.py
         └── tests
-            └── test_calculator.py
+            └── test_functions.py
 
 Install your package locally
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -106,7 +108,7 @@ Run tests with your locally installed package
 
 #. Ensure tests all pass.
 
-#. Check that ``tests/test_calculator.py``. Notice you are importing the locally installed package.
+#. Notice that in ``tests/test_functions.py``, we are importing the locally installed package.
 
 #. Congratulations! Your package is now available for use in any Python script or Jupyter notebook on your local computer.
 
