@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: change calculator.py to functions. 
+* no news added: change calculator.py to functions.
 
 **Changed:**
 
