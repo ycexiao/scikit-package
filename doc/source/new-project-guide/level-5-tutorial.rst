@@ -243,14 +243,18 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
 
     .. note::
 
-        How do I write good news items? What if the changes in the PR are trivial and no news is needed for ``CHANGELOG.rst``? Check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
+        How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
 
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
 
-#. Do not modify other section headers in the rst file. Replace ``* <news item>`` with your news item.
+#. Do not modify other section headers in the rst file. Replace ``* <news item>`` with the following item:
 
-#. Check this example PR containing the news file: https://github.com/Billingegroup/scikit-package/pull/299/files
+    .. code-block:: text
+
+        **Added:**
+
+        * Support public release with scikig-package by migrating the package from Level 4 to Level 5.
 
 #. Push the change to the remote GitHub repository.
 
