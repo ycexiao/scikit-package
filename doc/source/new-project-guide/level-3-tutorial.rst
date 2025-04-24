@@ -24,14 +24,15 @@ Create a new project by running the following command:
 
      package create workspace
 
-You will then be asked to enter the ``project-name``. The default value is ``workspace_folder``.
+You will then be asked to enter the ``project-name``. The default value is ``workspace-folder``.
+
+In this example, enter ``data-analysis-project`` as the workspace folder you are about to create.
 
 ``cd`` into the new directory created by the ``package create workspace`` command above:
 
 .. code-block:: bash
 
-    cd <project-name>
-
+    cd data-analysis-project
 
 Folder structure
 ^^^^^^^^^^^^^^^^
@@ -40,19 +41,19 @@ When you ``cd`` into the new directory, you will see a folder structure as shown
 
 .. code-block:: text
 
-     workspace_folder/
+     data-analysis-project/
      ├── README.md
      ├── requirements.txt
-     ├── calculator.py
-     ├── proj_one
+     ├── shared_functions.py
+     ├── proj-one
      │   ├── __init__.py
-     │   └── reuse_code.py
-     ├── proj_two
+     │   └── proj_one_code.py
+     ├── proj-two
      │   ├── __init__.py
-     │   └── reuse_code.py
+     │   └── proj_two_code.py
      └── tests
           ├── __init__.py
-          └── test_calculator.py
+          └── test_shared_functions.py
 
 Please take a look at those files created with your favorite IDE software (e.g., Visual Studio Code, PyCharm, etc.).
 
@@ -60,7 +61,7 @@ See the descriptions below for each file created in the project:
 
 .. note::
 
-     ``calculator.py`` is an example module where you can define functions that are imported across the project folders ``proj_one`` and ``proj_two``. The ``__init__.py`` files are required and empty files that indicate to Python that the directories contain Python modules.
+     ``shared_functions.py`` is an example module where you can define functions that are imported across the project folders ``proj-one`` and ``proj-two``. The ``__init__.py`` files are required and empty files that indicate to Python that the directories contain Python modules.
 
      ``requirements.txt`` is the file where you list Python dependencies. The ``README.md`` file is where you add notes for your project. The ``tests`` folder contains tests for your reusable code.
 
