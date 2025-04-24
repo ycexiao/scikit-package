@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: modify folder structure for level 3 based on SB feedback 
+* no news added: modify folder structure for level 3 based on SB feedback
 
 **Changed:**
 
