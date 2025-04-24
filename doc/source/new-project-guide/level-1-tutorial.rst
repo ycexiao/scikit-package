@@ -20,17 +20,17 @@ Here is the folder structure for this example:
 .. code-block:: text
 
     my_project/
-    └── calculator.py
+    └── example_code.py
 
 Example code
 ^^^^^^^^^^^^
 
-In the ``calculator.py`` file, define a function called ``dot_product`` that takes two vectors as input and returns their dot product:
+In the ``example_code.py`` file, define a function called ``dot_product`` that takes two vectors as input and returns their dot product:
 
 
 .. code-block:: python
 
-    # calculator.py
+    # example_code.py
     import numpy as np
 
     def dot_product(a, b):
@@ -60,11 +60,11 @@ Then run
 
 .. code-block:: bash
 
-    python calculator.py
+    python example_code.py
 
 You should see the outputs of 11 and 83 printed.
 
-Here is the full content of the ``calculator.py`` file:
+Here is the full content of the ``example_code.py`` file:
 
 .. code-block:: python
 
