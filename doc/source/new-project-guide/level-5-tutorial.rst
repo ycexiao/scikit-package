@@ -220,7 +220,7 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
 
 #. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
 
-#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier 
+#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier
 
     Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
 
@@ -229,9 +229,9 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
 
     Run the following command to apply the shell configuration.
-    
+
     .. code-block:: bash
-        
+
         source ~/.bashrc  # if you are using bash
         source ~/.zshrc  # if you are using zsh
 
@@ -240,7 +240,7 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
     .. code-block:: bash
 
         cpnews
-    
+
     Run ``git status`` to check that you have a new file called ``news/<branch-name>.rst``.
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
