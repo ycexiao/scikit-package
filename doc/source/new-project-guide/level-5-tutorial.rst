@@ -6,7 +6,7 @@ In this guide, you will learn to migrate your package from Level 4 to Level 5. O
 Prerequisites
 ^^^^^^^^^^^^^
 
-- You have already completed and created your scientific code in Level 4, where you have a lightweight Python package that can be installed locally and have your project hosted on GitHub.
+You have already completed and created your scientific code in Level 4, where you have a lightweight Python package that can be installed locally and have your project hosted on GitHub.
 
 What's the difference between Level 4 and Level 5?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -224,11 +224,28 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
 
         cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst
 
-#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier. Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file and run ``source ~/.bashrc`` or ``source ~/.zshrc`` to apply the changes.
+#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier 
+
+    Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
 
     .. code-block:: bash
 
         alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
+
+    Run the following command to apply the shell configuration.
+    
+    .. code-block:: bash
+        
+        source ~/.bashrc  # if you are using bash
+        source ~/.zshrc  # if you are using zsh
+
+    Now, you can create a news file by running
+
+    .. code-block:: bash
+
+        cpnews
+    
+    Run ``git status`` to check that you have a new file called ``news/<branch-name>.rst``.
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
 
