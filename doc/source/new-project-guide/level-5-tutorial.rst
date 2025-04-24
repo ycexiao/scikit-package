@@ -236,9 +236,9 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         source ~/.zshrc  # if you are using zsh
 
     Now, whenever you want to create a news file, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
-    
+
     You can then open the project in an editor. The news file located under ``news`` will have the name ``<branch-name>.rst`` where ``<branch-name>`` is replaced by the current branch name.
-    
+
     Add a description of the edits made in this PR. This should be a user-facing high-level summary of the edits made in this PR and will be automatically converted into the ``CHANGELOG.rst`` when the code is released.
 
     .. note::
