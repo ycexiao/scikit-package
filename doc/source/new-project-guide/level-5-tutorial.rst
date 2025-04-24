@@ -6,7 +6,7 @@ In this guide, you will learn to migrate your package from Level 4 to Level 5. O
 Prerequisites
 ^^^^^^^^^^^^^
 
-- You have already completed and created your scientific code in Level 4, where you have a lightweight Python package that can be installed locally and have your project hosted on GitHub.
+You have already completed and created your scientific code in Level 4, where you have a lightweight Python package that can be installed locally and have your project hosted on GitHub.
 
 What's the difference between Level 4 and Level 5?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -218,17 +218,43 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         git checkout skpkg-migration
         git pull origin skpkg-migration
 
-#. Make a copy of ``news/TEMPLATE.rst`` and rename it to ``news/<branch-name>.rst``.
+#. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
+
+#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier:
+
+    Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
 
     .. code-block:: bash
 
-        cp news/TEMPLATE.rst news/skpkg-migration.rst
+        alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
+
+    Run the following command to apply the shell configuration.
+
+    .. code-block:: bash
+
+        source ~/.bashrc  # if you are using bash
+        source ~/.zshrc  # if you are using zsh
+
+    Now, whenever you want to create a news file, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
+
+    You can then open the project in an editor. The news file located under ``news`` will have the name ``<branch-name>.rst`` where ``<branch-name>`` is replaced by the current branch name.
+
+    Add a description of the edits made in this PR. This should be a user-facing high-level summary of the edits made in this PR and will be automatically converted into the ``CHANGELOG.rst`` when the code is released.
+
+    .. note::
+
+        How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
+
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
 
-#. Do not modify other section headers in the rst file. Replace ``* <news item>`` with your news item.
+#. Do not modify other section headers in the rst file. Replace ``* <news item>`` with the following item:
 
-#. Check this example PR containing the news file: https://github.com/Billingegroup/scikit-package/pull/299/files
+    .. code-block:: text
+
+        **Added:**
+
+        * Support public releases with scikit-package by migrating the package from Level 4 to Level 5 in the scikit-package standard.
 
 #. Push the change to the remote GitHub repository.
 
@@ -238,18 +264,14 @@ We require that each PR includes a news item as a ``<branch-name>.rst`` file und
         git commit -m "chore: Add news item for skpkg-migration"
         git push origin skpkg-migration
 
-    .. note::
-
-        How do you write good news and also what if no news is needed? Check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
-
 Congratulations! You are done with migrating your package from Level 4 to Level 5. You can now start writing docstrings for your Python code and tests for your code. Then, also write good documentation for your code, including Getting Started guides.
 
     .. important::
 
         For writing great news items, Python docstrings, tests, and commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
 
-Build API documentation
-^^^^^^^^^^^^^^^^^^^^^^^^
+Build API reference documentation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to build the API documentation for your package like https://www.diffpy.org/diffpy.utils/api/diffpy.utils.html, please follow the instructions below.
 

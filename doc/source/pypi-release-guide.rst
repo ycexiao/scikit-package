@@ -81,8 +81,8 @@ To support ``conda install <package-name>``, for your package, follow the instru
 
 .. _pypi-token-setup:
 
-Appendix 1. Setup ``PYPI_TOKEN``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Appendix 1. Setup ``PYPI_TOKEN`` to allow GitHub Actions to upload to PyPI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Generate a PyPI API token from ``pypi.org``:
 
@@ -112,10 +112,10 @@ Add the generated token to GitHub:
 
 .. _pat-token-setup:
 
-Appendix 2. Setup ``PAT_TOKEN``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Appendix 2. Setup ``PAT_TOKEN`` to allow GitHub Actions to compile ``CHANGELOG.rst``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The GitHub workflow needs to link with this privilege through a personal access token (PAT) of the project owner.
+Recall that dring a release (not pre-release) process, the GitHub Actions workflow compiles the news items in the ``CHANGELOG.rst`` file in the ``main`` branch. Hence, the GitHub workflow needs to link with this privilege through a personal access token (PAT) of the project owner.
 
 1. Visit https://github.com/settings/tokens
 
@@ -147,8 +147,8 @@ Copy and paste the ``PAT_TOKEN`` to your GitHub organization:
 
 .. _gh-pages-setup:
 
-Appendix 3. How to host your package documentation online
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Appendix 3. Host documentation online with GitHub Pages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The goal is to host the official documentation online i.g., ``https://diffpy.github.io/diffpy.utils`` using GitHub Pages.
 
