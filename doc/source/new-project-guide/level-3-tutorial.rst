@@ -24,14 +24,15 @@ Create a new project by running the following command:
 
      package create workspace
 
-You will then be asked to enter the ``project-name``. The default value is ``data-analysis-project``.
+You will then be asked to enter the ``project-name``. The default value is ``workspace-folder``.
+
+In this example, enter ``data-analysis-project`` as the workspace folder you are about to create.
 
 ``cd`` into the new directory created by the ``package create workspace`` command above:
 
 .. code-block:: bash
 
-    cd <project-name>
-
+    cd data-analysis-project
 
 Folder structure
 ^^^^^^^^^^^^^^^^
