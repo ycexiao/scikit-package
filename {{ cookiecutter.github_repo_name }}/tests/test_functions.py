@@ -1,13 +1,13 @@
 import numpy as np
 import pytest
-from {{cookiecutter.package_dir_name}} import calculator as calc
+from {{cookiecutter.package_dir_name}} import functions
 
 
 def test_dot_product_2D_list():
     a = [1, 2]
     b = [3, 4]
     expected = 11.0
-    actual = calc.dot_product(a, b)
+    actual = functions.dot_product(a, b)
     assert actual == expected
 
 
@@ -15,7 +15,7 @@ def test_dot_product_3D_list():
     a = [1, 2, 3]
     b = [4, 5, 6]
     expected = 32.0
-    actual = calc.dot_product(a, b)
+    actual = functions.dot_product(a, b)
     assert actual == expected
 
 @pytest.mark.parametrize(
@@ -35,5 +35,5 @@ def test_dot_product_3D_list():
 
 )
 def test_dot_product(a, b, expected):
-    actual = calc.dot_product(a, b)
+    actual = functions.dot_product(a, b)
     assert actual == expected
