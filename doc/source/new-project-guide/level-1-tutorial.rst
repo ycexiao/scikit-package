@@ -4,14 +4,14 @@ Level 1. Reuse code within a file
 Overview
 ^^^^^^^^
 
-By the end of the tutorial, you will be able to reuse code within a file by creating a function. This is the first step in reusing code in Python. You will learn how to create a function and call it multiple times within the same file.
+By the end of this tutorial, you will be able to reuse code within a file by creating a function. This is the first step in reusing code in Python. You will learn how to create a function and call it multiple times within the same file.
 
 Prerequisites
 ^^^^^^^^^^^^^
 
-We assume you have a basic understanding of executing a Python script in a command-line tool.
+We assume you have a basic understanding of how to execute a Python script in a command-line tool.
 
-Also ensure you hav your Python installed on your system. You can check this by running the following command:
+Also, ensure that Python is installed on your system. You can check this by running the following command:
 
 .. code-block:: bash
 
@@ -87,11 +87,7 @@ Here is the full content of the ``example_code.py`` file:
     v4 = [7, 8]
     print(dot_product(v3, v4))  # returns 83
 
-Congratulation! You are now able to reuse code within a file by creating a function
-
-This is the first step in reusing code in Python.
-
-Before we move on to Level 2, let's use a simple tool that helps us install packages safety and create separate environments for projects.
+Congratulation! You are now able to reuse code within a file by creating a function. Before we move on to the next level, let's learn about setting up a ``conda`` environment to install packages and run Python code in the following section.
 
 .. _conda-setup-simple:
 

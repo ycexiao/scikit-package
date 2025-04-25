@@ -1,41 +1,36 @@
-(Required) Use conda environment to run install pacakges and run Python code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Required) Use conda environment to install packages and run Python code
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Virtual environments allow you to create isolated environments, each with their own software package versions installed. This is especially helpful when working with multiple different software programs that require conflicting versions of the same packages and is overall a good practice.
 
-Since we will be working across multiple projects, it is important to introduce the idea of \emph{virtual environments}. 
+``conda`` is an open-source package and environment management software that allows you to create isolated environments to install software, including Python and its packages.
 
-Virtual environments allow you to create isolated environments, each with their own software package versions installed. 
-This is especially helpful when working with multiple different software programs that require conflicting versions of the same packages and is overall a good practice.
+#. Install ``conda`` by following the installation guide of ``miniconda`` found at https://www.anaconda.com/docs/getting-started/miniconda/main.
 
-``conda`` is an open-source package and environment management software that allows you to create isolated environments to install software, including Python and its packages. The instructions for conda installation can be found at https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html.
+#. Add the ``conda-forge`` channel to your conda configuration by running the following command:
 
+    .. code-block:: bash
 
-If your code still does not run, we recommend setting up a conda environment. 
+        conda config --add channels conda-forge
 
-Once ``conda`` is install locally described in the above section, we need to inform where to download the packages from. The ``conda-forge`` channel hosts a colletion of packages including ``numpy``.
+#. Now, let's create a new environment and install ``numpy`` in it. ``numpy`` will be sourced from the ``conda-forge`` channel. Replace ``<project-name>`` with the name of your project.
 
-Add the ``conda-forge`` channel to your conda configuration by running the following command:
+    .. code-block:: bash
 
-.. code-block:: bash
+        # Create a new environment and install numpy in the environment
+        conda create -n <project-name>_env numpy
 
-    conda config --add channels conda-forge
+        # Activate the environment
+        conda activate <project-name>_env
 
-Now, let's create a new environment and install ``numpy`` in it.
+#. Let's check if the installation was successful. You can do this by running the following command:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    # Create a new environment and install numpy in the environment
-    conda create -n <project-name>_env numpy
+        # Check Python version
+        python --version
 
-    # Activate the environment
-    conda activate <project-name>_env
+        # Run the script
+        python <python_file_name>.py
 
-Let's check if the installation was successful. You can do this by running the following command:
-
-.. code-block:: bash
-
-    # Check Python version
-    python --version
-
-    # Run the script
-    python <python_file_name>.py
+#. Done!
