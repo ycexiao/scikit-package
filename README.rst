@@ -19,7 +19,9 @@
         :target: https://github.com/Billingegroup/scikit-package/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
 
 .. |Codecov| image:: https://codecov.io/gh/Billingegroup/scikit-package/branch/main/graph/badge.svg
-        :target: https://codecov.io/gh/Billingegroup/scikit-package.. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/scikit-package
+        :target: https://codecov.io/gh/Billingegroup/scikit-package
+
+.. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/scikit-package
         :target: https://anaconda.org/conda-forge/scikit-package
 
 .. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
