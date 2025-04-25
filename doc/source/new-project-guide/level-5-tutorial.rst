@@ -196,14 +196,33 @@ Setup Codecov token for GitHub repository
 
 .. include:: snippets/github-codecov-setup.rst
 
-Add news items in your pull request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Allow GitHub Actions to write comments in PRs
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are happy with the changes, let's merge the code from ``skpkg-migration`` to the ``main`` branch.
+As you will see in the next section, we'd like to have GitHub Actions write comments such as warnings. Let's specify the permissions in the GitHub repository settings by following the steps below.
 
-However, before merging to ``main``, you are required to add a news item for the changes made in the PR. This is to ensure that the changes are documented in the ``CHANGELOG.rst`` when you create a new release as shown in https://billingegroup.github.io/scikit-package/release.html for example.
+#. Visit the ``Settings`` page of the GitHub repository.
 
-We require that each PR includes a news item as a ``<branch-name>.rst`` file under the ``news`` directory.
+#. Click on ``Actions`` in the left sidebar.
+
+#. Click on ``General`` in the left sidebar.
+
+#. Scroll down to the ``Workflow permissions`` section.
+
+#. Select ``Read and write permissions``.
+
+#. Done!
+
+Add news items in the GitHub pull request
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Before merging to ``main``, we require that each PR includes a file documenting the changes under ``\news``. This ensures that the changes are documented in the ``CHANGELOG.rst`` when you create a new release, as shown in https://billingegroup.github.io/scikit-package/release.html, for example.
+
+    .. important::
+
+        If no news file is created for this PR, the CI will not only fail but also write a comment to remind you to create a news file. Recall we granted GitHub Actions permission to write comments in the PR in the previous section.
+
+Let's create a news item for the changes made in this PR.
 
 #. Get the latest updates from the remote GitHub repository.
 
