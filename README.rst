@@ -4,7 +4,7 @@
 .. |title| replace:: scikit-package
 .. _title: https://Billingegroup.github.io/scikit-package
 
-.. |Icon| image:: logos/scikit-package-logo-text.png
+.. |Icon| image:: img/logos/scikit-package-logo-text.png
         :target: https://Billingegroup.github.io/scikit-package
         :height: 150px
 
@@ -42,6 +42,18 @@
 - We help scientists save time, allowing them to focus on writing scientific code.
 
 - We offer best practices from the group's experience in developing scientific software.
+
+
+Overview
+--------
+
+Here is an overview of the 5 levels of sharing code and the key features of ``scikit-package``:
+
+.. image:: img/figures/scikit-package-overview-qr-code.png
+    :alt: Diagram of 5 levels of sharing code with key features and scikit-package commands
+    :width: 800px
+    :align: center
+
 
 Demo
 ----
