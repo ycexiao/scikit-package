@@ -75,11 +75,10 @@ For technical users, here are some of the advanced features:
 - Reusable GitHub Actions workflows located in `Billingegroup/release-scripts <https://github.com/Billingegroup/release-scripts/tree/main/.github/workflows>`_.
 
 
-
 How do I receive support?
 -------------------------
 
-If you have any questions or have trouble, please read the :ref:`Frequently asked questions (FAQ) <frequently-asked-questions>` section to see if your questions have already been answered. If there aren't answers available, please create :ref:`GitHub Issues <_https://github.com/Billingegroup/scikit-package/issues>`. The team will reach out.
+If you have any questions or have trouble, please read the :ref:`Frequently asked questions (FAQ) <frequently-asked-questions>` section to see if your questions have already been answered. If there aren't answers available, please create `GitHub Issues <https://github.com/Billingegroup/scikit-package/issues>`_.
 
 How can I contribute to ``scikit-package``?
 -------------------------------------------
