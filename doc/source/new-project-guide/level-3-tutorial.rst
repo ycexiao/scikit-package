@@ -37,8 +37,8 @@ In this example, enter ``data-analysis-project`` as the workspace folder you are
 
     cd data-analysis-project
 
-Folder structure and file descriptions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Folder structure
+^^^^^^^^^^^^^^^^^
 
 When you ``cd`` into the new directory, you will see a folder structure as shown below:
 
@@ -55,14 +55,29 @@ When you ``cd`` into the new directory, you will see a folder structure as shown
           ├── __init__.py
           └── test_shared_functions.py
 
+If you would like to add more projects, you can create a new folder under the root directory. For example, you can create a folder called ``proj-two`` and add your code there. This can be extrapolated for as many projects as you like:
 
-- ``README.md`` is a markdown file for project documentation.
+.. code-block:: bash
 
-- ``shared_functions.py`` is where you define shared utilities. It includes the following example function:
+     mkdir proj-two
+     cd proj-two
+     touch __init__.py
+     touch proj_two_code.py
+
+
+File descriptions
+^^^^^^^^^^^^^^^^^^
+
+Now that the folder structure is created, let's go through the files and folders in the project:
+
+- ``README.md`` is a markdown file for project documentation. Typically, it includes a project description, installation instructions, and usage examples. You can edit this file to add your own project information.
+
+
+- ``shared_functions.py`` is where you define reused code. It includes the following example function to help demonstrate the concept of shared functions. In your project, this is where you would add the code you want to reuse:
 
 .. code-block:: python
 
-     # shared_functions.py file
+     # shared_functions.py
      import numpy as np
 
 
@@ -70,11 +85,11 @@ When you ``cd`` into the new directory, you will see a folder structure as shown
           """Calculate the dot product of two vectors."""
           return np.dot(a, b)
 
-- ``proj_one/proj_one_code.py`` imports and uses the ``dot_product`` function:
+- ``proj_one/proj_one_code.py`` shows an example of how to import and use the ``dot_product()`` function from ``shared_functions.py``:
 
 .. code-block:: python
 
-     # proj_one_code.py file
+     # proj_one_code.py
      import shared_functions
 
      a = [1, 2, 3]
@@ -84,20 +99,20 @@ When you ``cd`` into the new directory, you will see a folder structure as shown
 
 - ``__init__.py`` files mark directories as Python modules. These are empty by default at this level.
 
-- ``requirements.txt`` lists your project's dependencies, which by default include:
+- ``requirements.txt`` lists your project's dependencies, which in this case includes ``numpy`` and ``pytest``:
 
 .. code-block:: python
 
-     # requirements.txt file
+     # requirements.txt
      numpy
      pytest
 
-- The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product`` function using ``pytest``:
+- The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product`` function using ``pytest``. General naming convention for test files is ``test_<module_name>.py``. Similarly, test function names should be ``test_<function_name>()``. This is how ``pytest`` recognizes them as test functions:
 
 
 .. code-block:: python
 
-     # test_shared_functions.py file
+     # test_shared_functions.py
      import numpy as np
      import pytest
      import shared_functions
