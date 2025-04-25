@@ -35,6 +35,7 @@
 .. |Tracking| image:: https://img.shields.io/badge/issue_tracking-github-blue
         :target: https://github.com/Billingegroup/scikit-package/issues
 
+``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications:
 
 - We help scientists share scientific code to amplify research impact.
 

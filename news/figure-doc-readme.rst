@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: add overview figure 
+* no news added: add overview figure
 
 **Changed:**
 
