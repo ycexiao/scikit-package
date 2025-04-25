@@ -39,10 +39,6 @@ How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 
 .. include:: snippets/codespell-ignore.rst
 
-
-How do I ignore words/lines/files in automatic spelling checks in pre-commit?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Project setup
 -------------
 
