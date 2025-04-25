@@ -48,9 +48,6 @@ When you ``cd`` into the new directory, you will see a folder structure as shown
      ├── proj-one
      │   ├── __init__.py
      │   └── proj_one_code.py
-     ├── proj-two
-     │   ├── __init__.py
-     │   └── proj_two_code.py
      └── tests
           ├── __init__.py
           └── test_shared_functions.py
@@ -61,7 +58,7 @@ See the descriptions below for each file created in the project:
 
 .. note::
 
-     ``shared_functions.py`` is an example module where you can define functions that are imported across the project folders ``proj-one`` and ``proj-two``. The ``__init__.py`` files are required and empty files that indicate to Python that the directories contain Python modules.
+     ``shared_functions.py`` is an example module where you can define functions that are imported across the project folder ``proj-one``. The ``__init__.py`` files are required. This indicates to Python that the directories contain Python modules.
 
      ``requirements.txt`` is the file where you list Python dependencies. The ``README.md`` file is where you add notes for your project. The ``tests`` folder contains tests for your reusable code.
 
