@@ -8,18 +8,18 @@
 Getting started
 ===============
 
-``skpackage`` refers to the process of standardizing a Python package structure using the ``scikit-package`` template.
+Here are the 5 levels of sharing your code. We provide tutorials for each level.
 
-Are you here to standardize your Python project with scikit-package?
---------------------------------------------------------------------
+.. include:: snippets/5-levels-table.rst
 
-1. You have an existing Python project. Do you want to standardize your project with ``scikit-package``? Please follow the full instructions :ref:`here <scikit-package-header>`.
+- Are you here to start a new Python project?
 
-2. You already have a scikit-packaged project. Do you want to use the latest version of ``scikit-package`` to re-standard your project? Please follow the instructions in :ref:`here <scikit-package-workflow-main>`.
+    If you are **new** to programming in general, we recommend you start from Levels 1-3, where you learn to reuse your scripts across files and folders without the need to install anything. Start :ref:`here <start-new-project-no-package>`.
 
-3. Do you want to start a new Python project with ``scikit-package``? Start from the scikit-package workflow section :ref:`here <scikit-package-workflow-main>`.
+    If you have **experience** in developing scientific code in Python, we recommend you start from Level 4, where you learn to turn your project into a lightweight Python package that can be installed locally. Start :ref:`here <start-new-project-package-lightweight>`.
 
-Are you here to create a new release?
--------------------------------------
+- Do you want to **release** your code as a fully installable Python package?
 
-Do you want to release your project to ``GitHub``, ``PyPI``, and ``conda-forge`` by creating a tag to your GitHub repository? Start from :ref:`here <release-guide>`.
+    If your package is already developed with Level 4, and you are ready to release your package, let's learn to migrate from Level 4 to Level 5 and host documentation and release it to PyPI and conda-forge. Start :ref:`here <start-new-project-package-full>`.
+
+- Are you here to migrate your existing Python package to the Level 5 standard? See :ref:`here <migration-guide>`.

@@ -30,9 +30,10 @@ file included with the distribution.
 Table of contents
 =================
 .. toctree::
-   :titlesonly:
+   :maxdepth: 2
 
    license
+   getting-started
    release
    Package API <api/{{ cookiecutter.package_dir_name }}>
 

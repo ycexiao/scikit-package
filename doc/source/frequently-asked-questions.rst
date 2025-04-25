@@ -32,7 +32,7 @@ To skip files checked by ``flake8``, include the file path in ``.flake8`` under 
 
 To prevent ``black`` from formatting, include the file path in ``pyproject.toml`` under the ``[tool.black]`` section.
 
-.. _codespell-add-word:
+.. _codespell-ignore:
 
 How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,8 +132,12 @@ We decided to include test files in the PyPI source distribution to facilitate u
 
 The conda-forge CI uses the source code distributed via PyPI to build a Conda package. After building the package, we want to run pytest to ensure all unit tests pass before release. Therefore, test files must be included in the source code. In contrast, no documentation is distributed with the package, as it is already accessible from the GitHub repository and does not serve a practical purpose in the distribution package itself.
 
+.. _faq-billinge-group-standards:
+
 Billinge Group standards
 ------------------------
+
+.. _faq-github-commit-issue-practice:
 
 How we communicate via GitHub commit messages and issue titles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,8 +167,26 @@ Please see an example here: https://github.com/Billingegroup/scikit-package/issu
 
 .. attention:: A commit message is written for PR reviewers and for debuggers. Avoid verbosity for a quick overview. An ideal commit message communicates file(s) of interest, the reason for the modification, and what modifications were made. e.g., “chore: move all files from docs to doc for scikit-packaging."
 
-How we write CHANGELOG.rst with news files in PRs
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _faq-file-folder-naming-convention:
+
+When should we use hyphens ``-`` or underscores ``_`` in file and folder names?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Use hyphens ``-`` for project names, package names, GitHub repositories, folder names, branch names, and static files like ``.rst``, ``.md``, ``.yml``, and ``.png``. Check an example documentation of ``scikit-package`` here: https://github.com/Billingegroup/scikit-package/tree/main/doc/source.
+
+Use underscores ``_`` in the following two cases:
+
+1. Python files, e.g., ``tests/test_diffraction_objects.py``.
+
+2. Project directory names, e.g., ``src/<project_directory_name>``. Modules and packages are imported with spaces replaced by underscores, like ``import bg_mpl_stylesheets``. Here is an example project: https://github.com/Billingegroup/bg-mpl-stylesheets/tree/main/src/bg_mpl_stylesheets.
+
+.. note::
+
+  ``scikit-package`` automatically creates a folder with underscores ``_`` for the project directory name and ``.py`` files.
+
+  We recommend using a single word for folder names that contain Python scripts, e.g., ``src/example_package/parsers``, so that it can be imported as ``from example_package.parsers import <module>``. This follows Python conventions.
+
+.. _faq-news-item-practice:
 
 .. include:: snippets/news-file-format.rst
 
@@ -448,21 +470,44 @@ For the current GitHub CI for checking a news item, ``pull_request_target`` is u
 
 Another key difference is that with ``pull_request_target``, the ``.yml`` file **must already be merged** in the base branch at the time the pull request is opened or updated. For more, please refer to `GitHub docs <https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target>`_.
 
+.. _faq-dependency-management:
+
 Dependency management
 ---------------------
 
-Why are both pip.txt and conda.txt provided?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _faq-dependency-files:
+
+What are ``docs.txt``, ``test.txt``, ``build.txt``, and ``conda.txt`` files under ``\requirements`` in Level 4 and Level 5?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:pip.txt: list all PyPI packages required to install the package via `pip install <package-name>`.
+
+:conda.txt: list all Conda packages required for running the package in GitHub CI. It should be typically identcal as the ``pip.txt`` file.
+
+:test.txt: packages required for the testing suite to ensure all tests pass.
+
+:docs.txt: packages required for building the package documentation page.
+
+:build.txt: list all conda packages required for building the package in GitHub CI, including those specified in the build section of meta.yaml (conda-recipe).
+
+
+.. _faq-pip-conda-both-provided:
+
+
+Why are both ``pip.txt`` and ``conda.txt`` provided?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Our preferred choice for installing the scikit-packaged package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new_env <package-name>``. Additionally, the environment is tested via conda-forge CI before the Conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
 
 However, we also want to allow users to install the package via ``pip``. To support this, we provide a separate file for pip dependencies, ``pip.txt``. In most cases, the dependencies listed in ``conda.txt`` and ``pip.txt`` will be identical. However, there can be exceptions. For example, ``matplotlib-base`` is preferred for Conda installations, while ``matplotlib`` is used for pip installations.
 
+.. _faq-github-workflow:
+
 GitHub workflow
 ---------------
 
 I am new to GitHub. Why do we use Git/GitHub?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 GitHub allows multiple contributors to work on a software project simultaneously under an organization like ``Billingegroup`` or ``diffpy``. There are two primary needs. First, we want to ensure that any changes under this organization are reviewed by the organization's project owner. Second, we want to ensure we add new changes from the latest version of the code, particularly when working with multiple contributors across different time zones. Hence, we use GitHub to serve the needs with a specific workflow below. Please see below for an overview of the GitHub workflow.
 

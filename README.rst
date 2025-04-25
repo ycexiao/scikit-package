@@ -4,7 +4,7 @@
 .. |title| replace:: scikit-package
 .. _title: https://Billingegroup.github.io/scikit-package
 
-.. |Icon| image:: logos/scikit-package_logo_text.png
+.. |Icon| image:: img/logos/scikit-package-logo-text.png
         :target: https://Billingegroup.github.io/scikit-package
         :height: 150px
 
@@ -35,29 +35,45 @@
 .. |Tracking| image:: https://img.shields.io/badge/issue_tracking-github-blue
         :target: https://github.com/Billingegroup/scikit-package/issues
 
-``scikit-package`` is a Python package standard and generator for scientific code. Use ``scikit-package`` to launch a new project or migrate existing ones to support the latest Python versions and streamline the process of distributing and maintaining your software package.
+``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications:
 
-- Automated `PEP8 <https://peps.python.org/pep-0008/>`_ and `PEP256 <https://peps.python.org/pep-0256/>`_ standard checks.
-- Automated PyPI/GitHub release, testing, documentation, and CHANGELOG updates.
-- Streamlined package release workflow with a checklist.
-- Latest Python version support compatible with `SPEC0 <https://scientific-python.org/specs/spec-0000/>`_.
-- Rich README template containing badges, installation, support, and contribution guide.
-- Automatic spelling check, linting for .json, .yml, and .md files.
+- We help scientists share scientific code to amplify research impact.
+
+- We help scientists save time, allowing them to focus on writing scientific code.
+
+- We offer best practices from the group's experience in developing scientific software.
+
+
+Overview
+--------
+
+Here is an overview of the 5 levels of sharing code and the key features of ``scikit-package``:
+
+.. image:: img/figures/scikit-package-overview-qr-code.png
+    :alt: Diagram of 5 levels of sharing code with key features and scikit-package commands
+    :width: 800px
+    :align: center
+
 
 Demo
 ----
 
+Here is how you can use ``scikit-package`` to create a lightweight Python package (Level 4):
+
+(FIXME: Replace this GIF with a Level 4 demo with updated file/folder names.)
+
 .. image:: doc/source/gif/demo.gif
-   :alt: scikit-package demo
-   :align: center
+        :alt: scikit-package demo
+        :align: center
 
 Getting started
 ---------------
 
-Are you interested in amplifying your scientific contribution by standarlizing and distributing your Python code? Begin with the ``Getting started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
+Are you interested in using ``scikit-package``? Begin with the ``Getting Started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
 
-How to cite scikit-package
----------------------------
+
+How to cite ``scikit-package``
+------------------------------
 
 If you use ``scikit-package`` to standardize your Python software, we would like you to cite scikit-package as follows:
 

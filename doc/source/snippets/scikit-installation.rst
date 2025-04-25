@@ -1,18 +1,22 @@
 .. _scikit-package-installation:
 
-Installation
-------------
+Install ``scikit-package`` with conda
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To get started, install ``scikit-package``, ``black``, and ``pre-commit`` in a new conda environment. Follow the steps below:
+#. Create a new environment named ``<project>_env``, e.g., ``skpkg_env``. Install ``scikit-package`` and ``pre-commit`` simultaneously by running the following command:
 
-Create a new environment named ``scikit-package_env``: ::
+    .. code-block:: bash
 
-    conda create -n scikit-package_env
+        conda create -n <project>_env scikit-package pre-commit
 
-Activate the environment: ::
+#. Activate the environment:
 
-    conda activate scikit-package_env
+    .. code-block:: bash
 
-Install packages: ::
+        conda activate <project>_env
 
-    conda install scikit-package black pre-commit
+#. Confirm that you have the latest version of ``scikit-package`` available on GitHub:
+
+    .. code-block:: bash
+
+        pip show scikit-package
