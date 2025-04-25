@@ -9,8 +9,13 @@ By the end of the tutorial, you will be able to reuse code within a file by crea
 Prerequisites
 ^^^^^^^^^^^^^
 
-We assume you have a basic understanding of executing a Python script in a command-line tool. We also assume that you have used the ``numpy`` Python library.
+We assume you have a basic understanding of executing a Python script in a command-line tool.
 
+Also ensure you hav your Python installed on your system. You can check this by running the following command:
+
+.. code-block:: bash
+
+    python --version
 
 Folder structure
 ^^^^^^^^^^^^^^^^
@@ -26,7 +31,6 @@ Example code
 ^^^^^^^^^^^^
 
 In the ``example_code.py`` file, define a function called ``dot_product`` that takes two vectors as input and returns their dot product:
-
 
 .. code-block:: python
 
@@ -83,19 +87,13 @@ Here is the full content of the ``example_code.py`` file:
     v4 = [7, 8]
     print(dot_product(v3, v4))  # returns 83
 
+Congratulation! You are now able to reuse code within a file by creating a function
 
-Are you having trouble running the code?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This is the first step in reusing code in Python.
 
-.. note::
+Before we move on to Level 2, let's use a simple tool that helps us install packages safety and create separate environments for projects.
 
-    For those who are not familiar with Python, ensure you have ``numpy`` installed by running ``pip install numpy`` or ``conda install numpy``.
-
-    If your code still does not run, we recommend setting up a conda environment. conda is an open-source package and environment management software that allows you to create isolated environments to install software, including Python and its packages. The instructions for conda installation can be found at https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html.
-
-    Once you have conda installed on your computer, run the following commands:
-
-Once you have conda installed on your computer, run the following commands:
+.. _conda-setup-simple:
 
 .. include:: snippets/conda-env-setup-simple.rst
 
