@@ -25,8 +25,11 @@ Create a new project by running the following command:
      package create workspace
 
 You will then be asked to enter the ``project-name``. The default value is ``workspace-folder``.
-
 In this example, enter ``data-analysis-project`` as the workspace folder you are about to create.
+
+.. code-block:: bash
+
+     [1/1] workspace_name (workspace-folder): data-analysis-projects
 
 ``cd`` into the new directory created by the ``package create workspace`` command above:
 
@@ -34,8 +37,8 @@ In this example, enter ``data-analysis-project`` as the workspace folder you are
 
     cd data-analysis-project
 
-Folder structure
-^^^^^^^^^^^^^^^^
+Folder structure and file descriptions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When you ``cd`` into the new directory, you will see a folder structure as shown below:
 
@@ -52,15 +55,90 @@ When you ``cd`` into the new directory, you will see a folder structure as shown
           ├── __init__.py
           └── test_shared_functions.py
 
-Please take a look at those files created with your favorite IDE software (e.g., Visual Studio Code, PyCharm, etc.).
 
-See the descriptions below for each file created in the project:
+- ``README.md`` is a markdown file for project documentation.
 
-.. note::
+- ``shared_functions.py`` is where you define shared utilities. It includes the following example function:
 
-     ``shared_functions.py`` is an example module where you can define functions that are imported across the project folder ``proj-one``. The ``__init__.py`` files are required. This indicates to Python that the directories contain Python modules.
+.. code-block:: python
 
-     ``requirements.txt`` is the file where you list Python dependencies. The ``README.md`` file is where you add notes for your project. The ``tests`` folder contains tests for your reusable code.
+     # shared_functions.py file
+     import numpy as np
+
+
+     def dot_product(a, b):
+          """Calculate the dot product of two vectors."""
+          return np.dot(a, b)
+
+- ``proj_one/proj_one_code.py`` imports and uses the ``dot_product`` function:
+
+.. code-block:: python
+
+     # proj_one_code.py file
+     import shared_functions
+
+     a = [1, 2, 3]
+     b = [1, 2, 3]
+     result = shared_functions.dot_product(a, b)
+     print(result)
+
+- ``__init__.py`` files mark directories as Python modules. These are empty by default at this level.
+
+- ``requirements.txt`` lists your project's dependencies, which by default include:
+
+.. code-block:: python
+
+     # requirements.txt file
+     numpy
+     pytest
+
+- The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product`` function using ``pytest``:
+
+
+.. code-block:: python
+
+     # test_shared_functions.py file
+     import numpy as np
+     import pytest
+     import shared_functions
+
+
+     def test_dot_product_2D_list():
+     a = [1, 2]
+     b = [3, 4]
+     expected = 11.0
+     actual = shared_functions.dot_product(a, b)
+     assert actual == expected
+
+
+     def test_dot_product_3D_list():
+     a = [1, 2, 3]
+     b = [4, 5, 6]
+     expected = 32.0
+     actual = shared_functions.dot_product(a, b)
+     assert actual == expected
+
+
+     @pytest.mark.parametrize(
+     "a, b, expected",
+     [
+          # Test whether the dot product function works with 2D and 3D vectors
+          # C1: lists, expect correct float output
+          ([1, 2], [3, 4], 11.0),
+          ([1, 2, 3], [4, 5, 6], 32.0),
+          # C2: tuples, expect correct float output
+          ((1, 2), (3, 4), 11.0),
+          ((1, 2, 3), (4, 5, 6), 32.0),
+          # C3: numpy arrays, expect correct float output
+          (np.array([1, 2]), np.array([3, 4]), 11.0),
+          (np.array([1, 2, 3]), np.array([4, 5, 6]), 32.0),
+     ],
+     )
+     def test_dot_product(a, b, expected):
+     actual = shared_functions.dot_product(a, b)
+     assert actual == expected
+
+- ``.pre-commit-config.yaml`` is a configuration file for pre-commit hooks. This file is described in further detail below.
 
 
 Install dependencies
@@ -105,13 +183,12 @@ Then, you can run the code by running:
 .. code-block:: bash
 
     python proj_one/reuse_code.py
-    python proj_two/reuse_code.py
 
 
 Run tests
 ^^^^^^^^^^
 
-Notice that the ``tests`` folder contains a test file called ``test_calculator.py``. You can run the tests by running the following command:
+To run tests using ``pytest``, run the following command:
 
 .. code-block:: bash
 
