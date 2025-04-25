@@ -6,18 +6,30 @@
 | Software version |release|.
 | Last updated |today|.
 
-Welcome to Billinge Group's Python ``scikit-package`` documentation!  ``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications.
+Welcome to Billinge Group's Python ``scikit-package`` documentation!
 
-Why should I use ``scikit-package``?
-------------------------------------
+``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications.
 
-``scikit-package`` offers step-by-step instructions for reusing and sharing code, starting from something as simple as defining and using functions, all the way to maintaining and releasing a fully documented open-source package on PyPI and conda-forge. Please see the iagram below for an overview of the five levels of sharing code and the key features of ``scikit-package``:
+
+How does ``scikit-package`` benefit scientists?
+-----------------------------------------------
+
+``scikit-package`` offers step-by-step instructions for reusing and sharing code, starting from something as simple as defining and using functions, all the way to maintaining and releasing a fully documented open-source package on PyPI and conda-forge.
+
+Here are the 3 goals of ``scikit-package`` for the scientific community:
+
+#. We help scientists share scientific code to **amplify research impact**.
+
+#. We help scientists save time, allowing them to **focus on writing scientific code**.
+
+#. We offer **best practices** from the group's experience in developing scientific software.
+
+Here is an overview of the five levels of reusing and sharing code and the key features of ``scikit-package``:
 
 .. image:: ../../img/figures/scikit-package-overview-qr-code.png
     :alt: Diagram of 5 levels of sharing code with key features and scikit-package commands
     :width: 800px
     :align: center
-
 
 The steps are divided into five levels of shareability and complexity, allowing users to choose the level that best suits their current needs. Code can be moved to higher levels as necessary.
 
