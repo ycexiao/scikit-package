@@ -4,7 +4,7 @@
 .. |title| replace:: scikit-package
 .. _title: https://Billingegroup.github.io/scikit-package
 
-.. |Icon| image:: logos/scikit-package-logo-text.png
+.. |Icon| image:: img/logos/scikit-package-logo-text.png
         :target: https://Billingegroup.github.io/scikit-package
         :height: 150px
 
@@ -19,9 +19,7 @@
         :target: https://github.com/Billingegroup/scikit-package/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
 
 .. |Codecov| image:: https://codecov.io/gh/Billingegroup/scikit-package/branch/main/graph/badge.svg
-        :target: https://codecov.io/gh/Billingegroup/scikit-package
-
-.. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/scikit-package
+        :target: https://codecov.io/gh/Billingegroup/scikit-package.. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/scikit-package
         :target: https://anaconda.org/conda-forge/scikit-package
 
 .. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
@@ -35,7 +33,6 @@
 .. |Tracking| image:: https://img.shields.io/badge/issue_tracking-github-blue
         :target: https://github.com/Billingegroup/scikit-package/issues
 
-``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications:
 
 - We help scientists share scientific code to amplify research impact.
 
@@ -56,6 +53,11 @@ Here is how you can use ``scikit-package`` to create a lightweight Python packag
 
 Getting started
 ---------------
+
+.. image:: img/figures/scikit-package-overview-qr-code.png
+    :alt: Diagram of 5 levels of sharing code with key features and scikit-package commands
+    :width: 800px
+    :align: center
 
 Are you interested in using ``scikit-package``? Begin with the ``Getting Started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
 
