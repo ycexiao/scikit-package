@@ -40,6 +40,18 @@
 
 - We offer best practices from the group's experience in developing scientific software.
 
+
+Overview
+--------
+
+Here is an overview of the 5 levels of sharing code and the key features of ``scikit-package``:
+
+.. image:: img/figures/scikit-package-overview-qr-code.png
+    :alt: Diagram of 5 levels of sharing code with key features and scikit-package commands
+    :width: 800px
+    :align: center
+
+
 Demo
 ----
 
@@ -53,11 +65,6 @@ Here is how you can use ``scikit-package`` to create a lightweight Python packag
 
 Getting started
 ---------------
-
-.. image:: img/figures/scikit-package-overview-qr-code.png
-    :alt: Diagram of 5 levels of sharing code with key features and scikit-package commands
-    :width: 800px
-    :align: center
 
 Are you interested in using ``scikit-package``? Begin with the ``Getting Started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
 
