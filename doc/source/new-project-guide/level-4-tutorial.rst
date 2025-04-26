@@ -56,7 +56,7 @@ Check folder structure
 
         my-package/
         ├── LICENSE.rst
-        ├── README.rst
+        ├── README.md
         ├── environment.yml
         ├── pyproject.toml
         ├── requirements
@@ -118,51 +118,63 @@ Run tests with your locally installed package
 
     Why is it required to list dependencies both under ``pip.txt`` and ``conda.txt``? Please refer to the FAQ section :ref:`here<_faq-dependency-management>`.
 
+#. Done! You have successfully formatted your code. But, let's also make sure these hooks are triggered automatically when you make a commit.
 
-Automatic code formatting with ``pre-commit``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create a new project on GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Notice that there is a hidden file called ``.pre-commit-config.yaml`` in the root directory. This file is used to configure pre-commit "hooks". These hooks are checks that can be automatically executed when you commit your code to Git.
+#. Visit `https://github.com/new <https://github.com/new>`_
 
-.. note::
+#. Choose and enter values for ``Owner`` and ``Repository name``.
 
-    If you are not familiar with Git/GitHub, don't worry. Here, we provide step-by-step instructions.
+#. Choose ``Public`` or ``Private``.
 
-#. Initialize a local Git repository in your project folder:
+#. Do not check ``Add a README file``.
+
+#. Set ``None`` under ``Add .gitignore``.
+
+#. Set ``MIT License or BSD 3-Caluse`` under ``Choose a license``.
+
+#. Click the ``Create repository`` green button to create the repository.
+
+#. Done. Let's push your code from your local Git repository to the remote GitHub repository.
+
+Trigger pre-commit hooks automatically with Git commit
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Create a local Git repository in the project directory:
 
     .. code-block:: bash
 
         git init
 
-#. Add your files to the local Git repository:
+#. Set up the remote GitHub repository. Let's call this repository ``origin``, a common name for the remote repository.
 
     .. code-block:: bash
 
-        git add .
+        git remote add origin https://github.com/<OWNER>/<project-name>.git
 
-#. Format your code by running:
+.. _level-4-pull-license:
+
+#. Pull the code from the remote ``main`` branch. Recall we had a ``README.md`` file created.
 
     .. code-block:: bash
 
-        pre-commit run --all-files
-
-#. Ensure that all of the checks pass.
-
-    .. code-block:: text
-
-        black....................................................................Passed
-        prettier.................................................................Passed
-        docformatter.............................................................Passed
+        git pull origin main
 
     .. note::
 
-        ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
+        Notice that you have both ``LICENSE`` and ``LICENSE.rst``. The ``LICENSE.rst`` file is the one created by ``scikit-package``. The ``LICENSE`` file is the one created by GitHub and you've recently "pulled" it from the GitHub repository. We will remove the ``LICENSE`` file later.
 
+#. Create a new local branch from the ``main`` branch. Let's call this branch ``skpkg-proj``.
 
-#. Done! You have successfully formatted your code. But, let's also make sure these hooks are triggered automatically when you make a commit.
+    .. code-block:: bash
 
-Trigger pre-commit hooks automatically with Git commit
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        git checkout -b skpkg-proj
+
+    .. note::
+
+        The ``-b`` flag indicates that you want to create a new branch if it does not already exist.
 
 #. Configure ``pre-commit`` to run each time a new commit is made:
 
@@ -177,7 +189,19 @@ Trigger pre-commit hooks automatically with Git commit
         git add .
         git commit -m "skpkg: start a new project with skpkg system template"
 
-#. Notice that the hooks all pass. You will see the new commit in the git log:
+#. Ensure that all of the ``pre-commit`` hooks pass.
+
+    .. code-block:: text
+
+        black....................................................................Passed
+        prettier.................................................................Passed
+        docformatter.............................................................Passed
+
+    .. note::
+
+        ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
+
+#. You will see the new commit in the git log:
 
     .. code-block:: bash
 
@@ -185,71 +209,27 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. note::
 
-        If one or more of the hooks fail, no commit will be made. But, ``pre-commit`` will automatically lint your code too. If this is the case, simply re-enter the same commit message again.
+        Did you see any failed ``pre-commit`` hooks? If so, no commit will be made. Simply re-run ``git add <file>`` on the files that have been modified by ``pre-commit`` and re-enter the same commit message again, such as ``git commit -m "skpkg: start a new project with skpkg system template"``.
 
-#. Done. Let's now push your code to GitHub, which is a remote/cloud Git repository.
-
-Create a new project on GitHub
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Visit `https://github.com/new <https://github.com/new>`_
-
-#. Choose and enter values for ``Owner`` and ``Repository name``.
-
-#. Choose ``Public`` or ``Private``.
-
-#. Check ``Add a README file``.
-
-#. Set ``None`` under ``Add .gitignore``.
-
-#. Set ``None`` under ``Choose a license``.
-
-#. Click the ``Create repository`` green button to create the repository.
-
-#. Done. Let's push your code from your local Git repository to the remote GitHub repository.
-
-Push your code to GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Set up the remote GitHub repository. Let's call this repository ``origin``, a common name for the remote repository.
+#. Finally, let's now remove the ``LICENSE`` file. Recall that we have both ``LICENSE`` and ``LICENSE.rst`` mentioend :ref:`above<level-4-pull-license>`.
 
     .. code-block:: bash
 
-        git remote add origin https://github.com/<OWNER>/<project-name>.git
-
-#. Pull the code from the remote ``main`` branch. Recall we had a ``README.md`` file created.
-
-    .. code-block:: bash
-
-        git pull origin main
-
-#. Create a new local branch from the ``main`` branch. Let's call this branch ``skpkg-proj``.
-
-    .. code-block:: bash
-
-        git checkout -b skpkg-proj
-
-    .. note::
-
-        The ``-b`` flag indicates that you want to create a new branch if it does not already exist.
-
-
-#. Remove the ``README.md`` file. We already have a ``README.rst`` file created with ``scikit-package``.
-
-    .. code-block:: bash
-
-        rm README.md
+        rm LICENSE
 
 #. Let's now stage and commit the code.
 
     .. code-block:: bash
 
-        git add README.md
-        git commit -m "chore: remove README.md file pulled from remote main branch"
+        git add LICENSE
+        git commit -m "chore: remove LICENSE file created from initial GitHub repo creation"
 
     .. note::
 
-        You may wonder why we ``git add README.md``. While we removed it from our local computer, we still have to let the local Git repository know manually that it has been removed. Recall that when you run ``git init``, it creates a hidden folder called ``.git`` in your local project directory.
+        You may wonder why we ``git add LICENSE``. While we removed it from our local computer, we still have to let the local Git repository know manually that it has been removed. Recall that when you run ``git init``, it creates a hidden folder called ``.git`` in your local project directory.
+
+Push your code to the remote GitHub repository
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Let's now push our code to the new ``skpkg-proj`` local branch and push to the remote ``skpkg-proj`` branch.
 
@@ -276,9 +256,11 @@ Create a pull request from ``skpkg-proj`` to ``main``
 
 #. Wait for ``Tests on PR`` to run and pass. It runs ``pytest`` on the incoming code in each pull request.
 
-#. While waiting, review the files that are changed. Ensure the only file removed is ``README.md``.
+#. While waiting, review the files that are changed.
 
-#. Do not merge the PR yet! Let's set up ``pre-commit`` in this GitHub repository as well so that it runs the hooks in each PR.
+#. **Do not merge the PR yet!**
+
+#. Let's set up ``pre-commit CI`` in this GitHub repository as well so that it runs the hooks in each PR.
 
 .. note:: Why do I need to set up ``pre-commit CI``?
 
@@ -308,7 +290,7 @@ Merge the pull request
 
 
 (Optional) How to develop your code moving forward
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Assume that you have successfully followed the previous steps. Now, you want to add new code to your GitHub repository. Perhaps you are working with a group of people. Here is a high-level overview with step-by-step instructions on how to do that:
 

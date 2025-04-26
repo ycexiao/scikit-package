@@ -2,7 +2,9 @@
 
 #. Select the repository(s).
 
-#. let's attempt to activate the ``pre-commit CI`` by sending an empty commit to the ``skpkg-proj`` remote branch.
+#. Done!
+
+#. Let's attempt to activate the ``pre-commit CI`` by sending an empty commit to the ``skpkg-proj`` remote branch.
 
     .. code-block:: bash
 
