@@ -36,7 +36,7 @@ Virtual environments allow you to create isolated environments, each with their 
     
     .. note::
 
-        If you are a Windows PowerShell user and Python is not found after activating the environment, you can run the following command to check if Python is installed in the environment:
+        If you are a Windows PowerShell user and Python is not found after activating the environment, you can run the following command:
 
         .. code-block:: bash
             
