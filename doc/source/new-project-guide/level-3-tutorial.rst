@@ -101,7 +101,7 @@ Now that the folder structure is created, let's go through the files and folders
 
 - ``__init__.py`` files mark directories as Python modules. These are empty by default at this level.
 
-- ``requirements.txt`` lists your project's dependencies, which in this case includes ``numpy`` and ``pytest``:
+- ``requirements.txt`` lists your project's dependencies. These are Python packages that are used throughout your project(s), which in this case includes ``numpy`` and ``pytest``. Please refer to the section "**Install dependencies**" below for more details on how to install them. You can add any other dependencies you need in this file:
 
 .. code-block:: python
 
