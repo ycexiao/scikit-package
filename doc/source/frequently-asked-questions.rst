@@ -377,10 +377,11 @@ reducing compute time, especially when computing resources are not the primary c
 Documentation
 -------------
 
-How can I preview documentation in real-time?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How can I preview ``Sphinx`` documentation in real-time?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You may use Visual Studio Code. Please refer to the following section :ref:`here <build-documentation-preview-real-time>`.
+.. include:: snippets/doc-local-build.rst
+
 
 How do I re-deploy online documentation without another release?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

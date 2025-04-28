@@ -154,9 +154,10 @@ Migration code from Level 4 to Level 5
 Build documentation locally
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``/doc`` is the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
+``/doc`` is the the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
 
 .. include:: snippets/doc-local-build.rst
+
 
 Upload your code to GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
