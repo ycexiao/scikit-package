@@ -1,5 +1,8 @@
+#. Install the requirements for building the documentation.
 
-``/doc`` is the the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
+    .. code-block:: bash
+
+        conda install --file requirements/docs.txt
 
 #. Build the documentation locally by running:
 
@@ -22,5 +25,3 @@
     .. code-block:: bash
 
         sphinx-reload doc
-
-#. Done! Later, you will learn to host this documentation on GitHub Pages via public URL.
