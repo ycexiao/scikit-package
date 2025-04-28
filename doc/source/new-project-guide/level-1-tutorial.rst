@@ -102,4 +102,4 @@ Once you have conda installed on your computer, run the following commands:
 What's next?
 ^^^^^^^^^^^^
 
-You may proceed to Level 2 below. You will learn to share the ``doc_product`` across multiple Python files and modules.
+You may proceed to Level 2 below. You will learn to share the ``dot_product`` across multiple Python files and modules.
