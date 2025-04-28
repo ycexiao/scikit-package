@@ -33,13 +33,13 @@ Virtual environments allow you to create isolated environments, each with their 
         # Run the script
         python <python_file_name>.py
 
-    
+
     .. note::
 
         If you are a Windows PowerShell user and Python is not found after activating the environment, you can run the following command:
 
         .. code-block:: bash
-            
+
             # For Windows (PowerShell)
             conda init powershell
 
