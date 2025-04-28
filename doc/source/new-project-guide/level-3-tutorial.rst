@@ -86,19 +86,17 @@ Type ``pwd`` in your command-line tool to see the current working directory.
 
      pwd
 
-For example, for a macOS user, it will print something like ``/Users/macbook/downloads/dev/scikit-package/workspace_folder``.
+For a macOS user, it will print something like ``/Users/macbook/downloads/dev/scikit-package/workspace_folder``.
 
-Copy and paste the value while replacing ``<path-to-your-workspace-folder>`` with the path printed above.
+Copy and paste the value while replacing ``<path-to-your-workspace-folder>`` with the path printed above:
 
 .. code-block:: bash
 
+     # For macOS/Linux user
     export PYTHONPATH="${PYTHONPATH}:<path-to-your-workspace-folder>"
 
-For example, using the macOS example above, it would be:
-
-.. code-block:: bash
-
-    export PYTHONPATH="${PYTHONPATH}:/Users/macbook/downloads/dev/scikit-package/workspace_folder"
+     # For Windows (Powershell) user
+    $env:PYTHONPATH = "$env:PYTHONPATH;<path-to-your-workspace-folder"
 
 Run your code
 ^^^^^^^^^^^^^
@@ -109,7 +107,6 @@ Then, you can run the code by running:
 
     python proj_one/reuse_code.py
     python proj_two/reuse_code.py
-
 
 Run tests
 ^^^^^^^^^^
