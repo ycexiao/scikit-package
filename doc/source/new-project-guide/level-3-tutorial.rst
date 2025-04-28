@@ -213,19 +213,15 @@ Then, you can run the code by running:
 Run tests
 ^^^^^^^^^^
 
-To run tests using ``pytest`` on a specific module (in this case, ``test_calculator.py``), run the following command:
-
-.. code-block:: bash
-
-    pytest tests/test_calculator.py
-
-To run tests on all modules, ``cd`` to the top level directory and run:
+To run tests using ``pytest``, ``cd`` to the top level directory and run the following command:
 
 .. code-block:: bash
 
      pytest
 
-This will run tests in all files that start with ``test_`` or end with ``_test.py`` in the ``tests`` folder. In general, it is bad practice to tolerate failing tests. If you have a failing test, you should fix it ASAP to limit technical debt.
+This will run all tests located in the ``tests`` directory.
+
+In general, it is bad practice to tolerate failing tests. Ignoring tests can lead to bad habits and you may miss important bugs in your code!
 
 .. note ::
 
