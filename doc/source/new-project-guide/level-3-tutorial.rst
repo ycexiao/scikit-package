@@ -109,8 +109,17 @@ Now that the folder structure is created, let's go through the files and folders
      numpy
      pytest
 
-- The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product`` function using ``pytest``. General naming convention for test files is ``test_<module_name>.py``. Similarly, test function names should be ``test_<function_name>()``. This is how ``pytest`` recognizes them as test functions:
+- The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product()`` function using ``pytest``. General naming convention for test files is ``test_<module_name>.py``. Similarly, test function names should be ``test_<function_name>()``. This is how ``pytest`` recognizes them as test functions. This can also contain tests for your sub-project modules.
 
+To write your own test, follow these steps:
+
+1. Create your function in a module. For example, under the ``proj_one`` directory, you might create a module called ``my_module.py`` that defines a function ``my_function()``.
+
+2. Create a corresponding test file in the ``tests`` directory. The test file should be named ``test_<module_name>.py`` — in this case, ``test_my_module.py``.
+
+3. Inside the test file, create a function that tests your code. The test function should be named ``test_<function_name>()`` — in this case, ``test_my_function()``.
+
+Following this naming pattern ensures that ``pytest`` can automatically discover and run your tests:
 
 .. code-block:: python
 
@@ -155,7 +164,7 @@ Now that the folder structure is created, let's go through the files and folders
      actual = shared_functions.dot_product(a, b)
      assert actual == expected
 
-- ``.pre-commit-config.yaml`` is a configuration file for pre-commit hooks. This file is described in further detail below.
+- ``.pre-commit-config.yaml`` is a configuration file for pre-commit hooks. To use ``pre-commit`` you must install the package with ``conda install pre-commit``. This file and its usage is described in more detail in the section "**Automatic code formatting with pre-commit**" below.
 
 
 Install dependencies
@@ -230,9 +239,7 @@ Notice that there is a hidden file called ``.pre-commit-config.yaml`` in the roo
 
 In Level 3, you will run these hooks manually for simplicity.
 
-Recall ``pre-commit`` has already been installed in the environment in the previous stage.
-
-Since ``pre-commit`` is meant to work with ``Git``, create a local Git folder in your project folder by running:
+Recall ``pre-commit`` has already been installed in the environment in the previous stage. Since ``pre-commit`` is meant to work with ``Git``, create a local Git folder in your project folder by running:
 
 .. code-block:: bash
 
