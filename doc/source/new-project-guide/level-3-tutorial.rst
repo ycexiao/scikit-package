@@ -96,7 +96,7 @@ Copy and paste the value while replacing ``<path-to-your-workspace-folder>`` wit
     export PYTHONPATH="${PYTHONPATH}:<path-to-your-workspace-folder>"
 
      # For Windows (Powershell) user
-    $env:PYTHONPATH = "$env:PYTHONPATH;<path-to-your-workspace-folder"
+    $env:PYTHONPATH = "$env:PYTHONPATH;<path-to-your-workspace-folder>"
 
 Run your code
 ^^^^^^^^^^^^^
