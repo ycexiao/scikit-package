@@ -70,12 +70,11 @@ File descriptions
 
 Now that the folder structure is created, let's go through the files and folders in the project.
 
-**Disclaimer:** The Python files (``.py``) and project structure shown here are example templates. You can **change file names, add files, edit contents, or replace the examples entirely** when creating your own project. These examples are intended to demonstrate key ideas like code reuse and organization.
+**Note:** The Python files (``.py``) and project structure shown here are example templates. You can **change file names, add files, edit contents, or replace the examples entirely** when creating your own project. These examples are intended to demonstrate key ideas like code reuse and organization.
 
 - ``README.md`` is a markdown file for project documentation. Typically, it includes a project description, installation instructions, and usage examples. You can edit this file to add your own project information.
 
-
-- ``shared_functions.py`` is where you define reused code. It includes the following example function to help demonstrate the concept of shared functions. In your project, this is where you would add the code you want to reuse across different projects.
+- ``shared_functions.py`` is the file where you define code you want to reuse. You can name this file whatever you like, and you can include multiple files here with different names for organizing reusable code. In the ``scikit-package`` template, we populate this file with the following example function to help demonstrate the concept of shared functions:
 
 .. code-block:: python
 
