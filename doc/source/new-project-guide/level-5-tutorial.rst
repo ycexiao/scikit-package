@@ -263,7 +263,7 @@ Let's create a news item for the changes made in this PR.
 
     .. note::
 
-        How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please check out the news guide in the FAQ :ref:`here<faq-news-item-practice>`.
+        How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please check out the news guide in the FAQ :ref:`here<news-item-practice>`.
 
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
@@ -288,7 +288,7 @@ Congratulations! You are done with migrating your package from Level 4 to Level 
 
     .. important::
 
-        For writing great news items, Python docstrings, tests, and commit messages, check the Billinge research group's guidelines :ref:`here<faq-billinge-group-standards>`.
+        For writing great news items, Python docstrings, tests, and commit messages, check the Billinge research group's guidelines :ref:`here<billinge-group-standards>`.
 
 Build API reference documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

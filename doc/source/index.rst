@@ -129,6 +129,7 @@ Table of contents
    pypi-release-guide
    conda-forge-release-guide
    migration-guide
+   billinge-group-standards
    frequently-asked-questions
    license
    release
