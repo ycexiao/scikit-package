@@ -40,10 +40,10 @@ For commit messages and issue titles, we add prefixes adopted from https://www.c
 
 Please see an example here: https://github.com/Billingegroup/scikit-package/issues. There are a few benefits to adding prefixes to GitHub issue titles. First, it helps us prioritize tasks from the GitHub notifications. Second, it helps reference issues in a comment within an issue or pull request and organize tasks.
 
-.. attention:: 
-    
+.. attention::
+
     How do I write a good Git commit message?
-    
+
     A commit message is written for PR reviewers and for debuggers. Avoid verbosity for a quick overview. An ideal commit message communicates file(s) of interest, the reason for the modification, and what modifications were made. e.g., “chore: move all files from docs to doc for scikit-packaging."
 
 Pull request practices
@@ -53,7 +53,7 @@ Pull request practices
 
 #. Make PRs small with the possibility of rejection.
 
-#. Write ``closes #<issue-number>`` in the PR comment to automatically close the issue when the PR is merged. See https://github.com/Billingegroup/scikit-package/pull/350. 
+#. Write ``closes #<issue-number>`` in the PR comment to automatically close the issue when the PR is merged. See https://github.com/Billingegroup/scikit-package/pull/350.
 
 #. A PR should close an issue on GitHub. If there is no issue, make one. If the issue is big, consider breaking it down into smaller issues.
 
