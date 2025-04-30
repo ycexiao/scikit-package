@@ -198,6 +198,22 @@ Copy and paste the value while replacing ``<path-to-your-workspace-folder>`` wit
      # For Windows (Powershell) user
     $env:PYTHONPATH = "$env:PYTHONPATH;<path-to-your-workspace-folder>"
 
+To avoid retyping this command every time you open a new terminal, you can add it to your shell configuration file:
+
+.. code-block:: bash
+
+     # For macOS/Linux (bash or zsh shell)
+     echo 'export PYTHONPATH="${PYTHONPATH}:/path/to/your/workspace_folder"'
+
+     # For Windows (PowerShell)
+     echo '$env:PYTHONPATH = "$env:PYTHONPATH;/path/to/your/workspace_folder"'
+
+After adding the command, restart your terminal or run the corresponding file to activate the changes.
+
+.. note::
+
+   If you are using a Level 4 package layout, this step is not required because proper packaging eliminates the need to set ``PYTHONPATH`` manually.
+
 Run your code
 ^^^^^^^^^^^^^
 
