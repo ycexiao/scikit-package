@@ -22,4 +22,6 @@ Here are the 5 levels of sharing your code. We provide tutorials for each level.
 
     If your package is already developed with Level 4, and you are ready to release your package, let's learn to migrate from Level 4 to Level 5 and host documentation and release it to PyPI and conda-forge. Start :ref:`here <start-new-project-package-full>`.
 
-- Are you here to migrate your existing Python package to the Level 5 standard? See :ref:`here <migration-guide>`.
+- Do you want to explore **best practices** for developing scientific code? Start :ref:`here <billinge-group-standards>`.
+
+- Do you want to migrate your existing Python package to the ``scikit-package`` Level 5 ``public`` standard? Start :ref:`here <migration-guide>`.
