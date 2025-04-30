@@ -1,6 +1,0 @@
-name: scikit-package
-channels:
-  - conda-forge
-dependencies:
-  - python=3
-  - pip
