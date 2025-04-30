@@ -198,7 +198,20 @@ Copy and paste the value while replacing ``<path-to-your-workspace-folder>`` wit
      # For Windows (Powershell) user
     $env:PYTHONPATH = "$env:PYTHONPATH;<path-to-your-workspace-folder>"
 
-To avoid retyping this command every time you open a new terminal, you can add it to your shell configuration file:
+To avoid retyping this command every time you open a new terminal, you can add it to your shell configuration file. The configuration files most commonly used are ``.bashrc`` or ``.zshrc`` for macOS/Linux users, and ``$PROFILE`` for Windows users. These files are located at the root directory (``~``). To edit these files, run the command:
+
+.. code-block:: bash
+
+     # For macOS/Linux:
+     # bash shell
+     nano ~/.bashrc
+     # zsh shell
+     nano ~/.zshrc
+
+     # For Windows PowerShell:
+     notepad $PROFILE
+
+Then, add the command to set ``PYTHONPATH`` at the end of the file:
 
 .. code-block:: bash
 
@@ -208,7 +221,18 @@ To avoid retyping this command every time you open a new terminal, you can add i
      # For Windows (PowerShell)
      echo '$env:PYTHONPATH = "$env:PYTHONPATH;/path/to/your/workspace_folder"'
 
-After adding the command, restart your terminal or run the corresponding file to activate the changes.
+After adding the command, restart your terminal or run the corresponding file to activate the changes through the commands below:
+
+.. code-block:: bash
+
+     # For macOS/Linux:
+     # bash shell
+     source ~/.bash_profile
+     # zsh shell
+     source ~/.zshrc
+
+     # For Windows PowerShell:
+     . $PROFILE
 
 .. note::
 
