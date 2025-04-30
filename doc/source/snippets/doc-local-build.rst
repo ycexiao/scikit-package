@@ -4,12 +4,6 @@
 
         conda install --file requirements/docs.txt
 
-#. Build the documentation locally by running:
-
-    .. code-block:: bash
-
-        conda install --file requirements/docs.txt
-
 #. Then we will use an external tool called ``sphinx-reload`` to automatically reload the documentation when you make changes to ``.rst`` files.
 
     .. code-block:: bash
