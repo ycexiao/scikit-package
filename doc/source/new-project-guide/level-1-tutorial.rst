@@ -96,4 +96,4 @@ Congratulation! You are now able to reuse code within a file by creating a funct
 What's next?
 ^^^^^^^^^^^^
 
-You may proceed to Level 2 below. You will learn to share the ``doc_product`` across multiple Python files and modules.
+You may proceed to Level 2 below. You will learn to share the ``dot_product`` across multiple Python files and modules.
