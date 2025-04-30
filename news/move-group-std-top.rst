@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: move group standards to the top document level instead of placing it under FAQ.
+* Add Billinge group coding standards and workflows as a standalone section in the official scikit-package documentation.
 
 **Changed:**
 

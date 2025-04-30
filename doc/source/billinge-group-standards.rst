@@ -9,6 +9,8 @@
 Billinge Group standards
 ========================
 
+We present here standards of coding and coding workflows that have been adopted in the Billinge research group over multiple years to make our code more uniform and maintainable by a diverse and shifting team of students and post-docs. They are mostly adopting what we have learned to be standards in the Python community, with some lessons learned along the way. This is not the only way to do things, but since it has taken us lots of trial and error to develop them over time, we share them here in case they are useful to you.
+
 .. _github-commit-issue-practice:
 
 GitHub workflow
@@ -206,7 +208,7 @@ In the group, we follow the NumPy standard:
 
 #. Use "Return a dict" instead of "Returns a dict". Comments are instructions.
 
-#. "The" is used for the starting description of attribute/parameter/return
+#. "The" is used for the starting description of attribute/parameter/return.
 
 #. Full docstrings are not required for private functions.
 
