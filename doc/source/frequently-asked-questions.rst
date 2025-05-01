@@ -40,7 +40,7 @@ You may encounter the following error message when you run ``git commit -m <your
 
   Stashed changes conflicted with hook auto-fixes...
 
-To solve this problem, run ``git add <file>`` on the files modified by ``pre-commit`` and re-enter. Then, re-enter same commit message above using ``git commit -m <your-commit-message>``. Why do we need to run ``git add`` again? The files that are linted by ``pre-commit`` are not staged to the local Git database automatically. So, we stage them manually again with ``git add``.
+To solve this problem, run ``git add <file>`` on the files modified by ``pre-commit``. Then, re-enter same commit message above using ``git commit -m <your-commit-message>``. Why do we need to run ``git add`` again? The files that are linted by ``pre-commit`` are not staged to the local Git database. So, we stage them manually again with ``git add``.
 
 .. _codespell-ignore:
 

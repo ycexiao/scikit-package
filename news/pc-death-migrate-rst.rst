@@ -1,7 +1,7 @@
 **Added:**
 
 * Add instruction on how to avoid pre-commit auto-fix stash problem in the FAQ section.
-* Add instruction on how to migrate .md to .rst file using a tool from Level 4 to 5 migration.
+* Add instruction on how to migrate .md to .rst file using a tool during Level 4 to 5 migration.
 
 **Changed:**
 
