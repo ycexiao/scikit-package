@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: modfiy qr code that is permanent
+* no news added: modify qr code that is permanent
 
 **Changed:**
 
