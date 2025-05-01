@@ -28,7 +28,7 @@ Initiate a project with ``scikit-package``
 
     :project_name: (my-project)
 
-    :github_org: (billingegroup)
+    :github_username_or_orgname: (billingegroup)
 
     :github_repo_name: (my-project)
 
@@ -57,7 +57,6 @@ Check folder structure
         my-package/
         ├── LICENSE.rst
         ├── README.md
-        ├── environment.yml
         ├── pyproject.toml
         ├── requirements
         │   ├── conda.txt

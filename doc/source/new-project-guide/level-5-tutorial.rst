@@ -110,7 +110,6 @@ Go to your project directory
             └── tests
         ├── LICENSE.rst
         ├── README.md
-        ├── environment.yml
         ├── pyproject.toml
         ├── requirements
         ├── src
