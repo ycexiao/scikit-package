@@ -109,7 +109,7 @@ Go to your project directory
             ├── src
             └── tests
         ├── LICENSE.rst
-        ├── README.rst
+        ├── README.md
         ├── environment.yml
         ├── pyproject.toml
         ├── requirements
@@ -147,7 +147,11 @@ Migration code from Level 4 to Level 5
         pip install -e .
         pytest
 
-#. Once the tests pass, let's manually migrate hand-written files like ``README.rst`` from Level 4 to Level 5.
+#. Once the tests pass, let's manually migrate hand-written files like ``README.md`` from Level 4 to Level 5.
+
+    .. note:: 
+
+        In Level 5, we provide a rich template for ``README.rst`` instead of using ``README.md``. If you already had a rich ``README.md`` in Level 4, you can use a tool to convert ``.md`` to ``.rst``. For example, you may use this free `CloudConvert <https://cloudconvert.com/md-to-rst/>`_ tool.
 
 #. Done!
 
