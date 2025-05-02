@@ -28,7 +28,7 @@ Initiate a project with ``scikit-package``
 
     :project_name: (my-project)
 
-    :github_org: (billingegroup)
+    :github_username_or_orgname: (billingegroup)
 
     :github_repo_name: (my-project)
 
@@ -57,7 +57,6 @@ Check folder structure
         my-package/
         ├── LICENSE.rst
         ├── README.md
-        ├── environment.yml
         ├── pyproject.toml
         ├── requirements
         │   ├── conda.txt
@@ -209,7 +208,7 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. note::
 
-        Did you see any failed ``pre-commit`` hooks? If so, no commit will be made. Simply re-run ``git add <file>`` on the files that have been modified by ``pre-commit`` and re-enter the same commit message again, such as ``git commit -m "skpkg: start a new project with skpkg system template"``.
+        Did you see any failed ``pre-commit`` hooks? If so, no commit will be made. Simply re-run ``git add <file>`` on the files that have been modified by ``pre-commit`` and re-enter the same commit message again, such as ``git commit -m "skpkg: start a new project with skpkg system template"``. If you are having trouble getting a commit to be accepted, please refer to the FAQ section :ref:`here<faq-pre-commit-error>`.
 
 #. Finally, let's now remove the ``LICENSE`` file. Recall that we have both ``LICENSE`` and ``LICENSE.rst`` mentioend :ref:`above<level-4-pull-license>`.
 
