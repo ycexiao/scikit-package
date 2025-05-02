@@ -2,10 +2,10 @@
 ===============
 
 .. |title| replace:: {{ cookiecutter.conda_pypi_package_dist_name }}
-.. _title: https://{{ cookiecutter.github_org }}.github.io/{{ cookiecutter.github_repo_name }}
+.. _title: https://{{ cookiecutter.github_username_or_orgname }}.github.io/{{ cookiecutter.github_repo_name }}
 
-.. |Icon| image:: https://avatars.githubusercontent.com/{{ cookiecutter.github_org }}
-        :target: https://{{ cookiecutter.github_org }}.github.io/{{ cookiecutter.github_repo_name }}
+.. |Icon| image:: https://avatars.githubusercontent.com/{{ cookiecutter.github_username_or_orgname }}
+        :target: https://{{ cookiecutter.github_username_or_orgname }}.github.io/{{ cookiecutter.github_repo_name }}
         :height: 100px
 
 |PyPi| |Forge| |PythonVersion| |PR|
@@ -15,11 +15,11 @@
 .. |Black| image:: https://img.shields.io/badge/code_style-black-black
         :target: https://github.com/psf/black
 
-.. |CI| image:: https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/actions/workflows/matrix-and-codecov-on-merge-to-main.yml/badge.svg
-        :target: https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
+.. |CI| image:: https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/actions/workflows/matrix-and-codecov-on-merge-to-main.yml/badge.svg
+        :target: https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/actions/workflows/matrix-and-codecov-on-merge-to-main.yml
 
-.. |Codecov| image:: https://codecov.io/gh/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/branch/main/graph/badge.svg
-        :target: https://codecov.io/gh/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}
+.. |Codecov| image:: https://codecov.io/gh/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/branch/main/graph/badge.svg
+        :target: https://codecov.io/gh/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}
 
 .. |Forge| image:: https://img.shields.io/conda/vn/conda-forge/{{ cookiecutter.conda_pypi_package_dist_name }}
         :target: https://anaconda.org/conda-forge/{{ cookiecutter.conda_pypi_package_dist_name }}
@@ -33,20 +33,20 @@
         :target: https://pypi.org/project/{{ cookiecutter.conda_pypi_package_dist_name }}/
 
 .. |Tracking| image:: https://img.shields.io/badge/issue_tracking-github-blue
-        :target: https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/issues
+        :target: https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/issues
 
 {{ cookiecutter.project_short_description }}
 
 * LONGER DESCRIPTION HERE
 
-For more information about the {{ cookiecutter.conda_pypi_package_dist_name }} library, please consult our `online documentation <https://{{ cookiecutter.github_org }}.github.io/{{ cookiecutter.github_repo_name }}>`_.
+For more information about the {{ cookiecutter.conda_pypi_package_dist_name }} library, please consult our `online documentation <https://{{ cookiecutter.github_username_or_orgname }}.github.io/{{ cookiecutter.github_repo_name }}>`_.
 
 Citation
 --------
 
 If you use {{ cookiecutter.conda_pypi_package_dist_name }} in a scientific publication, we would like you to cite this package as
 
-        {{ cookiecutter.conda_pypi_package_dist_name }} Package, https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}
+        {{ cookiecutter.conda_pypi_package_dist_name }} Package, https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}
 
 Installation
 ------------
@@ -78,7 +78,7 @@ To install using ``pip`` into your ``{{ cookiecutter.conda_pypi_package_dist_nam
         pip install {{ cookiecutter.conda_pypi_package_dist_name }}
 
 If you prefer to install from sources, after installing the dependencies, obtain the source archive from
-`GitHub <https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/>`_. Once installed, ``cd`` into your ``{{ cookiecutter.github_repo_name }}`` directory
+`GitHub <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/>`_. Once installed, ``cd`` into your ``{{ cookiecutter.github_repo_name }}`` directory
 and run the following ::
 
         pip install .
@@ -86,14 +86,14 @@ and run the following ::
 Getting Started
 ---------------
 
-You may consult our `online documentation <https://{{ cookiecutter.github_org }}.github.io/{{ cookiecutter.github_repo_name }}>`_ for tutorials and API references.
+You may consult our `online documentation <https://{{ cookiecutter.github_username_or_orgname }}.github.io/{{ cookiecutter.github_repo_name }}>`_ for tutorials and API references.
 
 Support and Contribute
 ----------------------
 
 `Diffpy user group <https://groups.google.com/g/diffpy-users>`_ is the discussion forum for general questions and discussions about the use of {{ cookiecutter.conda_pypi_package_dist_name }}. Please join the {{ cookiecutter.conda_pypi_package_dist_name }} users community by joining the Google group. The {{ cookiecutter.conda_pypi_package_dist_name }} project welcomes your expertise and enthusiasm!
 
-If you see a bug or want to request a feature, please `report it as an issue <https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/issues>`_ and/or `submit a fix as a PR <https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/pulls>`_. You can also post it to the `Diffpy user group <https://groups.google.com/g/diffpy-users>`_.
+If you see a bug or want to request a feature, please `report it as an issue <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/issues>`_ and/or `submit a fix as a PR <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/pulls>`_. You can also post it to the `Diffpy user group <https://groups.google.com/g/diffpy-users>`_.
 
 Feel free to fork the project and contribute. To install {{ cookiecutter.conda_pypi_package_dist_name }}
 in a development mode, with its sources being directly used by Python
@@ -116,9 +116,9 @@ trying to commit again.
 
 Improvements and fixes are always appreciated.
 
-Before contributing, please read our `Code of Conduct <https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/blob/main/CODE_OF_CONDUCT.rst>`_.
+Before contributing, please read our `Code of Conduct <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/blob/main/CODE_OF_CONDUCT.rst>`_.
 
 Contact
 -------
 
-For more information on {{ cookiecutter.conda_pypi_package_dist_name }} please visit the project `web-page <https://{{ cookiecutter.github_org }}.github.io/>`_ or email {{ cookiecutter.project_owner_name }} at {{ cookiecutter.project_owner_email }}.
+For more information on {{ cookiecutter.conda_pypi_package_dist_name }} please visit the project `web-page <https://{{ cookiecutter.github_username_or_orgname }}.github.io/>`_ or email {{ cookiecutter.project_owner_name }} at {{ cookiecutter.project_owner_email }}.

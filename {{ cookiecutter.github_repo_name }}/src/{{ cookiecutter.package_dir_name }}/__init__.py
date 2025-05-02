@@ -7,7 +7,7 @@
 # File coded by: {{ cookiecutter.contributors }}.
 #
 # See GitHub contributions for a more detailed list of contributors.
-# https://github.com/{{ cookiecutter.github_org }}/{{ cookiecutter.github_repo_name }}/graphs/contributors
+# https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/graphs/contributors
 #
 # See LICENSE.rst for license information.
 #
