@@ -1,6 +1,0 @@
-name: {{ cookiecutter.conda_pypi_package_dist_name }}
-channels:
-  - conda-forge
-dependencies:
-  - python=3
-  - pip
