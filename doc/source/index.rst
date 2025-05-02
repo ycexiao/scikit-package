@@ -123,9 +123,9 @@ Table of contents
    :maxdepth: 2
 
    getting-started
-   start-new-project-no-package
-   start-new-project-package-lightweight
-   start-new-project-package-full
+   tutorials-beginner
+   tutorials-intermediate-advanced
+   examples
    pypi-release-guide
    conda-forge-release-guide
    migration-guide
