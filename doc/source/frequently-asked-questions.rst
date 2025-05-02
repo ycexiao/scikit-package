@@ -33,6 +33,8 @@ To skip files checked by ``flake8``, include the file path in ``.flake8`` under 
 To prevent ``black`` from formatting, include the file path in ``pyproject.toml`` under the ``[tool.black]`` section.
 
 
+.. _faq-pre-commit-error:
+
 How do I fix conflicted hook auto-fix errors?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
