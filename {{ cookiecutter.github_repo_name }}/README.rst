@@ -121,4 +121,4 @@ Before contributing, please read our `Code of Conduct <https://github.com/{{ coo
 Contact
 -------
 
-For more information on {{ cookiecutter.conda_pypi_package_dist_name }} please visit the project `web-page <https://{{ cookiecutter.github_username_or_orgname }}.github.io/>`_ or email {{ cookiecutter.project_owner_name }} at {{ cookiecutter.project_owner_email }}.
+For more information on {{ cookiecutter.conda_pypi_package_dist_name }} please visit the project `web-page <https://{{ cookiecutter.github_username_or_orgname }}.github.io/>`_ or email {{ cookiecutter.maintainer_name }} at {{ cookiecutter.maintainer_email }}.

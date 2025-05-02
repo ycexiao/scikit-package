@@ -6,10 +6,10 @@ build-backend = "setuptools.build_meta"
 name = "{{ cookiecutter.conda_pypi_package_dist_name }}"
 dynamic=['version', 'dependencies']
 authors = [
-  { name="{{ cookiecutter.project_owner_name }}", email="{{ cookiecutter.project_owner_email }}" },
+  { name="{{ cookiecutter.maintainer_name }}", email="{{ cookiecutter.maintainer_email }}" },
 ]
 maintainers = [
-  { name="{{ cookiecutter.project_owner_name }}", email="{{ cookiecutter.project_owner_email }}" },
+  { name="{{ cookiecutter.maintainer_name }}", email="{{ cookiecutter.maintainer_email }}" },
 ]
 description = "{{ cookiecutter.project_short_description }}"
 {%- set keywords_list = (cookiecutter.keywords.split(',') if cookiecutter.keywords.strip() else []) -%}

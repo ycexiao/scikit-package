@@ -36,7 +36,7 @@ Initiate a project with ``scikit-package``
 
     :package_dir_name: (my_project)
 
-    :project_owner_name: (Simon Billinge)
+    :maintainer_name: (Simon Billinge)
 
 
 #. ``cd`` into the project directory created by the ``package create`` command above:
