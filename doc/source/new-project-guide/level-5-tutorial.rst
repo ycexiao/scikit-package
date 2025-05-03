@@ -48,41 +48,64 @@ Go to your project directory
 
         package create public
 
-.. _level-5-user-input:
-
 #. Answer the following questions:
 
-    :proj_owner_name: e.g., Simon J. L. Billinge
+    .. list-table::
+       :header-rows: 1
+       :widths: 25 75
 
-    :proj_owner_email: e.g., sbillinge@columbia.edu
+       * - Field
+         - Description and example
+       * - maintainer_name
+         - The name of the project maintainer.
+           e.g., Simon Billinge
+       * - maintainer_email
+         - The maintainer's email address.
+           e.g., sbillinge@columbia.edu
+       * - maintainer_github_username
+         - The maintainer's GitHub username.
+           e.g., sbillinge
+       * - contributors
+         - Individuals or groups contributing to the project.
+           e.g., Sangjoon Lee, Simon Billinge, Billinge Group members
+       * - license_holders
+         - The license holders listed in ``LICENSE.rst``.
+           e.g., The Trustees of Columbia University in the City of New York
+       * - project_name
+         - The name displayed in the ``README.rst`` and documentation.
+           Use ``name-with-hyphens`` e.g., ``my-package``.
+           To support namespace imports, see :ref:`FAQ <faq-project-setup-namespace>`
+       * - github_username_or_orgname
+         - The GitHub username or organization name.
+           e.g., sbillinge or billingegroup
+       * - github_repo_name
+         - The GitHub repository name.
+           Use ``name-with-hyphens`` e.g., my-package
+       * - conda_pypi_package_dist_name
+         - The name used for publishing to PyPI and conda-forge.
+           Use ``name-with-hyphens`` e.g., my-package
+       * - package_dir_name
+         - The name of the package directory under ``src``.
+           Use ``name_with_underscores`` e.g., my_package
+       * - project_short_description
+         - A brief description of the project, shown in ``pyproject.toml``.
+           e.g., A Python package standard for scientific code
+       * - project_keywords
+         - A list of keywords included in ``pyproject.toml``.
+           e.g., PDF, diffraction, neutron, x-ray
+       * - min_python_version
+         - The minimum supported Python version.
+           e.g. |PYTHON_MIN_VERSION|
+       * - max_python_version
+         - The maximum supported Python version
+           e.g. |PYTHON_MAX_VERSION|
+       * - needs_c_code_compiled
+         - Indicates whether C code compilation is required.
+           For pure Python packages, use ``No``
+       * - has_gui_tests
+         - Indicates whether GUI tests are included.
+           For most packages, use ``No``
 
-    :proj_owner_gh_username: e.g., sbillinge
-
-    :contributors: e.g., Billinge Group members and community contributors.
-
-    :license_holders: e.g., The Trustees of Columbia University in the City of New York.
-
-    :proj_name: For namespace packages, use e.g., ``<org.project-name>``.
-
-    :gh_org: The GitHub organization name or owner's GitHub username. e.g., billingegroup or sbillinge.
-
-    :gh_repo_name: e.g., my-package. The repository name of the project displayed on GitHub.
-
-    :package_dist_name: The name in the package distribution in PyPI and conda-forge.
-
-    :package_dir_name: The name of the package directory under ``src``.
-
-    :proj_short_description: e.g., A Python package standard and generator for scientific code.
-
-    :keywords: Each word is separated by a comma and a space. e.g., ``pdf, diffraction, neutron, x-ray``.
-
-    :min_python_version: The minimum Python version for package distribution.
-
-    :max_python_version: The maximum Python version for package distribution.
-
-    :needs_c_code_compiled: Whether C/C++ is compiled to build the package. For a pure Python package, type ``1`` to select ``No``.
-
-    :has_gui_tests: Whether the package runs headless testing in GitHub CI. If your package does not contain a GUI, type ``1`` to select ``No``.
 
 #. Enter the Level 5 project.
 

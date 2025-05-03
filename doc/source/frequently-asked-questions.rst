@@ -128,7 +128,7 @@ Release
 How can I change who is authorized to release a package?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In ``.github/workflows/build-wheel-release-upload.yml``, modify ``github_admin_username`` to the desired GitHub username. This username will be able to authorize the release by pushing the tag as instructed :ref:`here <release-instructions-project-owner>`.
+In ``.github/workflows/build-wheel-release-upload.yml``, modify ``github_admin_username`` to the desired GitHub username. This username will be able to authorize the release by pushing the tag as instructed :ref:`here <release-instructions-project-maintainer>`.
 
 How is the package version set and retrieved?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -306,7 +306,7 @@ GitHub workflow
 I am new to GitHub. Why do we use Git/GitHub?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-GitHub allows multiple contributors to work on a software project simultaneously under an organization like ``Billingegroup`` or ``diffpy``. There are two primary needs. First, we want to ensure that any changes under this organization are reviewed by the organization's project owner. Second, we want to ensure we add new changes from the latest version of the code, particularly when working with multiple contributors across different time zones. Hence, we use GitHub to serve the needs with a specific workflow below. Please see below for an overview of the GitHub workflow.
+GitHub allows multiple contributors to work on a software project simultaneously under an organization like ``Billingegroup`` or ``diffpy``. There are two primary needs. First, we want to ensure that any changes under this organization are reviewed by the organization's project maintainer. Second, we want to ensure we add new changes from the latest version of the code, particularly when working with multiple contributors across different time zones. Hence, we use GitHub to serve the needs with a specific workflow below. Please see below for an overview of the GitHub workflow.
 
 .. _github-workflow-overview:
 

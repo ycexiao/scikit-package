@@ -157,7 +157,7 @@ Your package will most likely have failed pre-commit hooks. We will manually fix
 
 #. For each `flake8` branch, create a PR request to ``package``. Since you are fixing flake8 errors, the commit message can be ``skpkg: Fix flake8 <readable-error-type> errors`` and the pull request title can be ``skpkg: Fix flake8 <readable-error-type> errors``.
 
-#. For each PR, either the project owner or the maintainer will review the PR and merge it to ``package``. If you are the project owner, you can merge the PR yourself.
+#. For each PR, either the project maintainer or the maintainer will review the PR and merge it to ``package``. If you are the project maintainer, you can merge the PR yourself.
 
 
 1.4. Setup pre-commit hooks locally
@@ -315,7 +315,7 @@ Here, you will first check the correct folder structure. If the project structur
 2.5. Move rest of text files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Files showing as (2) "deleted" upon git status are in the main repo but not in the scikit-package repo. We took care of most of these by moving over the src tree, but let's do the rest now. Go down the list and for <filename> in the ``git status`` "delete" files type ``cp -n ../<filepath>/<filename> ./<target_filepath>``. Do not move files that we do not want. If you are unsure, please confirm with Project Owner.
+#. Files showing as (2) "deleted" upon git status are in the main repo but not in the scikit-package repo. We took care of most of these by moving over the src tree, but let's do the rest now. Go down the list and for <filename> in the ``git status`` "delete" files type ``cp -n ../<filepath>/<filename> ./<target_filepath>``. Do not move files that we do not want. If you are unsure, please confirm with Project maintainer.
 
 #. Files that have been (3) modified exist in both places and need to be merged **manually**. Do these one at a time. Differences will show up. Select anything you want to inherit from the file in the main repo. For example, you want to copy useful information such as LICENSE and README files.
 

@@ -26,10 +26,6 @@ Initiate a project with ``scikit-package``
 
 #. Answer the following questions:
 
-    :project_name: (my-project)
-
-    :github_username_or_orgname: (billingegroup)
-
     :github_repo_name: (my-project)
 
     :conda_pypi_package_dist_name: (my-project)
@@ -37,6 +33,28 @@ Initiate a project with ``scikit-package``
     :package_dir_name: (my_project)
 
     :maintainer_name: (Simon Billinge)
+
+
+#. Answer the following questions:
+
+    .. list-table::
+       :header-rows: 1
+       :widths: 25 75
+
+       * - Field
+         - Description and example
+       * - project_name
+         - The project name displayed on README. e.g., my-package
+       * - github_username_or_orgname
+         - The GitHub username or organization name, e.g., sbillinge or billingegroup
+       * - github_repo_name
+         - The GitHub repository name. Use ``name-with-hypens``. e.g., my-package
+       * - conda_pypi_package_dist_name
+         - The name displayed on PyPI and conda-forge. Use ``name-with-hypens``. e.g., my-package
+       * - package_dir_name
+         - The name of the package directory under ``src``. Use ``name_with_underscores``. e.g., my_package
+       * - contributors
+         - The contributors involved in the project. e.g., Sangjoon Lee, Simon Billinge
 
 
 #. ``cd`` into the project directory created by the ``package create`` command above:

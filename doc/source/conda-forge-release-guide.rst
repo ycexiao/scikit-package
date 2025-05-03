@@ -75,12 +75,12 @@ Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 .. important::
    - For a pure python package, have you removed the ``build`` section under the ``requirements``? See https://github.com/conda-forge/diffpy.utils-feedstock/blob/main/recipe/meta.yaml for example.
 
-   - Have you double-checked the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the repository owner (Prof. Billinge).
+   - Have you double-checked the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the repository maintainer.
 
 
 .. _conda-forge-recipe-upload:
 
-2. Upload ``meta.yaml`` to conda-forge for initial review
+1. Upload ``meta.yaml`` to conda-forge for initial review
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Fork https://github.com/conda-forge/staged-recipes and clone your forked repository
@@ -145,7 +145,7 @@ First, we will copy the ``SHA256`` value from `pypi.org <http://pypi.org>`_:
 
 #. Create a PR to ``main``, complete the relevant checklists generated in the PR comment.
 
-#. Wait for the CI to pass and tag Project Owner for review.
+#. Wait for the CI to pass and tag relevant maintainer(s) for review.
 
 #. Once the PR is merged, in 20 to 30 minutes, verify the latest conda-forge package version from the README badge or by visiting ``https://anaconda.org/conda-forge/<package-name>``. i.e.g, ``https://anaconda.org/conda-forge/diffpy.utils``.
 
