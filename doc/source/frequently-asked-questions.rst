@@ -58,13 +58,13 @@ I read ``scikit-package`` allows namespace support for importing packages. What 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A research group often maintains multiple software packages under a single GitHub organization.
-For the purposes of branding and also differentiating packages with similar names, it can sometimes be beneficial for the org name (or some other branding name) to appear in the package name itself.
+For the purposes of branding and also differentiating packages with similar names, it can sometimes be beneficial for the organization or research group name (or some other branding name) to appear in the package name itself.
 
-Here is an example. Consider the package called ``diffpy.pdffit2``. The package starts with an ``org-name`` of ``diffpy``, and the package name is ``pdffit2``. There is a separate GitHub repository for this package (https://github.com/diffpy/diffpy.pdffit2) while it is developed under the DiffPy organization (https://github.com/diffpy). The user is able to import the package as ``import diffpy.pdffit2 as pdffit2`` in any Python script.
+Here is an example. Consider the package called ``diffpy.pdffit2``. The package starts with an organization identifier of ``diffpy``, and the package name is ``pdffit2``. There is a separate GitHub repository for this package (https://github.com/diffpy/diffpy.pdffit2) while it is developed under the DiffPy organization (https://github.com/diffpy). The user can import the package as ``import diffpy.pdffit2 as pdffit2`` in any Python script.
 
 .. note::
 
-  This namespace feature is only available in Level 5, ``public``.
+  This namespace feature is only available in Level 5, ``public``. In programming, a "namespace" refers to a unique identifier that can hold many classes, functions, and variable names.
 
 What is the difference in folder structure compared to a standard package?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -79,12 +79,12 @@ For a regular package ``<project-name>``, the folder structure is the following:
   │   │   ├── file_one.py
   │   │   ├── file_two.py
 
-For a package to be imported using ``import <org_name>.<package_name>``, here is the new structure:
+For a package to be imported using ``import <namespace_name>.<package_name>``, here is the new structure:
 
 .. code-block:: text
 
   ├── src
-  │   ├── <org_name>
+  │   ├── <namespace_name>
   │   │   ├── __init__.py
   │   │   └── <project_name>
   │   │       ├── __init__.py
@@ -95,7 +95,7 @@ For a package to be imported using ``import <org_name>.<package_name>``, here is
 How do I set it up with ``scikit-package``?
 """""""""""""""""""""""""""""""""""""""""""
 
-Our ``scikit-package`` handles this folder setup automatically for you! When you run ``package create public``, simply enter ``project_name`` as, e.g., ``<org_name>.<package_name>`` like the default value provided. ``scikit-package`` will create a namespace package for you based on the presence of the ``.`` that separates the ``<org_name>`` and ``<package_name>``.
+Our ``scikit-package`` automatically handles this folder setup for you! When you run ``package create public``, simply enter ``project_name`` as, e.g., ``<namespace_name>.<package_name>``, like the default value provided. ``scikit-package`` adjusts the folder structure based on the presence of the ``.`` that separates the ``<namespace_name>`` and ``<package_name>``.
 
 In Level 5, why do we adopt ``README.rst`` instead of ``README.md``?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
