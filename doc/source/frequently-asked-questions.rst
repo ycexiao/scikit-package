@@ -69,28 +69,27 @@ Here is an example. Consider the package called ``diffpy.pdffit2``. The package 
 What is the difference in folder structure compared to a standard package?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-For a regular package ``<project-name>``, the folder structure is the following:
+For a regular package, the folder structure is as follows:
 
 .. code-block:: text
 
   ├── src
-  │   ├── <project_name>
+  │   ├── <package_name>
   │   │   ├── __init__.py
   │   │   ├── file_one.py
   │   │   ├── file_two.py
 
-For a package to be imported using ``import <namespace_name>.<package_name>``, here is the new structure:
+For a package to be imported using ``import <namespace_name>.<package_name>``, the folder structure is as follows:
 
 .. code-block:: text
 
   ├── src
   │   ├── <namespace_name>
   │   │   ├── __init__.py
-  │   │   └── <project_name>
+  │   │   └── <package_name>
   │   │       ├── __init__.py
   │   │       ├── file_one.py
   │   │       ├── file_two.py
-
 
 How do I set it up with ``scikit-package``?
 """""""""""""""""""""""""""""""""""""""""""
