@@ -15,6 +15,32 @@ Pre-commit
 
 ``Pre-commit`` attempts to automatically fix code style issues. The following questions are used to customize the ``pre-commit`` configuration for your project's needs.
 
+How is pre-commit used in each Level?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Here is a recommended setup and hooks for ``pre-commit`` for each level:
+
+.. list-table::
+  :header-rows: 1
+
+  * - Level
+    - Name
+    - Recommended setup
+    - Hooks used
+  * - 3
+    - ``workspace``
+    - Run ``pre-commit run --all-files`` locally.
+    - Automatic linting with ``black``, ``prettier``, ``docformatter``
+  * - 4
+    - ``system``
+    - Use ``pre-commit install`` locally, ``pre-commit CI`` in GitHub
+    - Level 3 hooks, PEP 8 check with ``flake8``, default hooks (merge conflicts, end-of-file-fixer, etc.)
+  * - 5
+    - ``public``
+    - Same as Level 4
+    - Level 4 hooks, no commits to ``main``, spell checker with ``codespell``,
+
+
 How do I modify line-width limits?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -31,7 +57,6 @@ How do I skip a specific file for ``flake8`` and ``black``?
 To skip files checked by ``flake8``, include the file path in ``.flake8`` under the ``exclude`` section.
 
 To prevent ``black`` from formatting, include the file path in ``pyproject.toml`` under the ``[tool.black]`` section.
-
 
 .. _faq-pre-commit-error:
 
