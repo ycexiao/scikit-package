@@ -95,14 +95,12 @@ For a package to be imported using ``import <org_name>.<package_name>``, here is
 How do I set it up with ``scikit-package``?
 """""""""""""""""""""""""""""""""""""""""""
 
-Our ``scikit-package`` handles this folder setup automatically for you! All you have to do while creating a ``scikit-package`` package is to enter ``project_name`` as e.g., ``<org_name>.<package_name>`` like the default value provided in the inputs. ``scikit-package`` will automatically create a namespace package for you based on the existence of the ``.`` that separates the ``<org_name>`` and ``<package_name>``.
+Our ``scikit-package`` handles this folder setup automatically for you! When you run ``package create public``, simply enter ``project_name`` as, e.g., ``<org_name>.<package_name>`` like the default value provided. ``scikit-package`` will create a namespace package for you based on the presence of the ``.`` that separates the ``<org_name>`` and ``<package_name>``.
 
-In Level 5, Why do we adopt ``README.rst`` instead of ``README.md``?
+In Level 5, why do we adopt ``README.rst`` instead of ``README.md``?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We adopt ``README.rst`` at Level 5 because reStructuredText (``.rst``) provides a more professional and configurable format, making it well-suited for mature, public-facing projects. In contrast, Markdown (``.md``) is ideal for early-stage or internal development due to its simplicity and lower barrier to entry.
-
-One key advantage of ``.rst`` is its native support for advanced formatting, such as precise control over image size and layout: ::
+We adopt ``README.rst`` at Level 5 because reStructuredText (``.rst``) provides a more configurable format and control. One key advantage of ``.rst`` is its native support for advanced formatting, such as precise control over image size and layout: ::
 
   .. |Icon| image:: img/logos/scikit-package-logo-text.png
       :target: https://Billingegroup.github.io/scikit-package
@@ -110,7 +108,7 @@ One key advantage of ``.rst`` is its native support for advanced formatting, suc
 
 Achieving the same result in Markdown often requires raw HTML, which is less readable and may render inconsistently across platforms.
 
-Switching to ``README.rst`` at Level 5 helps users appreciate the formatting power of ``.rst`` and serves as a stepping stone toward writing full documentation in ``.rst`` as part of the ``scikit-pacakge`` documentation standard.
+Switching to ``README.rst`` at Level 5 helps users appreciate the formatting power of ``.rst`` and serves as a stepping stone toward writing full documentation in ``.rst`` as part of the ``scikit-package`` documentation standard.
 
 Release
 -------
