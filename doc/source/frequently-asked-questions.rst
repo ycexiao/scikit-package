@@ -44,7 +44,7 @@ You may encounter the following error message when you run ``git commit -m <your
 
 To solve this problem, run ``git add <file>`` on the files modified by ``pre-commit``. Then, re-enter same commit message above using ``git commit -m <your-commit-message>``. Why do we need to run ``git add`` again? The files that are linted by ``pre-commit`` are not staged to the local Git database. So, we stage them manually again with ``git add``.
 
-.. _codespell-ignore:
+.. _faq-codespell-ignore:
 
 How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -53,6 +53,8 @@ How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 
 Project setup
 -------------
+
+.. _faq-project-setup-namespace:
 
 I read ``scikit-package`` allows namespace support for importing packages. What is it, and how do I set it up?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,7 +66,7 @@ Here is an example. Consider the package called ``diffpy.pdffit2``. The package 
 
 .. note::
 
-  This namespace feature is only available in Level 5, ``public``. In programming, a "namespace" refers to a unique identifier that can hold many classes, functions, and variable names.
+  This namespace feature is only available in Level 5, ``public``. In programming, a "namespace" refers to a unique identifier that can hold many classes, functions, and variable names. Here we extend the concept that the top level namespace holds multiple packages.
 
 What is the difference in folder structure compared to a standard package?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
