@@ -157,7 +157,7 @@ Your package will most likely have failed pre-commit hooks. We will manually fix
 
 #. For each `flake8` branch, create a PR request to ``package``. Since you are fixing flake8 errors, the commit message can be ``skpkg: Fix flake8 <readable-error-type> errors`` and the pull request title can be ``skpkg: Fix flake8 <readable-error-type> errors``.
 
-#. For each PR, either the project owner or the maintainer will review the PR and merge it to ``package``. If you are the project owner, you can merge the PR yourself.
+#. For each PR, the project owner will review the PR and merge it to ``package``. If you are the project owner, you can merge the PR yourself.
 
 
 1.4. Setup pre-commit hooks locally
@@ -187,7 +187,7 @@ Here, you will first check the correct folder structure. If the project structur
 
 .. Attention:: Please read the following carefully before proceeding:
 
-    - Do NOT delete/remove any files before confirming that it is absolutely unnecessary. Create an issue or contact the maintainer.
+    - Do NOT delete/remove any files before confirming that it is absolutely unnecessary. If you are unsure, contact the project owner first.
 
     - Do NOT delete project-specific content such as project descriptions in README, license information, authors, tutorials, examples.
 
