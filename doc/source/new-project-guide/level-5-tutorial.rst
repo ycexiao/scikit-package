@@ -100,11 +100,11 @@ Go to your project directory
          - The maximum supported Python version
            e.g. |PYTHON_MAX_VERSION|
        * - needs_c_code_compiled
-         - Indicates whether C code compilation is required.
-           For pure Python packages, use ``No``
+         - Specifies whether C code compilation is required.
+           For pure Python packages, the default value is ``No``.
        * - has_gui_tests
-         - Indicates whether GUI tests are included.
-           For most packages, use ``No``
+         - Specifies whether GUI tests are included.
+           For most packages, the default value is ``No``.
 
 
 #. Enter the Level 5 project.
