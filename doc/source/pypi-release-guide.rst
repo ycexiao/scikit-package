@@ -53,7 +53,7 @@ Start pre-release
       # rc stands for release candidate
       git checkout -b <version>-rc.<rc-number>
       git push upstream <version>-rc.<rc-number>
-      
+
 #. Done! Once the tag is pushed, visit the ``Actions`` tab in the repository to monitor the CI progress.
 
 #. You will see that the GitHub Actions workflow is triggered and the package is built and uploaded to PyPI and GitHub.
@@ -160,4 +160,3 @@ The goal is to host the official documentation online i.g., ``https://diffpy.git
       :alt: setup-github-pages-from-branch
 
 #. Done! Wait a few minutes and visit your GitHub Pages URL!
-
