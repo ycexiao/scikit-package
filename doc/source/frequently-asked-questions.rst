@@ -256,7 +256,7 @@ Instead of manually running the ``sphinx-apidoc -o ..`` command from your termin
 
 #. Run ``sphinx-reload doc``.
 
-#. Notice that the ``.rst`` files under ``doc/source/api`` are generated whenver the documentation is re-rendered.
+#. Notice that the ``.rst`` files under ``doc/source/api`` are generated whenever the documentation is re-rendered.
 
 #. Done! You can ``git add doc/source/api`` and commit the changes.
 
