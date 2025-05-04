@@ -313,7 +313,7 @@ If you are using a namespace import, ``sphinx-apidoc`` will not work. We have de
               └── auto_api.py
 
       Then you would run the following command:
-        
+
       .. code-block:: bash
 
             cd ~/dev/diffpy.utils
@@ -321,17 +321,17 @@ If you are using a namespace import, ``sphinx-apidoc`` will not work. We have de
 
 #. Done! You will see that the ``.rst`` files under ``doc/source/api`` are generated.
 
-   
+
 #. (Optional) Feel free to use the following shortcut. Add the following function to your ``~/.bashrc`` or ``~/.zshrc`` file and activate it by running ``source ~/.bashrc`` or ``source ~/.zshrc``:
 
     .. code-block:: bash
-      
+
         api() {
             IMPORT_NAME=$(basename "$(pwd)")  # e.g., "diffpy.utils"
             IMPORT_PATH=$(echo "$IMPORT_NAME" | tr '.' '/')  # e.g., "diffpy/utils"
             MODULE_PATH="src/$IMPORT_PATH"  # e.g., "src/diffpy/utils"
             DOC_PATH="doc/source/api"
-            
+
             python "../release-scripts/auto_api.py" "$IMPORT_NAME" "$MODULE_PATH" "$DOC_PATH"
         }
 
