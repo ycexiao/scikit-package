@@ -4,17 +4,17 @@
 
 .. _pypi-release-guide:
 
-=======================================
+==================================
 Release package to GitHub and PyPI
-=======================================
+==================================
 
 Overview
-~~~~~~~~~~
+~~~~~~~~~
 
 In this guide, you will learn to release your source code to GitHub and PyPI so that by the end of the guide, you can install your package via ``pip install <package-name>``.
 
-PyPI/GitHub release
-~~~~~~~~~~~~~~~~~~~~
+Initiate a release process with GitHub issue
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _release-instructions-contributor:
 
@@ -30,8 +30,8 @@ PyPI/GitHub release
 
 #. Proceed to the next section.
 
-Instructions for Project Owner for PyPI/GitHub release for the first time
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Start pre-release
+~~~~~~~~~~~~~~~~~
 
 .. _release-instructions-project-owner:
 
@@ -45,29 +45,31 @@ Instructions for Project Owner for PyPI/GitHub release for the first time
 
 #. In your terminal, run ``git checkout main && git pull upstream main`` to sync with the main branch.
 
-#. Run the following::
+#. Run the following:
 
-    # For pre-release, use *.*.*rc* e.g., 1.0.0rc0
-    # For release, use *.*.* e.g., 1.0.0
-    git tag <version-number>_rc
-    git push upstream <version-number>_rc
+   .. code-block:: bash
+
+      # For pre-release, use *.*.*-rc.* e.g., 1.0.0-rc.0
+      # rc stands for release candidate
+      git checkout -b <version>-rc.<rc-number>
+      git push upstream <version>-rc.<rc-number>
 
 #. Done! Once the tag is pushed, visit the ``Actions`` tab in the repository to monitor the CI progress.
 
 #. You will see that the GitHub Actions workflow is triggered and the package is built and uploaded to PyPI and GitHub.
 
-#. For ``pre-release``, it will not update the documentation on GitHub Pages. It will also not update the changelog.
+#. For ``pre-release``, it will not update the documentation on GitHub Pages. It will also not update the changelog. See the next section for the full release process.
 
-Release your package for PyPI/GitHub release after pre-release
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Full release after pre-release
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. In your terminal, run ``git checkout main && git pull upstream main`` to sync with the main branch.
 
 #. Run the following::
 
     # For release, use *.*.* e.g., 1.0.0
-    git tag <version-number>
-    git push upstream <version-number>
+    git tag <version>
+    git push upstream <version>
 
 #. Notice that the documentation is deployed. It will also update the ``CHANGELOG.rst``.
 
@@ -75,7 +77,6 @@ Release your package for PyPI/GitHub release after pre-release
 
 Release conda-forge package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 To support ``conda install <package-name>``, for your package, follow the instructions :ref:`here<conda-forge-release-guide>`.
 
@@ -159,11 +160,3 @@ The goal is to host the official documentation online i.g., ``https://diffpy.git
       :alt: setup-github-pages-from-branch
 
 #. Done! Wait a few minutes and visit your GitHub Pages URL!
-
-
-.. #. Run the following::
-
-..     # For pre-release, use *.*.*rc* e.g., 1.0.0rc0
-..     # For release, use *.*.* e.g., 1.0.0
-..     git tag <version-number>
-..     git push upstream <version-number>
