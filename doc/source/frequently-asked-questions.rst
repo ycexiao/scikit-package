@@ -69,7 +69,7 @@ You may encounter the following error message when you run ``git commit -m <your
 
 To solve this problem, run ``git add <file>`` on the files modified by ``pre-commit``. Then, re-enter same commit message above using ``git commit -m <your-commit-message>``. Why do we need to run ``git add`` again? The files that are linted by ``pre-commit`` are not staged to the local Git database. So, we stage them manually again with ``git add``.
 
-.. _codespell-ignore:
+.. _faq-codespell-ignore:
 
 How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -79,46 +79,62 @@ How do I ignore words/lines/files in automatic spelling checks in pre-commit?
 Project setup
 -------------
 
-I read ``scikit-package`` supports a namespace package. What is it and how do I set it up?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. _faq-project-setup-namespace:
 
-In plain English, a namespace package refers to a package that is organized in a way that allows importing and installing a package like ``pip install diffpy.pdffit2``. The package starts with an ``org-name`` or similar, and each package has a separate repository, i.e., https://github.com/diffpy/diffpy.pdffit2. The consistency in naming can be beneficial for research groups by organizing research software projects and maintaining branding, as demonstrated by software projects in https://www.diffpy.org/.
+I read ``scikit-package`` allows namespace support for importing packages. What is it, and how do I set it up?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-What is the difference between a namespace package and a regular package?
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+A research group often maintains multiple software packages under a single GitHub organization.
+For the purposes of branding and also differentiating packages with similar names, it can sometimes be beneficial for the organization or research group name (or some other branding name) to appear in the package name itself.
 
-The difference is in the folder structure:
+Here is an example. Consider the package called ``diffpy.pdffit2``. The package starts with an organization identifier of ``diffpy``, and the package name is ``pdffit2``. There is a separate GitHub repository for this package (https://github.com/diffpy/diffpy.pdffit2) while it is developed under the DiffPy organization (https://github.com/diffpy). The user can import the package as ``import diffpy.pdffit2 as pdffit2`` in any Python script.
 
-For a regular package ``bg-mpl-stylesheets``:
+.. note::
+
+  This namespace feature is only available in Level 5, ``public``. In programming, a "namespace" refers to a unique identifier that can hold many classes, functions, and variable names. Here we extend the concept that the top level namespace holds multiple packages.
+
+What is the difference in folder structure compared to a standard package?
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+For a regular package, the folder structure is as follows:
 
 .. code-block:: text
 
   ├── src
-  │   ├── bg_mpl_stylesheets
+  │   ├── <package_name>
   │   │   ├── __init__.py
-  │   │   ├── colors.py
-  │   │   ├── inkscape_tools.py
+  │   │   ├── file_one.py
+  │   │   ├── file_two.py
 
-You would import it as ``import bg_mpl_stylesheets`` and the package name is ``bg-mpl-stylesheets`` on PyPI and conda-forge. See https://pypi.org/project/bg-mpl-stylesheets/.
-
-In constrat, here is an example of the ``diffpy.utils`` namespace package:
+For a package to be imported using ``import <namespace_name>.<package_name>``, the folder structure is as follows:
 
 .. code-block:: text
 
-  ├── pyproject.toml
   ├── src
-  │   ├── diffpy
+  │   ├── <namespace_name>
   │   │   ├── __init__.py
-  │   │   └── utils
+  │   │   └── <package_name>
   │   │       ├── __init__.py
-  │   │       ├── diffraction_objects.py
+  │   │       ├── file_one.py
+  │   │       ├── file_two.py
 
-Notice that there is a ``diffpy`` folder under ``src``. The package name is ``diffpy.utils`` on PyPI and conda-forge and installable like ``pip install diffpy.utils``.
+How do I set it up with ``scikit-package``?
+"""""""""""""""""""""""""""""""""""""""""""
 
-Now, I am interested in setting up a namespace package. How do I set it up?
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Our ``scikit-package`` automatically handles this folder setup for you! When you run ``package create public``, simply enter ``project_name`` as, e.g., ``<namespace_name>.<package_name>``, like the default value provided. ``scikit-package`` adjusts the folder structure based on the presence of the ``.`` that separates the ``<namespace_name>`` and ``<package_name>``.
 
-Our ``scikit-package`` handles a namespace package automatically for you! This is what makes our scikit-package unique. All you have to do while creating a scikit-package package is to provide your package name as e.g., ``diffpy.my_project`` when prompted by ``scikit-package https://github.com/Billingegroup/scikit-package``. The scikit-package will automatically create a namespace package for you based on the existence of the ``.`` that separates the ``diffpy`` and ``my_project``.
+In Level 5, why do we adopt ``README.rst`` instead of ``README.md``?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We adopt ``README.rst`` at Level 5 because reStructuredText (``.rst``) provides a more configurable format and control. One key advantage of ``.rst`` is its native support for advanced formatting, such as precise control over image size and layout: ::
+
+  .. |Icon| image:: img/logos/scikit-package-logo-text.png
+      :target: https://Billingegroup.github.io/scikit-package
+      :height: 150px
+
+Achieving the same result in Markdown often requires raw HTML, which is less readable and may render inconsistently across platforms.
+
+Switching to ``README.rst`` at Level 5 helps users appreciate the formatting power of ``.rst`` and serves as a stepping stone toward writing full documentation in ``.rst`` as part of the ``scikit-package`` documentation standard.
 
 Release
 -------
