@@ -105,7 +105,7 @@ Run tests with your locally installed package
 
         pytest
 
-#. Ensure tests all pass.
+#. Ensure tests all pass with green checkmarks.
 
 #. Notice that in ``tests/test_functions.py``, we are importing the locally installed package.
 
