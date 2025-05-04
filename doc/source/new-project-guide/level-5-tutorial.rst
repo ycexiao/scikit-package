@@ -217,6 +217,8 @@ As you will see in the next section, we'd like to have GitHub Actions write comm
 
 #. Done!
 
+.. _news-keyboard-shortcut:
+
 Add news items in the GitHub pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -244,6 +246,7 @@ Let's create a news item for the changes made in this PR.
 #. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
 
 #. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier:
+
 
     Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
 
@@ -293,12 +296,19 @@ Congratulations! You are done with migrating your package from Level 4 to Level 
 
         For writing great news items, Python docstrings, tests, and commit messages, check the Billinge research group's guidelines :ref:`here<billinge-group-standards>`.
 
-Build API reference documentation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(Optional) Build API reference documentation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to build the API documentation for your package like https://www.diffpy.org/diffpy.utils/api/diffpy.utils.html, please follow the instructions below.
+If you want to build the API documentation for your package, like https://www.diffpy.org/diffpy.utils/api/diffpy.utils.html, here is a quick guide for you.
 
-.. include:: snippets/doc-api-create.rst
+First, check whether your package is a standard package or a package that supports namespace imports.
+
+- If your package can be imported as ``import <package_name>``, you can use ``sphinx-apidoc`` to generate the API ``.rst`` files each time your documentation is re-rendered. Follow the instructions :ref:`here <faq-doc-api-standard>`.
+
+- If your package supports **namespace import**, like ``import <namespace_name>.<package_name>``, you can use our script called ``auto_api.py`` to generate the API documentation. Follow the instructions :ref:`here <faq-doc-api-namespace>`.
+
+.. note:: Do you want to know the difference in folder structure between a package that uses regular imports vs. namespace imports? Please check the FAQ section on :ref:`package structure <faq-project-setup-namespace>`.
+
 
 
 Ready for public release?
