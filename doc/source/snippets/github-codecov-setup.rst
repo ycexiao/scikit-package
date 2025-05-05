@@ -5,7 +5,7 @@ For each PR, we use ``Codecov`` to report the test coverage percentage change as
 .. image:: ./img/codecov-pr.png
    :alt: codecov-in-pr-comment
 
-To do so, the repository owner needs to provide a ``CODECOV_TOKEN``.  Please follow the step-by-step guide below.
+To do so, the repository maintainer needs to provide a ``CODECOV_TOKEN``.  Please follow the step-by-step guide below.
 
 #. Ensure your GitHub repository is public.
 

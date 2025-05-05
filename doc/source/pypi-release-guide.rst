@@ -33,7 +33,7 @@ Initiate a release process with GitHub issue
 Start pre-release
 ~~~~~~~~~~~~~~~~~
 
-.. _release-instructions-project-owner:
+.. _release-instructions-project-maintainer:
 
 #. Review the release GitHub issue created in the previous step.
 
@@ -41,7 +41,7 @@ Start pre-release
 
 #. Setup GitHub pages at the repository level by following the instructions in Appendix :ref:`3 <gh-pages-setup>`.
 
-#. Confirm the ``github_admin_username`` section in ``.github/workflows/build-wheel-release-upload.yml`` is that of the project owner.
+#. Confirm the ``github_admin_username`` section in ``.github/workflows/build-wheel-release-upload.yml`` is that of the project maintainer.
 
 #. In your terminal, run ``git checkout main && git pull upstream main`` to sync with the main branch.
 
@@ -116,7 +116,7 @@ Add the generated token to GitHub:
 Appendix 2. Setup ``PAT_TOKEN`` to allow GitHub Actions to compile ``CHANGELOG.rst``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Recall that dring a release (not pre-release) process, the GitHub Actions workflow compiles the news items in the ``CHANGELOG.rst`` file in the ``main`` branch. Hence, the GitHub workflow needs to link with this privilege through a personal access token (PAT) of the project owner.
+Recall that dring a release (not pre-release) process, the GitHub Actions workflow compiles the news items in the ``CHANGELOG.rst`` file in the ``main`` branch. Hence, the GitHub workflow needs to link with this privilege through a personal access token (PAT) of the project maintainer.
 
 1. Visit https://github.com/settings/tokens
 

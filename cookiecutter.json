@@ -10,7 +10,7 @@
   "conda_pypi_package_dist_name": "{{ cookiecutter.project_name|replace(' ', '-')|lower }}",
   "package_dir_name": "{{ cookiecutter.project_name|replace(' ', '_')|replace('-', '_')|lower }}",
   "project_short_description": "Python package for doing science.",
-  "keywords": "diffraction, PDF, X-ray, neutron",
+  "project_keywords": "diffraction, PDF, X-ray, neutron",
   "minimum_supported_python_version": "3.11",
   "maximum_supported_python_version": "3.13",
   "project_needs_c_code_compiled": ["No", "Yes"],
