@@ -71,10 +71,14 @@ Getting started
 
 Are you interested in using ``scikit-package``? Begin with the ``Getting Started`` page in our online documentation at https://Billingegroup.github.io/scikit-package!
 
-
 How to cite ``scikit-package``
 ------------------------------
 
 If you use ``scikit-package`` to standardize your Python software, we would like you to cite scikit-package as follows:
 
    scikit-package, https://github.com/Billingegroup/scikit-package
+
+Acknowledgements
+----------------
+
+This GitHub repository is built and maintained with `scikit-package <https://billingegroup.github.io/scikit-package/>`_ as well.

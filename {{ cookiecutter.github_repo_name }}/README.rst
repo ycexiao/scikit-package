@@ -122,3 +122,8 @@ Contact
 -------
 
 For more information on {{ cookiecutter.conda_pypi_package_dist_name }} please visit the project `web-page <https://{{ cookiecutter.github_username_or_orgname }}.github.io/>`_ or email {{ cookiecutter.maintainer_name }} at {{ cookiecutter.maintainer_email }}.
+
+Acknowledgements
+----------------
+
+``{{ cookiecutter.github_repo_name }}`` is built and maintained with `scikit-package <https://billingegroup.github.io/scikit-package/>`_.
