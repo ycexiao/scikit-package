@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: adopt project_owner to maintainer and enhance tables
+* Define clear roles for the owner and maintainer. The maintainer has merge and release rights, while the owner oversees the project, similar to a Principal Investigator (PI) in a research group.
 
 **Changed:**
 
