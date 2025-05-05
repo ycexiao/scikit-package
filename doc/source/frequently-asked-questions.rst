@@ -220,10 +220,10 @@ GitHub Actions
 
 .. _github-actions-python-versions:
 
-How do I set different Python versions for GitHub CI?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In Level 5, How do I set different Python versions for GitHub CI?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The default is Python 3.13 for ``./github/workflows/tests-on-pr.yml`` and ``./github/workflows/publish-docs-on-release.yml``. Python 3.11, 3.12, and 3.13 are used for ``./github/workflows/matrix-and-codecov-on-merge-to-main.yml``. To override the default, modify the three ``.yml`` files above in ``.github/workflows/`` as shown below:
+Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/workflows/tests-on-pr.yml`` and ``.github/workflows/publish-docs-on-release.yml``. Python |PYTHON_MIN_VERSION| to |PYTHON_MAX_VERSION| are used in ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml``. To override the defaults, modify the three ``.yml`` files mentioned above in ``.github/workflows/`` as shown below:
 
 1. Add ``python_version`` in ``.github/workflows/tests-on-pr.yml``:
 
@@ -263,6 +263,25 @@ The default is Python 3.13 for ``./github/workflows/tests-on-pr.yml`` and ``./gi
     with:
       ...
       python_versions: "3.11, 3.12"
+
+In Level 5, what are the workflows running in each pull request?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. The first workflow is called ``Tests on PR`` from ``.github/workflows/tests-on-pr.yml``. This workflow creates a new conda environment on Linux and installs the dependencies listed in the ``requirements`` folder using the ``conda-forge`` channel. The conda environment is configured to use the highest Python version specified when the project was initially created. It then runs the unit tests located in the ``tests`` folder, similar to how you would run them locally.
+
+#. The second workflow uses ``pre-commit CI``. This workflow checks the incoming code in the PR using ``pre-commit`` hooks and automatically applies fixes when possible. If any fixes are made, an additional commit is created by the ``pre-commit`` app. However, some hooks, such as spell checkers, may still fail even after auto-fixes. In such cases, the CI fails. The user first needs to pull the additional commit made by the ``pre-commit CI``, fix the error manually, and then push a commit to the working branch.
+
+#. The third workflow uses the ``Codecov`` app, which adds a comment to the PR summarizing the changes in code coverage as part of the ``.github/workflows/tests-on-pr.yml`` workflow. This workflow fails if no tests are provided for the new code or if the test coverage percentage decreases below the acceptable threshold. The threshold can be adjusted in the ``.codecov.yml`` file located in the project root directory.
+
+#. The fourth workflow checks for a news file in the PR using ``.github/workflows/check-news-item.yml``. If no news item is included for the proposed changes, this workflow fails and leaves a comment prompting the contributor to submit a new PR with the appropriate news file. Please refer to the best practices section on news items :ref:`here <news-item-practice>`.
+
+In Level 5, I see that another workflow is running once a PR is merged to ``main``. What is it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The workflow ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml`` is triggered. The goal is to ensure the latest code is tested not only on Linux but also across multiple operating systems and Python versions. This workflow runs tests on macOS (both Apple Silicon and Intel chips), Linux, and Windows and against three different Python versions, including the latest configured version. To modify the Python versions used in the workflows, refer to :ref:`github-actions-python-versions`.
+
+.. note:: These workflow files call scripts located at https://github.com/Billingegroup/release-scripts, which are centrally managed by the ``scikit-package`` development team. This centralized approach ensures that individual packages do not need to be updated separately when adding support for new Python versions or operating systems.
+
 
 What is the difference between ``pull_request`` and ``pull_request_target``?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

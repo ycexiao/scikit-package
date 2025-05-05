@@ -32,3 +32,4 @@ Where to place the news item in ``<branch-name>.rst``?
 - ``**Fixed:**`` includes bug fixes or refactoring.
 - ``**Deprecated:**`` includes methods, classes, or workflows that are no longer supported in the future release.
 - ``**Removed:**`` includes the opposite of the "Added" section, referring to features or functionality that have been removed.
+- ``Security:**``: include fixes or improvements related to vulnerabilities, authentication, or access control.
