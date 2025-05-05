@@ -625,3 +625,46 @@ Again, you checkout a new branch from the ``main`` branch. You can name it anyth
   git checkout -b docs-typo
 
 You repeat the process of git add, commit, push to your ``origin`` (your forked repository) and then make a PR to the ``upstream`` repository (the organization's repository).
+
+Maintaining ``scikit-package``
+------------------------------
+
+When should we expect different Python versions to be supported in the GitHub workflows?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Please check the **Support Window** section in the official Scientific Python specification: https://scientific-python.org/specs/spec-0000/
+
+Which files should be modified when there is a new Python version?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When updating Python version support, please modify the following files accordingly:
+
+In https://github.com/Billingegroup/scikit-package:
+
+.. list-table::
+   :header-rows: 1
+
+   * - File
+     - Variables to update
+   * - ``doc/source/conf.py``
+     - ``PYTHON_DEFAULT_MAX_VERSION`` and ``PYTHON_DEFAULT_MIN_VERSION``
+
+In https://github.com/Billingegroup/release-scripts:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Workflow file
+     - Key to update
+   * - ``.github/workflows/_matrix-and-codecov-on-merge-to-main.yml``
+     - ``python_versions``
+   * - ``.github/workflows/_publish-docs-on-release.yml``
+     - ``python_version``
+   * - ``.github/workflows/_check-news-item.yml``
+     - ``python_version``
+   * - ``.github/workflows/_build-pure-python-package.yml``
+     - ``python-version``
+   * - ``.github/workflows/_tests-on-pr.yml``
+     - ``python_version``
+   * - ``.github/workflows/_tests-on-pr-no-codecov-no-headless.yml``
+     - ``python-version``
