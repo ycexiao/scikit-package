@@ -75,7 +75,7 @@ Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 .. important::
    - For a pure python package, have you removed the ``build`` section under the ``requirements``? See https://github.com/conda-forge/diffpy.utils-feedstock/blob/main/recipe/meta.yaml for example.
 
-   - Have you double-checked the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the repository maintainer.
+   - Have you double-checked the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the project owner.
 
 
 .. _conda-forge-recipe-upload:
