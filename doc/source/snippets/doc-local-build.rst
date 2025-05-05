@@ -19,3 +19,7 @@
     .. code-block:: bash
 
         sphinx-reload doc
+
+.. note::
+
+    If you see the error "No module named" (e.g., ``WARNING: autodoc: failed to import module 'tools' from module 'diffpy.pdfmorph'; the following exception was raised: No module named 'diffpy.utils'``), it can be resolved by adding ``autodoc_mock_imports = [<pkg>]`` to your ``conf.py`` right under imports. This file is located in ``/doc/source/conf.py``.

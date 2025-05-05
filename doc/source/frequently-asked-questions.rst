@@ -96,7 +96,7 @@ Here is an example. Consider the package called ``diffpy.pdffit2``. The package 
 What is the difference in folder structure compared to a standard package?
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-For a regular package, the folder structure is as follows:
+For a standard package, the folder structure is as follows:
 
 .. code-block:: text
 
@@ -194,6 +194,148 @@ How can I preview ``Sphinx`` documentation in real-time?
 
 .. include:: snippets/doc-local-build.rst
 
+.. _faq-doc-api-standard:
+
+How do I build API .rst files automatically for a standard Python package?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can generate ``.rst`` files using the ``sphinx-apidoc`` extension.
+
+#. Install ``sphinx-apidoc``:
+
+    .. code-block:: bash
+
+        pip install sphinx-apidoc
+
+#. Run the following command to generate ``.rst`` under the ``doc/source/api`` directory:
+
+    .. code-block:: bash
+
+        sphinx-apidoc -o doc/source/api src/<package_dir_name>
+
+#. Done!
+
+Instead of manually running the ``sphinx-apidoc -o ..`` command from your terminal, here is a recommended way to **automate** the process of generating API documentation:
+
+#. Replace the following code block in your ``doc/source/conf.py`` from
+
+    .. code-block:: python
+
+        extensions = [
+            "sphinx.ext.autodoc",
+            "sphinx.ext.napoleon",
+            "sphinx.ext.todo",
+            "sphinx.ext.viewcode",
+            "sphinx.ext.intersphinx",
+            "sphinx_rtd_theme",
+            "m2r",
+        ]
+
+    to
+
+    .. code-block:: python
+
+        extensions = [
+            "sphinxcontrib.apidoc",  # Add this extension to run sphinx-apidoc
+            "sphinx.ext.napoleon",
+            "sphinx.ext.todo",
+            "sphinx.ext.viewcode",
+            "sphinx.ext.intersphinx",
+            "sphinx_rtd_theme",
+            "m2r",
+        ]
+
+
+        # Configure where to find the source code and write API .rst files
+        apidoc_module_dir = '../../src/<package_dir_name>'
+        apidoc_output_dir = 'api'
+        apidoc_excluded_paths = ['tests']
+        apidoc_separate_modules = True
+
+#. Replace ``<package_dir_name>`` with the directory name under ``src``, e.g., ``my_package``.
+
+#. Run ``sphinx-reload doc``.
+
+#. Notice that the ``.rst`` files under ``doc/source/api`` are generated whenever the documentation is re-rendered.
+
+#. Done! You can ``git add doc/source/api`` and commit the changes.
+
+.. _faq-doc-api-namespace:
+
+How do I build API .rst files for a Python package with a namespace import?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are using a namespace import, ``sphinx-apidoc`` will not work. We have develoepd our own script called ``auto_api.py`` to generate the API documentation.
+
+#. Run ``git clone https://github.com/Billingegroup/release-scripts.git`` into a folder outside of the project directory. Here is the folder structure:
+
+    .. code-block:: text
+
+      dev/
+      ├── <namespace_name>.<package_name>
+      │   ├── pyproject.toml
+      │   └── doc/source/api/
+      │   └── src
+      │       └── <namespace_name>
+      │           ├── __init__.py
+      │           └── <pakcage_name>
+      │               ├── __init__.py
+      │               └── file_one.py
+      └── release-scripts
+          └── auto_api.py
+
+#. Run ``cd <namespace_name>.<package_name>`` to enter the package directory.
+
+#. Run ``python -m build`` to build the package. You may have to install ``python-build`` first.
+
+#. Run the ``auto_api.py`` script. This is done by running ``python <path_to_auto_api_script> <package_name> <path_to_package_name> <path_to_api_directory>``. Here is an example below:
+
+    .. code-block:: bash
+
+        cd ~/dev/<namespace_name>.<package_name>
+        python ../release-scripts/auto_api.py <namespace_name>.<package_name> ./src/<namespace_name>/<package_name> ./doc/source/api
+
+    .. note:: Here is an example of how ``diffpy.utils`` uses the ``auto_api.py`` script. The folder structure is as follows:
+
+      .. code-block:: text
+
+          dev/
+          ├── diffpy.utils
+          │   ├── pyproject.toml
+          │   └── doc/source/api/
+          │   └── src
+          │       └── diffpy
+          │           ├── __init__.py
+          │           └── utils
+          │               ├── __init__.py
+          │               └── file_one.py
+          └── release-scripts
+              └── auto_api.py
+
+      Then you would run the following command:
+
+      .. code-block:: bash
+
+            cd ~/dev/diffpy.utils
+            python ../release-scripts/auto_api.py diffpy.utils ./src/diffpy/utils ./doc/source/api/
+
+#. Done! You will see that the ``.rst`` files under ``doc/source/api`` are generated.
+
+
+#. (Optional) Feel free to use the following shortcut. Add the following function to your ``~/.bashrc`` or ``~/.zshrc`` file and activate it by running ``source ~/.bashrc`` or ``source ~/.zshrc``:
+
+    .. code-block:: bash
+
+        api() {
+            IMPORT_NAME=$(basename "$(pwd)")  # e.g., "diffpy.utils"
+            IMPORT_PATH=$(echo "$IMPORT_NAME" | tr '.' '/')  # e.g., "diffpy/utils"
+            MODULE_PATH="src/$IMPORT_PATH"  # e.g., "src/diffpy/utils"
+            DOC_PATH="doc/source/api"
+
+            python "../release-scripts/auto_api.py" "$IMPORT_NAME" "$MODULE_PATH" "$DOC_PATH"
+        }
+
+    Once you enter the project directory, run ``api`` in the terminal to generate the API documentation automatically so that you don't have to type the full command every time!
 
 How do I re-deploy online documentation without another release?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
