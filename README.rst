@@ -81,4 +81,4 @@ If you use ``scikit-package`` to standardize your Python software, we would like
 Acknowledgements
 ----------------
 
-This GitHub repository is built and maintained with `scikit-package <https://billingegroup.github.io/scikit-package/>`_ as well.
+This GitHub repository is built and maintained with the help of `scikit-package <https://billingegroup.github.io/scikit-package/>`_ as well.
