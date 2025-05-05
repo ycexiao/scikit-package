@@ -1,6 +1,10 @@
 **Added:**
 
-* Add a one-liner in README and index that the package is built and maintained using scikit-pacakge.
+* Add a one-liner in README and index that the package is built and maintained using scikit-package.
+
+**Changed:**
+
+* <news item>
 
 **Deprecated:**
 
