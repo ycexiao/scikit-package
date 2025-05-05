@@ -123,6 +123,14 @@ nitpicky = True
 #
 html_theme = "sphinx_rtd_theme"
 
+html_context = {
+    "display_github": True,                 
+    "github_user": "{{ cookiecutter.github_username_or_orgname }}",
+    "github_repo": "{{ cookiecutter.github_repo_name }}",
+    "github_version": "main",
+    "conf_py_path": "/doc/source/",
+}
+
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
