@@ -124,7 +124,7 @@ nitpicky = True
 html_theme = "sphinx_rtd_theme"
 
 html_context = {
-    "display_github": True,                 
+    "display_github": True,
     "github_user": "{{ cookiecutter.github_username_or_orgname }}",
     "github_repo": "{{ cookiecutter.github_repo_name }}",
     "github_version": "main",
