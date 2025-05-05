@@ -4,7 +4,7 @@
 
 .. |title| replace:: {{ cookiecutter.project_name }} documentation
 
-{{ cookiecutter.project_name }} - {{ cookiecutter.project_short_description }}.
+{{ cookiecutter.project_name }} - {{ cookiecutter.project_short_description }}
 
 | Software version |release|.
 | Last updated |today|.
@@ -25,6 +25,12 @@ Installation
 
 See the `README <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}#installation>`_
 file included with the distribution.
+
+================
+Acknowledgements
+================
+
+{{ cookiecutter.github_repo_name }} is built and maintained with `scikit-package <https://billingegroup.github.io/scikit-package/>`_.
 
 =================
 Table of contents
