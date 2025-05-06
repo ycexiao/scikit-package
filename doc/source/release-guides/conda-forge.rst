@@ -117,7 +117,7 @@ Step 3. Wait for recipe review
 
 #. Once the PR is merged by the reviewer (1) your package is available on conda-forge, and (2) a new repository will be created under https://github.com/conda-forge/package-name-feedstock/. Example: https://github.com/conda-forge/diffpy.structure-feedstock.
 
-#. Whent the PR is merged, the CI will automatically build the package and upload it to the conda-forge channel. You can check the status of the build by visiting ``https://anaconda.org/conda-forge/<package-name>.``
+#. After the PR is merged, the CI will automatically build the package and upload it to the conda-forge channel. You can check the status of the build by visiting ``https://anaconda.org/conda-forge/<package-name>.``
 
 #. Done!
 

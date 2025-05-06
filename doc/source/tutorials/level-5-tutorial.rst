@@ -64,7 +64,7 @@ Create a new project folder with ``scikit-package`` using the Level-5 ``public``
 Enter the new folder
 ^^^^^^^^^^^^^^^^^^^^
 
-#. Enter into the Level 5 projet directory.
+#. Enter into the Level 5 project directory.
 
     .. code-block:: bash
 
