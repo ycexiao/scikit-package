@@ -18,7 +18,7 @@ assignees: ""
 - [ ] Grammar and writing quality are checked (no typos).
 - [ ] Install `pip install build twine`, run `python -m build` and `twine check dist/*` to ensure that the package can be built and is correctly formatted for PyPI release.
 
-Please tag the maintainer when you are ready for PyPI/GitHub release. Include any additional comments necessary, such as version information and details about the pre-release here:
+Please tag the maintainer (e.g., @maintainer_username) in the comment here when you are ready for the PyPI/GitHub release. Include any additional comments necessary, such as version information and details about the pre-release here:
 
 ### PyPI/GitHub full-release preparation checklist:
 
