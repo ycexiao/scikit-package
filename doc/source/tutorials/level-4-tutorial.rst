@@ -1,3 +1,8 @@
+.. _level-4-tutorial:
+
+(Level 4) Share code as a locally installable Python package
+------------------------------------------------------------
+
 Overview
 ^^^^^^^^
 

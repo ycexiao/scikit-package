@@ -1,3 +1,9 @@
+.. _level-5-tutorial:
+
+(Level 5) Share code as a publicly installable Python package
+--------------------------------------------------------------
+
+
 Overview
 ^^^^^^^^
 
@@ -332,9 +338,7 @@ First, check whether your package is a standard package or a package that suppor
 
 .. note:: Do you want to know the difference in folder structure between a package that uses regular imports vs. namespace imports? Please check the FAQ section on :ref:`package structure <faq-project-setup-namespace>`.
 
-
-
 Ready for public release?
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Congratulations! Your package has been successfully migrated. This has been the most challenging step. Now, let's release your package to PyPI and conda-forge. Please visit the :ref:`Release your package <pypi-release-guide>` page to learn how to release your package!
+Congratulations! Your package has been successfully migrated. This has been the most challenging step. Now, let's release your package to PyPI and conda-forge. Please visit the :ref:`Release your package <release-pypi-github>` page to learn how to release your package!

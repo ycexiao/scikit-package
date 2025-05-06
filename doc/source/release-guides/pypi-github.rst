@@ -1,12 +1,12 @@
 :tocdepth: -1
 
-.. index:: pypi-release-guide
+.. index:: release-pypi-github
 
-.. _pypi-release-guide:
+.. _release-pypi-github:
 
-==================================
-Release package to GitHub and PyPI
-==================================
+=============================
+Publish on GitHub and to PyPI
+=============================
 
 Overview
 ~~~~~~~~~
