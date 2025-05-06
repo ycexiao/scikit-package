@@ -138,7 +138,7 @@ def update_workflow():
     LOCAL_WORKFLOW_DIR = ROOT / ".github" / "workflows"
 
     workflow_input = {"PROJECT": "{{ cookiecutter.project_name }}",
-                      "GITHUB_ADMIN_USERNAME": "{{ cookiecutter.maintainer_github_username }}",
+                      "MAINTAINER_GITHUB_USERNAME": "{{ cookiecutter.maintainer_github_username }}",
                       "C_EXTENSION": str("{{ cookiecutter.project_needs_c_code_compiled }}"=="Yes").lower(),
                       "HEADLESS": str("{{ cookiecutter.project_has_gui_tests }}"=="Yes").lower(),
                       "VERSION": "v0"}
