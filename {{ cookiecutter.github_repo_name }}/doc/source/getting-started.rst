@@ -5,7 +5,7 @@
 .. _getting-started:
 
 ================
-Getting Started
+Getting started
 ================
 
 Here are some example templates provided to help you get started with writing your documentation. You can use these templates to create your own documentation.
@@ -38,12 +38,12 @@ Here is how you can write a block of code in the documentation. You can use the 
 .. code-block:: bash
 
     # Create a new environment, without build dependencies (pure Python package)
-    conda create -n <package_name>_env python=3.13 \
+    conda create -n <package_name>-env python=3.13 \
         --file requirements/test.txt \
         --file requirements/conda.txt
 
     # Create a new environment, with build dependencies (non-pure Python package)
-    conda create -n <package_name>_env python=3.13 \
+    conda create -n <package_name>-env python=3.13 \
         --file requirements/test.txt \
         --file requirements/conda.txt \
         --file requirements/build.txt
@@ -73,4 +73,7 @@ Here is how you attach an image to the documentation. The ``/doc/source/img/scik
     :align: center
 
 
-Here is how you can do menu selection  :menuselection:`Admin --> Settings` and changing :guilabel:`Privacy level`.
+Other useful directives
+-----------------------
+
+Here is how you can do menu selection  :menuselection:`Admin --> Settings` and display labels for buttons like :guilabel:`Privacy level`.
