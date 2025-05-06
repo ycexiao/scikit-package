@@ -17,7 +17,7 @@ Prerequisites
 
 For Level 4, we assume you have prior experience in developing scientific code in Python. Additionally, we assume you have hosted at least one project on GitHub. If you are new to GitHub, please refer to the FAQ guide on the GitHub workflow :ref:`here <faq-github-workflow>`.
 
-.. include:: snippets/scikit-installation.rst
+.. include:: ../snippets/scikit-installation.rst
 
 
 Initiate a project with ``scikit-package``
@@ -27,18 +27,7 @@ Initiate a project with ``scikit-package``
 
     .. code-block:: bash
 
-        package create system
-
-#. Answer the following questions:
-
-    :github_repo_name: (my-project)
-
-    :conda_pypi_package_dist_name: (my-project)
-
-    :package_dir_name: (my_project)
-
-    :maintainer_name: (Simon Billinge)
-
+        $ package create system
 
 #. Answer the following questions:
 
@@ -66,7 +55,7 @@ Initiate a project with ``scikit-package``
 
     .. code-block:: bash
 
-        cd <project-name>
+        $ cd <project-name>
 
 #. Done! Let's proceed to the next section to check the folder structure.
 
@@ -99,7 +88,7 @@ Install your package locally
 
     .. code-block:: bash
 
-        pip install -e .
+        $ pip install -e .
 
     .. note:: What is the ``-e`` flag?
 
@@ -109,7 +98,7 @@ Install your package locally
 
     .. code-block:: bash
 
-        pip list
+        $ pip list
 
 #. Done! Let's now run unit tests with the locally installed package.
 
@@ -120,13 +109,13 @@ Run tests with your locally installed package
 
     .. code-block:: bash
 
-        conda install --file requirements/test.txt
+        $ conda install --file requirements/test.txt
 
 #. Then, run the tests using the following command:
 
     .. code-block:: bash
 
-        pytest
+        $ pytest
 
 #. Ensure tests all pass with green checkmarks.
 
@@ -138,9 +127,8 @@ Run tests with your locally installed package
 
 .. note::
 
-    Why is it required to list dependencies both under ``pip.txt`` and ``conda.txt``? Please refer to the FAQ section :ref:`here<_faq-dependency-management>`.
+    Why is it required to list dependencies both under ``pip.txt`` and ``conda.txt``? Please refer to the FAQ section :ref:`here<faq-dependency-management>`.
 
-#. Done! You have successfully formatted your code. But, let's also make sure these hooks are triggered automatically when you make a commit.
 
 Create a new project on GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -168,13 +156,13 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. code-block:: bash
 
-        git init
+        $ git init
 
 #. Set up the remote GitHub repository. Let's call this repository ``origin``, a common name for the remote repository.
 
     .. code-block:: bash
 
-        git remote add origin https://github.com/<OWNER>/<project-name>.git
+        $ git remote add origin https://github.com/<OWNER>/<project-name>.git
 
 .. _level-4-pull-license:
 
@@ -182,7 +170,7 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. code-block:: bash
 
-        git pull origin main
+        $ git pull origin main
 
     .. note::
 
@@ -192,7 +180,7 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. code-block:: bash
 
-        git checkout -b skpkg-proj
+        $ git checkout -b skpkg-proj
 
     .. note::
 
@@ -202,14 +190,14 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. code-block:: bash
 
-        pre-commit install
+        $ pre-commit install
 
 #. Let's now stage and commit the code:
 
     .. code-block:: bash
 
-        git add .
-        git commit -m "skpkg: start a new project with skpkg system template"
+        $ git add .
+        $ git commit -m "skpkg: start a new project with skpkg system template"
 
 #. Ensure that all of the ``pre-commit`` hooks pass.
 
@@ -227,7 +215,7 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. code-block:: bash
 
-        git log
+        $ git log
 
     .. note::
 
@@ -237,14 +225,14 @@ Trigger pre-commit hooks automatically with Git commit
 
     .. code-block:: bash
 
-        rm LICENSE
+        $ rm LICENSE
 
 #. Let's now stage and commit the code.
 
     .. code-block:: bash
 
-        git add LICENSE
-        git commit -m "chore: remove LICENSE file created from initial GitHub repo creation"
+        $ git add LICENSE
+        $ git commit -m "chore: remove LICENSE file created from initial GitHub repo creation"
 
     .. note::
 
@@ -257,7 +245,7 @@ Push your code to the remote GitHub repository
 
     .. code-block:: bash
 
-        git push --set-upstream origin skpkg-proj
+        $ git push --set-upstream origin skpkg-proj
 
 #. Visit your remote GitHub repository. You should see the new branch ``skpkg-proj``.
 
@@ -296,8 +284,7 @@ Setup pre-commit CI in GitHub repository for public repository
 
     ``pre-commit CI`` is FREE for ``public`` repositories. If you are using a private repository, you may skip this section.
 
-.. include:: snippets/github-pre-commit-setup.rst
-
+.. include:: ../snippets/github-pre-commit-setup.rst
 
 Merge the pull request
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -320,8 +307,8 @@ Assume that you have successfully followed the previous steps. Now, you want to 
 
     .. code-block:: bash
 
-        git checkout main
-        git pull origin main
+        $ git checkout main
+        $ git pull origin main
 
     .. note::
 
@@ -331,26 +318,26 @@ Assume that you have successfully followed the previous steps. Now, you want to 
 
     .. code-block:: bash
 
-        git log
+        $ git log
 
 #. Create a new local branch from the ``main`` branch. Let's call this branch ``skpkg-proj``:
 
     .. code-block:: bash
 
-        git checkout -b <branch-name>
+        $ git checkout -b <branch-name>
 
 #. Modify any file that you want. Then, stage and commit the changes:
 
     .. code-block:: bash
 
-        git add <file-modified-added-deleted>
-        git commit -m "feat: <your commit message>"
+        $ git add <file-modified-added-deleted>
+        $ git commit -m "feat: <your commit message>"
 
 #. Push your code from ``<branch-name>`` to the remote ``<branch-name>`` branch:
 
     .. code-block:: bash
 
-        git push --set-upstream origin <branch-name>
+        $ git push --set-upstream origin <branch-name>
 
 #. Visit your GitHub repository.
 
@@ -373,4 +360,4 @@ What's next?
     Make sure you check out the best practices and Billinge group's guidelines for communications and examples in the FAQ section :ref:`here<frequently-asked-questions>`.
 
 
-Once you are ready to release your package to the wider world, let's proceed to :ref:`Level 5<start-new-project-package-full>` where you will learn to release your package to PyPI and conda-forge so that your package can be installed by anyone in the world.
+Once you are ready to release your package to the wider world, let's proceed to :ref:`Level 5<level-5-tutorial>` where you will learn to release your package to PyPI and conda-forge so that your package can be installed by anyone in the world.

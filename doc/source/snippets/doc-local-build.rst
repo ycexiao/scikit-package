@@ -2,13 +2,13 @@
 
     .. code-block:: bash
 
-        conda install --file requirements/docs.txt
+        $ conda install --file requirements/docs.txt
 
 #. Then we will use an external tool called ``sphinx-reload`` to automatically reload the documentation when you make changes to ``.rst`` files.
 
     .. code-block:: bash
 
-        pip install sphinx-reload
+        $ pip install sphinx-reload
 
     .. note::
 
@@ -18,7 +18,7 @@
 
     .. code-block:: bash
 
-        sphinx-reload doc
+        $ sphinx-reload doc
 
 .. note::
 

@@ -29,95 +29,46 @@ Create a new project with ``scikit-package``
 
 Make sure you have the latest version of ``scikit-package`` installed as shown in Level 4.
 
-.. include:: snippets/scikit-installation.rst
+.. include:: ../snippets/scikit-installation.rst
 
-Go to your project directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. _level-5-new-project:
+
+Create a new project folder with ``scikit-package`` using the Level-5 ``public`` template.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Visit your project directory and sync with the latest version of the main branch.
 
     .. code-block:: bash
 
-        cd <project-name>
-        git checkout main
-        git pull origin main
+        $ cd <project-name>
+        $ git checkout main
+        $ git pull origin main
 
 #. Create a new branch where you will initiate a new project.
 
     .. code-block:: bash
 
-        git checkout -b skpkg-public
+        $ git checkout -b skpkg-public
 
 #. Create a new project with ``scikit-package`` using the Level-5 ``public`` template.
 
     .. code-block:: bash
 
-        package create public
+        $ package create public
 
 #. Answer the following questions:
 
-    .. list-table::
-       :header-rows: 1
-       :widths: 25 75
+.. include:: ../snippets/user-input-level-5.rst
 
-       * - Field
-         - Description and example
-       * - maintainer_name
-         - The name of the project maintainer.
-           e.g., Simon Billinge
-       * - maintainer_email
-         - The maintainer's email address.
-           e.g., sbillinge@columbia.edu
-       * - maintainer_github_username
-         - The maintainer's GitHub username.
-           e.g., sbillinge
-       * - contributors
-         - Individuals or groups contributing to the project.
-           e.g., Sangjoon Lee, Simon Billinge, Billinge Group members
-       * - license_holders
-         - The license holders listed in ``LICENSE.rst``.
-           e.g., The Trustees of Columbia University in the City of New York
-       * - project_name
-         - The name displayed in the ``README.rst`` and documentation.
-           Use ``name-with-hyphens`` e.g., ``my-package``.
-           To support namespace imports, see :ref:`FAQ <faq-project-setup-namespace>`
-       * - github_username_or_orgname
-         - The GitHub username or organization name.
-           e.g., sbillinge or billingegroup
-       * - github_repo_name
-         - The GitHub repository name.
-           Use ``name-with-hyphens`` e.g., my-package
-       * - conda_pypi_package_dist_name
-         - The name used for publishing to PyPI and conda-forge.
-           Use ``name-with-hyphens`` e.g., my-package
-       * - package_dir_name
-         - The name of the package directory under ``src``.
-           Use ``name_with_underscores`` e.g., my_package
-       * - project_short_description
-         - A brief description of the project, shown in ``pyproject.toml``.
-           e.g., A Python package standard for scientific code
-       * - project_keywords
-         - A list of keywords included in ``pyproject.toml``.
-           e.g., PDF, diffraction, neutron, x-ray
-       * - min_python_version
-         - The minimum supported Python version.
-           e.g. |PYTHON_MIN_VERSION|
-       * - max_python_version
-         - The maximum supported Python version
-           e.g. |PYTHON_MAX_VERSION|
-       * - needs_c_code_compiled
-         - Specifies whether C code compilation is required.
-           For pure Python packages, the default value is ``No``.
-       * - has_gui_tests
-         - Specifies whether GUI tests are included.
-           For most packages, the default value is ``No``.
+Enter the new folder
+^^^^^^^^^^^^^^^^^^^^
 
-
-#. Enter the Level 5 project.
+#. Enter into the Level 5 project directory.
 
     .. code-block:: bash
 
-        cd my-package
+        $ cd my-package
 
 #. Check that you have the following nested folder structure. Here is the structure. We will go through each file and folder.
 
@@ -151,29 +102,29 @@ Migration code from Level 4 to Level 5
 
     .. code-block:: bash
 
-        mv ../.git .
+        $ mv ../.git .
 
 #. Move the ``src`` and ``tests`` folders from Level 4 to Level 5.
 
     .. code-block:: bash
 
-        cp -n -r ../src .
-        cp -n -r ../tests .
+        $ cp -n -r ../src .
+        $ cp -n -r ../tests .
 
 #. Copy the requirements files from Level 4 to Level 5.
 
     .. code-block:: bash
 
-        cp ../requirements/conda.txt ./requirements/conda.txt
-        cp ../requirements/pip.txt ./requirements/pip.txt
-        cp ../requirements/test.txt ./requirements/test.txt
+        $ cp ../requirements/conda.txt ./requirements/conda.txt
+        $ cp ../requirements/pip.txt ./requirements/pip.txt
+        $ cp ../requirements/test.txt ./requirements/test.txt
 
 #. At this point, you should be able to install the package locally and test it.
 
     .. code-block:: bash
 
-        pip install -e .
-        pytest
+        $ pip install -e .
+        $ pytest
 
 #. Once the tests pass, let's manually migrate hand-written files like ``README.md`` from Level 4 to Level 5.
 
@@ -200,9 +151,9 @@ Upload your code to GitHub
 
     .. code-block:: bash
 
-        git add .
-        git commit -m "skpkg: migrate from Level 4 to Level 5"
-        git push --set-upstream origin skpkg-public
+        $ git add .
+        $ git commit -m "skpkg: migrate from Level 4 to Level 5"
+        $ git push --set-upstream origin skpkg-public
 
 #. Let's not migrate our code to the ``main`` branch just yet since mistakes could happen. Let's create a new branch called ``skpkg-migration``.
 
@@ -227,7 +178,7 @@ Upload your code to GitHub
 Setup Codecov token for GitHub repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: snippets/github-codecov-setup.rst
+.. include:: ../snippets/github-codecov-setup.rst
 
 Allow GitHub Actions to write comments in PRs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -263,14 +214,14 @@ Let's create a news item for the changes made in this PR.
 
     .. code-block:: bash
 
-        git fetch --all
+        $ git fetch --all
 
 #. Check out the ``skpkg-migration`` branch and sync with the remote branch.
 
     .. code-block:: bash
 
-        git checkout skpkg-migration
-        git pull origin skpkg-migration
+        $ git checkout skpkg-migration
+        $ git pull origin skpkg-migration
 
 #. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
 
@@ -281,14 +232,14 @@ Let's create a news item for the changes made in this PR.
 
     .. code-block:: bash
 
-        alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
+        $ alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
 
     Run the following command to apply the shell configuration.
 
     .. code-block:: bash
 
-        source ~/.bashrc  # if you are using bash
-        source ~/.zshrc  # if you are using zsh
+        $ source ~/.bashrc  # if you are using bash
+        $ source ~/.zshrc  # if you are using zsh
 
     Now, whenever you want to create a news file, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
 
@@ -315,9 +266,9 @@ Let's create a news item for the changes made in this PR.
 
     .. code-block:: bash
 
-        git add news/skpkg-migration.rst
-        git commit -m "chore: Add news item for skpkg-migration"
-        git push origin skpkg-migration
+        $ git add news/skpkg-migration.rst
+        $ git commit -m "chore: Add news item for skpkg-migration"
+        $ git push origin skpkg-migration
 
 Congratulations! You are done with migrating your package from Level 4 to Level 5. You can now start writing docstrings for your Python code and tests for your code. Then, also write good documentation for your code, including Getting Started guides.
 
@@ -328,15 +279,7 @@ Congratulations! You are done with migrating your package from Level 4 to Level 
 (Optional) Build API reference documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to build the API documentation for your package, like https://www.diffpy.org/diffpy.utils/api/diffpy.utils.html, here is a quick guide for you.
-
-First, check whether your package is a standard package or a package that supports namespace imports.
-
-- If your package can be imported as ``import <package_name>``, you can use ``sphinx-apidoc`` to generate the API ``.rst`` files each time your documentation is re-rendered. Follow the instructions :ref:`here <faq-doc-api-standard>`.
-
-- If your package supports **namespace import**, like ``import <namespace_name>.<package_name>``, you can use our script called ``auto_api.py`` to generate the API documentation. Follow the instructions :ref:`here <faq-doc-api-namespace>`.
-
-.. note:: Do you want to know the difference in folder structure between a package that uses regular imports vs. namespace imports? Please check the FAQ section on :ref:`package structure <faq-project-setup-namespace>`.
+.. include:: ../snippets/api-reference-doc.rst
 
 Ready for public release?
 ^^^^^^^^^^^^^^^^^^^^^^^^^
