@@ -128,7 +128,7 @@ The Billinge Group's ``scikit-package`` has been modified from the NSLS-II scien
    :maxdepth: 2
    :hidden:
    :caption: TUTORIALS
-   
+
    tutorials/level-1-2-3-tutorials
    tutorials/level-4-tutorial
    tutorials/level-5-tutorial
