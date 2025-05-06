@@ -4,7 +4,7 @@
 
 **Changed:**
 
-* Update GITHUB_ADMIN_USERNAME to MAINTAINER_GITHUB_USERNAME in post_gen_hook.py to dynamically generate GitHub workflow files.
+* <news item>
 
 **Deprecated:**
 
@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* <news item>
+* Update GITHUB_ADMIN_USERNAME to MAINTAINER_GITHUB_USERNAME in post_gen_hook.py to dynamically generate GitHub workflow files.
 
 **Security:**
 
