@@ -18,11 +18,11 @@ Initiate a release process with GitHub issue
 
 .. _release-instructions-contributor:
 
-.. important::  Make sure you have your project is standarlized with scikit-package up to Level 5. Otherwise, please start from the Getting started page :ref:`here <getting-started>`.
+.. important::  Make sure you have your project is standarlized with ``scikit-package`` up to Level 5. Otherwise, please start from the Overview page :ref:`here <overview>`.
 
 #. In the repository, create an issue on GitHub with the "Release" option as shown below:
 
-   .. image:: ./img/release-issue.png
+   .. image:: ../img/release-issue.png
       :alt: add-personal-access-token
       :width: 600px
 
@@ -41,7 +41,7 @@ Start pre-release
 
 #. Setup GitHub pages at the repository level by following the instructions in Appendix :ref:`3 <gh-pages-setup>`.
 
-#. Confirm the ``github_admin_username`` section in ``.github/workflows/build-wheel-release-upload.yml`` is that of the project maintainer.
+#. Confirm the ``maintainer_github_username`` section in ``.github/workflows/build-wheel-release-upload.yml`` is that of the project maintainer.
 
 #. In your terminal, run ``git checkout main && git pull upstream main`` to sync with the main branch.
 
@@ -54,7 +54,7 @@ Start pre-release
       git checkout -b <version>-rc.<rc-number>
       git push upstream <version>-rc.<rc-number>
 
-#. Done! Once the tag is pushed, visit the ``Actions`` tab in the repository to monitor the CI progress.
+#. Done! Once the tag is pushed, visit the :guilabel:`Actions` tab in the repository to monitor the CI progress.
 
 #. You will see that the GitHub Actions workflow is triggered and the package is built and uploaded to PyPI and GitHub.
 
@@ -89,25 +89,25 @@ Generate a PyPI API token from ``pypi.org``:
 
 #. Visit https://pypi.org/manage/account/ and log in.
 
-#. Scroll down to the ``API tokens`` section and click ``Add API token``.
+#. Scroll down to the :guilabel:`API tokens` section and click :guilabel:`Add API token`.
 
-#. Set the ``Token name`` to ``PYPI_TOKEN``.
+#. Set the :guilabel:`Token name` to ``PYPI_TOKEN``.
 
-#. Choose the appropriate ``Scope`` for the token.
+#. Choose the appropriate :guilabel:`Scope` for the token.
 
-#. Click ``Create token`` and copy the generated token.
+#. Click :guilabel:`Create token` and copy the generated token.
 
 Add the generated token to GitHub:
 
-#. Navigate to the ``Settings`` page of the org (or repository).
+#. Navigate to the :guilabel:`Settings` page of the org (or repository).
 
-#. Click the ``Actions`` tab under ``Secrets and variables``.
+#. Click the :guilabel:`Actions` tab under :guilabel:`Secrets and variables`.
 
-#. Click ``New org secret``, name it ``PYPI_TOKEN``, and paste the token value.
+#. Click :guilabel:`New org secret`, name it ``PYPI_TOKEN``, and paste the token value.
 
 #. Done!
 
-.. image:: ./img/add-pypi-secret.png
+.. image:: ../img/add-pypi-secret.png
    :alt: add-pypi-secret
    :width: 600px
 
@@ -120,43 +120,48 @@ Recall that dring a release (not pre-release) process, the GitHub Actions workfl
 
 1. Visit https://github.com/settings/tokens
 
-2. Click ``Generate new token`` and choose the classic option.
+2. Click :guilabel:`Generate new token` and choose the classic option.
 
-3. Under ``Note``, write, "GitHub CI release"
+3. Under :guilabel:`Note`, write, "GitHub CI release"
 
 4. Set the Expiration date of the token.
 
-5. Under ``Select scopes``, check ``repo`` and ``user``.
+5. Under :guilabel:`Select scopes`, check :guilabel:`repo` and :guilabel:`user`.
 
-6. Scroll down, click ``Generate token``.
+6. Scroll down, click :guilabel:`Generate token`.
 
 7. Done!
 
-.. image:: ./img/add-personal-access-token.png
+.. image:: ../img/add-personal-access-token.png
    :alt: add-personal-access-token
    :width: 600px
 
 Copy and paste the ``PAT_TOKEN`` to your GitHub organization:
 
-1. Visit ``Settings`` in the organization.
+:guilabel:`Settings` in the organization.
 
-2. Click the ``Actions`` tab under ``Secrets and variables``.
+1. Click the :guilabel:`Actions` tab under :guilabel:`Secrets and variables`.
 
-3. Click ``New organization secret`` and add a new secret and name it as ``PAT_TOKEN``.
+2. Click :guilabel:`New organization secret` and add a new secret and name it as ``PAT_TOKEN``.
 
-4. Done!
+3. Done!
 
 .. _gh-pages-setup:
 
 Appendix 3. Host documentation online with GitHub Pages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The goal is to host the official documentation online i.g., ``https://diffpy.github.io/diffpy.utils`` using GitHub Pages.
+Let's now host the documentation online, e.g., ``https://diffpy.github.io/diffpy.utils``, using GitHub Pages.
 
-#. Visit the ``Settings`` page in your repository and and click ``pages`` under ``Code and automation``.
-#. Click ``Deploy from a branch`` under ``Source``. Below, choose ``gh-pages`` branch and ``/(root)`` and click ``Save``. See the image below.
+#. Visit :menuselection:`Settings --> Code and automation --> Pages`.
 
-   .. image:: ./img/github-pages.png
+#. Click :guilabel:`Deploy from a branch` under :guilabel:`Source`.
+
+#. Choose the :guilabel:`gh-pages` branch and :guilabel:`/(root)`
+
+#. Click :guilabel:`Save`.
+
+   .. image:: ../img/github-pages.png
       :alt: setup-github-pages-from-branch
 
 #. Done! Wait a few minutes and visit your GitHub Pages URL!

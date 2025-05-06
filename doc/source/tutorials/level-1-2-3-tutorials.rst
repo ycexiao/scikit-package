@@ -1,3 +1,5 @@
+.. _level-1-2-3-tutorials:
+
 (Level 1-3) Reuse code within a file, across files and folders
 ==============================================================
 
@@ -18,7 +20,7 @@ Also, ensure that Python is installed on your system. You can check this by runn
 
 .. code-block:: bash
 
-    python --version
+     $ python --version
 
 Folder structure
 ^^^^^^^^^^^^^^^^
@@ -61,13 +63,13 @@ Install ``numpy`` by running:
 
 .. code-block:: bash
 
-    pip install numpy
+     $ pip install numpy
 
 Then run
 
 .. code-block:: bash
 
-    python example_code.py
+    $ python example_code.py
 
 You should see the outputs of 11 and 83 printed.
 
@@ -185,7 +187,6 @@ In Level 3, you will learn to reuse code across multiple files and folders. You 
 Level 3. Reuse code across projects
 -----------------------------------
 
-
 Overview
 ^^^^^^^^^
 
@@ -206,7 +207,7 @@ Create a new project by running the following command:
 
 .. code-block:: bash
 
-     package create workspace
+     $ package create workspace
 
 You will then be asked to enter the ``project-name``. The default value is ``workspace-folder``.
 In this example, enter ``data-analysis-project`` as the workspace folder you are about to create.
@@ -219,7 +220,7 @@ In this example, enter ``data-analysis-project`` as the workspace folder you are
 
 .. code-block:: bash
 
-    cd data-analysis-project
+    $ cd data-analysis-project
 
 Folder structure
 ^^^^^^^^^^^^^^^^^
@@ -243,10 +244,10 @@ If you would like to add more projects, you can create a new folder under the ro
 
 .. code-block:: bash
 
-     mkdir proj-two
-     cd proj-two
-     touch __init__.py
-     touch proj_two_code.py
+     $ mkdir proj-two
+     $ cd proj-two
+     $ touch __init__.py
+     $ touch proj_two_code.py
 
 
 File descriptions
@@ -357,7 +358,7 @@ You can install the dependencies like ``numpy`` listed in ``requirements.txt`` b
 
 .. code-block:: bash
 
-    pip install -r requirements.txt
+    $ pip install -r requirements.txt
 
 Set PYTHONPATH
 ^^^^^^^^^^^^^^^
@@ -368,7 +369,7 @@ Type ``pwd`` in your command-line tool to see the current working directory.
 
 .. code-block:: bash
 
-     pwd
+     $ pwd
 
 For a macOS user, it will print something like ``/Users/macbook/downloads/dev/scikit-package/workspace_folder``.
 
@@ -377,7 +378,7 @@ Copy and paste the value while replacing ``<path-to-your-workspace-folder>`` wit
 .. code-block:: bash
 
      # For macOS/Linux user
-    export PYTHONPATH="${PYTHONPATH}:<path-to-your-workspace-folder>"
+    $ export PYTHONPATH="${PYTHONPATH}:<path-to-your-workspace-folder>"
 
      # For Windows (Powershell) user
     $env:PYTHONPATH = "$env:PYTHONPATH;<path-to-your-workspace-folder>"
@@ -388,22 +389,22 @@ To avoid retyping this command every time you open a new terminal, you can add i
 
      # For macOS/Linux:
      # bash shell
-     nano ~/.bashrc
+     $ nano ~/.bashrc
      # zsh shell
-     nano ~/.zshrc
+     $ nano ~/.zshrc
 
      # For Windows PowerShell:
-     notepad $PROFILE
+     $ notepad $PROFILE
 
 Then, add the command to set ``PYTHONPATH`` at the end of the file:
 
 .. code-block:: bash
 
      # For macOS/Linux (bash or zsh shell)
-     echo 'export PYTHONPATH="${PYTHONPATH}:/path/to/your/workspace_folder"'
+     $ echo 'export PYTHONPATH="${PYTHONPATH}:/path/to/your/workspace_folder"'
 
      # For Windows (PowerShell)
-     echo '$env:PYTHONPATH = "$env:PYTHONPATH;/path/to/your/workspace_folder"'
+     $ echo '$env:PYTHONPATH = "$env:PYTHONPATH;/path/to/your/workspace_folder"'
 
 After adding the command, restart your terminal or run the corresponding file to activate the changes through the commands below:
 
@@ -411,12 +412,12 @@ After adding the command, restart your terminal or run the corresponding file to
 
      # For macOS/Linux:
      # bash shell
-     source ~/.bash_profile
+     $ source ~/.bash_profile
      # zsh shell
-     source ~/.zshrc
+     $ source ~/.zshrc
 
      # For Windows PowerShell:
-     . $PROFILE
+     $ . $PROFILE
 
 .. note::
 
