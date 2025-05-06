@@ -1,6 +1,6 @@
 **Added:**
 
-* Add '$' for shell script commands in the documentation. 
+* Add '$' for shell script commands in the documentation.
 
 **Changed:**
 

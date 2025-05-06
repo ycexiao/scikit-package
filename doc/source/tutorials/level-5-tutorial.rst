@@ -278,7 +278,7 @@ Congratulations! You are done with migrating your package from Level 4 to Level 
 
 (Optional) Build API reference documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- 
+
 .. include:: ../snippets/api-reference-doc.rst
 
 Ready for public release?
