@@ -1,10 +1,8 @@
-:tocdepth: -1
+.. _release-conda-forge:
 
-.. _conda-forge-release-guide:
-
-====================
-Create conda package
-====================
+=====================================
+Create conda package with conda-forge
+=====================================
 
 .. _conda-create-feedstock:
 

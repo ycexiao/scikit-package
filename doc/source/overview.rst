@@ -1,12 +1,11 @@
 :tocdepth: -1
 
-.. index:: getting-started
+.. index:: overview
 
-.. _getting-started:
+.. _overview:
 
-===============
-Getting started
-===============
+Overview
+--------
 
 Here are the 5 levels of sharing your code. We provide tutorials for each level.
 

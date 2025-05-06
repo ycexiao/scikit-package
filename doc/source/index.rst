@@ -80,7 +80,7 @@ What are the full benefits when I reach Level 5?
 
 For technical users, here are some of the advanced features:
 
-- Namespace package support, e.g., ``import diffpy.utils``.
+- Namespace package import, e.g., ``import diffpy.utils``.
 - Generate conda-package ``meta.yaml`` with ``package create conda-forge``.
 - Support headless GitHub CI testing for GUI applications.
 - Support non-pure Python package releases with ``cibuildwheel``.
@@ -105,7 +105,7 @@ Authors
 - Andrew Yang (ay2546@columbia.edu)
 - Simon Billinge (sb2896@columbia.edu)
 
-scikit-package is developed by Billinge Group and its community contributors.
+``scikit-package`` is developed by Billinge Group and its community contributors.
 
 For a detailed list of contributors, see
 https://github.com/Billingegroup/scikit-package/graphs/contributors.
@@ -114,29 +114,64 @@ https://github.com/Billingegroup/scikit-package/graphs/contributors.
 Acknowledgements
 ================
 
-The Billinge Group's scikit-package has been modified from the NSLS-II scientific cookiecutter: https://github.com/nsls-ii/scientific-python-cookiecutter
+The Billinge Group's ``scikit-package`` has been modified from the NSLS-II scientific cookiecutter: https://github.com/nsls-ii/scientific-python-cookiecutter
 
-=================
-Table of contents
-=================
+
 .. toctree::
    :maxdepth: 2
+   :hidden:
+   :caption: GETTING STARTED
 
-   getting-started
-   tutorials-beginner
-   tutorials-intermediate-advanced
-   examples
-   pypi-release-guide
-   conda-forge-release-guide
-   migration-guide
+   overview
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: TUTORIALS
+   
+   tutorials/level-1-2-3-tutorials
+   tutorials/level-4-tutorial
+   tutorials/level-5-tutorial
+   tutorials/migration
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: RELEASE GUIDES
+
+   release-guides/pypi-github
+   release-guides/conda-forge
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: PROGRAMMING GUIDES
+
    billinge-group-standards
-   frequently-asked-questions
-   license
-   release
 
-=======
-Indices
-=======
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: EXAMPLES
+
+   examples/migration
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: SUPPORT
+
+   frequently-asked-questions
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: REFERENCE
+
+   release
+   license
+
+
+
 
 * :ref:`genindex`
-* :ref:`search`
