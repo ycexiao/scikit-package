@@ -91,7 +91,7 @@ You may consult our `online documentation <https://{{ cookiecutter.github_userna
 Support and Contribute
 ----------------------
 
-If you see a bug or want to request a feature, please `report it as an issue <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/issues>`_ and/or `submit a fix as a PR <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/pulls>`_. You can also post it to the `Diffpy user group <https://groups.google.com/g/diffpy-users>`_.
+If you see a bug or want to request a feature, please `report it as an issue <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/issues>`_ and/or `submit a fix as a PR <https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/pulls>`_.
 
 Feel free to fork the project and contribute. To install {{ cookiecutter.conda_pypi_package_dist_name }}
 in a development mode, with its sources being directly used by Python
