@@ -9,7 +9,7 @@ Create conda package with conda-forge
 I already have a conda-forge feedstock. I want to release a new package version. How do I do that?
 --------------------------------------------------------------------------------------------------
 
-Please skip to :ref:`here <conda-forge-feedstock-release>`
+Please skip to the :ref:`conda-forge-feedstock-release` section below.
 
 I am new to conda-forge. How do I create a conda package?
 ---------------------------------------------------------
@@ -36,7 +36,7 @@ The process is divided into three steps:
 .. _conda-forge-recipe-prepare:
 
 Step 1. Prepare conda package recipe in ``meta.yaml``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We first need to generate a "recipe" for the conda package. The recipe contains the type of programming language, the package version, the source code, the dependencies, and license, etc. This recipe is stored in a file called ``meta.yaml``.
 

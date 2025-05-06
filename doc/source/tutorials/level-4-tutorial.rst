@@ -31,17 +31,6 @@ Initiate a project with ``scikit-package``
 
 #. Answer the following questions:
 
-    :github_repo_name: (my-project)
-
-    :conda_pypi_package_dist_name: (my-project)
-
-    :package_dir_name: (my_project)
-
-    :maintainer_name: (Simon Billinge)
-
-
-#. Answer the following questions:
-
     .. list-table::
        :header-rows: 1
        :widths: 25 75
@@ -140,7 +129,6 @@ Run tests with your locally installed package
 
     Why is it required to list dependencies both under ``pip.txt`` and ``conda.txt``? Please refer to the FAQ section :ref:`here<faq-dependency-management>`.
 
-#. Done! You have successfully formatted your code. But, let's also make sure these hooks are triggered automatically when you make a commit.
 
 Create a new project on GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
