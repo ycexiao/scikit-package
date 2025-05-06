@@ -43,7 +43,7 @@ By the end of the migration process, you will have a package that is structured 
 
 .. _migration-pre-commit:
 
-.. include:: snippets/scikit-installation.rst
+.. include:: ../snippets/scikit-installation.rst
 
 1. Pre-commit workflow
 ----------------------
@@ -151,7 +151,7 @@ Your package will most likely have failed pre-commit hooks. We will manually fix
 
 #. Create a PR to ``package``. Since you are fixing flake8 errors, the commit message can be ``skpkg: fix flake8 line-length errors`` and the pull request title can be ``skpkg: Fix flake8 line-length errors``.
 
-#. If you have ``codespell`` errors, create a new branch called ``codespell`` and fix all of the spelling errors. You can ignore specific words or lines by following the instructions provided here in the FAQ section :ref:`here <codespell-ignore>`.
+#. If you have ``codespell`` errors, create a new branch called ``codespell`` and fix all of the spelling errors. You can ignore specific words or lines by following the instructions provided here in the FAQ section :ref:`here <faq-codespell-ignore>`.
 
 #. If you want to suppress the ``flake8`` error, add ``# noqa: <error-code>`` at the end of the line. For example, ``import numpy as np # noqa: E000`` but make sure you create an issue for this so that you can revisit them.
 
@@ -174,7 +174,7 @@ Now that ``pre-commit`` is passing, let's setup ``pre-commit`` hooks locally and
 
 Now, you will setup ``pre-commit CI`` app via GitHub Actions. This CI will run each time a new PR is created.
 
-.. include:: snippets/github-pre-commit-setup.rst
+.. include:: ../snippets/github-pre-commit-setup.rst
 
 Congratulations if you have successfully passed all the pre-commit hooks! You can now proceed to the next section.
 
@@ -192,7 +192,7 @@ Here, you will first check the correct folder structure. If the project structur
     - Do NOT delete project-specific content such as project descriptions in README, license information, authors, tutorials, examples.
 
 2.1. Setup correct folder structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 #. Sync with the ``main`` branch by typing ``git checkout main && git pull upstream main``.
 
@@ -253,8 +253,7 @@ Here, you will first check the correct folder structure. If the project structur
 2.2. Start a new project
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Type ``package create public`` and answer the questions provided in :ref:`here<level-5-user-input>`.
-
+#. Type ``package create public`` and answer the following questions provided here in :ref:`level-5-new-project`
 
 2.3. Move ``src``, ``tests``, ``requirements`` to setup GitHub CI in PR
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -338,12 +337,12 @@ Here, you will first check the correct folder structure. If the project structur
 3.2. Render API documentation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: snippets/doc-api-create.rst
+.. include:: ../snippets/api-reference-doc.rst
 
 3.3. Build documentation locally
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    .. include:: snippets/doc-local-build.rst
+.. include:: ../snippets/doc-local-build.rst
 
 .. _scikit-package-workflow-cleanup:
 
@@ -372,11 +371,11 @@ Here, you will first check the correct folder structure. If the project structur
 
 #. Test your package by running ``pytest``.
 
-    .. include:: snippets/pytest-run-local.rst
+    .. include:: ../snippets/pytest-run-local.rst
 
 #. Good to go! Once the test is successful, you can delete the old directory by typing ``rm -rf <package-name>-old``.
 
 Ready for public release?
 --------------------------
 
-Congratulations! Your package has been successfully migrated. This has been the most challenging step. Now, let's release your package to PyPI and conda-forge. Please visit the :ref:`Release your package <pypi-release-guide>` page to learn how to release your package!
+Congratulations! Your package has been successfully migrated. This has been the most challenging step. Now, let's release your package to PyPI and conda-forge. Please visit the :ref:`Release your package <release-pypi-github>` page to learn how to release your package!

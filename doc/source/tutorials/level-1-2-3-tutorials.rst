@@ -3,6 +3,8 @@
 (Level 1-3) Reuse code within a file, across files and folders
 ==============================================================
 
+.. _tutorial-level-1:
+
 Level 1. Reuse code within a file
 ---------------------------------
 
@@ -94,15 +96,16 @@ Here is the full content of the ``example_code.py`` file:
 
 Congratulation! You are now able to reuse code within a file by creating a function. Before we move on to the next level, let's learn about setting up a ``conda`` environment to install packages and run Python code in the following section.
 
-.. _conda-setup-simple:
+.. _conda-env-setup-simple:
 
-.. include:: snippets/conda-env-setup-simple.rst
+.. include:: ../snippets/conda-env-setup-simple.rst
 
 What's next?
 ^^^^^^^^^^^^
 
 You may proceed to Level 2 below. You will learn to share the ``dot_product`` across multiple Python files and modules.
 
+.. _tutorial-level-2:
 
 Level 2. Reuse code across files
 --------------------------------
@@ -177,7 +180,7 @@ This is the content of ``file_two.py``:
 Are you having trouble running the code?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Make sure you follow the instructions provided above in Level 1 :ref:`here<setup-up-conda-environment-with-numpy>`
+Make sure you follow the instructions provided above in Level 1 :ref:`here<conda-env-setup-simple>`
 
 What's next?
 ^^^^^^^^^^^^
@@ -198,7 +201,7 @@ Lastly, you will also learn to **automate formatting** to keep your code clean a
 
 This tutorial will take about 3-10 minutes.
 
-.. include:: snippets/scikit-installation.rst
+.. include:: ../snippets/scikit-installation.rst
 
 Initiate a new project with ``scikit-package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

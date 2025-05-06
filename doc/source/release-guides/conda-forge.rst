@@ -14,63 +14,70 @@ Please skip to :ref:`here <conda-forge-feedstock-release>`
 I am new to conda-forge. How do I create a conda package?
 ---------------------------------------------------------
 
-Here, you will learn how to release a conda package distributed through the conda-forge channel in 10 to 15 minutes. This guide assumes you are familiar with a basic clone, fork, and pull request workflow on GitHub.
+Here, you will learn how to release a conda package distributed through the ``conda-forge`` channel in 10 to 15 minutes so that you package can be installed using ``conda install <package-name>``. This guide assumes you are familiar with a basic clone, fork, and pull request workflow on GitHub.
 
 Overview
 ^^^^^^^^
 
 The process is divided into three steps:
 
-1. :ref:`Prepare recipe: <conda-forge-recipe-prepare>` You will learn to prepare package information in a file called ``meta.yaml`` using our group's scikit-package template. The file serves as a recipe for building your conda package. The recipe contains the package version, the source code, the dependencies, the license, etc.
+:ref:`Step 1. Prepare recipe <conda-forge-recipe-prepare>`
 
-2. :ref:`Upload the recipe: <conda-forge-recipe-upload>` Once you have the ``meta.yaml`` generated, you will create a pull request the staged-recipe repository in the conda-forge repository `here <https://github.com/conda-forge/staged-recipes>`_
+    You will learn to prepare package information in a file called ``meta.yaml`` using our ``scikit-package`` template. The file serves as a recipe for building your conda package. The recipe contains the package version, the source code, the dependencies, the license, etc.
 
-3. :ref:`Recipe review: <conda-forge-recipe-review>` One of the community members of conda-forge will review your ``meta.yaml`` and provide feedback. Once the recipe is approved, you will have a package available for ``conda install`` automatically, and you will have your own designated feedstock repository that contains ``meta.yaml`` in ``https://github.com/conda-forge/<package-name>-feedstock``.
+:ref:`Step 2. Upload the recipe <conda-forge-recipe-upload>`
+
+    Once you have the ``meta.yaml`` generated, you will create a pull request the staged-recipe repository in the conda-forge repository `here <https://github.com/conda-forge/staged-recipes>`_
+
+:ref:`Step 3. Recipe review <conda-forge-recipe-review>`
+
+    One of the community members of conda-forge will review your ``meta.yaml`` and provide feedback. Once the recipe is approved, you will have a package available for ``conda install`` automatically, and you will have your own designated feedstock repository that contains ``meta.yaml`` in ``https://github.com/conda-forge/<package-name>-feedstock``.
 
 .. _conda-forge-recipe-prepare:
 
-1. Prepare conda package recipe in ``meta.yaml``
+Step 1. Prepare conda package recipe in ``meta.yaml``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To generate a package, we first need to generate a "recipe" for the package. The recipe contains the type of programming language, the package version, the source code, the dependencies, and license, etc. This recipe is stored in a file called ``meta.yaml``.
+We first need to generate a "recipe" for the conda package. The recipe contains the type of programming language, the package version, the source code, the dependencies, and license, etc. This recipe is stored in a file called ``meta.yaml``.
+
+.. seealso:: Do you want to learn more about ``meta.yaml``? Please read :ref:`Appendix 1 <meta-yaml-info>`.
 
 Hence, in Step 1, we will generate ``meta.yaml`` using the Billinge group's template. See https://github.com/conda-forge/diffpy.utils-feedstock/blob/main/recipe/meta.yaml as an example of a ``meta.yaml`` used in production.
 
-If you are interested in learning more about each component within ``meta.yaml``, read :ref:`Appendix 1 <meta-yaml-info>` located at the end of this document.
+#. Install ``scikit-package`` via ``pip install scikit-package`` and run ``package conda-forge``
 
-1. Install ``scikit-package`` via ``pip install scikit-package`` and run ``package conda-forge``
+#. Answer the following questions. Default values in parentheses are used if no value is provided.
 
-2. Answer the following questions. Default values in parentheses are used if no value is provided.
+    :github_org: The GitHub organization name. For example, ``diffpy``.
 
- :github_org: The GitHub organization name. For example, ``diffpy``.
+    :repo_name: The name of the repository.
 
- :repo_name: The name of the repository.
+    :module_name: The name of the module.
 
- :module_name: The name of the module.
+    :version: The version of the package.
 
- :version: The version of the package.
+    :source: Choose PyPI.
 
- :source: Choose PyPI.
+    :short_description: The short description of the project.
 
- :short_description: The short description of the project.
+    :full_description: The full description of the project.
 
- :full_description: The full description of the project.
+    :license_file: The license file that is located in your project repository. i.e., ``LICENSE.rst``.
 
- :license_file: The license file that is located in your project repository. i.e., ``LICENSE.rst``.
+    :maintainers: You may have multiple maintainers ``sbillinge, bobleesj`` or just ``sbillinge``.
 
- :maintainers: You may have multiple maintainers ``sbillinge, bobleesj`` or just ``sbillinge``.
+    :build_requirements: copy ``requirements/build.txt`` from the project repo. It should be empty for pure Python packages.
 
- :build_requirements: copy ``requirements/build.txt`` from the project repo. It should be empty for pure Python packages.
+    :host_requirements: Type ``python {{ python_min }}, setuptools, setuptools-git-versioning >=2.0, pip``.
 
- :host_requirements: Type ``python {{ python_min }}, setuptools, setuptools-git-versioning >=2.0, pip``.
+    :runtime_requirements: Type the runtime dependencies from  ``requirements/conda.txt``.
 
- :runtime_requirements: Type the runtime dependencies from  ``requirements/conda.txt``.
+    :testing_requirements: Type the testing dependencies from ``requirements/test.txt``.
 
- :testing_requirements: Type the testing dependencies from ``requirements/test.txt``.
-
-Now, you have ``recipes/<package-name>/meta.yaml`` generated.
+#. Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 
 .. important::
+
    - For a pure python package, have you removed the ``build`` section under the ``requirements``? See https://github.com/conda-forge/diffpy.utils-feedstock/blob/main/recipe/meta.yaml for example.
 
    - Have you double-checked the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the project owner.
@@ -78,42 +85,48 @@ Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 
 .. _conda-forge-recipe-upload:
 
-1. Upload ``meta.yaml`` to conda-forge for initial review
+Step 2. Upload ``meta.yaml`` to conda-forge for initial review
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Fork https://github.com/conda-forge/staged-recipes and clone your forked repository
+#. Fork https://github.com/conda-forge/staged-recipes and clone your forked repository.
 
-2. cd into ``staged-recipes``
+#. cd into ``staged-recipes``.
 
-3. Create ``recipes/<package-name>/meta.yaml`` Ex) ``recipes/diffpy.srreal/meta.yaml``
+#. Create ``recipes/<package-name>/meta.yaml`` Ex) ``recipes/diffpy.srreal/meta.yaml``.
 
-4. Copy and paste the content of ``meta.yaml`` from Step 1.
+#. Copy and paste the content of ``meta.yaml`` from Step 1.
 
-5. Create a new branch: ``git checkout -b <project_name>``
+#. Create a new branch: ``git checkout -b <project_name>``.
 
-6. Add and commit the changes: ``git add . && git commit -m "Committing recipe for conda-forge release of <project_name>"``
+#. Add and commit the changes: ``git add . && git commit -m "Committing recipe for conda-forge release of <project_name>"``.
 
-7. Push the changes: ``git push -u origin <project_name>``
+#. Push the changes: ``git push -u origin <project_name>``.
 
-8. Visit https://github.com/conda-forge/staged-recipes and create a PR.
+#. Visit https://github.com/conda-forge/staged-recipes and create a PR.
 
-9. Read through the pre-filled text in the PR message and follow the instructions.
+#. Read through the pre-filled text in the PR message and follow the instructions.
 
-10. After the CI passes, create a new comment: ``@conda-forge/help-python Hello Team, ready for review!``
+#. After the CI passes, create a new comment: ``@conda-forge/help-python Hello Team, ready for review!``.
 
 .. _conda-forge-recipe-review:
 
-3. Wait for recipe review
+Step 3. Wait for recipe review
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1. Wait for a ``conda-forge`` volunteer reviewer to review your submission. It may take up to one week.
+#. Wait for a ``conda-forge`` volunteer reviewer to review your submission. It may take up to one week.
 
-2. Once the PR is merged by the reviewer (1) your package is available on conda-forge, and (2) a new repository will be created under https://github.com/conda-forge/package-name-feedstock/. Example: https://github.com/conda-forge/diffpy.structure-feedstock.
+#. Once the PR is merged by the reviewer (1) your package is available on conda-forge, and (2) a new repository will be created under https://github.com/conda-forge/package-name-feedstock/. Example: https://github.com/conda-forge/diffpy.structure-feedstock.
+
+#. Whent the PR is merged, the CI will automatically build the package and upload it to the conda-forge channel. You can check the status of the build by visiting ``https://anaconda.org/conda-forge/<package-name>.``
+
+#. Done!
+
+
 
 .. _conda-forge-feedstock-release:
 
-4. Use the conda-forge feedstock to release a new version
-----------------------------------------------------------
+How do I release a new version? I have the conda-forge feedstock
+-----------------------------------------------------------------
 
 We release a new package once we have the ``version`` and ``SHA256`` sections in ``meta.yaml`` in ``https://github.com/conda-forge/<package-name>-feedstock`` located in the ``main`` branch. The conda-forge team asks to only modify ``meta.yaml``.
 
@@ -147,6 +160,8 @@ First, we will copy the ``SHA256`` value from `pypi.org <http://pypi.org>`_:
 
 #. Once the PR is merged, in 20 to 30 minutes, verify the latest conda-forge package version from the README badge or by visiting ``https://anaconda.org/conda-forge/<package-name>``. i.e.g, ``https://anaconda.org/conda-forge/diffpy.utils``.
 
+#. Done! Your package can be now installed using ``conda install <package-name>``.
+
 
 .. _conda-forge-pre-release:
 
@@ -170,7 +185,7 @@ Generate ``meta.yaml`` by following ``Step 1`` and ``Step 2`` under ``conda-forg
 
     .. code-block:: bash
 
-        conda install -c conda-forge/label/<package-name>_rc -c conda-forge <package-name>
+        $ conda install -c conda-forge/label/<package-name>_rc -c conda-forge <package-name>
 
 For more, read the conda-forge official documentation for pre-release: https://conda-forge.org/docs/maintainer/knowledge_base/#pre-release-builds
 

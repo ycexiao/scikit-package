@@ -11,27 +11,27 @@ Virtual environments allow you to create isolated environments, each with their 
 
     .. code-block:: bash
 
-        conda config --add channels conda-forge
+        $ conda config --add channels conda-forge
 
 #. Now, let's create a new environment and install ``numpy`` in it. ``numpy`` will be sourced from the ``conda-forge`` channel. Replace ``<project-name>`` with the name of your project.
 
     .. code-block:: bash
 
         # Create a new environment and install numpy in the environment
-        conda create -n <project-name>_env numpy
+        $ conda create -n <project-name>-env numpy
 
         # Activate the environment
-        conda activate <project-name>_env
+        $ conda activate <project-name>-env
 
 #. Let's check if the installation was successful. You can do this by running the following command:
 
     .. code-block:: bash
 
         # Check Python version
-        python --version
+        $ python --version
 
         # Run the script
-        python <python_file_name>.py
+        $ python <python_file_name>.py
 
 
     .. note::
@@ -41,6 +41,6 @@ Virtual environments allow you to create isolated environments, each with their 
         .. code-block:: bash
 
             # For Windows (PowerShell)
-            conda init powershell
+            $ conda init powershell
 
 #. Done!

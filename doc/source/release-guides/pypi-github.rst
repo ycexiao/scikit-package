@@ -51,8 +51,8 @@ Start pre-release
 
       # For pre-release, use *.*.*-rc.* e.g., 1.0.0-rc.0
       # rc stands for release candidate
-      git tag <version>-rc.<rc-number>
-      git push upstream <version>-rc.<rc-number>
+      $ git tag <version>-rc.<rc-number>
+      $ git push upstream <version>-rc.<rc-number>
 
 #. Done! Once the tag is pushed, visit the :guilabel:`Actions` tab in the repository to monitor the CI progress.
 
@@ -65,11 +65,13 @@ Full release after pre-release
 
 #. In your terminal, run ``git checkout main && git pull upstream main`` to sync with the main branch.
 
-#. Run the following::
+#. Run the following:
 
-    # For release, use *.*.* e.g., 1.0.0
-    git tag <version>
-    git push upstream <version>
+   .. code-block:: bash
+
+      # For release, use *.*.* e.g., 1.0.0
+      $ git tag <version>
+      $ git push upstream <version>
 
 #. Notice that the documentation is deployed. It will also update the ``CHANGELOG.rst``.
 

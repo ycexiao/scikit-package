@@ -10,11 +10,11 @@
    * - 1
      - ``function``
      - Reuse code in the single file.
-     - See Level 1 tutorial
+     - :ref:`See Level 1 tutorial <tutorial-level-1>`
    * - 2
      - ``module``
      - Reuse code across files.
-     - See Level 2 tutorial
+     - :ref:`See Level 2 tutorial <tutorial-level-2>`
    * - 3
      - ``workspace``
      - Reuse code across project folders.

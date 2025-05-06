@@ -23,19 +23,19 @@ For commit messages and issue titles, we add prefixes adopted from https://www.c
 
 .. code-block:: text
 
-  feat: A new feature has been added.
-  fix: A bug has been fixed.
-  docs: Documentation changes only.
-  style: Changes that don't affect code functionality (e.g., formatting, whitespace).
-  refactor: Code changes that neither fix a bug nor add a feature.
-  perf: Performance improvements.
-  test: Adding missing tests or correcting existing ones.
-  chore: Updates to the build process or auxiliary tools.
-  build: Changes that affect the build artifact or external dependencies.
-  ci: Updates to CI configuration files and scripts.
-  revert: Reverts a previous commit.
-  release: A new package version is being prepared.
-  skpkg: Using scikit-package to create a new package or maintain an existing package.
+    feat: A new feature has been added.
+    fix: A bug has been fixed.
+    docs: Documentation changes only.
+    style: Changes that don't affect code functionality (e.g., formatting, whitespace).
+    refactor: Code changes that neither fix a bug nor add a feature.
+    perf: Performance improvements.
+    test: Adding missing tests or correcting existing ones.
+    chore: Updates to the build process or auxiliary tools.
+    build: Changes that affect the build artifact or external dependencies.
+    ci: Updates to CI configuration files and scripts.
+    revert: Reverts a previous commit.
+    release: A new package version is being prepared.
+    skpkg: Using scikit-package to create a new package or maintain an existing package.
 
 - Example 1: "feat: create a ``DiffractionObject.morph_to()`` method"
 - Example 2: "bug: handle divide by zero error in ``DiffractionObject.scale_to``"

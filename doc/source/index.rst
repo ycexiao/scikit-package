@@ -1,12 +1,7 @@
-
-#######
-
-.. |title| replace:: scikit-package documentation
-
 | Software version |release|.
 | Last updated |today|.
 
-Welcome to Billinge Group's Python ``scikit-package`` documentation!
+Welcome to Billinge Group's ``scikit-package`` documentation!
 
 ``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications.
 
@@ -65,7 +60,7 @@ The full list of packages is as follows:
 How do I get started?
 ---------------------
 
-Please visit the :ref:`Getting started <getting-started>` page to learn how to navigate the documentation!
+Please visit the :ref:`Overview <overview>` page to learn how to navigate the documentation!
 
 What are the full benefits when I reach Level 5?
 -------------------------------------------------
@@ -133,7 +128,6 @@ The Billinge Group's ``scikit-package`` has been modified from the NSLS-II scien
    tutorials/level-1-2-3-tutorials
    tutorials/level-4-tutorial
    tutorials/level-5-tutorial
-   tutorials/migration
 
 .. toctree::
    :maxdepth: 2
