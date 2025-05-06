@@ -71,3 +71,6 @@ Here is how you attach an image to the documentation. The ``/doc/source/img/scik
     :alt: codecov-in-pr-comment
     :width: 400px
     :align: center
+
+
+Here is how you can do menu selection  :menuselection:`Admin --> Settings` and changing :guilabel:`Privacy level`.

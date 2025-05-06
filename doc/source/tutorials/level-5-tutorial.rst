@@ -234,15 +234,15 @@ Allow GitHub Actions to write comments in PRs
 
 As you will see in the next section, we'd like to have GitHub Actions write comments such as warnings. Let's specify the permissions in the GitHub repository settings by following the steps below.
 
-#. Visit the ``Settings`` page of the GitHub repository.
+#. Visit the :guilabel:`Settings` page of the GitHub repository.
 
-#. Click on ``Actions`` in the left sidebar.
+#. Click on :guilabel:`Actions` in the left sidebar.
 
-#. Click on ``General`` in the left sidebar.
+#. Click on :guilabel:`General` in the left sidebar.
 
-#. Scroll down to the ``Workflow permissions`` section.
+#. Scroll down to the :guilabel:`Workflow permissions` section.
 
-#. Select ``Read and write permissions``.
+#. Select :guilabel:`Read and write permissions`.
 
 #. Done!
 
