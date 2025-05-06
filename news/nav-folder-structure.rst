@@ -1,6 +1,6 @@
 **Added:**
 
-* Add section dividers in the nav of the scikit-package documentation into getting started, tutorials, release guides, programming guides, examples, support, and refernece.
+* Add section dividers in the nav of the scikit-package documentation into getting started, tutorials, release guides, programming guides, examples, support, and reference.
 
 **Changed:**
 
