@@ -51,7 +51,7 @@ Start pre-release
 
       # For pre-release, use *.*.*-rc.* e.g., 1.0.0-rc.0
       # rc stands for release candidate
-      git checkout -b <version>-rc.<rc-number>
+      git tag <version>-rc.<rc-number>
       git push upstream <version>-rc.<rc-number>
 
 #. Done! Once the tag is pushed, visit the :guilabel:`Actions` tab in the repository to monitor the CI progress.
