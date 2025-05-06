@@ -170,7 +170,7 @@ Generate ``meta.yaml`` by following ``Step 1`` and ``Step 2`` under ``conda-forg
 
 #. Create ``recipe/conda_build_config.yaml`` containing
 
-    .. code-block:: yaml      
+    .. code-block:: yaml
 
       channel_targets:
          - conda-forge <package-name>_rc

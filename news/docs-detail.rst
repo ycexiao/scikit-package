@@ -1,7 +1,7 @@
 **Added:**
 
 * <news item>
-  
+
 **Changed:**
 
 * <news item>
