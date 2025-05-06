@@ -1,6 +1,6 @@
 **Added:**
 
-* no news needed: adding logo to docs
+* Add logo to documentation header.
 
 **Changed:**
 
