@@ -74,7 +74,7 @@ Hence, in Step 1, we will generate ``meta.yaml`` using the Billinge group's temp
 
 :testing_requirements: Copy from ``requirements/test.txt``.
 
-3. Now, you have ``recipes/<package-name>/meta.yaml`` generated.
+1. Now, you have ``recipes/<package-name>/meta.yaml`` generated.
 
 .. important::
 
