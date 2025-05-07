@@ -12,7 +12,7 @@
 
 **Removed:**
 
-* remove hard-coded ``diffpy`` in README
+* Remove hard-coded ``diffpy`` in README.
 
 **Fixed:**
 
