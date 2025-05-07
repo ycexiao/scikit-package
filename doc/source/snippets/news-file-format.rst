@@ -7,16 +7,15 @@ We want to write good ``CHANGELOG.rst`` for each release version. These news ite
 
 We can streamline the process of writing ``CHANGELOG.rst`` for each release by compiling the news items from the ``news`` directory.
 
-Here an example ``CHANGELOG.rst`` https://github.com/Billingegroup/scikit-package/blob/main/CHANGELOG.rst
+Here is an example ``CHANGELOG.rst`` https://github.com/Billingegroup/scikit-package/blob/main/CHANGELOG.rst
 
 How do I write good a news item?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Do not remove ``news/TEMPLATE.rst``. Make a copy called ``<branch-name>.rst``.
-- Do not modify other section headers in the rst file. Replace ``* <news item>``
-- Begin with "No news", "no news", or "no news added" for trivial changes with the following format:
+- Do not modify other section headers in the rst file. Replace ``* <news item>`` only.
 - For consistency, start with a capital letter and a verb. End with a period. Ex) ``Add automatic linting of .md, .yml, .rst files via prettier hook in pre-commit.``
-- If you do not need to write a news item, still write the following format so that the CI can pass while it's not later merged to the ``CHANGELOG.rst`` file.
+- For trivial changes, still create ``<branch-name>.rst``, but the news item should start with ``* No news:`` so that the news item is not compiled into the ``CHANGELOG.rst`` file during the release process. Here is an example below:
 
     .. code-block:: text
 
