@@ -177,8 +177,6 @@ Generate ``meta.yaml`` by following ``Step 1`` and ``Step 2`` under ``conda-forg
 
 #. See an example here: https://github.com/conda-forge/diffpy.pdffit2-feedstock/blob/rc/recipe/conda_build_config.yaml
 
-#. In the ``version`` of ``meta.yaml``, enter ``<version>rc<rc-number>`` (e.g., enter ``0.0.3rc1`` instead of ``0.0.3-rc.1``). This is because PyPI uses the ``<version>rc<rc-number>`` format for pre-releases.
-
 #. Make a PR into ``rc`` instead of ``main``.
 
 #. Re-render once the PR is created.
