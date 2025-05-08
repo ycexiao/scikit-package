@@ -189,8 +189,8 @@ The conda-forge CI uses the source code distributed via PyPI to build a Conda pa
 Documentation
 -------------
 
-How can I preview ``Sphinx`` documentation in real-time?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+How can I preview the documentation in real-time?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: snippets/doc-local-build.rst
 
@@ -336,6 +336,13 @@ If you are using a namespace import, ``sphinx-apidoc`` will not work. We have de
         }
 
     Once you enter the project directory, run ``api`` in the terminal to generate the API documentation automatically so that you don't have to type the full command every time!
+
+.. _faq-doc-pr-preview:
+
+How can I preview the documentation in each pull request?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. include:: snippets/doc-pr-preview.rst
 
 How do I re-deploy online documentation without another release?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
