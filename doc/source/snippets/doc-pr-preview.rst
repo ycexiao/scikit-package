@@ -10,9 +10,10 @@
 
 #. Click :guilabel:`Pull request builds` under :guilabel:`Building` on the left menu.
 
+#. Enable :guilabel:`Build pull requests for this project`.
+
 #. Click :guilabel:`Update`.
 
-#. Enable :guilabel:`Build pull requests for this project`.
 
     .. image:: ../img/doc-pr-preview-setup.png
       :alt: doc-pr-preview-setup
