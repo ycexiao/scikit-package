@@ -15,8 +15,8 @@
 
 import sys
 import time
-from pathlib import Path
 from importlib.metadata import version
+from pathlib import Path
 
 # Attempt to import the version dynamically from GitHub tag.
 try:

@@ -5,10 +5,10 @@
 #. If your repository is under a GitHub organization, follow the extra steps below:
 
     #. Visit https://github.com/settings/applications
-    
+
     #. Click the :guilabel:`Read the Docs Community` application.
-    
-    #. Click the :guilabel:`Request` button for the organization under :guilabel:`Organization Access`, 
+
+    #. Click the :guilabel:`Request` button for the organization under :guilabel:`Organization Access`,
 
     #. Done. Now, Read the Docs can import repositories in the GitHub organization.
 
