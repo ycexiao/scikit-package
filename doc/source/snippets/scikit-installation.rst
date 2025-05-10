@@ -1,5 +1,3 @@
-.. _scikit-package-installation:
-
 Install ``scikit-package`` with conda
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
