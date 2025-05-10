@@ -14,7 +14,6 @@
 
 #. Click :guilabel:`Update`.
 
-
     .. image:: ../img/doc-pr-preview-setup.png
       :alt: doc-pr-preview-setup
       :width: 600px

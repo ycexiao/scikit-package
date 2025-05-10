@@ -33,7 +33,7 @@ Initiate a release process with GitHub issue
 Start pre-release
 ~~~~~~~~~~~~~~~~~
 
-.. _release-instructions-project-maintainer:
+.. _release-instructions-maintainer:
 
 #. Review the release GitHub issue created in the previous step.
 

@@ -80,7 +80,7 @@ Pull request practices
 .. _news-item-practice:
 
 
-.. include:: snippets/news-file-format.rst
+.. include:: ../snippets/news-file-format.rst
 
 Unit tests
 ----------
