@@ -144,7 +144,7 @@ Release
 How can I change who is authorized to release a package?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In ``.github/workflows/build-wheel-release-upload.yml``, modify ``github_admin_username`` to the desired GitHub username. This username will be able to authorize the release by pushing the tag as instructed :ref:`here <release-instructions-project-maintainer>`.
+In ``.github/workflows/build-wheel-release-upload.yml``, modify ``maintainer_github_username`` to the desired GitHub username. This username will be able to authorize the release by pushing the tag as instructed :ref:`here <release-instructions-project-maintainer>`.
 
 How is the package version set and retrieved?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
