@@ -1,6 +1,6 @@
 **Added:**
 
-* Add descriptions on conda-fore, conda, and installers like miniconda, miniforge in the FAQ section.
+* Add descriptions on conda-forge, conda, and installers like miniconda, miniforge in the FAQ section.
 
 **Changed:**
 
