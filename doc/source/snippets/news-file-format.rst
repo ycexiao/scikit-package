@@ -1,5 +1,3 @@
-.. _news-file-guide:
-
 Why do I need a news file for each PR?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -15,13 +15,13 @@
 #. Click :guilabel:`Update`.
 
 
-    .. image:: ../img/doc-pr-preview-setup.png
+    .. image:: ../img/codecov-configure.png
       :alt: doc-pr-preview-setup
       :width: 600px
 
 #. Done! Now, in each PR, you will see the following workflow triggered. You can click on the workflow to view its rendered documentation online.
 
-    .. image:: ../img/doc-pr-preview-setup-ci.png
+    .. image:: ../img/codecov-configure.png
       :alt: doc-pr-preview-setup-ci
       :width: 600px
 

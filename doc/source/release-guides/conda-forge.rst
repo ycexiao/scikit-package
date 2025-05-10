@@ -27,7 +27,7 @@ The process is divided into three steps:
 
 :ref:`Step 2. Upload the recipe <conda-forge-recipe-upload>`
 
-    Once you have the ``meta.yaml`` generated, you will create a pull request the staged-recipe repository in the conda-forge repository `here <https://github.com/conda-forge/staged-recipes>`_
+    Once you have the ``meta.yaml`` generated, you will create a pull request to the the `staged-recipes repository <https://github.com/conda-forge/staged-recipes>`_ from your forked repository. The staged-recipes repository is a temporary location for the recipe until it is approved by the conda-forge community.
 
 :ref:`Step 3. Recipe review <conda-forge-recipe-review>`
 
