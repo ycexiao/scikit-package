@@ -14,7 +14,7 @@ How do I write good a news item?
 
 - Do not remove ``news/TEMPLATE.rst``. Make a copy called ``<branch-name>.rst``.
 - Do not modify other section headers in the rst file. Replace ``* <news item>`` only.
-- Start with a capital letter and a verb. End with a period. i.g., ``Add automatic linting of .md, .yml, .rst files via prettier hook in pre-commit.``
+- Start with a capital letter and a verb. End with a period, e.g., ``Add automatic linting of .md, .yml, .rst files via a prettier hook in pre-commit.``
 - For trivial changes, still create ``<branch-name>.rst``, but the news item should start with ``* No news:`` so that the news item is not compiled into the ``CHANGELOG.rst`` file during the release process. Here is an example below:
 
     .. code-block:: text
