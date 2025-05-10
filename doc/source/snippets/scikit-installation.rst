@@ -31,4 +31,3 @@ Install ``scikit-package`` with conda
     .. code-block:: bash
 
         $ pip show scikit-package
-
