@@ -4,7 +4,7 @@
 ### What should the reviewer(s) do?
 <!-- Merge the code, provide feedback, initiate a discussion, etc. -->
 
-<!-- 
+<!--
 Use the following checklist items when applicable (select only what applies):
 - [ ] This PR introduces a public-facing change (e.g., figures, CLI input/output, API).
     - [ ] Documentation (e.g., tutorials, examples, README) has been updated.
