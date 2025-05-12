@@ -492,14 +492,20 @@ What are ``docs.txt``, ``test.txt``, ``build.txt``, and ``conda.txt`` files unde
 What is conda-forge?
 ^^^^^^^^^^^^^^^^^^^^
 
-``conda-forge`` is a community-driven platform that provides a review process for creating, building, and hosting conda packages online. It also serves as a repository of conda packages, which can be installed using the command:
+conda-forge is an open-source-software community-maintained channel on the conda/Anaconda package server. The structure of the Anaconda server is that packages are hosted and can be installed from user-maintained``channels", and the original vision was that different developers and organizations would put their own code on their own channels.
+
+conda-forge is a community led effort to have a single channel shared by everyone. This also allows the community to develop package maintenance tools to help with the ecosystem such as auto tick bots that check when the latest version of a package is not present on conda-forge and alert the maintainers, and GitHub workflows to pre-build wheel files for all platforms and python versions. It also tries to resolve a dependency graph for a package to install the most recent version of every package that satisfies the requirements of all the sub-packages.
+
+We recommend making use of conda-forge and helping the community by, where possible, installing from conda-forge and also making sure your package is available on conda-forge so others may install it from conda-forge.
+
+Here is how you can add the conda-forge channel to your conda configuration and install the ``scikit-package`` package from it:
 
 .. code-block:: bash
 
   $ conda config --add channels conda-forge
   $ conda install scikit-package
 
-In the above command, the first command adds the ``conda-forge`` channel to the conda configuration, allowing users to install packages from this channel. The second command installs the ``scikit-package`` package from the ``conda-forge`` channel. https://anaconda.org/conda-forge/scikit-package
+The first command adds the ``conda-forge`` channel to the conda configuration, allowing users to install packages from this channel. The second command installs the ``scikit-package`` package from the ``conda-forge`` channel. https://anaconda.org/conda-forge/scikit-package
 
 What are Miniconda, Anaconda, and Miniforge?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -517,7 +523,14 @@ Why do some people use mamba instead of conda?
 
 Recall that conda is a dependency manager that uses sophisticated algorithms to identify compatible software versions. As the number of dependencies increases, the solving process can become computationally expensive.
 
-To address this, ``mamba`` was developed. ``mamba`` is a drop-in replacement for conda, using the same commands and configuration options, but featuring a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge`` or ``defaults``.
+To address this, ``mamba`` was developed. ``mamba`` is a drop-in replacement for conda, using the same commands and configuration options, but featuring a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge`` or ``defaults``
+
+  To install ``mamba``, it is recommenmded to use ``Miniforge`` by following the instructions in https://github.com/conda-forge/miniforge.
+
+Why do we want to publish our package on the conda-forge channel?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As long as we all use conda-forge, our software and its dependencies will be installed well (using conda-forge's dependency graph) whether we use ``mamba`` or ``conda`` as the main environment manager. Hence, (a) we recommend having conda-forge as your top-most channel and (b) we also highly recommend putting in the extra effort to create a conda package after your package is released on PyPI, as part of the workflow embedded in ``scikit-package``.
 
 .. _faq-pip-conda-both-provided:
 
