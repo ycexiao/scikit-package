@@ -127,7 +127,7 @@ In Level 5, why do we adopt ``README.rst`` instead of ``README.md``?
 We adopt ``README.rst`` at Level 5 because reStructuredText (``.rst``) provides a more configurable format and control. One key advantage of ``.rst`` is its native support for advanced formatting, such as precise control over image size and layout: ::
 
   .. |Icon| image:: img/logos/scikit-package-logo-text.png
-      :target: https://Billingegroup.github.io/scikit-package
+      :target: https://scikit-package.github.io/scikit-package
       :height: 150px
 
 Achieving the same result in Markdown often requires raw HTML, which is less readable and may render inconsistently across platforms.
@@ -264,7 +264,7 @@ How do I build API .rst files for a Python package with a namespace import?
 
 If you are using a namespace import, ``sphinx-apidoc`` will not work. We have develoepd our own script called ``auto_api.py`` to generate the API documentation.
 
-#. Run ``git clone https://github.com/Billingegroup/release-scripts.git`` into a folder outside of the project directory. Here is the folder structure:
+#. Run ``git clone https://github.com/scikit-package/release-scripts.git`` into a folder outside of the project directory. Here is the folder structure:
 
     .. code-block:: text
 
@@ -396,7 +396,7 @@ Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/w
 
    jobs:
     tests-on-pr:
-      uses: Billingegroup/release-scripts/.github/workflows/_tests-on-pr.yml@v0
+      uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
     with:
       project: package-name
       c_extension: false
@@ -411,7 +411,7 @@ Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/w
 
    jobs:
     docs:
-      uses: Billingegroup/release-scripts/.github/workflows/_tests-on-pr.yml@v0
+      uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
     with:
       project: package-name
       c_extension: false
@@ -424,7 +424,7 @@ Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/w
 
    jobs:
     matrix-coverage:
-      uses: Billingegroup/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
+      uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
     with:
       ...
       python_versions: "3.11, 3.12"
@@ -445,7 +445,7 @@ In Level 5, I see that another workflow is running once a PR is merged to ``main
 
 The workflow ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml`` is triggered. The goal is to ensure the latest code is tested not only on Linux but also across multiple operating systems and Python versions. This workflow runs tests on macOS (both Apple Silicon and Intel chips), Linux, and Windows and against three different Python versions, including the latest configured version. To modify the Python versions used in the workflows, refer to :ref:`github-actions-python-versions`.
 
-.. note:: These workflow files call scripts located at https://github.com/Billingegroup/release-scripts, which are centrally managed by the ``scikit-package`` development team. This centralized approach ensures that individual packages do not need to be updated separately when adding support for new Python versions or operating systems.
+.. note:: These workflow files call scripts located at https://github.com/scikit-package/release-scripts, which are centrally managed by the ``scikit-package`` development team. This centralized approach ensures that individual packages do not need to be updated separately when adding support for new Python versions or operating systems.
 
 I am encountering a 'build' is requesting 'pull-requests: write' error. How do I fix it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -714,7 +714,7 @@ In https://github.com/scikit-package/scikit-package:
    * - ``doc/source/conf.py``
      - ``PYTHON_DEFAULT_MAX_VERSION`` and ``PYTHON_DEFAULT_MIN_VERSION``
 
-In https://github.com/Billingegroup/release-scripts:
+In https://github.com/scikit-package/release-scripts:
 
 .. list-table::
    :header-rows: 1

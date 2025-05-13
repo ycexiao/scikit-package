@@ -193,7 +193,7 @@ As you will see in the next section, we'd like to have GitHub Actions write comm
 Add news items in the GitHub pull request
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Before merging to ``main``, we require that each PR includes a file documenting the changes under ``\news``. This ensures that the changes are documented in the ``CHANGELOG.rst`` when you create a new release, as shown in https://billingegroup.github.io/scikit-package/release.html, for example.
+Before merging to ``main``, we require that each PR includes a file documenting the changes under ``\news``. This ensures that the changes are documented in the ``CHANGELOG.rst`` when you create a new release, as shown in https://scikit-package.github.io/scikit-package/release.html, for example.
 
     .. important::
 
