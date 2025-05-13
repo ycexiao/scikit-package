@@ -517,7 +517,7 @@ Why do some people use mamba instead of conda?
 
 Recall that conda is a dependency manager that uses sophisticated algorithms to identify compatible software versions. As the number of dependencies increases, the solving process can become computationally expensive.
 
-To address this, ``mamba`` was developed. ``mamba`` is a drop-in replacement for conda, using the same commands and configuration options, but featuring a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge`` or ``defaults``.
+To address this, ``mamba`` was developed. ``mamba`` is a drop-in replacement for conda, using the same commands and configuration options, but featuring a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge`` or ``defaults``. However, using ``conda-forge`` is recommended. You can add conda-forge as the highest priority channel using ``conda config --add channels conda-forge``. Once configured, packages will be installed from conda-forge when you run ``conda install <package-name>``.
 
 .. _faq-pip-conda-both-provided:
 
