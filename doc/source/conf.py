@@ -16,13 +16,12 @@
 import sys
 import time
 from pathlib import Path
+from importlib.metadata import version, PackageNotFoundError
 
-# Attempt to import the version dynamically from GitHub tag.
 try:
-    from importlib.metadata import version
     fullversion = version("scikit_package")
-except Exception:
-    fullversion = "No version found"
+except PackageNotFoundError:
+    fullversion = "unknown"
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
