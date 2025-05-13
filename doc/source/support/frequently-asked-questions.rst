@@ -517,14 +517,14 @@ Why do some people use mamba instead of conda?
 
 Recall that conda is a dependency manager that uses sophisticated algorithms to identify compatible software versions. As the number of dependencies increases, the solving process can become computationally expensive.
 
-To address this, ``mamba`` was developed. ``mamba`` is a drop-in replacement for conda, using the same commands and configuration options, but featuring a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge`` or ``defaults``. However, using ``conda-forge`` is recommended. You can add conda-forge as the highest priority channel using ``conda config --add channels conda-forge``. Once configured, packages will be installed from conda-forge when you run ``conda install <package-name>``.
+To address this, ``mamba`` was developed. ``mamba`` uses the same commands and configuration options as conda but features a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge``. When you install ``mamba`` using ``Miniforge``, the conda-forge channel is set as the default (and only) channel.
 
 .. _faq-pip-conda-both-provided:
 
 Why are both ``pip.txt`` and ``conda.txt`` provided?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Our preferred choice for installing the scikit-packaged package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new_env <package-name>``. Additionally, the environment is tested via conda-forge CI before the Conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
+Our preferred choice for installing the scikit-packaged package is as a Conda package, as outlined in the template ``README.rst`` file. With Conda, the end user can install all associated dependencies by running ``conda create --name new-env <package-name>``. Additionally, the environment is tested via conda-forge CI before the conda package is released, which helps ensure the package's compatibility with its dependencies. Hence, we list conda package dependencies in ``conda.txt``.
 
 However, we also want to allow users to install the package via ``pip``. To support this, we provide a separate file for pip dependencies, ``pip.txt``. In most cases, the dependencies listed in ``conda.txt`` and ``pip.txt`` will be identical. However, there can be exceptions. For example, ``matplotlib-base`` is preferred for Conda installations, while ``matplotlib`` is used for pip installations.
 
