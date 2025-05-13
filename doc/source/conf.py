@@ -15,12 +15,13 @@
 
 import sys
 import time
+from importlib.metadata import version
 from pathlib import Path
-from importlib.metadata import version, PackageNotFoundError
 
 try:
+
     fullversion = version("scikit_package")
-except PackageNotFoundError:
+except Exception:
     fullversion = "unknown"
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -84,7 +85,6 @@ copyright = "%Y, The Trustees of Columbia University in the City of New York"
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 
-fullversion = version(project)
 # The short X.Y version.
 version = "".join(fullversion.split(".post")[:1])
 # The full version, including alpha/beta/rc tags.
