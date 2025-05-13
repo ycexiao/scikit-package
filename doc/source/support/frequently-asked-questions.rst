@@ -524,6 +524,7 @@ Why do some people use mamba instead of conda?
 Recall that conda is a dependency manager that uses sophisticated algorithms to identify compatible software versions. As the number of dependencies increases, the solving process can become computationally expensive.
 
 To address this, ``mamba`` was developed. ``mamba`` uses the same commands and configuration options as conda but features a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge``. When you install ``mamba`` using ``Miniforge``, the conda-forge channel is set as the default (and only) channel.
+
 .. _faq-pip-conda-both-provided:
 
 Why are both ``pip.txt`` and ``conda.txt`` provided?
