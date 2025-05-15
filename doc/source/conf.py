@@ -15,11 +15,10 @@
 
 import sys
 import time
+from importlib.metadata import version
 from pathlib import Path
 
-# Attempt to import the version dynamically from GitHub tag.
 try:
-    from importlib.metadata import version
 
     fullversion = version("scikit_package")
 except Exception:
@@ -86,7 +85,6 @@ copyright = "%Y, The Trustees of Columbia University in the City of New York"
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 
-fullversion = version(project)
 # The short X.Y version.
 version = "".join(fullversion.split(".post")[:1])
 # The full version, including alpha/beta/rc tags.
