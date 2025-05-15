@@ -146,7 +146,7 @@ html_theme = "sphinx_rtd_theme"
 
 html_context = {
     "display_github": True,  # Integrate GitHub
-    "github_user": "Billingegroup",  # Username
+    "github_user": "scikit-package",  # Username
     "github_repo": "scikit-package",  # Repo name
     "github_version": "main",  # Branch
     "conf_py_path": "/doc/source/",  # Path in repo to the docs folder

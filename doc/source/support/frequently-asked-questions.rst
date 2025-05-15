@@ -127,7 +127,7 @@ In Level 5, why do we adopt ``README.rst`` instead of ``README.md``?
 We adopt ``README.rst`` at Level 5 because reStructuredText (``.rst``) provides a more configurable format and control. One key advantage of ``.rst`` is its native support for advanced formatting, such as precise control over image size and layout: ::
 
   .. |Icon| image:: img/logos/scikit-package-logo-text.png
-      :target: https://Billingegroup.github.io/scikit-package
+      :target: https://scikit-package.github.io/scikit-package
       :height: 150px
 
 Achieving the same result in Markdown often requires raw HTML, which is less readable and may render inconsistently across platforms.
@@ -264,7 +264,7 @@ How do I build API .rst files for a Python package with a namespace import?
 
 If you are using a namespace import, ``sphinx-apidoc`` will not work. We have develoepd our own script called ``auto_api.py`` to generate the API documentation.
 
-#. Run ``git clone https://github.com/Billingegroup/release-scripts.git`` into a folder outside of the project directory. Here is the folder structure:
+#. Run ``git clone https://github.com/scikit-package/release-scripts.git`` into a folder outside of the project directory. Here is the folder structure:
 
     .. code-block:: text
 
@@ -396,7 +396,7 @@ Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/w
 
    jobs:
     tests-on-pr:
-      uses: Billingegroup/release-scripts/.github/workflows/_tests-on-pr.yml@v0
+      uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
     with:
       project: package-name
       c_extension: false
@@ -411,7 +411,7 @@ Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/w
 
    jobs:
     docs:
-      uses: Billingegroup/release-scripts/.github/workflows/_tests-on-pr.yml@v0
+      uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
     with:
       project: package-name
       c_extension: false
@@ -424,7 +424,7 @@ Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/w
 
    jobs:
     matrix-coverage:
-      uses: Billingegroup/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
+      uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
     with:
       ...
       python_versions: "3.11, 3.12"
@@ -445,7 +445,7 @@ In Level 5, I see that another workflow is running once a PR is merged to ``main
 
 The workflow ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml`` is triggered. The goal is to ensure the latest code is tested not only on Linux but also across multiple operating systems and Python versions. This workflow runs tests on macOS (both Apple Silicon and Intel chips), Linux, and Windows and against three different Python versions, including the latest configured version. To modify the Python versions used in the workflows, refer to :ref:`github-actions-python-versions`.
 
-.. note:: These workflow files call scripts located at https://github.com/Billingegroup/release-scripts, which are centrally managed by the ``scikit-package`` development team. This centralized approach ensures that individual packages do not need to be updated separately when adding support for new Python versions or operating systems.
+.. note:: These workflow files call scripts located at https://github.com/scikit-package/release-scripts, which are centrally managed by the ``scikit-package`` development team. This centralized approach ensures that individual packages do not need to be updated separately when adding support for new Python versions or operating systems.
 
 I am encountering a 'build' is requesting 'pull-requests: write' error. How do I fix it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -563,14 +563,14 @@ Then, you will download the forked repository in your GitHub account to your loc
 
 In the cloned repository on your local machine, you will make edits. You want to first add a description for the changes by "committing" with a message describing the changes. Then you will upload these changes to the ``forked`` repository in your account. This process of updating code from the local computer to the repository hosted by GitHub is called ``pushing``.
 
-From the forked repository, you then want to upload changes to the repository under ``github.com/Billingegroup/scikit-package``, for example. This process is done through a process called ``pull request``. The Project Owner reviews this pull request and merges it into the Billinge group's repository. If you are the contributor as well as the Project Owner, you would be the one who reviews your own code and merges your changes.
+From the forked repository, you then want to upload changes to the repository under ``github.com/scikit-package/scikit-package``, for example. This process is done through a process called ``pull request``. The Project Owner reviews this pull request and merges it into the Billinge group's repository. If you are the contributor as well as the Project Owner, you would be the one who reviews your own code and merges your changes.
 
 I have a general understanding of fork, clone, commit, push, and pull request. How do I set up my repository for packaging?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Please be familiar with the terminology such as "fork", "clone", "push", and "pull request" :ref:`above <github-workflow-overview>`.
 
-You may fork the repository using the "Fork" button on the top right corner of the repository page. This will copy the repository to your GitHub account. e.g., ``github.com/Billingegroup/scikit-package`` to ``github.com/sbillinge/scikit-package``.
+You may fork the repository using the "Fork" button on the top right corner of the repository page. This will copy the repository to your GitHub account. e.g., ``github.com/scikit-package/scikit-package`` to ``github.com/sbillinge/scikit-package``.
 
 Then download the forked repository under your account to the local machine by cloning:
 
@@ -586,7 +586,7 @@ Now, you also want to link with the repository of the organization by adding the
 
 .. note::
 
-   What is ``upstream``? The repository that you forked from, e.g. ``Billingegroup/scikit-package`` is referred to as the ``upstream`` repository.
+   What is ``upstream``? The repository that you forked from, e.g. ``scikit-package/scikit-package`` is referred to as the ``upstream`` repository.
 
 Verify that you have the ``upstream`` URL set up as the organization.
 
@@ -598,18 +598,18 @@ Notice that you also have ``origin`` with an URL linking to your forked reposito
 
 .. note::
 
-  What is ``remote``? The term ``remote`` is the opposite of ``local``. In other words, ``remote`` refers to the repository that is hosted by GitHub. e.g., ``github.com/Billingegroup/scikit-package`` or ``github.com/sbillinge``.
+  What is ``remote``? The term ``remote`` is the opposite of ``local``. In other words, ``remote`` refers to the repository that is hosted by GitHub. e.g., ``github.com/scikit-package/scikit-package`` or ``github.com/sbillinge``.
 
 Do you have a general summary of each term used in the GitHub workflow?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:fork: The process of copying a repository from an organization to your GitHub account. e.g., ``github.com/Billingegroup/scikit-package`` to ``github.com/sbillinge/scikit-package``.
+:fork: The process of copying a repository from an organization to your GitHub account. e.g., ``github.com/scikit-package/scikit-package`` to ``github.com/sbillinge/scikit-package``.
 
-:upstream: The repository of the original source code. e.g., ``github.com/Billingegroup/scikit-package``.
+:upstream: The repository of the original source code. e.g., ``github.com/scikit-package/scikit-package``.
 
 :origin: The forked repository under your account. e.g., ``github.com/sbillinge/scikit-package``.
 
-:remote: The repository that is hosted by GitHub. e.g., ``github.com/Billingegroup/scikit-package`` or ``github.com/sbillinge/scikit-package``.
+:remote: The repository that is hosted by GitHub. e.g., ``github.com/scikit-package/scikit-package`` or ``github.com/sbillinge/scikit-package``.
 
 :branch: The branch serves as a folder that contains the files of the repository. The ``main`` branch is the branch that is used for the final version of the code. Many branches can be created for different features or bug fixes that are later merged into the ``main`` branch.
 
@@ -704,7 +704,7 @@ Which files should be modified when there is a new Python version?
 
 When updating Python version support, please modify the following files accordingly:
 
-In https://github.com/Billingegroup/scikit-package:
+In https://github.com/scikit-package/scikit-package:
 
 .. list-table::
    :header-rows: 1
@@ -714,7 +714,7 @@ In https://github.com/Billingegroup/scikit-package:
    * - ``doc/source/conf.py``
      - ``PYTHON_DEFAULT_MAX_VERSION`` and ``PYTHON_DEFAULT_MIN_VERSION``
 
-In https://github.com/Billingegroup/release-scripts:
+In https://github.com/scikit-package/release-scripts:
 
 .. list-table::
    :header-rows: 1
