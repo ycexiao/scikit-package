@@ -49,10 +49,10 @@ Start pre-release
 
    .. code-block:: bash
 
-      $ pip install vulture
+      $ conda install vulture
       $ vulture src/ tests/
 
-   Review the output and remove or suppress unused code to keep the release clean and maintainable.
+   Review the output and remove or suppress unused code when it is not needed to keep the release clean and maintainable.
 
 
 #. Run the following:
