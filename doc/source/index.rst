@@ -1,4 +1,4 @@
-| Software version |release|.
+| Software version |release|
 | Last updated |today|.
 
 Welcome to the ``scikit-package`` official documentation!
