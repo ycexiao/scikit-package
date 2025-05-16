@@ -6,7 +6,7 @@
 
 ``{{ cookiecutter.project_name }}`` - {{ cookiecutter.project_short_description }}
 
-| Software version |release|.
+| Software version |release|
 | Last updated |today|.
 
 ===============

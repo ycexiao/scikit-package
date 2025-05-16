@@ -22,7 +22,7 @@ from pathlib import Path
 try:
     fullversion = version("{{ cookiecutter.package_dir_name }}")
 except Exception:
-    fullversion = "No version found"
+    fullversion = "No version found. The correct version will appear in the released version."
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
