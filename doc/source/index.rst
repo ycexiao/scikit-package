@@ -3,7 +3,7 @@
 
 Welcome to the ``scikit-package`` official documentation!
 
-``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications. Here is a quick demo of generating a new package using ``scikit-package``:
+``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications.
 
 How does ``scikit-package`` benefit scientists?
 -----------------------------------------------
