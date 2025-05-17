@@ -8,7 +8,7 @@
         :target: https://scikit-package.github.io/scikit-package
         :height: 150px
 
-|PyPi| |Forge| |PythonVersion| |PR|
+|PyPI| |Forge| |PythonVersion| |PR|
 
 |CI| |Codecov| |Black| |Tracking|
 
@@ -26,7 +26,7 @@
 
 .. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
 
-.. |PyPi| image:: https://img.shields.io/pypi/v/scikit-package
+.. |PyPI| image:: https://img.shields.io/pypi/v/scikit-package
         :target: https://pypi.org/project/scikit-package/
 
 .. |PythonVersion| image:: https://img.shields.io/pypi/pyversions/scikit-package
