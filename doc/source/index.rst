@@ -75,12 +75,11 @@ What are the full benefits when I reach Level 5?
 -------------------------------------------------
 
 
-- Streamline the release process by pushing a Git tag to trigger a sequence of actions: publishing to PyPI and GitHub, updating hosted documentation, and generating the ``CHANGELOG.rst`` file.
+- Streamline the release process by pushing a Git tag to trigger a sequence of actions: publishing to PyPI and GitHub, updating hosted documentation, and updating the ``CHANGELOG.rst`` file.
 - Host documentation with a public URL using a ``Sphinx`` template. Include live rendering, API documentation, and previews for each pull request.
 - Provide a rich ``README.rst`` template that includes badges, installation instructions, support contacts, and contribution guidelines for your GitHub repository.
 - Set up both local and remote ``pre-commit`` hooks to automate linting of code. This includes checks for `PEP8 <https://peps.python.org/pep-0008/>`_, `PEP 256 <https://peps.python.org/pep-0256/>`_, and static files such as ``.json``, ``.yml``, and ``.md``. Include spelling checks as well.
 - Run ``pytest`` with the latest Python versions, adhering to the `SPEC0 <https://scientific-python.org/specs/spec-0000/>`_ specification, without requiring manual configuration.
-- Ensure a news file is added with each pull request. These entries are used to automatically generate the ``CHANGELOG.rst`` during the release process.
 - Support namespace package imports (e.g., ``import <org-name>.<package-name>``) to maintain branding consistency and avoid name collisions.
 
 For technical users, here are some of the advanced features:
