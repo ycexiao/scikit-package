@@ -58,11 +58,9 @@ Here is an overview of the 5 levels of sharing code and the key features of ``sc
 Demo
 ----
 
-Here is how you can use ``scikit-package`` to create a lightweight Python package (Level 4):
+Here is how you can use the ``package create public`` command to create a new Level 5 Python package called ``diffpy.my-project`` in just 1–2 minutes:
 
-(FIXME: Replace this GIF with a Level 4 demo with updated file/folder names.)
-
-.. image:: img/gifdemo.gif
+.. image:: img/gif/demo.gif
         :alt: Demonstration of creating a new Level 5 package with scikit-package
         :align: center
 
