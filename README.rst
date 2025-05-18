@@ -62,8 +62,8 @@ Here is how you can use ``scikit-package`` to create a lightweight Python packag
 
 (FIXME: Replace this GIF with a Level 4 demo with updated file/folder names.)
 
-.. image:: doc/source/gif/demo.gif
-        :alt: scikit-package demo
+.. image:: img/gifdemo.gif
+        :alt: Demonstration of creating a new Level 5 package with scikit-package
         :align: center
 
 Getting started
