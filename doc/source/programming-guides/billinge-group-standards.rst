@@ -234,8 +234,8 @@ Use underscores ``_`` in the following two cases:
 
   ``scikit-package`` automatically creates a folder with underscores ``_`` for the project directory name and ``.py`` files. We recommend using a single word for folder names that contain Python scripts, e.g., ``src/example_package/parsers``, so that it can be imported as ``from example_package.parsers import <module>``. This follows Python conventions.
 
-.. warning:: 
-    
+.. warning::
+
     There are still cases where we do not strictly follow the above conventions, typically for configuration files. In such cases, we adhere to the naming conventions of the respective tool. For example, ``.codespell/ignore_lines.txt`` is a configuration file for the ``codespell`` tool. ``.github/ISSUE_TEMPLATE`` is the designated folder for storing GitHub issue templates. If you are unsure, please feel free to open an issue in the ``scikit-package`` GitHub repository.
 
 Error message

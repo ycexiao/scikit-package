@@ -61,8 +61,8 @@ Demo
 Here is how you can use the ``package create public`` command to create a new Level 5 Python package called ``diffpy.my-project`` in just 1–2 minutes:
 
 .. image:: img/gif/demo.gif
-        :alt: Demonstration of creating a new Level 5 package with scikit-package
-        :align: center
+    :alt: Demonstration of creating a new Level 5 package with scikit-package
+    :align: center
 
 Getting started
 ---------------

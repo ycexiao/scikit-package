@@ -41,7 +41,7 @@ Step 1. Prepare conda package recipe in ``meta.yaml``
 We first need to generate a "recipe" for the conda package. The recipe contains the type of programming language, the package version, the source code, the dependencies, and license, etc. This recipe is stored in a file called ``meta.yaml``.
 
 .. seealso::
-    
+
     Do you want to learn more about ``meta.yaml``? Please read :ref:`meta-yaml-info`.
 
 Hence, in Step 1, we will generate ``meta.yaml`` using the Billinge group's template. See https://github.com/conda-forge/diffpy.utils-feedstock/blob/main/recipe/meta.yaml as an example of a ``meta.yaml`` used in production.
