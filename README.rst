@@ -62,6 +62,7 @@ Here is how you can use the ``package create public`` command to create a new Le
 
 .. image:: img/gif/demo.gif
     :alt: Demonstration of creating a new Level 5 package with scikit-package
+    :width: 800px
     :align: center
 
 Getting started
