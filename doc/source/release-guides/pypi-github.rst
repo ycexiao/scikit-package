@@ -69,7 +69,7 @@ Start pre-release
 
 #. For ``pre-release``, it will not update the documentation on GitHub Pages. It will also not update the changelog. See the next section for the full release process.
 
-.. note:: 
+.. note::
 
    Did you encounter any errors in the workflow, such as permission issues? Check the solutions provided in :ref:`faq-release-ci-failed`.
 
@@ -88,7 +88,7 @@ Full release after pre-release
 
 #. Notice that ``CHANGELOG.rst`` is also updated with the new release version and the documentation is built under the ``gh-pages`` branch.
 
-.. note:: 
+.. note::
 
    Did you encounter any errors in the workflow, such as issues related to ``CHANGELOG.rst``? Check the solutions provided in :ref:`faq-release-ci-failed`.
 
