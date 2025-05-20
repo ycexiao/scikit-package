@@ -1,6 +1,7 @@
 import os
 import subprocess
 from argparse import ArgumentParser
+from pathlib import Path
 
 SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
 SKPKG_CONFIG_FILE = "~/.skpkgrc"
@@ -8,8 +9,9 @@ try:
     config_file = os.environ["SKPKG_CONFIG_FILE"]
 except KeyError:
     config_file = SKPKG_CONFIG_FILE
-config_file = os.path.expanduser(os.path.expandvars(config_file))
-exist_config = os.path.exists(config_file)
+config_file = os.path.expandvars(config_file)
+config_file = Path(config_file).expanduser()
+exist_config = config_file.exists()
 
 
 def create(package_type):
