@@ -31,21 +31,21 @@ def update():
 
 def run_cookiecutter(repo_url):
     try:
-        if not exist_config:
+        if exist_config:
             subprocess.run(
-                [
-                    "cookiecutter",
-                    repo_url,
-                ],
-                check=True,
-            )
-        else:
-            subprocess.run(  # if config file exists
                 [
                     "cookiecutter",
                     repo_url,
                     "--config-file",
                     config_file,
+                ],
+                check=True,
+            )
+        else:
+            subprocess.run(
+                [
+                    "cookiecutter",
+                    repo_url,
                 ],
                 check=True,
             )
