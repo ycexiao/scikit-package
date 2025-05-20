@@ -224,7 +224,7 @@ You can generate ``.rst`` files using the ``sphinx-apidoc`` extension.
 
     .. code-block:: bash
 
-        pip install sphinx-apidoc
+        pip install sphinxcontrib-apidoc
 
 #. Run the following command to generate ``.rst`` under the ``doc/source/api`` directory:
 
