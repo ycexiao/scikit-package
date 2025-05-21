@@ -4,7 +4,7 @@
 
 **Changed:**
 
-* Instruct user to install API .rst file generation pacakge from conda instead of pip.
+* Instruct user to install API .rst file generation pacakge from conda-forge instead of PyPI.
 
 **Deprecated:**
 
