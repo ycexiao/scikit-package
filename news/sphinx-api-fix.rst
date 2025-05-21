@@ -1,10 +1,10 @@
 **Added:**
 
-* no news added: modify the library name for api generation. 
+* <news item>
 
 **Changed:**
 
-* <news item>
+* Instruct user to install API .rst file generation pacakge from conda instead of pip.
 
 **Deprecated:**
 

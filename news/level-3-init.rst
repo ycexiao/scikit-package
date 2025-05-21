@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: correct level 3 tutorial on the term module and package
+* no news added: correct level 3 tutorial on the term module and package 
 
 **Changed:**
 
