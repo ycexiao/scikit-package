@@ -218,25 +218,25 @@ How can I preview the documentation in real-time?
 How do I build API .rst files automatically for a standard Python package?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can generate ``.rst`` files using the ``sphinx-apidoc`` extension.
+Here is how you can **automate** the process of generating API documentation for a standard Python package located in the ``doc/source/api`` folder.
 
-#. Install ``sphinx-apidoc``:
+.. note::
 
-    .. code-block:: bash
+  Your package is considered a **standard package** if it is imported as ``import <package_name>`` instead of ``import <namespace_name>.<package_name>``.
 
-        pip install sphinx-apidoc
+#. Add ``sphinxcontrib-apidoc`` to the ``requirements/docs.txt`` file.
 
-#. Run the following command to generate ``.rst`` under the ``doc/source/api`` directory:
+    .. code-block:: text
 
-    .. code-block:: bash
+      sphinx
+      sphinx_rtd_theme
+      sphinx-copybutton
+      sphinxcontrib-apidoc
+      ...
 
-        sphinx-apidoc -o doc/source/api src/<package_dir_name>
+#. Run ``conda install --file requirements/docs.txt`` to install the new dependency.
 
-#. Done!
-
-Instead of manually running the ``sphinx-apidoc -o ..`` command from your terminal, here is a recommended way to **automate** the process of generating API documentation:
-
-#. Replace the following code block in your ``doc/source/conf.py`` from
+#. Replace the following code block in your ``doc/source/conf.py`` file from
 
     .. code-block:: python
 
@@ -247,6 +247,7 @@ Instead of manually running the ``sphinx-apidoc -o ..`` command from your termin
             "sphinx.ext.viewcode",
             "sphinx.ext.intersphinx",
             "sphinx_rtd_theme",
+            "sphinx_copybutton",
             "m2r",
         ]
 
@@ -261,6 +262,7 @@ Instead of manually running the ``sphinx-apidoc -o ..`` command from your termin
             "sphinx.ext.viewcode",
             "sphinx.ext.intersphinx",
             "sphinx_rtd_theme",
+            "sphinx_copybutton",
             "m2r",
         ]
 
@@ -271,13 +273,25 @@ Instead of manually running the ``sphinx-apidoc -o ..`` command from your termin
         apidoc_excluded_paths = ['tests']
         apidoc_separate_modules = True
 
-#. Replace ``<package_dir_name>`` with the directory name under ``src``, e.g., ``my_package``.
+#. Next to the ``apidoc_module_dir`` variable above, replace ``<package_dir_name>`` with the directory name under ``src``, e.g., ``my_package``.
 
-#. Run ``sphinx-reload doc``.
+#. Run ``sphinx-reload doc`` to build and host the documentation.
 
-#. Notice that the ``.rst`` files under ``doc/source/api`` are generated whenever the documentation is re-rendered.
+    Notice that the ``.rst`` files under ``doc/source/api`` are generated whenever the documentation is re-rendered.
 
-#. Done! You can ``git add doc/source/api`` and commit the changes.
+#. Add the following block to your ``doc/source/index.rst`` file:
+
+    .. code-block:: text
+
+      .. toctree::
+         :maxdepth: 2
+         :caption: API Reference
+
+          Package API <api/package_dir_name>
+
+#. Now, you should see the :guilabel:`API Package` section in the left menu bar of the documentation. Click on it to see the API documentation.
+
+#. Done! If you have any issues, please feel free to open an issue in the ``scikit-package`` GitHub repository.
 
 .. _faq-doc-api-namespace:
 
