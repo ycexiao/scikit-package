@@ -1,6 +1,7 @@
 **Added:**
 
-* no news added: correct level 3 tutorial on the term module and package
+* allow user to set default configs from `.skpkgrc`.
+* allow user to change configs path by system variable `SKPKG_CONFIG_FILE`
 
 **Changed:**
 
