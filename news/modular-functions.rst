@@ -1,6 +1,6 @@
 **Added:**
 
-* Add note to instruct users to keep functions as modular as possible
+* Add note to instruct users to keep functions as modular as possible.
 
 **Changed:**
 
