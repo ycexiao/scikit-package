@@ -1,6 +1,6 @@
 **Added:**
 
-* ignore ``_build`` in `.gitignore`.
+* Add ``_build`` to ``.gitignore`` to prevent accidental commit of docs when using ``sphinx-reload``.
 
 **Changed:**
 
