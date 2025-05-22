@@ -134,6 +134,44 @@ Achieving the same result in Markdown often requires raw HTML, which is less rea
 
 Switching to ``README.rst`` at Level 5 helps users appreciate the formatting power of ``.rst`` and serves as a stepping stone toward writing full documentation in ``.rst`` as part of the ``scikit-package`` documentation standard.
 
+.. _faq-set-default-prompt-value:
+
+How can I change the default values that appear in the prompt when creating projects in level 3,4,5?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+We have a default configuration file ``~/.skpkgrc`` where you can set the values. For example, to change some default values prompted when creating a new package in level 5, please follow the quick steps below:
+
+1. create ``~/.skpkgrc`` by running ``touch ~/.skpkgrc``.
+2. copy and paste the following snippets.
+
+.. code-block:: json
+
+  {
+    "default_context":
+      {
+	"maintainer_name": "Sangjoon Lee",
+	"maintainer_email": "bobleesj@gmail.com",
+	"maintainer_github_username": "bobleesj",
+	"github_username_or_orgname": "bobleesj",
+	"contributors": "Sangjoon Lee",
+	"license_holders": "Sangjoon Lee",
+	"project_name": "bobleesj.my-project",
+      }
+  }
+3. run ``package create public``.
+
+
+As shown above, you can set all the level 3, 4 and 5 default values in ``default_context``.
+
+How can I change the location of configuration file?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Our configuration file is ``~/.skpkgrc`` by default. You can use the environment variable ``SKPKG_CONFIG_FILE`` to change its location.
+
+.. code-block:: bash
+
+   $ export SKPKG_CONFIG_FILE=/path/to/config
+
+
 Release
 -------
 

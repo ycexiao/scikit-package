@@ -292,9 +292,16 @@ Congratulations! You are done with migrating your package from Level 4 to Level 
 Please refer to :ref:`faq-doc-pr-preview`
 
 (Optional) Build API reference documentation
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../snippets/api-reference-doc.rst
+
+(Optional) Set up default prompt values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+When creating new projects in level 3, 4 or 5, you will be prompted to enter the values for some variables. If the default prompt values are mostly what you want, you can save a lot of troubles typing and examining.
+
+To set up your own better default promprt values, please refer to :ref:`faq-set-default-prompt-value`.
+
 
 Ready for public release?
 ^^^^^^^^^^^^^^^^^^^^^^^^^
