@@ -94,6 +94,10 @@ Here is the full content of the ``example_code.py`` file:
     v4 = [7, 8]
     print(dot_product(v3, v4))  # returns 83
 
+.. note::
+     When writing a function, it is best practice to keep its functionality as modular as possible. Functions are most reusable when they do **just one, and not more than one**, thing. More complex tasks can then be handled by chaining functions together.
+
+
 Congratulation! You are now able to reuse code within a file by creating a function. Before we move on to the next level, let's learn about setting up a ``conda`` environment to install packages and run Python code in the following section.
 
 .. _conda-env-setup-simple:
