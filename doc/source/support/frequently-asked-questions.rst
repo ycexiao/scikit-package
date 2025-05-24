@@ -138,10 +138,10 @@ Switching to ``README.rst`` at Level 5 helps users appreciate the formatting pow
 
 How can I change the default values that appear in the prompt when creating projects in level 3,4,5?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-We have a default configuration file ``~/.skpkgrc`` where you can set the values. For example, to change some default values prompted when creating a new package in level 5, please follow the quick steps below:
+You can override the existing default values in the prompt by creating and editing ``~/.skpkgrc``. For example, to change some default values prompted when creating a new package in level 5, please follow the quick steps below:
 
-1. create ``~/.skpkgrc`` by running ``touch ~/.skpkgrc``.
-2. copy and paste the following snippets.
+1. Create ``~/.skpkgrc`` by running ``touch ~/.skpkgrc``.
+2. Copy and paste the following snippets.
 
 .. code-block:: json
 
@@ -149,7 +149,7 @@ We have a default configuration file ``~/.skpkgrc`` where you can set the values
     "default_context":
       {
 	"maintainer_name": "Sangjoon Lee",
-	"maintainer_email": "bobleesj@gmail.com",
+	"maintainer_email": "bobleesj@stanford.edu",
 	"maintainer_github_username": "bobleesj",
 	"github_username_or_orgname": "bobleesj",
 	"contributors": "Sangjoon Lee",
@@ -157,7 +157,7 @@ We have a default configuration file ``~/.skpkgrc`` where you can set the values
 	"project_name": "bobleesj.my-project",
       }
   }
-3. run ``package create public``.
+3. Run ``package create public``.
 
 
 As shown above, you can set all the level 3, 4 and 5 default values in ``default_context``.
@@ -165,7 +165,7 @@ As shown above, you can set all the level 3, 4 and 5 default values in ``default
 How can I change the location of configuration file?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Our configuration file is ``~/.skpkgrc`` by default. You can use the environment variable ``SKPKG_CONFIG_FILE`` to change its location.
+The scikit-package configuration file is located in ``~/.skpkgrc`` by default. You can use the environment variable ``SKPKG_CONFIG_FILE`` to change its location.
 
 .. code-block:: bash
 
