@@ -94,10 +94,6 @@ Here is the full content of the ``example_code.py`` file:
     v4 = [7, 8]
     print(dot_product(v3, v4))  # returns 83
 
-.. note::
-     When writing a function, it is best practice to keep its functionality as modular as possible. Functions are most reusable when they do **just one, and not more than one**, thing. More complex tasks can then be handled by chaining functions together.
-
-
 Congratulation! You are now able to reuse code within a file by creating a function. Before we move on to the next level, let's learn about setting up a ``conda`` environment to install packages and run Python code in the following section.
 
 .. _conda-env-setup-simple:
@@ -180,31 +176,6 @@ This is the content of ``file_two.py``:
 .. note::
 
     Notice that in ``file_two.py``, you can import the entire module ``shared_functions`` and use the function ``dot_product`` by prefixing it with the module name. Importing a modele is a good practice when you have multiple functions in the same file. This way, you can avoid name conflicts and make your code more readable.
-
-Private vs. Public functions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-When reusing functions across modules, it’s helpful to distinguish between **public** and **private** functions. In Python, a function name starting with an underscore (e.g., ``_helper_function()``) is considered private—meant for internal use within the module. This signals to other developers and tools that it’s not part of the public API.
-
-Functions **without** a leading underscore are public and safe to use elsewhere in your project. Public functions are usually well-documented and tested, while private ones are simpler helpers used internally. As a rule of thumb, if a function is reused across modules, it should likely be public.
-
-For example, the following code calculates the distance between two points. The private function ``_calculate_distance()`` does the math, and the public function ``distance_between_points()`` validates inputs and calls it:
-
-.. code-block:: python
-
-    import numpy as np
-
-     # Private function: does the math to compute distance
-     def _calculate_distance(x1, y1, x2, y2):
-          """Compute the Euclidean distance between two 2D points."""
-          return np.sqrt(((x2 - x1)**2 + (y2 - y1)**2))
-
-     # Public function: checks that inputs look okay and calls the private function
-     def distance_between_points(p1, p2):
-          """Calculate distance between two 2D points given as (x, y) pairs."""
-          if len(p1) != 2 or len(p2) != 2:
-               print("Error: Each point must have exactly two values (x and y).")
-               return None
-          return _calculate_distance(p1[0], p1[1], p2[0], p2[1])
 
 Are you having trouble running the code?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -321,66 +292,68 @@ Now that the folder structure is created, let's go through the files and folders
 
   - ``requirements.txt`` lists your project's dependencies. These are Python packages that are used throughout your project(s), which in this case includes ``numpy`` and ``pytest``. Please refer to the section "**Install dependencies**" below for more details on how to install them. You can add any other dependencies you need in this file:
 
-.. code-block:: python
+   .. code-block:: python
 
      # requirements.txt
      numpy
      pytest
 
-- The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product()`` function using ``pytest``. General naming convention for test files is ``test_<module_name>.py``. Similarly, test function names should be ``test_<function_name>()``. This is how ``pytest`` recognizes them as test functions. This can also contain tests for your sub-project modules.
+.. seealso::
 
-To write your own test, follow these steps:
+     - The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product()`` function using ``pytest``. General naming convention for test files is ``test_<module_name>.py``. Similarly, test function names should be ``test_<function_name>()``. This is how ``pytest`` recognizes them as test functions. This can also contain tests for your sub-project modules.
 
-1. Create your function in a module. For example, under the ``proj_one`` directory, you might create a module called ``my_module.py`` that defines a function ``my_function()``.
+     To write your own test, follow these steps:
 
-2. Create a corresponding test file in the ``tests`` directory. The test file should be named ``test_<module_name>.py`` — in this case, ``test_my_module.py``.
+     1. Create your function in a module. For example, under the ``proj_one`` directory, you might create a module called ``my_module.py`` that defines a function ``my_function()``.
 
-3. Inside the test file, create a function that tests your code. The test function should be named ``test_<function_name>()`` — in this case, ``test_my_function()``.
+     2. Create a corresponding test file in the ``tests`` directory. The test file should be named ``test_<module_name>.py`` — in this case, ``test_my_module.py``.
 
-Following this naming pattern ensures that ``pytest`` can automatically discover and run your tests:
+     3. Inside the test file, create a function that tests your code. The test function should be named ``test_<function_name>()`` — in this case, ``test_my_function()``.
 
-.. code-block:: python
+     Following this naming pattern ensures that ``pytest`` can automatically discover and run your tests:
 
-     # test_shared_functions.py
-     import numpy as np
-     import pytest
-     import shared_functions
+     .. code-block:: python
 
-
-     def test_dot_product_2D_list():
-     a = [1, 2]
-     b = [3, 4]
-     expected = 11.0
-     actual = shared_functions.dot_product(a, b)
-     assert actual == expected
+          # test_shared_functions.py
+          import numpy as np
+          import pytest
+          import shared_functions
 
 
-     def test_dot_product_3D_list():
-     a = [1, 2, 3]
-     b = [4, 5, 6]
-     expected = 32.0
-     actual = shared_functions.dot_product(a, b)
-     assert actual == expected
+          def test_dot_product_2D_list():
+          a = [1, 2]
+          b = [3, 4]
+          expected = 11.0
+          actual = shared_functions.dot_product(a, b)
+          assert actual == expected
 
 
-     @pytest.mark.parametrize(
-     "a, b, expected",
-     [
-          # Test whether the dot product function works with 2D and 3D vectors
-          # C1: lists, expect correct float output
-          ([1, 2], [3, 4], 11.0),
-          ([1, 2, 3], [4, 5, 6], 32.0),
-          # C2: tuples, expect correct float output
-          ((1, 2), (3, 4), 11.0),
-          ((1, 2, 3), (4, 5, 6), 32.0),
-          # C3: numpy arrays, expect correct float output
-          (np.array([1, 2]), np.array([3, 4]), 11.0),
-          (np.array([1, 2, 3]), np.array([4, 5, 6]), 32.0),
-     ],
-     )
-     def test_dot_product(a, b, expected):
-     actual = shared_functions.dot_product(a, b)
-     assert actual == expected
+          def test_dot_product_3D_list():
+          a = [1, 2, 3]
+          b = [4, 5, 6]
+          expected = 32.0
+          actual = shared_functions.dot_product(a, b)
+          assert actual == expected
+
+
+          @pytest.mark.parametrize(
+          "a, b, expected",
+          [
+               # Test whether the dot product function works with 2D and 3D vectors
+               # C1: lists, expect correct float output
+               ([1, 2], [3, 4], 11.0),
+               ([1, 2, 3], [4, 5, 6], 32.0),
+               # C2: tuples, expect correct float output
+               ((1, 2), (3, 4), 11.0),
+               ((1, 2, 3), (4, 5, 6), 32.0),
+               # C3: numpy arrays, expect correct float output
+               (np.array([1, 2]), np.array([3, 4]), 11.0),
+               (np.array([1, 2, 3]), np.array([4, 5, 6]), 32.0),
+          ],
+          )
+          def test_dot_product(a, b, expected):
+          actual = shared_functions.dot_product(a, b)
+          assert actual == expected
 
 - ``.pre-commit-config.yaml`` is a configuration file for pre-commit hooks. To use ``pre-commit`` you must install the package with ``conda install pre-commit``. This file and its usage is described in more detail in the section "**Automatic code formatting with pre-commit**" below.
 
@@ -464,7 +437,7 @@ Then, you can run the code by running:
 
 .. code-block:: bash
 
-    python proj_one/reuse_code.py
+    python proj-one/proj_one_code.py
 
 Run tests
 ^^^^^^^^^^
