@@ -53,7 +53,6 @@ The full list of packages is as follows:
 - `diffpy.srmise <https://github.com/diffpy/diffpy.srmise>`_
 - `regolith <https://github.com/regro/regolith>`_
 - `bg-mpl-stylesheets <https://github.com/Billingegroup/bg-mpl-stylesheets>`_
-- `cifkit <https://github.com/bobleesj/cifkit>`_
 - ...
 
 How do I get started?
@@ -108,6 +107,7 @@ Authors
 - Sangjoon Lee (sl5400@columbia.edu)
 - Andrew Yang (ay2546@columbia.edu)
 - Caden Myers (cjm2304@columbia.edu)
+- Tieqiong Zhang (tz2600@columbia.edu)
 - Simon Billinge (sb2896@columbia.edu)
 
 ``scikit-package`` is developed by Billinge Group and its community contributors.
