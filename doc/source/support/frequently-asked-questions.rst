@@ -173,7 +173,7 @@ Here are the steps you can follow to override the default values for level 5 usa
 
 4. Replace words in angle brackets with values you prefer. These values will be your new default values appear in the prompts.
 
-You can further modify the snippets. Delete the entries whose default values you don't want to change and add other entries you want to change but not mentioned here.
+You can further modify the snippets. Delete the entries whose default values you don't want to change and add other entries you want to change.
 
 Level 3, 4 and 5 require different entries. When you create a package at a certain level, only the entries with matched names will be processed. So irrelevant entries have no effect and you can set all the level 3, 4 and 5 default values in ``.skpkgrc``.
 
