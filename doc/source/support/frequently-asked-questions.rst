@@ -8,6 +8,9 @@ Frequently asked questions (FAQ)
 
 Here, you will learn how to customize the ``scikit-package`` template for your own project, such as setting the line-width and including/excluding files for PyPI distribution. We also provide design decisions for the current setup of the ``scikit-package`` template.
 
+
+.. _faq-pre-commit:
+
 Pre-commit
 ----------
 
@@ -55,6 +58,11 @@ How do I skip a specific file for ``flake8`` and ``black``?
 To skip files checked by ``flake8``, include the file path in ``.flake8`` under the ``exclude`` section.
 
 To prevent ``black`` from formatting, include the file path in ``pyproject.toml`` under the ``[tool.black]`` section.
+
+How do I suppress the ``flake8`` error?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Ad ``# noqa: <error-code>`` at the end of the line. For example, ``import numpy as np # noqa: E000``.
 
 .. _faq-pre-commit-error:
 
@@ -384,6 +392,13 @@ Visit the following URL of your package: ``https://github.com/<org-name>/<packag
 
 Click ``Run workflow`` and select the ``main`` branch. Your online documentation will be updated with the latest changes without a new release.
 
+.. _faq-doc-error-no-module-name:
+
+How do I fix the "No module named" error when I render documentation?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+(e.g., ``WARNING: autodoc: failed to import module 'tools' from module 'diffpy.pdfmorph'; the following exception was raised: No module named 'diffpy.utils'``), it can be resolved by adding ``autodoc_mock_imports = [<pkg>]`` to your ``conf.py`` right under imports. This file is located in ``/doc/source/conf.py``.
+
 .. _faq-doc-favicon-logo:
 
 How do I add a favicon and logo to the documentation?
@@ -567,7 +582,7 @@ Recall that conda is a dependency manager that uses sophisticated algorithms to 
 
 To address this, ``mamba`` was developed. ``mamba`` uses the same commands and configuration options as conda but features a faster dependency-solving algorithm written in C++. ``mamba`` is also compatible with existing conda environments (e.g., ``environment.yml``) and continues to rely on the conda ecosystem for package distribution, using channels like ``conda-forge``. When you install ``mamba`` using ``Miniforge``, the conda-forge channel is set as the default (and only) channel.
 
-.. _faq-pip-conda-both-provided:
+.. _faq-dependence-pip-conda-both-provided:
 
 Why are both ``pip.txt`` and ``conda.txt`` provided?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -586,10 +601,10 @@ I am new to GitHub. Why do we use Git/GitHub?
 
 GitHub allows multiple contributors to work on a software project simultaneously under an organization like ``Billingegroup`` or ``diffpy``. There are two primary needs. First, we want to ensure that any changes under this organization are reviewed by the organization's project maintainer. Second, we want to ensure we add new changes from the latest version of the code, particularly when working with multiple contributors across different time zones. Hence, we use GitHub to serve the needs with a specific workflow below. Please see below for an overview of the GitHub workflow.
 
-.. _github-workflow-overview:
+.. _faq-github-workflow-overview:
 
 What is the general the workflow?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Starting a new Python package in Level 4 and 5 requires a basic understanding of GitHub's workflow, we will provide you with a brief overview and how to set up your repository.
 
@@ -635,6 +650,8 @@ Notice that you also have ``origin`` with an URL linking to your forked reposito
 .. note::
 
   What is ``remote``? The term ``remote`` is the opposite of ``local``. In other words, ``remote`` refers to the repository that is hosted by GitHub. e.g., ``github.com/scikit-package/scikit-package`` or ``github.com/sbillinge``.
+
+.. _faq-github-terminology:
 
 Do you have a general summary of each term used in the GitHub workflow?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -726,6 +743,36 @@ Again, you checkout a new branch from the ``main`` branch. You can name it anyth
   git checkout -b docs-typo
 
 You repeat the process of git add, commit, push to your ``origin`` (your forked repository) and then make a PR to the ``upstream`` repository (the organization's repository).
+
+.. _faq-github-news-automate:
+
+How can I automate the process of creating a new file from the command line?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
+
+.. code-block:: bash
+
+    $ alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
+
+Run the following command to apply the shell configuration.
+
+.. code-block:: bash
+
+    $ source ~/.bashrc  # if you are using bash
+    $ source ~/.zshrc  # if you are using zsh
+
+Now, whenever you want to create a news file, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
+
+You can then open the project in an editor. The news file located under ``news`` will have the name ``<branch-name>.rst`` where ``<branch-name>`` is replaced by the current branch name.
+
+Add a description of the edits made in this PR. This should be a user-facing high-level summary of the edits made in this PR and will be automatically converted into the ``CHANGELOG.rst`` when the code is released.
+
+.. note::
+
+    How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please check out the news guide in the FAQ :ref:`here<news-item-practice>`.
+
+
 
 Maintaining ``scikit-package``
 ------------------------------
