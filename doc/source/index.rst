@@ -53,6 +53,7 @@ The full list of packages is as follows:
 - `diffpy.srmise <https://github.com/diffpy/diffpy.srmise>`_
 - `regolith <https://github.com/regro/regolith>`_
 - `bg-mpl-stylesheets <https://github.com/Billingegroup/bg-mpl-stylesheets>`_
+- `cifkit <https://github.com/bobleesj/cifkit>`_
 - ...
 
 How do I get started?
@@ -107,7 +108,6 @@ Authors
 - Sangjoon Lee (sl5400@columbia.edu)
 - Andrew Yang (ay2546@columbia.edu)
 - Caden Myers (cjm2304@columbia.edu)
-- Tieqiong Zhang (tz2600@columbia.edu)
 - Simon Billinge (sb2896@columbia.edu)
 
 ``scikit-package`` is developed by Billinge Group and its community contributors.
@@ -134,9 +134,11 @@ The Billinge Group's ``scikit-package`` has been modified from the NSLS-II scien
    :hidden:
    :caption: TUTORIALS
 
-   tutorials/level-1-2-3-tutorials
-   tutorials/level-4-tutorial
-   tutorials/level-5-tutorial
+   tutorials/tutorial-level-1-2-3
+   tutorials/tutorial-level-4
+   tutorials/tutorial-level-5
+   tutorials/tutorial-level-4-to-5
+   tutorials/tutorial-level-5-migration
 
 .. toctree::
    :maxdepth: 2
@@ -158,7 +160,11 @@ The Billinge Group's ``scikit-package`` has been modified from the NSLS-II scien
    :hidden:
    :caption: EXAMPLES
 
-   examples/migration
+   examples/overview
+   examples/example-1-level-4-new
+   examples/example-2-level-5-new
+   examples/example-3-level-5-namespace
+   examples/example-4-level-5-migration
 
 .. toctree::
    :maxdepth: 2
