@@ -138,29 +138,46 @@ Switching to ``README.rst`` at Level 5 helps users appreciate the formatting pow
 
 How can I change the default values that appear in the prompt when creating projects in level 3,4,5?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-You can override the existing default values in the prompt by creating and editing ``~/.skpkgrc``. For example, to change some default values prompted when creating a new package in level 5, please follow the quick steps below:
+You can override the existing default values in the prompt by creating and editing a configuration file ``.skpkgrc`` in the user ``home`` directory. In ``bash`` your ``home`` directory is designated by ``~``.
 
-1. Create ``~/.skpkgrc`` by running ``touch ~/.skpkgrc``.
-2. Copy and paste the following snippets.
+Here are the steps you can follow to override the default values for level 5 usage.
+
+1. Go to ``home`` directory.
+
+.. code-block:: bash
+
+  $ cd ~
+
+2. Create ``.skpkgrc``.
+
+.. code-block:: bash
+
+  $ touch .skpkgrc
+
+3. Edit ``.skpkgrc``. Copy and paste the following snippets to ``.skpkgrc`` use your editors.
 
 .. code-block:: json
 
   {
     "default_context":
       {
-	"maintainer_name": "Sangjoon Lee",
-	"maintainer_email": "bobleesj@stanford.edu",
-	"maintainer_github_username": "bobleesj",
-	"github_username_or_orgname": "bobleesj",
-	"contributors": "Sangjoon Lee",
-	"license_holders": "Sangjoon Lee",
-	"project_name": "bobleesj.my-project",
+	"maintainer_name": "<maintainer-name>",
+	"maintainer_email": "<maintainer-email>",
+	"maintainer_github_username": "<maintainer-github-username>",
+	"github_username_or_orgname": "<github-username-or-orgname",
+	"contributors": "<contributors-name>",
+	"license_holders": "<license-holders-name>",
+	"project_name": "<project-name>",
       }
   }
-3. Run ``package create public``.
+
+4. Replace words in angle brackets with values you prefer. These values will be your new default values appear in the prompts.
+
+You can further modify the snippets. Delete the entries whose default values you don't want to change and add other entries you want to change but not mentioned here.
+
+Level 3, 4 and 5 require different entries. When you create a package at a certain level, only the entries with matched names will be processed. So irrelevant entries have no effect and you can set all the level 3, 4 and 5 default values in ``.skpkgrc``.
 
 
-As shown above, you can set all the level 3, 4 and 5 default values in ``default_context``.
 
 How can I change the location of configuration file?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
