@@ -154,7 +154,7 @@ Here are the steps you can follow to override the default values for level 5 usa
 
   $ touch .skpkgrc
 
-3. Edit ``.skpkgrc``. Copy and paste the following snippets to ``.skpkgrc`` use your editors.
+3. Edit ``.skpkgrc``. Copy and paste the following snippets to ``.skpkgrc``.
 
 .. code-block:: json
 
@@ -164,7 +164,7 @@ Here are the steps you can follow to override the default values for level 5 usa
 	"maintainer_name": "<maintainer-name>",
 	"maintainer_email": "<maintainer-email>",
 	"maintainer_github_username": "<maintainer-github-username>",
-	"github_username_or_orgname": "<github-username-or-orgname",
+	"github_username_or_orgname": "<github-username-or-orgname>",
 	"contributors": "<contributors-name>",
 	"license_holders": "<license-holders-name>",
 	"project_name": "<project-name>",
@@ -175,7 +175,7 @@ Here are the steps you can follow to override the default values for level 5 usa
 
 You can further modify the snippets. Delete the entries whose default values you don't want to change and add other entries you want to change.
 
-Level 3, 4 and 5 require different entries. When you create a package at a certain level, only the entries with matched names will be processed. So irrelevant entries have no effect and you can set all the level 3, 4 and 5 default values in ``.skpkgrc``.
+Creating packages in Level 3, 4 and 5 requires different entries. When you create a package at a certain level, only the entries with matched names will be processed. So irrelevant entries have no effect and you can set all the level 3, 4 and 5 default values in ``.skpkgrc``.
 
 
 
