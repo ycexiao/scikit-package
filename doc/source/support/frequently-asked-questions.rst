@@ -161,19 +161,17 @@ Here are the steps you can follow to override the default values for level 5 usa
   {
     "default_context":
       {
-	"maintainer_name": "<maintainer-name>",
-	"maintainer_email": "<maintainer-email>",
-	"maintainer_github_username": "<maintainer-github-username>",
-	"github_username_or_orgname": "<github-username-or-orgname>",
-	"contributors": "<contributors-name>",
-	"license_holders": "<license-holders-name>",
-	"project_name": "<project-name>",
+	"maintainer_name": "<local-default-maintainer-name>",
+	"maintainer_email": "<local-default-maintainer-email>",
+	"maintainer_github_username": "<local-default-maintainer-github-username>",
+	"github_username_or_orgname": "<local-default-github-username-or-orgname>",
+	"contributors": "<local-default-contributors-name>",
+	"license_holders": "<local-default-license-holders-name>",
+	"project_name": "<local-default-project-name>",
       }
   }
 
-4. Replace words in angle brackets with values you prefer. These values will be your new default values appear in the prompts.
-
-You can further modify the snippets. Delete the entries whose default values you don't want to change and add other entries you want to change.
+4. Replace words in angle brackets with values you prefer. These values will be your new default values when you run scikit-package on your local machine. In your ``.skpkgrc`` you may delete any rows that you do not want to modify from the package defaults.
 
 Creating packages in Level 3, 4 and 5 requires different entries. When you create a package at a certain level, only the entries with matched names will be processed. So irrelevant entries have no effect and you can set all the level 3, 4 and 5 default values in ``.skpkgrc``.
 
