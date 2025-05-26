@@ -1,10 +1,10 @@
 **Added:**
 
-* <news item>
+* Include a tip to reply to all in-line comments during PR review in the Billinge group standards.
 
 **Changed:**
 
-* Instruct user to install API .rst file generation package from conda-forge instead of PyPI.
+* <news item>
 
 **Deprecated:**
 
