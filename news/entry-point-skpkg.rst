@@ -1,6 +1,6 @@
 **Added:**
 
-* Add entry point of ``package create manuscript`` to create Billinge group's Overleaf LaTex manuscript template.``
+* Add entry point of ``package create manuscript`` to create a manuscript template.
 
 **Changed:**
 
