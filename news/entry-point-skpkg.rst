@@ -1,6 +1,6 @@
 **Added:**
 
-* Add entry point of ``package create manuscript`` to create a LaTex manuscript template.
+* Add entry point of ``package create manuscript`` to create a manuscript template.
 
 **Changed:**
 
