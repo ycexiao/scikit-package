@@ -130,6 +130,7 @@ Setup ``pre-commit CI`` in the remote repository in each pull request
 
 .. include:: ../snippets/github-pre-commit-setup.rst
 
+.. _use-pull-request-to-upload-code-to-github:
 
 Step 3. Upload rest of files to GitHub repository with pull request
 -------------------------------------------------------------------
