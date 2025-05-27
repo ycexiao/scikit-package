@@ -81,11 +81,15 @@ Pull request practices
 
 #. Use the pull request template provided in ``.github/PULL_REQUEST_TEMPLATE``. In the PR comment, **highlight inputs and outputs** of the changes (screenshots/outputs).
 
-#. **Address all** in-line comments made by the reviewer(s) before asking for another round of review.
+#. **Address all** in-line comments made by the reviewer(s) before asking for another round of review. If you have seen a comment and agree with it but no action is needed, a thumbs-up emoji is sufficient.
 
 #. Use ``>`` to quote the reviewer's sentence(s) and write your response below it. If there are multiple comments, tag the reviewer(s) with @username.
 
+#. During PR review, when reviewers propose new ideas or suggestions beyond the scope of the PR, create an issue using the issue template and include a link to the specific PR comment URL (not the PR itself). Then, reply to the reviewer(s) to confirm that the issue has been created.
+
 #. PR from a new branch if it contains a meaningless commit history.
+
+#. When a PR is already created to ``upstream``, when you push anything, it will notify all "watchers" with the notification directing to the files changed by the new push. Hence, consider the notification spam and avoid pushing to the PR branch unless you have made a change that is ready for review.
 
 #. Do not force push. Use ``git revert`` to unwind the previous commit.
 
@@ -101,8 +105,12 @@ Pull request practices
 
 .. _news-item-practice:
 
-
 .. include:: ../snippets/news-file-format.rst
+
+Writing tutorials
+-----------------
+
+#. In general, we want to provide step-by-step instructions, including CLI commands and expected outputs. However, to avoid "reinventing the internet", we should provide recommended workflows and tools. For example, in ``scikit-package``, we recommend using ``Git for Windows`` for Windows users so that everyone, including macOS and Linux users, can also follow the same steps.
 
 Unit tests
 ----------
@@ -218,11 +226,11 @@ Docstrings
 
 Please bookmark the following:
 
-  PEP257: https://peps.python.org/pep-0257
+    PEP257: https://peps.python.org/pep-0257
 
-  PEP8: https://peps.python.org/pep-0008/
+    PEP8: https://peps.python.org/pep-0008/
 
-  NumPy document style guide: https://numpydoc.readthedocs.io/en/latest/format.html
+    NumPy document style guide: https://numpydoc.readthedocs.io/en/latest/format.html
 
 In the group, we follow the NumPy standard:
 
