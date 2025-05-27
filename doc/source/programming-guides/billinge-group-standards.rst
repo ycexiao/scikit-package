@@ -89,8 +89,6 @@ Pull request practices
 
 #. PR from a new branch if it contains a meaningless commit history.
 
-#. When a PR is already created to ``upstream``, when you push anything, it will notify all "watchers" with the notification directing to the files changed by the new push. Hence, consider the notification spam and avoid pushing to the PR branch unless you have made a change that is ready for review.
-
 #. Do not force push. Use ``git revert`` to unwind the previous commit.
 
 #. If you've made a mistake but have not used ``git add``, use ``git restore <file-name>``.

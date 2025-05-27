@@ -1,7 +1,6 @@
 **Added:**
 
-* Instruct to reply to all in-line comments during PR review in the Billinge group standards.
-* Instruct to create new issues when new ideas and suggested are created during PR review in the Billinge group standards.
+* no news added: adding just a few additional instructions for PR practices in the group.
 
 **Changed:**
 
