@@ -4,8 +4,6 @@ from argparse import ArgumentParser
 from pathlib import Path
 
 SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
-BG_GITHUB_URL = "https://github.com/Billingegroup"
-
 SKPKG_CONFIG_FILE = "~/.skpkgrc"
 try:
     config_file = os.environ["SKPKG_CONFIG_FILE"]
@@ -26,7 +24,7 @@ def create(entry_type):
     elif entry_type == "conda-forge":
         run_cookiecutter(f"{SKPKG_GITHUB_URL}-conda-forge")
     elif entry_type == "manuscript":
-        run_cookiecutter(f"{BG_GITHUB_URL}/bg-cookiecutter-overleaf")
+        run_cookiecutter(f"{SKPKG_GITHUB_URL}-manuscript")
 
 
 def update():

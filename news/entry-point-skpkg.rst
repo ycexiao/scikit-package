@@ -1,6 +1,6 @@
 **Added:**
 
-* Add entry point of ``package create manuscript`` to create Billinge group's Overleaf LaTex manuscript template.``
+* no news added: prev new entry pt for scikit-package manuscript created.
 
 **Changed:**
 
@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* Refactor ``package create`` subcommands to easily add more commands under ``app.py``.
+* <news item>
 
 **Security:**
 
