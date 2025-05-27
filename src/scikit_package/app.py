@@ -25,7 +25,7 @@ def create(entry_type):
         run_cookiecutter(SKPKG_GITHUB_URL)
     elif entry_type == "conda-forge":
         run_cookiecutter(f"{SKPKG_GITHUB_URL}-conda-forge")
-    elif entry_type == "paper":
+    elif entry_type == "manuscript":
         run_cookiecutter(f"{BG_GITHUB_URL}/bg-cookiecutter-overleaf")
 
 
@@ -73,7 +73,7 @@ def setup_subparsers(parser):
         ("system", "Create a system package"),
         ("public", "Create a public package"),
         ("conda-forge", "Create a conda-forge recipe meta.yml file"),
-        ("paper", "Create Overleaf LaTeX template of Billinge group."),
+        ("manuscript", "Create Overleaf LaTeX template of Billinge group."),
     ]
 
     for subcommand, help_text in create_subcommands:
@@ -95,7 +95,7 @@ def main():
     >>> package create workspace
     >>> package create system
     >>> package create public
-    >>> package create paper
+    >>> package create manuscript
     >>> package create conda-forge
     >>> package update (Not implemented yet)
     """
