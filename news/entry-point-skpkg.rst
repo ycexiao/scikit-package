@@ -1,6 +1,6 @@
 **Added:**
 
-* no news added: prev new entry pt for scikit-package manuscript created.
+* Add entry point of ``package create manuscript`` to create a LaTex manuscript template.
 
 **Changed:**
 
@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* <news item>
+* Refactor ``package create`` subcommands to easily add more commands under ``app.py``.
 
 **Security:**
 
