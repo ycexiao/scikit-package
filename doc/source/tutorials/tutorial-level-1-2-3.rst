@@ -13,7 +13,8 @@ Overview
 
 By the end of this tutorial, you will be able to reuse code within a file by creating a function.
 
-You will also learn the recommended setup to setup Terminal and Python environment for development and distribution.
+You will also learn the recommended way to use the Terminal to set up your computer and your Python
+environment for development and distribution.
 
 .. _conda-env-setup-simple:
 
@@ -123,7 +124,8 @@ Example code
 
           v1 = [1, 2]
           v2 = [3, 4]
-          print(dot_product(v1, v2))  # returns 11
+          v1dotv2 = dot_product(v1, v2)
+          print(v1dotv2)  # returns 11
 
      .. seealso::
 
@@ -138,11 +140,14 @@ Example code
 
           v3 = [5, 6]
           v4 = [7, 8]
-          print(shared_functions.dot_product(v3, v4))  # returns 83
+          v3dotv4 = shared_functions.dot_product(v3, v4)
+          print(v3dotv4)  # returns 83
 
 .. note::
 
-    Notice that in ``file_two.py``, you can import the entire module ``shared_functions`` and use the function ``dot_product`` by prefixing it with the module name. Importing a module is generally recommended. This way, you can avoid name conflicts and make your code more readable.
+    Notice that in ``file_two.py``, we imported the entire module ``shared_functions``.  When we did this,
+    all the functions are imported but to access them you have to prefix the module name.
+    This way, you can avoid name conflicts as well as making your code more readable.
 
 What's next?
 ^^^^^^^^^^^^
@@ -159,7 +164,7 @@ The goal in Level 3 is to reuse code across multiple projects. Hence, the name a
 
 Also, you will learn to execute and write **unit tests** for your reusable code. Unit tests are small, isolated tests that verify functionality. They help ensure that your code behaves as expected and can catch bugs early in the development process. You might want to run them before sharing code with others or deploying it to more projects.
 
-Lastly, you will also learn to **automate formatting** to keep your code clean and consistent so that others, including you, can save time reading and adding new code.
+Lastly, you will also learn to **automate formatting** to keep your code clean and consistent so that others, including future-you, can save time reading and adding new code.
 
 This tutorial will take about 3-10 minutes.
 
@@ -213,7 +218,8 @@ Let's go through some important files and their purposes:
 
      - ``README.md`` is a markdown file for project documentation. Typically, it includes a project description, installation instructions, and usage examples. You can edit this file to add your own project information.
 
-     - The ``__init__.py`` file, when placed inside a directory, tells Python to treat that directory as a package, which can contain modules. A module can be either a Python script or another package (i.e., a subpackage). The ``__init__.py`` file is empty in the ``workspace`` level.
+     - The ``__init__.py`` file, when placed inside a directory, tells Python to treat that directory as a package, which can contain modules. A Python module is a file with a ``.py`` extension that contains Python code.
+       The ``__init__.py`` file is empty in the ``workspace`` level.
 
      - The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product()`` function using ``pytest``. General naming convention for test files is ``test_<module_name>.py``. Similarly, test function names should be ``test_<function_name>()``. This is how ``pytest`` recognizes them as test functions. This can also contain tests for your sub-project modules.
 
@@ -234,7 +240,7 @@ Before running code, you need to set the ``PYTHONPATH`` environment variable to 
 
      .. code-block:: bash
 
-          # For macOS/Linux user
+          # For macOS/Linux/Git for Windows user
           $ export PYTHONPATH="${PYTHONPATH}:<path-to-your-workspace-folder>"
 
           # For Windows (Powershell) user
