@@ -144,47 +144,47 @@ Switching to ``README.rst`` at Level 5 helps users appreciate the formatting pow
 
 .. _faq-set-default-prompt-value:
 
-How can I change the default values that appear in the prompt when creating projects in level 3,4,5?
+How can I change the default values that appear in the prompt when creating projects in Level 3,4,5?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can override the existing default values in the prompt by creating and editing a configuration file ``.skpkgrc`` in the user ``home`` directory. In ``bash`` your ``home`` directory is designated by ``~``.
 
-Here are the steps you can follow to override the default values for level 5 usage.
+Here are the steps you can follow to override the default values for Level 5 usage.
 
 1. Go to ``home`` directory.
 
-.. code-block:: bash
+  .. code-block:: bash
 
-  $ cd ~
+    $ cd ~
 
 2. Create ``.skpkgrc``.
 
-.. code-block:: bash
+  .. code-block:: bash
 
-  $ touch .skpkgrc
+    $ touch .skpkgrc
 
 3. Edit ``.skpkgrc``. Copy and paste the following snippets to ``.skpkgrc``.
 
-.. code-block:: json
+  .. code-block:: json
 
-  {
-    "default_context":
-      {
-	"maintainer_name": "<local-default-maintainer-name>",
-	"maintainer_email": "<local-default-maintainer-email>",
-	"maintainer_github_username": "<local-default-maintainer-github-username>",
-	"github_username_or_orgname": "<local-default-github-username-or-orgname>",
-	"contributors": "<local-default-contributors-name>",
-	"license_holders": "<local-default-license-holders-name>",
-	"project_name": "<local-default-project-name>",
-      }
-  }
+    {
+      "default_context":
+        {
+            "maintainer_name": "<local-default-maintainer-name>",
+            "maintainer_email": "<local-default-maintainer-email>",
+            "maintainer_github_username": "<local-default-maintainer-github-username>",
+            "github_username_or_orgname": "<local-default-github-username-or-orgname>",
+            "contributors": "<local-default-contributors-name>",
+            "license_holders": "<local-default-license-holders-name>",
+            "project_name": "<local-default-project-name>",
+        }
+    }
 
 4. Replace words in angle brackets with values you prefer. These values will be your new default values when you run scikit-package on your local machine. In your ``.skpkgrc`` you may delete any rows that you do not want to modify from the package defaults.
 
-Creating packages in Level 3, 4 and 5 requires different entries. When you create a package at a certain level, only the entries with matched names will be processed. So irrelevant entries have no effect and you can set all the level 3, 4 and 5 default values in ``.skpkgrc``.
+.. seealso::
 
-
+    Creating packages in Level 3, 4 and 5 requires different entries. When you create a package at a certain level, only the entries with matched names will be processed. So irrelevant entries have no effect and you can set all the level 3, 4 and 5 default values in ``.skpkgrc``.
 
 How can I change the location of configuration file?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

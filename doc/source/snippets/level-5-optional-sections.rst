@@ -7,8 +7,9 @@ Build API reference documentation
 
 .. include:: ../snippets/api-reference-doc.rst
 
-(Optional) Set up default prompt values
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-When creating new projects in level 3, 4 or 5, you will be prompted to enter the values for some variables, like ``maintainer_name``, ``maintainer_email`` and ``maintainer_github_username``. These variables have default values in the package. It can save your time and reduce errors if you can change the default values that are more relevant for your installation of ``scikit-package``.
+Set up default prompt values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you create a new project in Level 3, 4 or 5, you will be prompted to enter the values for some variables, like ``maintainer_name``, ``maintainer_email`` and ``maintainer_github_username``. These variables have default values in the package. It can save your time and reduce errors if you can change the default values that are more relevant for your installation of ``scikit-package``.
 
 To set up your own default promprt values, please refer to :ref:`faq-set-default-prompt-value`.
