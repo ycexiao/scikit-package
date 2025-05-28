@@ -1,6 +1,6 @@
 **Added:**
 
-* no news needed: doc cleaning
+* <news item>
 
 **Changed:**
 
