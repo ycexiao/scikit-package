@@ -1,12 +1,12 @@
-#. Visit `https://github.com/new <https://github.com/new>`_
+#. Visit https://github.com/new.
 
 #. Enter the ``Repository name``. You may use ``my-package`` or any other name you like.
 
 #. Choose ``Public``.
 
-#. Under :guilabel:`Add .gitignore`, set ``None``.
+#. Set ``None`` under :guilabel:`Add .gitignore`.
 
-#. Under :guilabel:`Choose a license`, set ``None``.
+#. Set ``None`` Under :guilabel:`Choose a license`.
 
 #. Click the :guilabel:`Create repository` green button to create the repository.
 
