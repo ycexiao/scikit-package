@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* added missing make to requirements/docs.txt
+* Add ``make`` to ``requirements/docs.txt``.
 
 **Security:**
 
