@@ -70,10 +70,11 @@ Example
           v4 = [7, 8]
           print(dot_product(v3, v4))  # returns 83
 
-#. Install ``numpy`` and run the code:
+#. Run the code after activating your conda environment that you have created in :ref:`conda-env-setup-simple` above:
 
      .. code-block:: bash
 
+          $ conda activate <env-name>
           $ python shared_functions.py
 
 #. You should see the outputs of 11 and 83 printed.
@@ -143,11 +144,18 @@ Example code
           v3dotv4 = shared_functions.dot_product(v3, v4)
           print(v3dotv4)  # returns 83
 
-.. note::
+     .. note::
 
-    Notice that in ``file_two.py``, we imported the entire module ``shared_functions``.  When we did this,
-    all the functions are imported but to access them you have to prefix the module name.
-    This way, you can avoid name conflicts as well as making your code more readable.
+     Notice that in ``file_two.py``, we imported the entire module ``shared_functions``.  When we did this, all the functions are imported but to access them you have to prefix the module name.
+     This way, you can avoid name conflicts as well as making your code more readable.
+
+#. As we have done in Level 1, activate the conda environment and run the code:
+
+     .. code-block:: bash
+
+          $ conda activate <env-name>
+          $ python file_one.py
+          $ python file_two.py
 
 What's next?
 ^^^^^^^^^^^^
@@ -170,6 +178,13 @@ This tutorial will take about 3-10 minutes.
 
 Initiate a new project with ``scikit-package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Activate your conda environment you've created in :ref:`conda-env-setup-simple` above and install ``scikit-package``:
+
+     .. code-block:: bash
+
+          $ conda activate <env-name>
+          $ conda install scikit-package
 
 #. Create a new project by running the following command:
 
@@ -218,8 +233,7 @@ Let's go through some important files and their purposes:
 
      - ``README.md`` is a markdown file for project documentation. Typically, it includes a project description, installation instructions, and usage examples. You can edit this file to add your own project information.
 
-     - The ``__init__.py`` file, when placed inside a directory, tells Python to treat that directory as a package, which can contain modules. A Python module is a file with a ``.py`` extension that contains Python code.
-       The ``__init__.py`` file is empty in the ``workspace`` level.
+     - The ``__init__.py`` file, when placed inside a directory, tells Python to treat that directory as a package, which can contain modules. A Python module is a file with a ``.py`` extension that contains Python code. The ``__init__.py`` file is empty in the ``workspace`` level.
 
      - The ``tests`` folder contains tests for your shared functions. For example, ``test_shared_functions.py`` includes tests for the ``dot_product()`` function using ``pytest``. General naming convention for test files is ``test_<module_name>.py``. Similarly, test function names should be ``test_<function_name>()``. This is how ``pytest`` recognizes them as test functions. This can also contain tests for your sub-project modules.
 
@@ -250,7 +264,8 @@ Before running code, you need to set the ``PYTHONPATH`` environment variable to 
 
      .. code-block:: bash
 
-          $ pip install -r requirements.txt
+          $ conda activate <env-name>
+          $ conda install --file requirements.txt
 
      .. note::
 
@@ -301,7 +316,7 @@ more readable. ``pre-commit`` is a tool that helps you with that.
 
      .. code-block:: bash
 
-          $ conda activate <package-name>-env
+          $ conda activate <env-name>
           $ conda install pre-commit
 
      .. note::
@@ -351,13 +366,13 @@ When you are ready, you can proceed to the next tutorial: :ref:`level-4-tutorial
 (Optional) How to set PYTHONPATH permanently
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To avoid retyping this command every time you open a new terminal, you can add it to your shell configuration file. The configuration files most commonly used are ``.bashrc`` or ``.zshrc`` for macOS/Linux users, and ``$PROFILE`` for Windows users. These files are located at the root directory (``~``).
+To avoid retyping this command every time you open a new terminal, you can add it to your shell configuration file. The configuration files most commonly used are ``.bashrc`` or ``.zshrc`` for macOS/Linux/Git for Windows users, and ``$PROFILE`` for Windows users. These files are located at the root directory (``~``).
 
 #. To edit these files, run the command:
 
      .. code-block:: bash
 
-          # For macOS/Linux:
+          # For macOS/Linux/Git for Windows:
           # bash shell
           $ nano ~/.bashrc
           # For Windows PowerShell:
@@ -367,7 +382,7 @@ To avoid retyping this command every time you open a new terminal, you can add i
 
      .. code-block:: bash
 
-          # For macOS/Linux (bash or zsh shell)
+          # For macOS/Linux/Git for Windows
           $ echo 'export PYTHONPATH="${PYTHONPATH}:/path/to/your/workspace_folder"'
 
           # For Windows (PowerShell)
@@ -379,7 +394,7 @@ To avoid retyping this command every time you open a new terminal, you can add i
 
      .. code-block:: bash
 
-          # For macOS/Linux:
+          # For macOS/Linux/Git for Windows:
           $ source ~/.bashrc
           # For Windows PowerShell:
           $ . $PROFILE

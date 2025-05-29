@@ -8,7 +8,6 @@ Frequently asked questions (FAQ)
 
 Here, you will learn how to customize the ``scikit-package`` template for your own project, such as setting the line-width and including/excluding files for PyPI distribution. We also provide design decisions for the current setup of the ``scikit-package`` template.
 
-
 .. _faq-pre-commit:
 
 Pre-commit
@@ -809,22 +808,27 @@ Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
 
     $ alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
 
-Run the following command to apply the shell configuration.
+Optionally, if you also want to apply ``git add`` for the ``news/<branch-name>.rst`` created, you can use the following command instead:
 
 .. code-block:: bash
 
-    $ source ~/.bashrc  # if you are using bash
-    $ source ~/.zshrc  # if you are using zsh
+    $ alias cpnews='cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst && git add news/$(git rev-parse --abbrev-ref HEAD).rst'
 
-Now, whenever you want to create a news file, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
+Run the following command to apply the shell configuration:
+
+.. code-block:: bash
+
+    $ source ~/.bashrc
+
+Now, whenever you want to create a news file for the PR, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
 
 You can then open the project in an editor. The news file located under ``news`` will have the name ``<branch-name>.rst`` where ``<branch-name>`` is replaced by the current branch name.
 
 Add a description of the edits made in this PR. This should be a user-facing high-level summary of the edits made in this PR and will be automatically converted into the ``CHANGELOG.rst`` when the code is released.
 
-.. note::
+.. seealso::
 
-    How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please check out the news guide in the FAQ :ref:`here<news-item-practice>`.
+      How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please read our guide provided in :ref:`news-item-practice`.
 
 
 
