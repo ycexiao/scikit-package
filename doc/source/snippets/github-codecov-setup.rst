@@ -1,6 +1,6 @@
 .. _codecov-token-setup:
 
-We also want to ensure that tests are written for incoming code and that reports appear in the incoming PR, as shown below.
+We also want to ensure we report that tests are written for the incoming code and report in the incoming PR as shown below:
 
 .. image:: ../img/codecov-pr.png
     :alt: codecov-in-pr-comment
