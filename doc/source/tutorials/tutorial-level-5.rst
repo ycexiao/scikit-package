@@ -67,7 +67,7 @@ Upload ``README.md`` to your GitHub repository
 Step 2. Automate code linting and testing with GitHub Actions
 -------------------------------------------------------------
 
-We will do 3 things in order to automate testing, linting, infrastructure in your GitHub repository.
+We will do 3 things in order to automate testing, linting, infrastructure in your GitHub repository. Rest assured that these configuration steps are only done once!
 
 - :ref:`tutorial-5-pre-commit-ci`
 - :ref:`tutorial-5-github-codecov-setup`
