@@ -39,7 +39,7 @@
 
         Now, you can simply enter the ``doc`` command in your terminal to build and open the documentation:
 
-        .. cldoe-block:: bash
+        .. code-block:: bash
 
             $ doc
 
