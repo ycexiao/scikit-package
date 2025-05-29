@@ -451,8 +451,8 @@ Move documentation files
     .. code-block:: bash
 
         $ conda install --file requirements/docs.txt
-        $ pip install sphinx-reload
-        $ sphinx-reload doc
+        $ cd doc && make html
+        & open _build/html/index.html
 
 #. Add and commit the changes:
 

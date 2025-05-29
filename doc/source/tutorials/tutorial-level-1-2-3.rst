@@ -366,13 +366,13 @@ When you are ready, you can proceed to the next tutorial: :ref:`level-4-tutorial
 (Optional) How to set PYTHONPATH permanently
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To avoid retyping this command every time you open a new terminal, you can add it to your shell configuration file. The configuration files most commonly used are ``.bashrc`` or ``.zshrc`` for macOS/Linux users, and ``$PROFILE`` for Windows users. These files are located at the root directory (``~``).
+To avoid retyping this command every time you open a new terminal, you can add it to your shell configuration file. The configuration files most commonly used are ``.bashrc`` or ``.zshrc`` for macOS/Linux/Git for Windows users, and ``$PROFILE`` for Windows users. These files are located at the root directory (``~``).
 
 #. To edit these files, run the command:
 
      .. code-block:: bash
 
-          # For macOS/Linux:
+          # For macOS/Linux/Git for Windows:
           # bash shell
           $ nano ~/.bashrc
           # For Windows PowerShell:
@@ -382,7 +382,7 @@ To avoid retyping this command every time you open a new terminal, you can add i
 
      .. code-block:: bash
 
-          # For macOS/Linux (bash or zsh shell)
+          # For macOS/Linux/Git for Windows
           $ echo 'export PYTHONPATH="${PYTHONPATH}:/path/to/your/workspace_folder"'
 
           # For Windows (PowerShell)
@@ -394,7 +394,7 @@ To avoid retyping this command every time you open a new terminal, you can add i
 
      .. code-block:: bash
 
-          # For macOS/Linux:
+          # For macOS/Linux/Git for Windows:
           $ source ~/.bashrc
           # For Windows PowerShell:
           $ . $PROFILE
