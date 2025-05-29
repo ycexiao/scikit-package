@@ -170,7 +170,7 @@ Apply pre-commit auto-fixes without manual edits
 
     .. note::
 
-        The new ``upstream/migration`` branch can be created by the project maintainer or owner. On the main page of the upstream repository, click :menuselection:`main -> Switch branches/tags -> Find or create a branch` and type ``migration``. This will create a new branch called ``migration``.
+        The new ``upstream/migration`` branch can be created by the project maintainer or owner. On the main page of the upstream repository, click :menuselection:`main --> Switch branches/tags --> Find or create a branch` and type ``migration``. This will create a new branch called ``migration``.
 
 #. Wait for the PR to be merged to ``upstream/migration`` branch.
 

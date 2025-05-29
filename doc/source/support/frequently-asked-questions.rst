@@ -222,7 +222,7 @@ Pre-release:
 Release:
 
 - Did you encounter an error related to ``fatal: could not read Username``? Ensure you have ``PAT_TOKEN`` configured at the organization or repository level. Please read :ref:`pat-token-setup`. Even if ``PAT_TOKEN`` is already configured, ensure it is the latest token and has not been revoked or expired.
-- Did you encounter any error from ``Rulesets``? In your repository, visit :menuselection:`Settings -> Rules -> Rulesets`. Then click one or more of the rulesets. For each ruleset, under the :guilabel:`Bypass list`, click :guilabel:`Add bypass` and :guilabel:`Organization admin` to the ruleset. The GitHub workflow will use the ``PAT_TOKEN`` to bypass the ruleset.
+- Did you encounter any error from ``Rulesets``? In your repository, visit :menuselection:`Settings --> Rules --> Rulesets`. Then click one or more of the rulesets. For each ruleset, under the :guilabel:`Bypass list`, click :guilabel:`Add bypass` and :guilabel:`Organization admin` to the ruleset. The GitHub workflow will use the ``PAT_TOKEN`` to bypass the ruleset.
 
   .. note::
     Here, we don't want to bump a new version. As the next step, delete the Git tag in the local by running ``git tag -d <tagname>`` and visit ``https://github.com/<org-or-username>/<package-name>/tags`` to delete it in the remote. Then, follow the same process for a full release by creating a new tag and pushing it to the remote.
