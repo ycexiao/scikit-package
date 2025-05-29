@@ -14,7 +14,7 @@
 #. Open the rendered documentation via web browser:
 
     .. code-block:: bash
-        
+
         $ open _build/html/index.html
 
 #. Here is a shortcut if you want to use it from the root directory of the project:
@@ -24,13 +24,13 @@
         $ cd doc && make html && open _build/html/index.html && cd ..
 
     .. seealso::
-        
+
         You can use a ``alias`` shortcut. Open ``~/.bashrc`` in your text editor and add the following line:
 
         .. code-block:: bash
-    
+
             alias doc='cd doc && make html && open _build/html/index.html && cd ..'
-    
+
         Apply the changes to your current terminal session:
 
         .. code-block:: bash
@@ -58,9 +58,4 @@
 
             $ sphinx-reload doc
 
-    #. Now, each time you make changes to the documentaiton, it will be automatically reloaded in your web browser.
-
-
-
-
-
+    #. Now, each time you make changes to the documentation, it will be automatically reloaded in your web browser.
