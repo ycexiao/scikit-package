@@ -6,7 +6,7 @@
 Overview
 --------
 
-You will learn to share code across any files in your computer. By the end of this tutorial, you will also have your package hosted on GitHub, where you will utilize GitHub Actions to run automatic linting and testing for the incoming code in your GitHub repository.
+In this tutorial, you will learn how to share code across any files in your computer. By the end of this tutorial, you will also have your package hosted on GitHub, where you will utilize GitHub Actions to run automatic linting and testing for the incoming code in your GitHub repository.
 
 This tutorial should take about 10 to 15 minutes.
 
@@ -26,7 +26,7 @@ For Level 4, we assume you have prior experience in developing scientific code i
 
 .. seealso:: Are you new to Git and GitHub?
 
-    Please read the GitHub workflow section in :ref:`faq-github-workflow` to familiarize yourself with the common jargon and terms used.
+    Please read the GitHub workflow section in :ref:`faq-github-workflow` to familiarize yourself with the common jargon and terms used. There are also many online resources for learning Git and GitHub.
 
 .. include:: ../snippets/scikit-installation.rst
 

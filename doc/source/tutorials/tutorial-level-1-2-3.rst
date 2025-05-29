@@ -260,12 +260,14 @@ Before running code, you need to set the ``PYTHONPATH`` environment variable to 
 
      .. code-block:: bash
 
-          $ python proj-one/proj_one_code.py
+          $ cd proj-one
+          $ python proj_one_code.py
 
 #. Also run the tests:
 
      .. code-block:: bash
 
+          $ cd ..        # go back to the parent directory to run pytest
           $ pytest
 
      You should see the output similar to:
@@ -292,12 +294,14 @@ Before running code, you need to set the ``PYTHONPATH`` environment variable to 
 Automatic code formatting with ``pre-commit``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We want to automatically format code. ``pre-commit`` is a tool that helps you with that.
+We want to automatically format code syntax to make it more standard and
+more readable. ``pre-commit`` is a tool that helps you with that.
 
 #. Install ``pre-commit`` by running the following command:
 
      .. code-block:: bash
 
+          $ conda activate <package-name>-env
           $ conda install pre-commit
 
      .. note::
@@ -308,8 +312,8 @@ We want to automatically format code. ``pre-commit`` is a tool that helps you wi
 
      .. code-block:: bash
 
-          git init
-          git add .
+          $ git init
+          $ git add .
 
      .. note::
 
@@ -333,7 +337,7 @@ We want to automatically format code. ``pre-commit`` is a tool that helps you wi
 
           ``black`` is a tool that automatically formats Python code to conform to the PEP 8 style guide. ``prettier`` is a tool that formats code in various languages, including ``.md``, ``.rst``, and ``.json`` files. ``docformatter`` is a tool that formats docstrings in Python code.
 
-#. Done! Run ``pre-commit run --all-files`` frequently while developing code.
+#. Done! Run ``pre-commit run --all-files`` frequently while developing code to keep your code in good shape.
 
 What's next?
 ^^^^^^^^^^^^
@@ -409,6 +413,7 @@ Here is an example of how to create an additional project under the same workspa
 
      .. code-block:: bash
 
-          $ python proj-two/proj_two_code.py
+          $ cd proj-two
+          $ python proj_two_code.py
 
 #. Done! You can also start writing tests for this new project in the ``tests`` folder by creating a new file named ``test_proj_two_code.py``.
