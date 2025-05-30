@@ -78,14 +78,14 @@ The above steps will take 5 to 10 minutes in total but save hours and days of ti
 .. _tutorial-5-pre-commit-ci:
 
 1. Setup ``pre-commit CI`` in the remote repository in each pull request
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../snippets/github-pre-commit-setup.rst
 
 .. _tutorial-5-github-codecov-setup:
 
 2. Setup Codecov token for GitHub repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../snippets/github-codecov-setup.rst
 

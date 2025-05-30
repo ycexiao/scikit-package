@@ -556,8 +556,6 @@ I am encountering a 'build' is requesting 'pull-requests: write' error. How do I
 
 .. include:: ../snippets/github-ci-permission.rst
 
-It is an essential step to set up the news CI. For more, please read :ref:`github-news-ci-permission` section in the Level 5 tutorial.
-
 What is the difference between ``pull_request`` and ``pull_request_target``?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -672,7 +670,7 @@ From the forked repository, you then want to upload changes to the repository un
 I have a general understanding of fork, clone, commit, push, and pull request. How do I set up my repository for packaging?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Please be familiar with the terminology such as "fork", "clone", "push", and "pull request" :ref:`above <github-workflow-overview>`.
+Please be familiar with the terminology such as "fork", "clone", "push", and "pull request" explained above in :ref:`faq-github-workflow-overview`.
 
 You may fork the repository using the "Fork" button on the top right corner of the repository page. This will copy the repository to your GitHub account. e.g., ``github.com/scikit-package/scikit-package`` to ``github.com/sbillinge/scikit-package``.
 

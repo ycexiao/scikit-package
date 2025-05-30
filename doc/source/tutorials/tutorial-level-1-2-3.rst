@@ -146,8 +146,8 @@ Example code
 
      .. note::
 
-     Notice that in ``file_two.py``, we imported the entire module ``shared_functions``.  When we did this, all the functions are imported but to access them you have to prefix the module name.
-     This way, you can avoid name conflicts as well as making your code more readable.
+          Notice that in ``file_two.py``, we imported the entire module ``shared_functions``.  When we did this, all the functions are imported but to access them you have to prefix the module name.
+          This way, you can avoid name conflicts as well as making your code more readable.
 
 #. As we have done in Level 1, activate the conda environment and run the code:
 
