@@ -369,7 +369,7 @@ Setup GitHub Actions
         $ git commit -m "skpkg: add CI and issue/PR templates"
 
     .. Attention::
-        If your package does not support the latest Python version of |PYTHON_MAX_VERSION|, you will need to specify the Python version supported by your package. Follow the instructions here to set the Python version under ``.github/workflows`` :ref:`here <github-actions-python-versions>`
+        If your package does not support the latest Python version of |PYTHON_MAX_VERSION|, you will need to specify the Python version supported by your package. Follow the instructions here to set the Python version under ``.github/workflows`` in :ref:`github-actions-python-versions`.
 
 #. Add and commit the ``requirements`` folder:
 
