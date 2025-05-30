@@ -17,7 +17,7 @@ Here are the 5 levels of sharing your code. We provide tutorials for each level.
 
     If you have **experience** developing scientific code in Python, we recommend starting from Level 4, where you will create a lightweight Python package with automatic formatting and unit testing using GitHub Actions. To get started, visit :ref:`level-4-tutorial`.
 
-    If you are an **active open-source developer** and you are also with GitHub Actions and forking workflows, we recommend you start from Level 5. To get started, visit :ref:`level-5-tutorial`.
+    If you are an **active open-source developer** and you are also familiar with GitHub Actions and forking workflows, we recommend you start from Level 5. To get started, visit :ref:`level-5-tutorial`.
 
 ⏩️ Are you here to **migrate** an existing Python project?
 
