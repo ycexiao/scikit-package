@@ -93,13 +93,13 @@ Create a new project with ``scikit-package``
         ├── README.md
         ├── pyproject.toml
         ├── requirements
-        │         ├── conda.txt
-        │         ├── pip.txt
-        │         └── test.txt
+        │   ├── conda.txt
+        │   ├── pip.txt
+        │   └── test.txt
         ├── src
-        │         └── my_package
-        │             ├── __init__.py
-        │             └── functions.py
+        │   └── my_package
+        │   ├── __init__.py
+        │   └── functions.py
         └── tests
             └── test_functions.py
 
