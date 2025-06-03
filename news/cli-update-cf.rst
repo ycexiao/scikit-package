@@ -1,6 +1,6 @@
 **Added:**
 
-* Implement ``package udpate feedstock`` to streamline making a conda-forge feedstock version update PR after PyPI release.
+* Implement ``package update feedstock`` to streamline making a conda-forge feedstock version update PR after PyPI release.
 
 **Changed:**
 
