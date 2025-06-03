@@ -75,7 +75,6 @@ def main():
     >>> package add no-news -m "It was a simple typo."
     >>> package update (Not implemented yet)
     """
-
     parser = ArgumentParser(
         description="Reduce effort for maintaining and developing packages."
     )

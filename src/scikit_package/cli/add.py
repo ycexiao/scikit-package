@@ -27,12 +27,10 @@ def _check_news_file_exists(branch_name):
 def _insert_news_item(lines, flags, message):
     new_lines = []
     i = 0
-
     while i < len(lines):
         line = lines[i]
         stripped = line.strip()
         new_lines.append(line)
-
         for flag in flags:
             if stripped == NEWS_HEADER_MAP[flag]:
                 j = i + 1
@@ -41,14 +39,12 @@ def _insert_news_item(lines, flags, message):
                     "* <news item>",
                 ):
                     j += 1
-
                 new_lines.append("\n")
                 new_lines.append(f"* {message}\n")
                 if j >= len(lines) or lines[j].strip().startswith("**"):
                     new_lines.append("\n")
                 i = j - 1
         i += 1
-
     return new_lines
 
 
