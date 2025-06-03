@@ -15,7 +15,7 @@
 """{{ cookiecutter.project_short_description }}"""
 
 # package version
-from {{cookiecutter.package_dir_name}}.version import __version__
+from {{cookiecutter.package_dir_name}}.version import __version__  # noqa
 
 # silence the pyflakes syntax checker
 assert __version__ or True
