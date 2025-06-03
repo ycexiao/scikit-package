@@ -4,12 +4,12 @@ import shutil
 from scikit_package.utils import auth, io
 
 NEWS_HEADER_MAP = {
-    "a": "**Added:**",
-    "c": "**Changed:**",
-    "d": "**Deprecated:**",
-    "r": "**Removed:**",
-    "f": "**Fixed:**",
-    "s": "**Security:**",
+    "add": "**Added:**",
+    "change": "**Changed:**",
+    "deprecate": "**Deprecated:**",
+    "remove": "**Removed:**",
+    "fix": "**Fixed:**",
+    "security": "**Security:**",
 }
 
 TEMPLATE_PATH = "news/TEMPLATE.rst"
@@ -64,15 +64,14 @@ def _insert_no_news_item(lines, message):
 def news_item(args):
     """Handle adding a news item or no news item."""
     message = args.message
+    # Directly match NEWS_HEADER_MAP keys to argument attributes
     flags_used = [flag for flag in NEWS_HEADER_MAP if getattr(args, flag)]
     branch = auth.get_current_branch()
     path = _check_news_file_exists(branch)
     lines = io.read_file(path)
-    # No flag is used for no-news item.
     if not flags_used:
         updated = _insert_no_news_item(lines, message)
     else:
         updated = _insert_news_item(lines, flags_used, message)
     io.write_file(path, updated)
-
     print(f"Done! Appended news item to {path}")
