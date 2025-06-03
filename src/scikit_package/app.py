@@ -1,7 +1,6 @@
 from argparse import ArgumentParser
 
 from scikit_package.cli import add, create
-from scikit_package.utils import cookie
 
 SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
 
