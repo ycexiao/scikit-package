@@ -1,5 +1,6 @@
 import os
 import subprocess
+
 import click
 
 from scikit_package.utils import api, auth, io
@@ -21,9 +22,7 @@ def _update_meta_yaml(meta_file_path, new_version, new_sha256):
             file.write(line)
 
 
-def _run_commands(
-    cwd, meta_file_path, version, SHA256, username, pkg_name
-):
+def _run_commands(cwd, meta_file_path, version, SHA256, username, pkg_name):
     """Create a PR from a branch name of <new_version> to upstream/main."""
     run("git stash", cwd=cwd)
     run("git checkout main", cwd=cwd)
@@ -34,12 +33,11 @@ def _run_commands(
     run("git add recipe/meta.yaml", cwd=cwd)
     try:
         run(f'git commit -m "release: update to {version}"', cwd=cwd)
-    except subprocess.CalledProcessError as e:
+    except subprocess.CalledProcessError:
         print(
-            "\nError! Your meta.yaml already contains the latest version and SHA256. "
-            "So, there is nothing to commit! "
-            "Please check your package has been successfully released to PyPI. "
-            "And then re-run the command."
+            "\nError! There is nothing to commit! "
+            "Your meta.yaml already has the latest version and SHA256. "
+            "Please check the package has been successfully released to PyPI. "
         )
         return
     run(f"git push origin {version}", cwd=cwd)
@@ -53,11 +51,13 @@ def _run_commands(
     )
     run(pr_command, cwd=cwd)
 
+
 def _list_feedstock(feedstock_path):
     """List all feedstocks in the feedstock directory."""
     feedstock_path = io.get_config_value("feedstock_path")
     feedstocks = [
-        f for f in os.listdir(feedstock_path)
+        f
+        for f in os.listdir(feedstock_path)
         if f.endswith("-feedstock")
         and os.path.isdir(os.path.join(feedstock_path, f))
     ]
@@ -67,6 +67,7 @@ def _list_feedstock(feedstock_path):
             "Please ensure you have feedstocks cloned in {feedstock_path}."
         )
     return feedstocks
+
 
 def update(args):
     """Update the Python package version and SHA256 hash in a meta.yaml file,
