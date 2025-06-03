@@ -1,88 +1,65 @@
-import os
-import subprocess
 from argparse import ArgumentParser
-from pathlib import Path
+
+from scikit_package.cli import add, create
+from scikit_package.utils import cookie
 
 SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
-SKPKG_CONFIG_FILE = "~/.skpkgrc"
-try:
-    config_file = os.environ["SKPKG_CONFIG_FILE"]
-except KeyError:
-    config_file = SKPKG_CONFIG_FILE
-config_file = os.path.expandvars(config_file)
-config_file = Path(config_file).expanduser()
-exist_config = config_file.exists()
 
 
-def create(entry_type):
-    if entry_type == "workspace":
-        run_cookiecutter(f"{SKPKG_GITHUB_URL}-workspace")
-    elif entry_type == "system":
-        run_cookiecutter(f"{SKPKG_GITHUB_URL}-system")
-    elif entry_type == "public":
-        run_cookiecutter(SKPKG_GITHUB_URL)
-    elif entry_type == "conda-forge":
-        run_cookiecutter(f"{SKPKG_GITHUB_URL}-conda-forge")
-    elif entry_type == "manuscript":
-        run_cookiecutter(f"{SKPKG_GITHUB_URL}-manuscript")
+def _add_subcommands(subparsers, commands, func, special_args={}):
+    """Helper function to add subcommands to a parser."""
+    for command, help_text in commands:
+        parser_sub = subparsers.add_parser(command, help=help_text)
+        if command in special_args:
+            special_args[command](parser_sub)
+        parser_sub.set_defaults(func=func, subcommand=command)
 
 
-def update():
-    # FIXME: Implement the update command.
-    # As of now it does the same as the create public command.
-    run_cookiecutter(SKPKG_GITHUB_URL)
-
-
-def run_cookiecutter(repo_url):
-    try:
-        if exist_config:
-            subprocess.run(
-                [
-                    "cookiecutter",
-                    repo_url,
-                    "--config-file",
-                    config_file,
-                ],
-                check=True,
-            )
-        else:
-            subprocess.run(
-                [
-                    "cookiecutter",
-                    repo_url,
-                ],
-                check=True,
-            )
-
-    except subprocess.CalledProcessError as e:
-        print(f"Failed to run scikit-package for the following reason: {e}")
+def _add_news_flags(p):
+    """Helper function to add flags for `package add news/no-news`."""
+    p.add_argument("-m", "--message", required=True, help="News item.")
+    p.add_argument("-a", action="store_true", help="Added")
+    p.add_argument("-c", action="store_true", help="Changed")
+    p.add_argument("-d", action="store_true", help="Deprecated")
+    p.add_argument("-r", action="store_true", help="Removed")
+    p.add_argument("-f", action="store_true", help="Fixed")
+    p.add_argument("-s", action="store_true", help="Security")
 
 
 def setup_subparsers(parser):
-    # Create "create" subparser
+    # "create" subparser
     parser_create = parser.add_parser("create", help="Create a new package")
-
-    # Add subcommands under "create"
-    sub_create = parser_create.add_subparsers(dest="subcommand", required=True)
-
-    # Define all "create" subcommands
-    create_subcommands = [
+    subparsers_create = parser_create.add_subparsers(
+        dest="subcommand", required=True
+    )
+    create_commands = [
         ("workspace", "Create a workspace package"),
         ("system", "Create a system package"),
         ("public", "Create a public package"),
         ("conda-forge", "Create a conda-forge recipe meta.yml file"),
         ("manuscript", "Create Overleaf LaTeX template of Billinge group."),
     ]
-
-    for subcommand, help_text in create_subcommands:
-        parser_sub = sub_create.add_parser(subcommand, help=help_text)
-        parser_sub.set_defaults(func=create, subcommand=subcommand)
-
-    # Create "update" subparser
-    parser_update = parser.add_parser(
-        "update", help="Update an existing package"
+    _add_subcommands(subparsers_create, create_commands, create.package)
+    # "add" subparser
+    parser_add = parser.add_parser(
+        "add", help="Add a new file like a news item"
     )
-    parser_update.set_defaults(func=update)
+    subparsers_add = parser_add.add_subparsers(
+        dest="subcommand", required=True
+    )
+    add_commands = [
+        ("news", "Add a news item under the news directory."),
+        ("no-news", "Add no news item under the news directory."),
+    ]
+    _add_subcommands(
+        subparsers_add,
+        add_commands,
+        add.news_item,
+        special_args={
+            "news": _add_news_flags,
+            "no-news": _add_news_flags,
+        },
+    )
 
 
 def main():
@@ -95,16 +72,18 @@ def main():
     >>> package create public
     >>> package create manuscript
     >>> package create conda-forge
+    >>> package add news -a -m "Add awesome news item."
+    >>> package add no-news -m "It was a simple typo."
     >>> package update (Not implemented yet)
     """
 
     parser = ArgumentParser(
-        description="Manage package operations with scikit-package."
+        description="Reduce effort for maintaining and developing packages."
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
     setup_subparsers(subparsers)
     args = parser.parse_args()
-    args.func(args.subcommand)
+    args.func(args)
 
 
 if __name__ == "__main__":
