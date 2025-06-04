@@ -22,6 +22,10 @@ repos:
       - id: check-toml
         exclude: '^{{ cookiecutter.github_repo_name }}/.*\.toml$' # {{ cookiecutter.github_repo_name }} contains jinja variables in pyproject.toml, hook fails
       - id: check-added-large-files
+      - id: no-commit-to-branch
+        name: Prevent Commit to Main Branch
+        args: ["--branch", "main"]
+        stages: [pre-commit]
   - repo: https://github.com/psf/black
     rev: 24.4.2
     hooks:
@@ -31,7 +35,6 @@ repos:
     rev: 7.0.0
     hooks:
       - id: flake8
-        exclude: '^({{ cookiecutter.github_repo_name }}/.*\.py|hooks/post_gen_project\.py)$' # Same comment as black above
   - repo: https://github.com/pycqa/isort
     rev: 5.13.2
     hooks:
@@ -41,13 +44,6 @@ repos:
     rev: 0.7.1
     hooks:
       - id: nbstripout
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
-    hooks:
-      - id: no-commit-to-branch
-        name: Prevent Commit to Main Branch
-        args: ["--branch", "main"]
-        stages: [pre-commit]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.3.0
     hooks:
