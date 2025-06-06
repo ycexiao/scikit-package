@@ -25,30 +25,30 @@ How do I create a news file?
 
     .. code-block:: text
 
-            **Added:**
+        **Added:**
 
-            * <Describe the first feature added in the PR.>
-            * <Describe the second feature added in the PR.>
+        * <Describe the first feature added in the PR.>
+        * <Describe the second feature added in the PR.>
 
-            **Changed:**
+        **Changed:**
 
-            * <news item>
+        * <news item>
 
-            **Deprecated:**
+        **Deprecated:**
 
-            * <news item>
+        * <news item>
 
-            **Removed:**
+        **Removed:**
 
-            * <news item>
+        * <news item>
 
-            **Fixed:**
+        **Fixed:**
 
-            * <news item>
+        * <news item>
 
-            **Security:**
+        **Security:**
 
-            * <news item>
+        * <news item>
 
     .. note::
 
@@ -64,8 +64,8 @@ Where do I place my news item in ``<branch-name>.rst``?
 - ``**Removed:**`` (``-r``, ``--remove``) is the opposite of the "Added" section, referring to features or functionality that have been removed.
 - ``**Security:**`` (``-s``, ``--security``) includes fixes or improvements related to vulnerabilities, authentication, or access control.
 
-Practices for writing good news items
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What are good practices for writing news items?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 - Maintain consistency when a new release note is created and added to the ``CHANGELOG.rst`` file:
 
@@ -74,12 +74,12 @@ Practices for writing good news items
     c. End with a period.
     d. Use the ``rst`` style of backquotes instead of the markdown style. For example, use ````scikit-package```` instead of ```scikit-package```.
 
-    e.g., Add automatic linting of ``.md``, ``.yml``, ``.rst`` files via a prettier hook in pre-commit.
+    e.g., Add automatic linting of ``.md``, ``.yml``, and ``.rst`` files via a prettier hook in pre-commit.
 
 My PR has trivial fixes that shouldn't be in ``CHANGELOG.rst``. Should I still create a news file?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Yes. In this case, we want to communicate with the reviewer(s) the reason it should not be in the ``CHANGELOG.rst``. You can simply run the following:
+Yes. In this case, we want to communicate to the reviewer(s) the reason it should not be in the ``CHANGELOG.rst``. You can simply run the following:
 
     .. code-block:: bash
 
