@@ -496,6 +496,10 @@ Move documentation files
 
         * Support ``scikit-package`` Level 5 standard (https://scikit-package.github.io/scikit-package/).
 
+    .. seealso:: 
+
+        To streamline the above steps, you may instead run ``package add news --fix -m "Support scikit-package Level 5 standard."``. For more, please refer to :ref:`news-item-practice`.
+
 #. Add the news files:
 
     .. code-block:: bash

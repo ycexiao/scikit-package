@@ -22,6 +22,7 @@ Prerequisites
 ^^^^^^^^^^^^^
 
 We assume you have already completed and created your scientific code in Level 4, where you have a lightweight Python package that can be installed locally and have your project hosted on GitHub.
+
 .. include:: ../snippets/scikit-installation.rst
 
 Create a new Level 5 project and migrate files
