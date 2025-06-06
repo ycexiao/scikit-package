@@ -27,7 +27,6 @@ def _run_commands(cwd, meta_file_path, version, SHA256, username, pkg_name):
     run("git stash", cwd=cwd)
     run("git checkout main", cwd=cwd)
     run("git pull upstream main", cwd=cwd)
-    run(f"git branch -D {version}", cwd=cwd)
     run(f"git checkout -b {version}", cwd=cwd)
     _update_meta_yaml(meta_file_path, version, SHA256)
     run("git add recipe/meta.yaml", cwd=cwd)
