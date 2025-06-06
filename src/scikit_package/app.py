@@ -18,12 +18,12 @@ def _add_subcommands(subparsers, commands, func, special_args={}):
 def _add_news_flags(p):
     """Helper function to add flags for `package add news/no-news`."""
     p.add_argument("-m", "--message", required=True, help="News item.")
-    p.add_argument("-a", action="store_true", help="Added")
-    p.add_argument("-c", action="store_true", help="Changed")
-    p.add_argument("-d", action="store_true", help="Deprecated")
-    p.add_argument("-r", action="store_true", help="Removed")
-    p.add_argument("-f", action="store_true", help="Fixed")
-    p.add_argument("-s", action="store_true", help="Security")
+    p.add_argument("-a", "--add", action="store_true", help="Added")
+    p.add_argument("-c", "--change", action="store_true", help="Changed")
+    p.add_argument("-d", "--deprecate", action="store_true", help="Deprecated")
+    p.add_argument("-r", "--remove", action="store_true", help="Removed")
+    p.add_argument("-f", "--fix", action="store_true", help="Fixed")
+    p.add_argument("-s", "--security", action="store_true", help="Security")
 
 
 def setup_subparsers(parser):

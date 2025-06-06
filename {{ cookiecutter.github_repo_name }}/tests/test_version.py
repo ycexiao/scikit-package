@@ -1,6 +1,6 @@
 """Unit tests for __version__.py."""
 
-import {{ cookiecutter.package_dir_name }}
+import {{ cookiecutter.package_dir_name }}  # noqa
 
 
 def test_package_version():
