@@ -135,7 +135,7 @@ Let's create a news item for the changes made in this PR.
 
         * Support public releases with scikit-package by migrating the package from Level 4 to Level 5 in the scikit-package standard.
 
-    .. seealso:: 
+    .. seealso::
 
         To streamline the above steps, you may instead run ``package add news --add -m "Support public releases with scikit-package by migrating the package from Level 4 to Level 5 in the scikit-package standard."``. For more, please refer to :ref:`news-item-practice`.
 
