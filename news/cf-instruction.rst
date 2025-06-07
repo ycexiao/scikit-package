@@ -1,6 +1,6 @@
 **Added:**
 
-* Add instruction on how to use package udpate conda-forge in the conda-forge release guide
+* Add instruction on how to use package update conda-forge in the conda-forge release guide
 
 **Changed:**
 
