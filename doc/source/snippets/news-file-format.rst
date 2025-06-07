@@ -14,8 +14,7 @@ How do I create a news file?
 
     .. code-block:: bash
 
-        $ package add news --add -m "<Describe the first feature added in the PR.>"
-        $ package add news --a -m "<Describe the second feature added in the PR.>"
+        $ package add news --add -m "<Describe the main feature added in the PR.>"
 
     .. note::
 
@@ -27,8 +26,7 @@ How do I create a news file?
 
         **Added:**
 
-        * <Describe the first feature added in the PR.>
-        * <Describe the second feature added in the PR.>
+        * <Describe the main feature added in the PR.>
 
         **Changed:**
 
@@ -50,9 +48,13 @@ How do I create a news file?
 
         * <news item>
 
-    .. note::
+    .. seealso::
 
         Once you are happy with the news item(s) that you have added, you don't need to modify anything in ``news/<branch-name>.rst`` or ``news/TEMPLATE.rst``. ``scikit-package`` will automatically parse your news items and add them to the ``CHANGELOG.rst`` file when you initiate a release.
+    
+    .. note::
+
+        Although it is generally not recommended, if two tasks were completed on the same branch, you can still add another news item by running the ``package add news`` command again.
 
 Where do I place my news item in ``<branch-name>.rst``?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

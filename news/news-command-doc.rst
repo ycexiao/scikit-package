@@ -1,6 +1,6 @@
 **Added:**
 
-* No news added: instruction for writing news only
+* Add instructions for creating a news item by running ``package add news --<news-type> -m "<message>"`` in the documentation.
 
 **Changed:**
 
