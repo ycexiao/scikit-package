@@ -51,7 +51,7 @@ How do I create a news file?
     .. seealso::
 
         Once you are happy with the news item(s) that you have added, you don't need to modify anything in ``news/<branch-name>.rst`` or ``news/TEMPLATE.rst``. ``scikit-package`` will automatically parse your news items and add them to the ``CHANGELOG.rst`` file when you initiate a release.
-    
+
     .. note::
 
         Although it is generally not recommended, if two tasks were completed on the same branch, you can still add another news item by running the ``package add news`` command again.
