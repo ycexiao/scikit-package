@@ -1,5 +1,5 @@
-from argparse import ArgumentParser
 import argparse
+from argparse import ArgumentParser
 
 from scikit_package.cli import add, create
 
@@ -50,10 +50,10 @@ def setup_subparsers(parser):
             "Then, use -m <message> to write te news message.\n"
             "Type `package add news -h` to see what each flag means.\n\n"
             "Examples:\n"
-            "  package add news --add -m \"Add black pre-commit hook.\"\n"
-            "  package add news -a -m \"Support dark mode in UI.\"\n"
-            "  package add news -f -m \"Correct logic error in settings parser.\"\n"
-            "  package add no-news -m \"Fix minor typo.\""
+            '  package add news --add -m "Add black pre-commit hook."\n'
+            '  package add news -a -m "Support dark mode in UI."\n'
+            '  package add news -f -m "Correct logic error in settings parser."\n'
+            '  package add no-news -m "Fix minor typo."'
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
