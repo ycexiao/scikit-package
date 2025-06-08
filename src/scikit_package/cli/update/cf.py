@@ -25,9 +25,10 @@ def _update_meta_yaml(meta_file_path, new_version, new_sha256):
 def _check_remote_exists(cwd, pkg_name):
     """Add feedstock upstream remote if it is not configured."""
     remotes = run("git remote", cwd=cwd, capture_output=True)
+    feedstock_url = f"https://github.com/conda-forge/{pkg_name}-feedstock.git"
     if "upstream" not in remotes.stdout.split():
         run(
-            f"git remote add upstream https://github.com/conda-forge/{pkg_name}-feedstock.git",
+            f"git remote add upstream {feedstock_url}",
             cwd=cwd,
         )
 
