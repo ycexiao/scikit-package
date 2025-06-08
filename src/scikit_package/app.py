@@ -48,8 +48,7 @@ def setup_subparsers(parser):
     _add_subcommands(subparsers_create, create_commands, create.package)
     # "add" subparser
     parser_add = parser.add_parser(
-        "add",
-        help="Create a news file for the branch and add a news item to it.",
+        "add", help="Add a new file like a news item"
     )
     subparsers_add = parser_add.add_subparsers(
         dest="subcommand", required=True
@@ -63,10 +62,9 @@ def setup_subparsers(parser):
             "If no news is necessary, add -n instead of any of the above.\n"
             "Then, add `-m <message>` to write the news message.\n\n"
             "Examples:\n"
-            "  package add news --add -m \"Add black pre-commit hook.\"\n"
-            "  package add news -a -m \"Support dark mode in UI.\"\n"
-            "  package add news -f -m \"Correct logic error in settings parser.\"\n"
-            "  package add no-news -m \"Fix minor typo.\""
+            '  package add news --add -m "Add black pre-commit hook."\n'
+            '  package add news -a -m "Support dark mode in UI."\n'
+            '  package add no-news -m "Fix minor typo."'
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )

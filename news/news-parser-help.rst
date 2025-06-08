@@ -1,6 +1,6 @@
 **Added:**
 
-* Provide a better help description for package add news command
+* Provide a better help description for ``package add news`` command.
 
 **Changed:**
 
