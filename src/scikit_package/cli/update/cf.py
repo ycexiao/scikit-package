@@ -31,6 +31,7 @@ def _check_remote_exists(cwd, pkg_name):
             cwd=cwd,
         )
 
+
 def _check_branch_exists(cwd, branch_name):
     """Check if a branch exists in the current repository."""
     branches = run("git branch", cwd=cwd, capture_output=True)
@@ -40,6 +41,7 @@ def _check_branch_exists(cwd, branch_name):
             "Please delete the branch by running git branch -D <branch> "
             "and try again."
         )
+
 
 def _run_commands(cwd, meta_file_path, version, SHA256, username, pkg_name):
     """Create a PR from a branch name of <new_version> to upstream/main."""
