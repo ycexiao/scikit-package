@@ -39,6 +39,7 @@ repos:
     rev: 5.13.2
     hooks:
       - id: isort
+        exclude: "{{ cookiecutter.github_repo_name }}/tests/test_functions.py" # ignore test_functions.py as it contains jinja variables
         args: ["--profile", "black"]
   - repo: https://github.com/kynan/nbstripout
     rev: 0.7.1
