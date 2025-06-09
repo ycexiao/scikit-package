@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* Fix ``pre-commit`` errors in PR template and ``test_functions.py``
+* Fix ``pre-commit`` errors in PR template, init file generator, and ``test_functions.py``
 
 **Security:**
 
