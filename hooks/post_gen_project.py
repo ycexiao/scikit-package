@@ -24,7 +24,6 @@ def __gen_init__(module_name):
 # See LICENSE.rst for license information.
 #
 ##############################################################################
-
 """ # noqa: E999
     return __init__
 
