@@ -18,6 +18,7 @@ def test_dot_product_3D_list():
     actual = functions.dot_product(a, b)
     assert actual == expected
 
+
 @pytest.mark.parametrize(
     "a, b, expected",
     [
