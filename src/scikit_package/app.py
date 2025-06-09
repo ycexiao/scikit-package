@@ -1,3 +1,4 @@
+import argparse
 from argparse import ArgumentParser
 
 from scikit_package.cli import add, create
@@ -16,13 +17,19 @@ def _add_subcommands(subparsers, commands, func, special_args={}):
 
 def _add_news_flags(p):
     """Helper function to add flags for `package add news/no-news`."""
-    p.add_argument("-m", "--message", required=True, help="News item.")
+    p.add_argument("-m", "--message", required=True, help="News content.")
     p.add_argument("-a", "--add", action="store_true", help="Added")
     p.add_argument("-c", "--change", action="store_true", help="Changed")
     p.add_argument("-d", "--deprecate", action="store_true", help="Deprecated")
     p.add_argument("-r", "--remove", action="store_true", help="Removed")
     p.add_argument("-f", "--fix", action="store_true", help="Fixed")
     p.add_argument("-s", "--security", action="store_true", help="Security")
+    p.add_argument(
+        "-n",
+        "--no-news",
+        action="store_true",
+        help="Inform a brief reason why no news item is needed.",
+    )
 
 
 def setup_subparsers(parser):
@@ -46,19 +53,23 @@ def setup_subparsers(parser):
     subparsers_add = parser_add.add_subparsers(
         dest="subcommand", required=True
     )
-    add_commands = [
-        ("news", "Add a news item under the news directory."),
-        ("no-news", "Add no news item under the news directory."),
-    ]
-    _add_subcommands(
-        subparsers_add,
-        add_commands,
-        add.news_item,
-        special_args={
-            "news": _add_news_flags,
-            "no-news": _add_news_flags,
-        },
+    parser_news = subparsers_add.add_parser(
+        "news",
+        help="Add a news item under the news directory.",
+        description=(
+            "This command streamlines the process of writing news items.\n\n"
+            "Add -a, -c, -d, -r, -f, or -s to specify the news type.\n"
+            "If no news is necessary, add -n instead of any of the above.\n"
+            "Then, add `-m <message>` to write the news message.\n\n"
+            "Examples:\n"
+            '  package add news --add -m "Add black pre-commit hook."\n'
+            '  package add news -a -m "Support dark mode in UI."\n'
+            '  package add no-news -m "Fix minor typo."'
+        ),
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    _add_news_flags(parser_news)
+    parser_news.set_defaults(func=add.news_item, subcommand="news")
 
 
 def main():
@@ -72,7 +83,7 @@ def main():
     >>> package create manuscript
     >>> package create conda-forge
     >>> package add news -a -m "Add awesome news item."
-    >>> package add no-news -m "It was a simple typo."
+    >>> package add news -n -m "Fix minor typo."
     >>> package update (Not implemented yet)
     """
     parser = ArgumentParser(
