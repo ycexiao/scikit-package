@@ -309,8 +309,8 @@ Move essential files to run local tests
 
     .. code-block:: bash
 
-        $ cp -n -r ../src .
-        $ cp -n -r ../tests .
+        $ cp -n -r ../src src/
+        $ cp -n -r ../tests tests/
 
     .. seealso::
 
@@ -321,6 +321,9 @@ Move essential files to run local tests
     .. code-block:: bash
 
         $ git status
+
+.. attention::
+    If you see any files under ``src`` or ``tests`` that are modified, **manually check these files** and decide whether you want to keep the changes made by ``scikit-package`` or not.
 
 #. By default, ``scikit-package`` generates an example source file, test file, and documentation file. If you do not need these files, you can delete them:
 
