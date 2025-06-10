@@ -201,7 +201,7 @@ Here, instead of fixing all errors at once, we will address each type of error o
 
     .. code-block:: bash
 
-        $ git checkout migration
+        $ git checkout -b migration upstream/migration
         $ git pull upstream migration
 
 #. Create a new branch that will be used to fix the type of errors like flake8 or codespell:
@@ -309,8 +309,8 @@ Move essential files to run local tests
 
     .. code-block:: bash
 
-        $ cp -n -r ../src src
-        $ cp -n -r ../tests tests
+        $ cp -n -r ../src .
+        $ cp -n -r ../tests .
 
     .. seealso::
 
