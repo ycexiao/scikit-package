@@ -69,6 +69,11 @@ Run ``black`` in your codebase
     .. code-block:: bash
 
         $ git checkout -b black-edits
+
+#. If you do not have a ``pyproject.toml`` file, you can create one by running the following command:
+
+    .. code-block:: bash
+
         $ touch pyproject.toml
 
 #. Copy and paste the following content at the bottom of ``pyproject.toml``:
@@ -154,11 +159,18 @@ Apply pre-commit auto-fixes without manual edits
 
         $ pre-commit run --all-files
 
-#. Add the changes to the ``pre-commit-auto`` branch:
+#. Run ``git status`` to see all the files that have been modified by ``pre-commit`` hooks:
+
+      .. code-block:: bash
+
+          $ git status
+
+#. When you run ``git status``, you will see the package you created under ``Untracked files`` with the package name you gave. At this step, you want to add and commit everything **except** this package. To do so, run the following commands and replace ``<package-name>`` with the name of your package:
 
     .. code-block:: bash
 
-        $ git add . && git commit -m "style: apply pre-commit hooks with no manual edits"``
+        $ git add -- . ':!<package-name>'
+        $ git commit -m "style: apply pre-commit hooks with no manual edits"
 
 #. Push the changes to the remote repository:
 
@@ -192,7 +204,7 @@ Here, instead of fixing all errors at once, we will address each type of error o
         $ git checkout migration
         $ git pull upstream migration
 
-#. Create a new branch that will be used to fix the type of errors:
+#. Create a new branch that will be used to fix the type of errors like flake8 or codespell:
 
     .. code-block:: bash
 
@@ -271,7 +283,7 @@ Move essential files to run local tests
 
     .. code-block::
 
-        $ mv ../<package-name>/.git .
+        $ mv ../.git .
 
 #. See a list of files that have been (1) untracked, (2) deleted, (3) modified:
 
@@ -285,7 +297,7 @@ Move essential files to run local tests
         - ``deleted`` are files in the old directory but the files that are not in the new directory. At the moment, most of the ``src`` and ``tests`` and ``doc`` files will be in this category. We will move them from the old to the new directory in the next few steps.
         - ``modified`` are files that that exist both in the old and the new directory, while the scikig-package has made changes to them.
 
-#. Create a new branch called called ``setup-CI``:
+#. Create a new branch called ``setup-CI``:
 
     .. code-block:: bash
 
@@ -297,8 +309,8 @@ Move essential files to run local tests
 
     .. code-block:: bash
 
-        $ cp -n -r ../src .
-        $ cp -n -r ../tests .
+        $ cp -n -r ../src src
+        $ cp -n -r ../tests tests
 
     .. seealso::
 
