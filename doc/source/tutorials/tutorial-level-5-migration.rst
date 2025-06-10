@@ -322,8 +322,8 @@ Move essential files to run local tests
 
         $ git status
 
-.. attention::
-    If you see any files under ``src`` or ``tests`` that are modified, **manually check these files** and decide whether you want to keep the changes made by ``scikit-package`` or not.
+    .. attention::
+        If you see any files under ``src`` or ``tests`` that are modified, **manually check these files** and decide whether you want to keep the changes made by ``scikit-package`` or not.
 
 #. By default, ``scikit-package`` generates an example source file, test file, and documentation file. If you do not need these files, you can delete them:
 
@@ -333,7 +333,7 @@ Move essential files to run local tests
         $ rm tests/test_functions.py
         $ rm doc/source/api/<package-name>.example_package.rst
 
-#. Commit the changes:
+#. If any files have been added or modified in the way you like, you can add and commit the changes. Otherwise, you can skip this step:
 
     .. code-block:: bash
 
