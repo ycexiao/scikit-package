@@ -322,6 +322,14 @@ Move essential files to run local tests
 
         $ git status
 
+#. By default, ``scikit-package`` generates an example source file, test file, and documentation file. If you do not need these files, you can delete them:
+
+    .. code-block:: bash
+
+        $ rm src/<package-name>/functions.py
+        $ rm tests/test_functions.py
+        $ rm doc/source/api/<package-name>.example_package.rst
+
 #. Commit the changes:
 
     .. code-block:: bash
@@ -330,6 +338,20 @@ Move essential files to run local tests
         $ git add tests && git commit -m "skpkg: migrate tests folder"
 
 #. Manually list the dependencies under ``requirements/pip.txt``, ``requirements/tests.txt``, ``requirements/docs.txt``, ``requirements/conda.txt``.
+
+   - ``pip.txt``
+     Core runtime dependencies needed to use the package.
+
+   - ``test.txt``
+     Packages required for running tests and checking coverage.
+
+   - ``docs.txt``
+     Dependencies for building documentation.
+
+   - ``conda.txt``
+     Base environment packages best installed via ``conda``.
+   - ``build.txt`` *(optional)*
+     Build tools needed for non-Python components (e.g., C/C++ libraries, compilers). Only include if your package requires compilation.
 
 #. Delete ``requirements/build.txt`` if your package only contains Python code.
 
