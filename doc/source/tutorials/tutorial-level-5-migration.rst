@@ -197,11 +197,16 @@ The package will most likely have failed ``pre-commit`` hooks. We will manually 
 
 Here, instead of fixing all errors at once, we will address each type of error one at a time.  For example, a branch called ``pre-commit-spelling`` may contain spelling fixes, while another branch, ``pre-commit-flake8-line`` fixes of line length errors raised by flake8.
 
-#. Sync with the ``upstream/migration`` branch:
+#. To get the ``migration`` branch from ``upstream/migration`` and track it, run the following commands:
 
     .. code-block:: bash
 
-        $ git checkout -b migration upstream/migration
+        $ git checkout --track upstream/migration
+
+#. Make sure everything is sync'd with the ``upstream/migration`` branch:
+
+    .. code-block:: bash
+
         $ git pull upstream migration
 
 #. Create a new branch that will be used to fix the type of errors like flake8 or codespell:
