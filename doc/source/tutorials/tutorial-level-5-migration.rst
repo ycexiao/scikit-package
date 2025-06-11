@@ -201,6 +201,7 @@ Here, instead of fixing all errors at once, we will address each type of error o
 
     .. code-block:: bash
 
+        $ git fetch upstream migration
         $ git checkout --track upstream/migration
 
 #. Make sure everything is sync'd with the ``upstream/migration`` branch:
