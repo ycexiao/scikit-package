@@ -482,19 +482,34 @@ Move documentation files
 
     .. code-block:: bash
 
-        $ cp -n -r ../doc/source/* ./doc/source.
+        $ cp -n -r ../doc/source/* ./doc/source
 
     .. note::
 
         If files are moved to a different path like ``doc/manual/source`` (old) to ``doc/source`` (new), open the project in IDE and do a global search (ctrl + shift + f) for ``../`` or ``..`` and modify all relative path instances.
+
+#. Once again, ``scikit-package`` creates template files in the ``doc/source`` folder. If you do not need these files, you can delete them:
+
+    .. code-block:: bash
+
+        $ rm doc/source/getting-started.rst
+        $ rm -r doc/source/img/
+        $ rm -r doc/source/snippets/
+
+#. Some files in ``doc/source`` may have been modified by ``scikit-package``. Manually check these files and decide whether you want to keep the changes made by ``scikit-package`` or not. After doing this, you can add and commit changes (if applicable):
+
+    .. code-block:: bash
+
+        $ git add doc/source
+        $ git commit -m "skpkg: migrate doc/source files"
 
 #. Ensure the documentation can be built locally:
 
     .. code-block:: bash
 
         $ conda install --file requirements/docs.txt
-        $ cd doc && make html
-        & open _build/html/index.html
+        $ cd doc && make html && open build/html/index.html
+
 
 #. Add and commit the changes:
 
@@ -569,10 +584,10 @@ Step 3. Final check
 
 #. Ask the project maintainer to create a PR from ``upstream/migration`` to ``upstream/main``
 
-#. After the PR is merged to ``upstream/main``, archive the old repository by naming it:
+#. After the PR is merged to ``upstream/main``, archive the old repository by changing its name:
 
     .. code-block:: bash
-
+        $ cd ..
         $ mv <package-name> <package-name>-archive
 
 #. Clone the latest version of the package from the remote:
