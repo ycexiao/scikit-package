@@ -2,26 +2,26 @@
 
     .. code-block:: bash
 
-        $ conda install --file requirements/docs.txt
+        conda install --file requirements/docs.txt
 
 #. Enter into the ``doc`` project directory and render documentation:
 
     .. code-block:: bash
 
-        $ cd doc
-        $ make html
+        cd doc
+        make html
 
 #. Open the rendered documentation via web browser:
 
     .. code-block:: bash
 
-        $ open _build/html/index.html
+        open _build/html/index.html
 
 #. Here is a shortcut if you want to use it from the root directory of the project:
 
     .. code-block:: bash
 
-        $ cd doc && make html && open _build/html/index.html && cd ..
+        cd doc && make html && open _build/html/index.html && cd ..
 
     .. seealso::
 
@@ -35,13 +35,13 @@
 
         .. code-block:: bash
 
-            $ source ~/.bashrc
+            source ~/.bashrc
 
         Now, you can simply enter the ``doc`` command in your terminal to build and open the documentation:
 
         .. code-block:: bash
 
-            $ doc
+            doc
 
 (Optional for macOS/Linux only) Do you want to re-render documentation without running ``doc`` command every time? You can use ``sphinx-reload``.
 
@@ -49,13 +49,13 @@
 
         .. code-block:: bash
 
-            $ conda install --file requirements/docs.txt
-            $ pip install sphinx-reload
+            conda install --file requirements/docs.txt
+            pip install sphinx-reload
 
     #. Run the following command to start live-reloading:
 
         .. code-block:: bash
 
-            $ sphinx-reload doc
+            sphinx-reload doc
 
     #. Now, each time you make changes to the documentation, it will be automatically reloaded in your web browser.

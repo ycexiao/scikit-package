@@ -232,7 +232,7 @@ Here, instead of fixing all errors at once, we will address each type of error o
 
     .. code-block:: bash
 
-        $ pre-commit install
+        pre-commit install
 
 Setup pre-commit CI
 ^^^^^^^^^^^^^^^^^^^
@@ -289,7 +289,7 @@ Move essential files to run local tests
 
     .. code-block:: bash
 
-        git checkout -b setup-CI
+        $ git checkout -b setup-CI
 
 #. Now you will move ``src`` and ``tests`` folders in the following steps.
 
@@ -375,21 +375,21 @@ Setup GitHub Actions
 
     .. code-block:: bash
 
-        git add requirements
-        git commit -m "skpkg: list dependencies in requirements folder"
+        $ git add requirements
+        $ git commit -m "skpkg: list dependencies in requirements folder"
 
 #. Add and commit ``pyproject.toml``:
 
     .. code-block:: bash
 
-        git add pyproject.toml
-        git commit -m "skpkg: add pyproject.toml"
+        $ git add pyproject.toml
+        $ git commit -m "skpkg: add pyproject.toml"
 
 #. Push the changes to the ``setup-CI`` branch:
 
     .. code-block:: bash
 
-        git push origin setup-CI
+        $ git push origin setup-CI
 
 #. Create a PR from ``username/setup-CI`` to ``upstream/migration``.
 

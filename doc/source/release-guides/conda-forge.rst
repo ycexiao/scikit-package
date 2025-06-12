@@ -188,7 +188,7 @@ Generate ``meta.yaml`` by following ``Step 1`` and ``Step 2`` under ``conda-forg
 
     .. code-block:: bash
 
-       $ conda install -c conda-forge/label/<package-name>_rc -c conda-forge <package-name>
+       conda install -c conda-forge/label/<package-name>_rc -c conda-forge <package-name>
 
 For more, read the conda-forge official documentation for pre-release: https://conda-forge.org/docs/maintainer/knowledge_base/#pre-release-builds
 

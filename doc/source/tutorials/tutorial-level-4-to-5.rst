@@ -38,15 +38,15 @@ Create a new project with ``scikit-package``
 
     .. code-block:: bash
 
-        $ cd <project-name>
-        $ git checkout main
-        $ git pull origin main
+        cd <project-name>
+        git checkout main
+        git pull origin main
 
 #. Create a new project with ``scikit-package`` using the Level 5 ``public`` template:
 
     .. code-block:: bash
 
-        $ package create public
+        package create public
 
     .. important::
 
@@ -60,7 +60,7 @@ Create a new project with ``scikit-package``
 
     .. code-block:: bash
 
-        $ cd <package-name>
+        cd <package-name>
 
 #. Check that you have the following nested folder structure. Here is the structure. We will go through each file and folder:
 
@@ -94,35 +94,35 @@ Migration files from Level 4 to Level 5
 
     .. code-block:: bash
 
-        $ cd <package-name>
+        cd <package-name>
 
 #. Move the local ``git`` repository from the Level 4 (``..``) to the Level 5 folder (``.``):
 
     .. code-block:: bash
 
-        $ mv ../.git .
+        mv ../.git .
 
 #. Move the ``src`` and ``tests`` folders from Level 4 to Level 5:
 
     .. code-block:: bash
 
-        $ cp -n -r ../src .
-        $ cp -n -r ../tests .
+        cp -n -r ../src .
+        cp -n -r ../tests .
 
 #. Copy the requirements files from Level 4 to Level 5:
 
     .. code-block:: bash
 
-        $ cp ../requirements/conda.txt ./requirements/conda.txt
-        $ cp ../requirements/pip.txt ./requirements/pip.txt
-        $ cp ../requirements/test.txt ./requirements/test.txt
+        cp ../requirements/conda.txt ./requirements/conda.txt
+        cp ../requirements/pip.txt ./requirements/pip.txt
+        cp ../requirements/test.txt ./requirements/test.txt
 
 #. At this point, you should be able to install the package locally and test it using your existing conda environment:
 
     .. code-block:: bash
 
-        $ conda activate  <package-name>-env
-        $ pytest tests
+        conda activate  <package-name>-env
+        pytest tests
 
 #. Once the tests pass, let's manually migrate hand-written files like ``README.md`` from Level 4 to Level 5.
 

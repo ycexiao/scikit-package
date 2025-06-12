@@ -51,7 +51,7 @@ Create a new project with ``scikit-package``
 
     .. code-block:: bash
 
-        $ package create system
+        package create system
 
 #. Respond to the following prompts:
 
@@ -82,7 +82,7 @@ Create a new project with ``scikit-package``
 
     .. code-block:: bash
 
-        $ cd my-package
+        cd my-package
 
 #. Confirm that you have the following folder structure shown below:
 
