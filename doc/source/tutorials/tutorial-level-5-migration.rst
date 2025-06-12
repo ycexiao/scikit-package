@@ -315,8 +315,8 @@ Move essential files to run local tests
 
     .. code-block:: bash
 
-        cp -n -r ../src src/
-        cp -n -r ../tests tests/
+        cp -n -r ../src/* src/
+        cp -n -r ../tests/* tests/
 
     .. seealso::
 
