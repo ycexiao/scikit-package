@@ -33,7 +33,7 @@ Create a new project with ``scikit-package``
 
     .. code-block:: bash
 
-        $ package create public
+        package create public
 
 #. Answer the following questions:
 
@@ -121,7 +121,7 @@ Let's create a news item for the changes made in this PR.
 
     .. code-block:: bash
 
-        $ git pull origin skpkg-public
+        git pull origin skpkg-public
 
 #. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
 
@@ -143,9 +143,9 @@ Let's create a news item for the changes made in this PR.
 
     .. code-block:: bash
 
-        $ git add news/skpkg-public.rst
-        $ git commit -m "chore: Add news item for skpkg-public"
-        $ git push origin skpkg-public
+        git add news/skpkg-public.rst
+        git commit -m "chore: Add news item for skpkg-public"
+        git push origin skpkg-public
 
 Create a pull request
 ^^^^^^^^^^^^^^^^^^^^^
@@ -168,7 +168,7 @@ Create a pull request
 
         .. code-block:: bash
 
-         $ git pull origin skpkg-public
+         git pull origin skpkg-public
 
         If you have more problems, please read the FAQ section on :ref:`faq-pre-commit-error`.
 

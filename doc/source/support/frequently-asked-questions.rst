@@ -154,13 +154,13 @@ Here are the steps you can follow to override the default values for Level 5 usa
 
   .. code-block:: bash
 
-    $ cd ~
+    cd ~
 
 2. Create ``.skpkgrc``.
 
   .. code-block:: bash
 
-    $ touch .skpkgrc
+    touch .skpkgrc
 
 3. Edit ``.skpkgrc``. Copy and paste the following snippets to ``.skpkgrc``.
 
@@ -192,7 +192,7 @@ The scikit-package configuration file is located in ``~/.skpkgrc`` by default. Y
 
 .. code-block:: bash
 
-   $ export SKPKG_CONFIG_FILE=/path/to/config
+   export SKPKG_CONFIG_FILE=/path/to/config
 
 
 Release
@@ -610,8 +610,8 @@ Here is how you can add the conda-forge channel to your conda configuration and 
 
 .. code-block:: bash
 
-  $ conda config --add channels conda-forge
-  $ conda install scikit-package
+  conda config --add channels conda-forge
+  conda install scikit-package
 
 The first command adds the ``conda-forge`` channel to the conda configuration, allowing users to install packages from this channel. The second command installs the ``scikit-package`` package from the ``conda-forge`` channel. https://anaconda.org/conda-forge/scikit-package
 
@@ -804,19 +804,19 @@ Add the following line to ``~/.bashrc`` or ``~/.zshrc`` file:
 
 .. code-block:: bash
 
-    $ alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
+    alias cpnews="cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst"
 
 Optionally, if you also want to apply ``git add`` for the ``news/<branch-name>.rst`` created, you can use the following command instead:
 
 .. code-block:: bash
 
-    $ alias cpnews='cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst && git add news/$(git rev-parse --abbrev-ref HEAD).rst'
+    alias cpnews='cp news/TEMPLATE.rst news/$(git rev-parse --abbrev-ref HEAD).rst && git add news/$(git rev-parse --abbrev-ref HEAD).rst'
 
 Run the following command to apply the shell configuration:
 
 .. code-block:: bash
 
-    $ source ~/.bashrc
+    source ~/.bashrc
 
 Now, whenever you want to create a news file for the PR, simply navigate to the top-level directory in the project and type ``cpnews`` on the command line.
 

@@ -14,7 +14,7 @@ How do I create a news file?
 
     .. code-block:: bash
 
-        $ package add news --add -m "<Describe the main feature added in the PR.>"
+        package add news --add -m "<Describe the main feature added in the PR.>"
 
     .. note::
 
@@ -85,7 +85,7 @@ Yes. In this case, we want to communicate to the reviewer(s) the reason it shoul
 
     .. code-block:: bash
 
-        $ package add news -n -m "<brief-reason>."
+        package add news -n -m "<brief-reason>."
 
 You will see a new file has been created: ``news/<branch-name>.rst``
 
