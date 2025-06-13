@@ -588,6 +588,7 @@ Step 3. Final check
 #. After the PR is merged to ``upstream/main``, archive the old repository by changing its name:
 
     .. code-block:: bash
+
         cd ..
         mv <package-name> <package-name>-archive
 
