@@ -1,9 +1,9 @@
+import shutil
+from pathlib import Path
 from types import SimpleNamespace
 
-from pathlib import Path
-from scikit_package.cli.add import news_item
 from scikit_package.cli import add
-import shutil
+from scikit_package.cli.add import news_item
 
 
 def _setup_news_test_env(tmp_path):
@@ -22,6 +22,7 @@ def _setup_news_test_env(tmp_path):
     # Mock branch setup
     branch_name = "test-branch"
     import scikit_package.utils.auth as auth
+
     auth.get_current_branch = lambda: branch_name
     news_file = test_news_dir / f"{branch_name}.rst"
     return news_file

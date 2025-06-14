@@ -64,6 +64,7 @@ def _insert_no_news_item(lines, message):
 def news_item(args):
     """Handle adding a news item or no news item."""
     message = args.message
+    print(args)
     # Directly match NEWS_HEADER_MAP keys to argument attributes
     flags_used = [flag for flag in NEWS_HEADER_MAP if getattr(args, flag)]
     branch = auth.get_current_branch()
