@@ -1,5 +1,6 @@
-from pathlib import Path
 import shutil
+from pathlib import Path
+
 
 def _detect_import_and_module_path():
     import_name = Path.cwd().name
@@ -7,8 +8,11 @@ def _detect_import_and_module_path():
         import_name.replace(".", "/").replace("-", "_")
     )
     return import_name, module_path.resolve()
-    
-def _generate_api_doc(package_name, package_dir, api_dir=Path("doc/source/api")):
+
+
+def _generate_api_doc(
+    package_name, package_dir, api_dir=Path("doc/source/api")
+):
     eq_spacing = "=" * len(f"{package_name} package")
     subpkg = f""":tocdepth: -1
 
@@ -90,11 +94,11 @@ def _clean_api_dir(api_dir=Path("doc/source/api")):
 
 def build(args):
     """Entry point for the auto API documentation generation script.
-    This script detects the package import name and module path,
-    cleans the API directory, and generates the API documentation
-    for the package and its subpackages.
+
+    This script detects the package import name and module path, cleans
+    the API directory, and generates the API documentation for the
+    package and its subpackages.
     """
     _clean_api_dir()
     import_name, module_path = _detect_import_and_module_path()
     _generate_api_doc(import_name, module_path)
-
