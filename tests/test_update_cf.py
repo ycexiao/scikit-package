@@ -1,9 +1,7 @@
 import tempfile
 from pathlib import Path
 
-from scikit_package.cli.update.cf import (
-    _update_meta_yaml,
-)
+from scikit_package.cli.update.cf import _update_meta_yaml
 
 
 def test_update_meta_yaml_realistic():
@@ -29,5 +27,3 @@ source:
         assert updated_lines[3] == "  version: {{ version }}"
         assert updated_lines[4] == ""
         assert updated_lines[7] == "  sha256: 123456789abcdef0123456789"
-
-
