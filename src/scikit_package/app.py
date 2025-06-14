@@ -83,7 +83,7 @@ def setup_subparsers(parser):
     build_commands = [
         (
             "api-doc",
-            "Generate API docs in doc/source/api for namespace import packages.",
+            "Generate API in doc/source/api for namespace import package.",
         ),
     ]
     _add_subcommands(subparsers_build, build_commands, api_doc.build)
