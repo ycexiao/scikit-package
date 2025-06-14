@@ -1,49 +1,29 @@
 from types import SimpleNamespace
 
+from pathlib import Path
 from scikit_package.cli.add import news_item
-from scikit_package.utils import auth
-
-TEMPLATE_CONTENT = """**Added:**
-
-* <news item>
-
-**Changed:**
-
-* <news item>
-
-**Deprecated:**
-
-* <news item>
-
-**Removed:**
-
-* <news item>
-
-**Fixed:**
-
-* <news item>
-
-**Security:**
-
-* <news item>
-"""
+from scikit_package.cli import add
+import shutil
 
 
-def _setup_news_test_env(tmp_path, template_content=TEMPLATE_CONTENT):
+def _setup_news_test_env(tmp_path):
     """Set up a temporary news directory and template file for testing."""
-    news_dir = tmp_path / "news"
-    news_dir.mkdir()
-    template_file = news_dir / "TEMPLATE.rst"
-    template_file.write_text(template_content)
-    # Override the default news directory and template path
-    from scikit_package.cli import add
-
-    add.NEWS_DIR = str(news_dir)
-    add.TEMPLATE_PATH = str(template_file)
+    test_news_dir = tmp_path / "news"
+    test_news_dir.mkdir()
+    # Locate the real TEMPLATE.rst file in the project root
+    project_root = Path(__file__).resolve().parents[1]
+    real_template_path = project_root / "news" / "TEMPLATE.rst"
+    test_template_file = test_news_dir / "TEMPLATE.rst"
+    # Copy the real template to the test directory
+    shutil.copy(real_template_path, test_template_file)
+    # Override paths for testing
+    add.NEWS_DIR = str(test_news_dir)
+    add.TEMPLATE_PATH = str(test_template_file)
+    # Mock branch setup
     branch_name = "test-branch"
-    # Mock the auth.get_current_branch to return a specific branch name
+    import scikit_package.utils.auth as auth
     auth.get_current_branch = lambda: branch_name
-    news_file = news_dir / f"{branch_name}.rst"
+    news_file = test_news_dir / f"{branch_name}.rst"
     return news_file
 
 
