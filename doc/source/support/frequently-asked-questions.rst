@@ -50,8 +50,8 @@ The following files need to be modified:
 #. In ``.flake8``, modify ``max-line-length``.
 #. In ``pyproject.toml``, modify ``line-length`` under ``[tool.black]``.
 
-.. seealso:: 
-  
+.. seealso::
+
   As recommended by PEP 8, comments and docstrings should be wrapped at 72 characters, as defined under ``[tool.docformatter]`` in ``pyproject.toml``.
 
 
