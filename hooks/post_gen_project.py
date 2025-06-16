@@ -159,8 +159,8 @@ def update_workflow():
 
 
     def update_workflow_params(content):
-        """Replace placeholder parameters in workflow .yml files with user
-        input."""
+        """Replace placeholder parameters in workflow .yml files with
+        user input."""
         def replace_match(match):
             key = match.group(1)
             return str(workflow_input[key])
@@ -170,8 +170,8 @@ def update_workflow():
 
 
     def update_local_workflows(central_workflows):
-        """Replace existing GitHub workflow files with latest from scikit-
-        package/release-scripts."""
+        """Replace existing GitHub workflow files with latest from
+        scikit- package/release-scripts."""
         local_workflows = set(f.name for f in LOCAL_WORKFLOW_DIR.glob("*.yml"))
         central_workflow_names = set(central_workflows.keys())
 

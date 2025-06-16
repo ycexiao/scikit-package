@@ -44,11 +44,15 @@ Here is a recommended setup and hooks for ``pre-commit`` for each level:
 How do I modify line-width limits?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Three files need to be modified:
+The following files need to be modified:
 
-1. In ``.isort.cfg``, modify ``line_length``.
-2. In ``.flake8``, modify ``max-line-length``.
-3. In ``pyproject.toml``, modify ``line-length`` under ``[tool.black]``.
+#. In ``.isort.cfg``, modify ``line_length``.
+#. In ``.flake8``, modify ``max-line-length``.
+#. In ``pyproject.toml``, modify ``line-length`` under ``[tool.black]``.
+
+.. seealso::
+
+  As recommended by PEP 8, comments and docstrings should be wrapped at 72 characters, as defined under ``[tool.docformatter]`` in ``pyproject.toml``.
 
 
 How do I skip a specific file for ``flake8`` and ``black``?
