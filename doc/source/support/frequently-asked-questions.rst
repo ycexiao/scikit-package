@@ -360,13 +360,13 @@ How do I build API .rst files for a Python package with a namespace import?
 #. Install ``scikit-package`` if you haven't already:
 
     .. code-block:: bash
-    
+
         conda install scikit-package
 
 #. ``cd`` into your project directory:
 
     .. code-block:: bash
-      
+
         cd <path-to-your-project>
 
 #. Ensure you have the ``API`` section in ``doc/source/index.rst``:
