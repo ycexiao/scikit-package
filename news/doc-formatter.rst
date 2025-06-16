@@ -1,6 +1,6 @@
 **Added:**
 
-* Add docformatter configuration in pyprojec.toml.
+* Add ``docformatter`` configuration in ``pyproject.toml``.
 
 **Changed:**
 
