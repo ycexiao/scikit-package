@@ -103,6 +103,9 @@ Pull request practices
 
 .. _news-item-practice:
 
+Writing news items for release notes
+------------------------------------
+
 .. include:: ../snippets/news-file-format.rst
 
 Writing tutorials

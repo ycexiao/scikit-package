@@ -33,7 +33,7 @@ Create a new project with ``scikit-package``
 
     .. code-block:: bash
 
-        $ package create public
+        package create public
 
 #. Answer the following questions:
 
@@ -121,11 +121,9 @@ Let's create a news item for the changes made in this PR.
 
     .. code-block:: bash
 
-        $ git pull origin skpkg-public
+        git pull origin skpkg-public
 
 #. Make a copy of ``news/TEMPLATE.rst`` and rename to ``news/<branch-name>.rst``.
-
-#. (optional) If you are using a Linux shell, you can setup an ``alias`` to make the creation of the news file ready for editing much quicker and easier. Read :ref:`faq-github-news-automate` to learn how to setup shortcuts.
 
 #. Do not delete ``news/TEMPLATE.rst``. Leave it as it is.
 
@@ -137,14 +135,17 @@ Let's create a news item for the changes made in this PR.
 
         * Support public releases with scikit-package by migrating the package from Level 4 to Level 5 in the scikit-package standard.
 
+    .. seealso::
+
+        To streamline the above steps, you may instead run ``package add news --add -m "Support public releases with scikit-package by migrating the package from Level 4 to Level 5 in the scikit-package standard."``. For more, please refer to :ref:`news-item-practice`.
+
 #. Push the change to the remote GitHub repository.
 
     .. code-block:: bash
 
-        $ git add news/skpkg-public.rst
-        $ git commit -m "chore: Add news item for skpkg-public"
-        $ git push origin skpkg-public
-
+        git add news/skpkg-public.rst
+        git commit -m "chore: Add news item for skpkg-public"
+        git push origin skpkg-public
 
 Create a pull request
 ^^^^^^^^^^^^^^^^^^^^^
@@ -167,7 +168,7 @@ Create a pull request
 
         .. code-block:: bash
 
-         $ git pull origin skpkg-public
+         git pull origin skpkg-public
 
         If you have more problems, please read the FAQ section on :ref:`faq-pre-commit-error`.
 
