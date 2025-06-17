@@ -2,6 +2,8 @@ import argparse
 from argparse import ArgumentParser
 
 from scikit_package.cli import add, create
+from scikit_package.cli.build import api_doc
+from scikit_package.cli.update import cf
 
 SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
 
@@ -68,6 +70,32 @@ def setup_subparsers(parser):
         ),
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    # "update" subparser
+    parser_update = parser.add_parser(
+        "update", help="Update existing package."
+    )
+    subparsers_update = parser_update.add_subparsers(
+        dest="subcommand", required=True
+    )
+    update_commands = [
+        (
+            "conda-forge",
+            "Update conda-forge recipe meta.yml file after release.",
+        ),
+    ]
+    _add_subcommands(subparsers_update, update_commands, cf.update)
+    # "build" subparser
+    parser_build = parser.add_parser("build", help="Build API docs")
+    subparsers_build = parser_build.add_subparsers(
+        dest="subcommand", required=True
+    )
+    build_commands = [
+        (
+            "api-doc",
+            "Generate API in doc/source/api for namespace import package.",
+        ),
+    ]
+    _add_subcommands(subparsers_build, build_commands, api_doc.build)
     _add_news_flags(parser_news)
     parser_news.set_defaults(func=add.news_item, subcommand="news")
 
@@ -84,6 +112,7 @@ def main():
     >>> package create conda-forge
     >>> package add news -a -m "Add awesome news item."
     >>> package add news -n -m "Fix minor typo."
+    >>> package update conda-forge
     >>> package update (Not implemented yet)
     """
     parser = ArgumentParser(

@@ -1,6 +1,6 @@
 **Added:**
 
-* Implement ``package add news -a -m "<message>"`` and ``package add no news -m "<message>"`` to streamline news item creation process.
+* Add unit tests for updating meta.yaml for package update conda-forge and news item for package add news.
 
 **Changed:**
 

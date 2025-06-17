@@ -789,7 +789,6 @@ Add a description of the edits made in this PR. This should be a user-facing hig
       How do I write good news items? What if the changes in the PR are trivial and no news is needed? Please read our guide provided in :ref:`news-item-practice`.
 
 
-
 Maintaining ``scikit-package``
 ------------------------------
 
