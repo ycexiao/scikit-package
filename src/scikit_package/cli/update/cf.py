@@ -45,7 +45,8 @@ def _check_branch_exists(cwd, branch_name):
 
 
 def _run_commands(cwd, meta_file_path, version, SHA256, username, pkg_name):
-    """Create a PR from a branch name of <new_version> to upstream/main."""
+    """Create a PR from a branch name of <new_version> to
+    upstream/main."""
     _check_remote_exists(cwd, pkg_name)
     _check_branch_exists(cwd, version)
     run("git stash", cwd=cwd)
@@ -93,8 +94,9 @@ def _list_feedstock(feedstock_path):
 
 
 def update(args):
-    """Update the Python package version and SHA256 hash in a meta.yaml file,
-    and create a pull request to the upstream feedstock repository.
+    """Update the Python package version and SHA256 hash in a meta.yaml
+    file, and create a pull request to the upstream feedstock
+    repository.
 
     Step-by-step process:
     - List the latest versions and SHA256 hashes from PyPI.

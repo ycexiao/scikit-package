@@ -7,7 +7,8 @@ from scikit_package.cli.add import news_item
 
 
 def _setup_news_test_env(tmp_path):
-    """Set up a temporary news directory and template file for testing."""
+    """Set up a temporary news directory and template file for
+    testing."""
     test_news_dir = tmp_path / "news"
     test_news_dir.mkdir()
     # Locate the real TEMPLATE.rst file in the project root
