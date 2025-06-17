@@ -44,12 +44,15 @@ Here is a recommended setup and hooks for ``pre-commit`` for each level:
 How do I modify line-width limits?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Three files need to be modified:
+The following files need to be modified:
 
-1. In ``.isort.cfg``, modify ``line_length``.
-2. In ``.flake8``, modify ``max-line-length``.
-3. In ``pyproject.toml``, modify ``line-length`` under ``[tool.black]``.
+#. In ``.isort.cfg``, modify ``line_length``.
+#. In ``.flake8``, modify ``max-line-length``.
+#. In ``pyproject.toml``, modify ``line-length`` under ``[tool.black]``.
 
+.. seealso::
+
+  As recommended by PEP 8, comments and docstrings should be wrapped at 72 characters, as defined under ``[tool.docformatter]`` in ``pyproject.toml``.
 
 How do I skip a specific file for ``flake8`` and ``black``?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -327,7 +330,6 @@ Here is how you can **automate** the process of generating API documentation for
             "m2r",
         ]
 
-
         # Configure where to find the source code and write API .rst files
         apidoc_module_dir = '../../src/<package_dir_name>'
         apidoc_output_dir = 'api'
@@ -359,76 +361,35 @@ Here is how you can **automate** the process of generating API documentation for
 How do I build API .rst files for a Python package with a namespace import?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are using a namespace import, ``sphinx-apidoc`` will not work. We have develoepd our own script called ``auto_api.py`` to generate the API documentation.
+#. Install ``scikit-package`` if you haven't already:
 
-#. Run ``git clone https://github.com/scikit-package/release-scripts.git`` into a folder outside of the project directory. Here is the folder structure:
+    .. code-block:: bash
+
+        conda install scikit-package
+
+#. ``cd`` into your project directory:
+
+    .. code-block:: bash
+
+        cd <path-to-your-project>
+
+#. Ensure you have the ``API`` section in ``doc/source/index.rst``:
 
     .. code-block:: text
 
-      dev/
-      ├── <namespace_name>.<package_name>
-      │   ├── pyproject.toml
-      │   └── doc/source/api/
-      │   └── src
-      │       └── <namespace_name>
-      │           ├── __init__.py
-      │           └── <pakcage_name>
-      │               ├── __init__.py
-      │               └── file_one.py
-      └── release-scripts
-          └── auto_api.py
+      .. toctree::
+         :maxdepth: 2
+         :caption: API Reference
 
-#. Run ``cd <namespace_name>.<package_name>`` to enter the package directory.
+          Package API <api/package_dir_name>
 
-#. Run ``python -m build`` to build the package. You may have to install ``python-build`` first.
-
-#. Run the ``auto_api.py`` script. This is done by running ``python <path_to_auto_api_script> <package_name> <path_to_package_name> <path_to_api_directory>``. Here is an example below:
+#. Run the following CLI command to generate ``.rst`` files in ``doc/source/api``:
 
     .. code-block:: bash
 
-        cd ~/dev/<namespace_name>.<package_name>
-        python ../release-scripts/auto_api.py <namespace_name>.<package_name> ./src/<namespace_name>/<package_name> ./doc/source/api
+        package build api-doc
 
-    .. note:: Here is an example of how ``diffpy.utils`` uses the ``auto_api.py`` script. The folder structure is as follows:
-
-      .. code-block:: text
-
-          dev/
-          ├── diffpy.utils
-          │   ├── pyproject.toml
-          │   └── doc/source/api/
-          │   └── src
-          │       └── diffpy
-          │           ├── __init__.py
-          │           └── utils
-          │               ├── __init__.py
-          │               └── file_one.py
-          └── release-scripts
-              └── auto_api.py
-
-      Then you would run the following command:
-
-      .. code-block:: bash
-
-            cd ~/dev/diffpy.utils
-            python ../release-scripts/auto_api.py diffpy.utils ./src/diffpy/utils ./doc/source/api/
-
-#. Done! You will see that the ``.rst`` files under ``doc/source/api`` are generated.
-
-#. (Optional) Feel free to use the following shortcut. Add the following function to your ``~/.bashrc`` or ``~/.zshrc`` file and activate it by running ``source ~/.bashrc`` or ``source ~/.zshrc``:
-
-    .. code-block:: bash
-
-        api() {
-            IMPORT_NAME=$(basename "$(pwd)")  # e.g., "diffpy.utils"
-            IMPORT_PATH=$(echo "$IMPORT_NAME" | tr '.' '/')  # e.g., "diffpy/utils"
-            MODULE_PATH="src/$IMPORT_PATH"  # e.g., "src/diffpy/utils"
-            DOC_PATH="doc/source/api"
-
-            python "../release-scripts/auto_api.py" "$IMPORT_NAME" "$MODULE_PATH" "$DOC_PATH"
-        }
-
-    Once you enter the project directory, run ``api`` in the terminal to generate the API documentation automatically so that you don't have to type the full command every time!
+#. Done!
 
 .. _faq-doc-pr-preview:
 

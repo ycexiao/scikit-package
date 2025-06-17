@@ -99,6 +99,7 @@ Run ``black`` in your codebase
         | blib2to3
         | tests/data
         )/
+        '''
 
 #. Lint the code:
 
