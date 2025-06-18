@@ -177,7 +177,7 @@ First, copy the ``SHA256`` value from `pypi.org <http://pypi.org>`_:
 
 .. seealso::
 
-    For your next release, you can automate Steps 1 through 12 by running ``package update feedstock`` in your command line. Read the section below :ref:`conda-forge-pr-automate`.
+    For your next release, you can automate Steps 1 through 12 by running ``package update conda-forge`` in your command line. Read the section below :ref:`conda-forge-pr-automate`.
 
 .. _conda-forge-pr-automate:
 
@@ -210,7 +210,7 @@ Yes! We provide ``package update conda-forge`` to streamline the conda-forge rel
 
 #. Save ``~/.skpkgrc``.
 
-#. Type ``package update feedstock``.
+#. Type ``package update conda-forge``.
 
 #. Enter the number corresponding to the package. It will create a PR from ``origin/<latest-version>`` to ``upstream/main``.
 
