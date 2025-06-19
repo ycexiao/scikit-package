@@ -12,26 +12,15 @@ config_file = Path(config_file).expanduser()
 exist_config = config_file.exists()
 
 
-def run(repo_url):
+def run(repo_url, tag=None):
+    """Run cookiecutter with optional config file and optional
+    tag/branch/commit."""
     try:
+        cmd = ["cookiecutter", repo_url]
+        if tag:
+            cmd.extend(["--checkout", tag])
         if exist_config:
-            subprocess.run(
-                [
-                    "cookiecutter",
-                    repo_url,
-                    "--config-file",
-                    config_file,
-                ],
-                check=True,
-            )
-        else:
-            subprocess.run(
-                [
-                    "cookiecutter",
-                    repo_url,
-                ],
-                check=True,
-            )
-
+            cmd.extend(["--config-file", str(config_file)])
+        subprocess.run(cmd, check=True)
     except subprocess.CalledProcessError as e:
         print(f"Failed to run scikit-package for the following reason: {e}")
