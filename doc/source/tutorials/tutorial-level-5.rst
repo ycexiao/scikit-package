@@ -17,6 +17,9 @@ Make sure you have the latest version of ``scikit-package`` installed:
 
 .. include:: ../snippets/scikit-installation.rst
 
+.. _level-5-tutorial-new-project:
+
+
 Step 1. Create a new project with ``scikit-package``
 ----------------------------------------------------
 
@@ -24,7 +27,6 @@ Create a new GitHub repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../snippets/github-create-new-repo.rst
-
 
 Create a new project with ``scikit-package``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
