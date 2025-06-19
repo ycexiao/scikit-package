@@ -34,20 +34,22 @@ def read_skpkg_config(config_file):
 def get_extra_context():
     proj_config_dict = read_skpkg_config(proj_config_file)
     overwrite_context = [
-        str(key) + "=" + str(value) for key, value in proj_config_dict.items()
+        key + "=" + value
+        for key, value in proj_config_dict.items()
+        if not (value.startswith("[") and value.endswith("]"))
     ]
-    overwrite_context = " ".join(overwrite_context)
     return overwrite_context
 
 
 def run(repo_url):
     run_cmd = ["cookiecutter", repo_url]
-    if exist_user_config:
-        run_cmd.extend(["--config-file", str(user_config_path)])
 
     if exist_proj_config:
         extra_context = get_extra_context()
-        print(extra_context)
+        run_cmd.extend(extra_context)
+
+    if exist_user_config:
+        run_cmd.extend(["--config-file", str(user_config_path)])
 
     try:
         subprocess.run(
