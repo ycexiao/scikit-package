@@ -1,6 +1,7 @@
 from scikit_package.utils import cookie
 
-SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
+# SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
+SKPKG_GITHUB_URL = "https://github.com/ycexiao/scikit-package"
 
 
 def package(args):
