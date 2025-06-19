@@ -34,7 +34,7 @@ I am here to **start a new Python** project
             conda create -n skpkg-env scikit-package
             conda activate skpkg-env
             package create public
-    
+
         Follow the prompts to enter information for your package. You may follow the full tutorial provided in :ref:`level-5-tutorial`.
 
     ⏩️ If you are **new** to programming, start from Level 1. You will learn how to reuse code across files and folders. You will also learn how to write unit tests and use virtual (conda) environments. To get started, visit :ref:`level-1-2-3-tutorials`.
@@ -71,7 +71,7 @@ I want to publish my **package** on GitHub, PyPI, and conda-forge
 
             git tag <version-number>
             git push upstream <version-number>
-   
+
     To get started, follow the step-by-step instructions in :ref:`release-pypi-github`. After release, if you want to make your package available on ``conda-forge``, visit :ref:`release-conda-forge`.
 
 I want to explore **best practices** for developing and publishing scientific code
