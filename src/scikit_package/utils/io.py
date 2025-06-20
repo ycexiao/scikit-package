@@ -1,7 +1,14 @@
 import json
+import os
 from pathlib import Path
 
 from scikit_package.utils import io
+
+try:
+    SKPKG_USER_CONFIG_FILE = os.environ["SKPKG_CONFIG_FILE"]
+except KeyError:
+    SKPKG_USER_CONFIG_FILE = "~/.skpkgrc"
+SKPKG_PROJ_CONFIG_FILE = ".skpkgrc"
 
 
 def read_file(path):
@@ -14,13 +21,13 @@ def write_file(path, lines):
         f.writelines(lines)
 
 
-def read_skpkg_config():
-    """Read the ~/.skpkgrc configuration file."""
-    config_path = Path("~/.skpkgrc").expanduser()
+def read_skpkg_config(config_file=SKPKG_USER_CONFIG_FILE):
+    """Read the configuration file."""
+    config_path = Path(config_file).expanduser()
     if not config_path.exists():
         raise FileNotFoundError(
-            "scikit-packag configuration file ~/.skpkgrc is not found. "
-            "Please try again after running 'touch ~/.skpkgrc'."
+            f"scikit-packag configuration file {config_file} is not found. "
+            f"Please try again after running 'touch {config_file}'."
         )
     with config_path.open() as f:
         return json.load(f)
@@ -35,3 +42,24 @@ def get_config_value(key):
             f"Please set '{key}' as instructed in the documentation."
         )
     return value
+
+
+def get_config_cmd():
+    config_cmd = []
+    user_config_path = Path(
+        os.path.expandvars(SKPKG_USER_CONFIG_FILE)
+    ).expanduser()
+    if user_config_path.exists():
+        config_cmd.extend(["--config-file", str(user_config_path)])
+
+    try:
+        proj_config_dict = read_skpkg_config(SKPKG_PROJ_CONFIG_FILE)
+        overwrite_context = [
+            key + "=" + value
+            for key, value in proj_config_dict.items()
+            if not (value.startswith("[") and value.endswith("]"))
+        ]
+    except FileNotFoundError:
+        overwrite_context = []
+    config_cmd.extend(overwrite_context)
+    return config_cmd
