@@ -2,7 +2,7 @@ import os
 import subprocess
 from pathlib import Path
 
-import requests
+from scikit_package.utils import io
 
 SKPKG_CONFIG_FILE = "~/.skpkgrc"
 try:
@@ -14,22 +14,12 @@ config_file = Path(config_file).expanduser()
 exist_config = config_file.exists()
 
 
-def _get_latest_tag(repo_url):
-    api_url = (
-        repo_url.replace(
-            "https://github.com/", "https://api.github.com/repos/"
-        )
-        + "/tags"
-    )
-    response = requests.get(api_url)
-    tags = response.json()
-    return tags[0]["name"]
-
-
 def run(repo_url):
     """Run cookiecutter with optional config file."""
-    tag = _get_latest_tag(repo_url)
-    print(f"You are using the latest version of {tag} in {repo_url}.")
+    username_or_orgname = repo_url.split("/")[3]
+    repo_name = repo_url.split("/")[4]
+    tag = io.get_latest_release_tag(username_or_orgname, repo_name)
+    print(f"You are using the latest release version of {tag} in {repo_url}.")
     try:
         cmd = ["cookiecutter", repo_url]
         cmd.extend(["--checkout", tag])

@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+import requests
+
 from scikit_package.utils import io
 
 
@@ -35,3 +37,11 @@ def get_config_value(key):
             f"Please set '{key}' as instructed in the documentation."
         )
     return value
+
+
+def get_latest_release_tag(owner, repo):
+    """Get the latest release tag from a GitHub repository."""
+    url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
+    response = requests.get(url)
+    response.raise_for_status()
+    return response.json()["tag_name"]

@@ -1,6 +1,6 @@
 **Added:**
 
-* Use the latest tag for all entry points of running cookiecutter.
+* Use the latest release tag for all entry points of running cookiecutter.
 
 **Changed:**
 
