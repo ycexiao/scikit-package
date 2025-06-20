@@ -53,6 +53,10 @@ The full list of packages is as follows:
 - `diffpy.srmise <https://github.com/diffpy/diffpy.srmise>`_
 - `regolith <https://github.com/regro/regolith>`_
 - `bg-mpl-stylesheets <https://github.com/Billingegroup/bg-mpl-stylesheets>`_
+- `cifkit <https://github.com/bobleesj/cifkit>`_
+- `SAF <https://github.com/bobleesj/structure-analyzer-featurizer>`_
+- `CAF <https://github.com/bobleesj/composition-analyzer-featurizer>`_
+- `bobleesej.utils <https://github.com/bobleesj/bobleesj.utils>`_
 - ...
 
 How do I get started?

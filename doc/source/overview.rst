@@ -15,7 +15,7 @@ Where do I begin?
 -----------------
 
 I am here to **start a new Python** project
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     ⏩️ If you have **experience** developing scientific code in Python, we recommend starting from Level 4, where you will create a lightweight Python package with automatic formatting and unit testing using GitHub Actions.
 
@@ -58,7 +58,7 @@ I am interested in **migrating my existing package** to the Level 5 ``public`` s
     Then, three workflows will be introduced. First, you will lint your existing code using ``pre-commit``. Then, you will migrate the source code, test files, and documentation to the new package directory created with ``package create public``. Finally, you will check the content of the repository, include the license, and conduct functional testing. You may follow the complete step-by-step tutorial provided in :ref:`migrate-existing-package-to-level-5`.
 
 I am interested in supporting Level 5 ``public`` from Level 4 ``system``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
     To get started, follow the step-by-step instructions provided in :ref:`level-4-to-5-tutorial`.
 
