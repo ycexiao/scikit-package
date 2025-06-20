@@ -1,6 +1,6 @@
 **Added:**
 
-* Use latest tag for manuscript and optionally checkout specific branch/tag in the package create command.
+* Use the latest tag for all entry points of running cookiecutter.
 
 **Changed:**
 
