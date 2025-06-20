@@ -5,7 +5,8 @@ from scikit_package.cli import add, create
 from scikit_package.cli.build import api_doc
 from scikit_package.cli.update import cf
 
-SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
+# SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
+SKPKG_GITHUB_URL = "https://github.com/ycexiao/scikit-package"
 
 
 def _add_subcommands(subparsers, commands, func, special_args={}):
