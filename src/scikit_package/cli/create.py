@@ -6,7 +6,8 @@ SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
 def package(args):
     """Run the cookiecutter template for creating a package.
 
-    By default, checkout the latest release tag from the relevant GitHub repository.
+    By default, checkout the latest release tag from the relevant GitHub
+    repository.
     """
     subcmd = args.subcommand
     if subcmd == "workspace":
