@@ -162,6 +162,13 @@ The Billinge Group's ``scikit-package`` has been modified from the NSLS-II scien
 .. toctree::
    :maxdepth: 2
    :hidden:
+   :caption: SCIKIT PACKAGE MANUSCRIPT
+
+   scikit-package-manuscript/how-to-use
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
    :caption: SUPPORT
 
    support/frequently-asked-questions
