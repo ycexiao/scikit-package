@@ -14,7 +14,7 @@ except KeyError:
 config_file = os.path.expandvars(config_file)
 config_file = Path(config_file).expanduser()
 
-SKPKG_PROJ_CONFIG_FILE = ".cookiecutterrc"
+SKPKG_PROJ_CONFIG_FILE = "cookiecutter.json"
 proj_config_file = Path(SKPKG_PROJ_CONFIG_FILE).expanduser()
 
 
