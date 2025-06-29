@@ -1,9 +1,21 @@
 import json
+import os
 from pathlib import Path
 
 import requests
 
 from scikit_package.utils import io
+
+SKPKG_USER_CONFIG_FILE = "~/.skpkgrc"
+try:
+    config_file = os.environ["SKPKG_CONFIG_FILE"]
+except KeyError:
+    config_file = SKPKG_USER_CONFIG_FILE
+config_file = os.path.expandvars(config_file)
+config_file = Path(config_file).expanduser()
+
+SKPKG_PROJ_CONFIG_FILE = "cookiecutter.json"
+proj_config_file = Path(SKPKG_PROJ_CONFIG_FILE).expanduser()
 
 
 def read_file(path):
@@ -16,13 +28,13 @@ def write_file(path, lines):
         f.writelines(lines)
 
 
-def read_skpkg_config():
+def read_skpkg_config(config_path=config_file):
     """Read the ~/.skpkgrc configuration file."""
-    config_path = Path("~/.skpkgrc").expanduser()
     if not config_path.exists():
         raise FileNotFoundError(
-            "scikit-packag configuration file ~/.skpkgrc is not found. "
-            "Please try again after running 'touch ~/.skpkgrc'."
+            f"scikit-packag configuration file {str(config_file)} is "
+            "not found. Please try again after  running "
+            f"'touch {str(config_file)}'."
         )
     with config_path.open() as f:
         return json.load(f)
@@ -45,3 +57,19 @@ def get_latest_release_tag(owner, repo):
     response = requests.get(url)
     response.raise_for_status()
     return response.json()["tag_name"]
+
+
+def get_config_cmd(config_file=config_file, proj_config_file=proj_config_file):
+    config_cmd = []
+    if config_file.exists():
+        config_cmd.extend(["--config-file", str(config_file)])
+    if proj_config_file.exists():
+        extra_context = read_skpkg_config(proj_config_file)
+        extra_context_cmd = []
+        for key, value in extra_context.items():
+            if isinstance(value, list):
+                continue
+            cmd = key + "=" + value
+            extra_context_cmd.append(cmd)
+        config_cmd.extend(extra_context_cmd)
+    return config_cmd
