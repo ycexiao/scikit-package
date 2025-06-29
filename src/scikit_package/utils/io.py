@@ -67,7 +67,7 @@ def get_config_cmd(config_file=config_file, proj_config_file=proj_config_file):
         extra_context = read_skpkg_config(proj_config_file)
         extra_context_cmd = []
         for key, value in extra_context.items():
-            if value.startswith("["):
+            if isinstance(value, list):
                 continue
             cmd = key + "=" + value
             extra_context_cmd.append(cmd)
