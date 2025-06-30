@@ -2,6 +2,19 @@ import requests
 from packaging.version import parse as parse_version
 
 
+def check_pypi_package_exists(package_name):
+    """Check if a package exists on PyPI."""
+    response = requests.get(f"https://pypi.org/pypi/{package_name}/json")
+    if response.status_code == 200:
+        print(f"Great, {package_name} exists on PyPI.")
+    else:
+        raise ValueError(
+            f"{package_name} is not found on PyPI. "
+            "Please ensure your package is uploaded to PyPI before "
+            "running `package create conda-forge`."
+        )
+
+
 def get_pypi_version_sha(package_name, count=1):
     """Fetch the latest stable versions of the package and their
     SHA256."""
