@@ -92,9 +92,16 @@ Hence, in Step 1, we will generate ``meta.yaml`` using the Billinge group's temp
 
 #. Check ``meta.yaml`` exists.
 
-#. If your package contains only pure Python code, the ``build:`` section under the ``requirements:`` section should be empty. So remove the ``build:`` section and confirm that the modified ``meta.yaml`` looks as follows:
+#. If your package contains only pure Python code, the ``build:`` section **below** the ``requirements:`` section should be empty.
+
+#. If it is empty, remove the ``build:`` under the ``requirements:`` section and confirm that the modified ``meta.yaml`` looks as follows:
 
     .. code-block:: yaml
+
+        build:
+          noarch: python
+          number: 0
+          script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
         requirements:
           host:
@@ -102,6 +109,8 @@ Hence, in Step 1, we will generate ``meta.yaml`` using the Billinge group's temp
             - setuptools
             - setuptools-git-versioning >=2.0
             - pip
+
+    Ensure that the ``build:`` section **above** the ``requirements:`` section is not removed.
 
 #. Double-check the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the project owner.
 
