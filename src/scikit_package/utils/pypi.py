@@ -10,7 +10,7 @@ def check_pypi_package_exists(package):
         data = response.json()
         version = data["info"]["version"]
         print(
-            f"> {package} is available on PyPI (latest version: {version}).\n"
+            f"> {package} is available on PyPI (latest version: {version})."
         )
     else:
         raise ValueError(
