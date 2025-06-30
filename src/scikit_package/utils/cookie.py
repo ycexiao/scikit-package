@@ -14,7 +14,7 @@ def run(repo_url):
             "Enter the package name to check whether it's available on PyPI: "
         )
         pypi.check_pypi_package_exists(package_name)
-    print(f"You are using the latest release version of {tag} in {repo_url}.")
+    print(f"> The latest release version of {tag} of {repo_name} is used.")
     try:
         cmd = ["cookiecutter", repo_url]
         cmd.extend(["--checkout", tag])

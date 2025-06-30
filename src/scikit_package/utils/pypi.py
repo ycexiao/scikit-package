@@ -2,23 +2,28 @@ import requests
 from packaging.version import parse as parse_version
 
 
-def check_pypi_package_exists(package_name):
-    """Check if a package exists on PyPI."""
-    response = requests.get(f"https://pypi.org/pypi/{package_name}/json")
+def check_pypi_package_exists(package):
+    """Check if a package exists on PyPI and print the latest
+    version."""
+    response = requests.get(f"https://pypi.org/pypi/{package}/json")
     if response.status_code == 200:
-        print(f"Great, {package_name} exists on PyPI.")
+        data = response.json()
+        version = data["info"]["version"]
+        print(
+            f"> {package} is available on PyPI (latest version: {version}).\n"
+        )
     else:
         raise ValueError(
-            f"{package_name} is not found on PyPI. "
+            f"{package} is not found on PyPI. "
             "Please ensure your package is uploaded to PyPI before "
             "running `package create conda-forge`."
         )
 
 
-def get_pypi_version_sha(package_name, count=1):
+def get_pypi_version_sha(package, count=1):
     """Fetch the latest stable versions of the package and their
     SHA256."""
-    response = requests.get(f"https://pypi.org/pypi/{package_name}/json")
+    response = requests.get(f"https://pypi.org/pypi/{package}/json")
     if response.status_code == 200:
         data = response.json()
         all_versions = [
@@ -39,6 +44,6 @@ def get_pypi_version_sha(package_name, count=1):
         return version_info
     else:
         raise ValueError(
-            f"No matching package found for {package_name} on PyPI. "
+            f"No matching package found for {package} on PyPI. "
             "Please check the name at https://pypi.org/project/"
         )
