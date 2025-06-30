@@ -537,10 +537,12 @@ Another key difference is that with ``pull_request_target``, the ``.yml`` file *
 
 .. _faq-github-actions-extra-cli-commands:
 
-How can I run extra CLI commands in the GitHub workflow for running tests?
+How can I add extra CLI commands in the GitHub workflow for running tests?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the GitHub workflow files for testing, a new conda environment is created and packages listed under the ``requirements`` folder are installed from the ``conda-forge``. channel. If you want to run extra commands **before** running ``pytest``, you can enter the ``run:`` command under the ``with:`` section in the workflow file.
+In the GitHub workflow files for testing, you might want to add extra CLI commands **before** running ``pytest``. For example, you may want to install dependencies that are not available on ``conda-forge`` but are only available from PyPI to test your package.
+
+To do so, you can enter the ``run:`` command under the ``with:`` section in the workflow file.
 
 .. code-block:: yaml
 
@@ -551,10 +553,28 @@ In the GitHub workflow files for testing, a new conda environment is created and
       echo "Done installing <package-name>"
     ...
 
-Here is an example workflow file: https://github.com/regro/regolith/blob/main/.github/workflows/tests-on-pr.yml.
-
 - In Level 5, the relevant workflow files are ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml`` and ``.github/workflows/tests-on-pr.yml``.
 - In Level 4, the relevant workflow file is ``.github/workflows/_tests-on-pr-no-codecov-no-headless.yml``.
+
+Here we provide a bit more context on how the ``run:`` commands are used. The extra CLI commands are inserted into the reusable GitHub workflow under the ``Run extra user-defined CLI commands`` section of the reusable workflow file:
+
+.. code-block:: yaml
+
+      - name: Install ${{ inputs.project }} and requirements
+        run: |
+          conda install --file requirements/conda.txt
+          conda install --file requirements/test.txt
+          if ${{ inputs.c_extension }}; then
+            conda install --file requirements/build.txt
+          fi
+          python -m pip install . --no-deps
+
+      - name: Run extra user-defined CLI commands
+        run: |
+          echo "${{ inputs.run }}" > user-commands.sh
+          bash user-commands.sh
+
+After this step, the reusable workflow then runs the ``pytest`` command. To see the full reusable workflow file, please visit https://github.com/scikit-package/release-scripts/blob/main/.github/workflows/_tests-on-pr.yml.
 
 .. _faq-dependency-management:
 
