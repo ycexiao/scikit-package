@@ -9,9 +9,7 @@ def check_pypi_package_exists(package):
     if response.status_code == 200:
         data = response.json()
         version = data["info"]["version"]
-        print(
-            f"> {package} is available on PyPI (latest version: {version})."
-        )
+        print(f"> {package} is available on PyPI (latest version: {version}).")
     else:
         raise ValueError(
             f"{package} is not found on PyPI. "
