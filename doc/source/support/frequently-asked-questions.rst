@@ -447,7 +447,7 @@ Please refer to the :ref:`How do I do pre-release? <conda-forge-pre-release>` se
 GitHub Actions
 --------------
 
-.. _github-actions-python-versions:
+.. _faq-github-actions-python-versions:
 
 In Level 5, How do I set different Python versions for GitHub CI?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -507,7 +507,7 @@ In Level 5, what are the workflows running in each pull request?
 In Level 5, I see that another workflow is running once a PR is merged to ``main``. What is it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The workflow ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml`` is triggered. The goal is to ensure the latest code is tested not only on Linux but also across multiple operating systems and Python versions. This workflow runs tests on macOS (both Apple Silicon and Intel chips), Linux, and Windows and against three different Python versions, including the latest configured version. To modify the Python versions used in the workflows, refer to :ref:`github-actions-python-versions`.
+The workflow ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml`` is triggered. The goal is to ensure the latest code is tested not only on Linux but also across multiple operating systems and Python versions. This workflow runs tests on macOS (both Apple Silicon and Intel chips), Linux, and Windows and against three different Python versions, including the latest configured version. To modify the Python versions used in the workflows, refer to :ref:`faq-github-actions-python-versions`.
 
 .. note:: These workflow files call scripts located at https://github.com/scikit-package/release-scripts, which are centrally managed by the ``scikit-package`` development team. This centralized approach ensures that individual packages do not need to be updated separately when adding support for new Python versions or operating systems.
 
@@ -534,6 +534,47 @@ For the current GitHub CI for checking a news item, ``pull_request_target`` is u
 - ``pull_request_target``: This event grants the ``GITHUB_TOKEN`` write permissions, enabling it to perform actions that modify the repository, such as posting comments, updating pull request statuses, or merging code. The news CI creates a comment when an additional news ``.rst`` is not found under the ``news`` folder. Hence, ``pull_request_target`` is used.
 
 Another key difference is that with ``pull_request_target``, the ``.yml`` file **must already be merged** in the base branch at the time the pull request is opened or updated. For more, please refer to `GitHub docs <https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target>`_.
+
+.. _faq-github-actions-extra-cli-commands:
+
+How can I add extra CLI commands in the GitHub workflow for running tests?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the GitHub workflow files for testing, you might want to add extra CLI commands **before** running ``pytest``. For example, you may want to install dependencies that are not available on ``conda-forge`` but are only available from PyPI to test your package.
+
+To do so, you can enter the ``run:`` command under the ``with:`` section in the workflow file.
+
+.. code-block:: yaml
+
+  with:
+    project: <package-name>
+    run: |
+      pip install <package-name>
+      echo "Done installing <package-name>"
+    ...
+
+- In Level 5, the relevant workflow files are ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml`` and ``.github/workflows/tests-on-pr.yml``.
+- In Level 4, the relevant workflow file is ``.github/workflows/_tests-on-pr-no-codecov-no-headless.yml``.
+
+Here we provide a bit more context on how the ``run:`` commands are used. The extra CLI commands are inserted into the reusable GitHub workflow under the ``Run extra user-defined CLI commands`` section of the reusable workflow file:
+
+.. code-block:: yaml
+
+      - name: Install ${{ inputs.project }} and requirements
+        run: |
+          conda install --file requirements/conda.txt
+          conda install --file requirements/test.txt
+          if ${{ inputs.c_extension }}; then
+            conda install --file requirements/build.txt
+          fi
+          python -m pip install . --no-deps
+
+      - name: Run extra user-defined CLI commands
+        run: |
+          echo "${{ inputs.run }}" > user-commands.sh
+          bash user-commands.sh
+
+After this step, the reusable workflow then runs the ``pytest`` command. To see the full reusable workflow file, please visit https://github.com/scikit-package/release-scripts/blob/main/.github/workflows/_tests-on-pr.yml.
 
 .. _faq-dependency-management:
 

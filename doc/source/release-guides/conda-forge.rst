@@ -58,43 +58,63 @@ We first need to generate a "recipe" for the conda package. The recipe contains 
 
 Hence, in Step 1, we will generate ``meta.yaml`` using the Billinge group's template. See https://github.com/conda-forge/diffpy.utils-feedstock/blob/main/recipe/meta.yaml as an example of a ``meta.yaml`` used in production.
 
-1. Install ``scikit-package`` via ``pip install scikit-package`` and run ``package conda-forge``
+#. Run ``package create conda-forge``
 
-2. Answer the following questions:
+#. Answer the following questions:
 
-:github_username_or_orgname: The GitHub username or organization name.
+    :github_username_or_orgname: The GitHub username or organization name.
 
-:package_import_name: The name of the module.
+    :package_import_name: The name of the module.
 
-:github_repo_name: The name of the repository.
+    :github_repo_name: The name of the repository.
 
-:version: The version of the package.
+    :version: The version of the package.
 
-:min_python_version: The minimum version of Python required. i.e., |PYTHON_MIN_VERSION|
+    :min_python_version: The minimum version of Python required. i.e., |PYTHON_MIN_VERSION|
 
-:project_short_description: The short description of the project.
+    :project_short_description: The short description of the project.
 
-:project_full_description: The full description of the project.
+    :project_full_description: The full description of the project.
 
-:license_file: The license file located in the package repository. i.e., ``LICENSE.rst``.
+    :license_file: The license file located in the package repository. i.e., ``LICENSE.rst``.
 
-:recipe_maintainers: The GH usernames who can merge PRs in the feedstock.
+    :recipe_maintainers: The GH usernames who can merge PRs in the feedstock.
 
-:build_requirements: Copy ``requirements/build.txt`` from the project repo.
+    :build_requirements: Copy ``requirements/build.txt`` from the project repo.
 
-:host_requirements: Use the default values provided for pure Python packages.
+    :host_requirements: Use the default values provided for pure Python packages.
 
-:runtime_requirements: Copy from  ``requirements/conda.txt``.
+    :runtime_requirements: Copy from  ``requirements/conda.txt``.
 
-:testing_requirements: Copy from ``requirements/test.txt``.
+    :testing_requirements: Copy from ``requirements/test.txt``.
 
-1. Now, you have ``recipes/<package-name>/meta.yaml`` generated.
+#. ``cd`` into the new directory created by ``scikit-package``.
 
-.. important::
+#. Check ``meta.yaml`` exists.
 
-   - For a pure python package, have you removed the ``build`` section under the ``requirements``? You can find an example ``meta.yaml`` here: https://github.com/conda-forge/diffpy.utils-feedstock/blob/main/recipe/meta.yaml
+#. If your package contains only pure Python code, the ``build:`` section **below** the ``requirements:`` section should be empty.
 
-   - Have you double-checked the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the project owner.
+#. If it is empty, remove the ``build:`` under the ``requirements:`` section and confirm that the modified ``meta.yaml`` looks as follows:
+
+    .. code-block:: yaml
+
+        build:
+          noarch: python
+          number: 0
+          script: {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+
+        requirements:
+          host:
+            - python {{ python_min }}
+            - setuptools
+            - setuptools-git-versioning >=2.0
+            - pip
+
+    Ensure that the ``build:`` section **above** the ``requirements:`` section is not removed.
+
+#. Double-check the license file name in ``meta.yaml`` against the license files in the project repository. If you are unsure, please confirm with the project owner.
+
+#. Done!
 
 .. _conda-forge-recipe-upload:
 
