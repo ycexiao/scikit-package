@@ -13,8 +13,11 @@ def check_pypi_package_exists(package):
     else:
         raise ValueError(
             f"{package} is not found on PyPI. "
-            "Please ensure your package is uploaded to PyPI before "
-            "running `package create conda-forge`."
+            "`package create conda-forge` currently only supports pulling "
+            "information about the package from PyPI. Please ensure your "
+            "package is uploaded to PyPI. If you want to upload package "
+            "to conda-forge sourced from GitHub instead, "
+            "please update the conda-forge recipe by hand.",
         )
 
 
