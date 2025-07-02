@@ -1,6 +1,6 @@
 **Added:**
 
-* No news added: Briefly mention in the doc that you can set global custom values for prompts and also reuse the entered metadata when you need to udpate the package
+* No news added: Briefly mention in the doc that you can set global custom values for prompts and also reuse the entered metadata when you need to update the package
 
 **Changed:**
 
