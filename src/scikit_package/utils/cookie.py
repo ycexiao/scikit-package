@@ -9,7 +9,6 @@ def run(repo_url):
     repo_name = repo_url.split("/")[4]
     tag = io.get_latest_release_tag(username_or_orgname, repo_name)
     if repo_name == "scikit-package-conda-forge":
-        # Ask user input for the name of the package to be created
         package_name = input(
             "Enter the package name to check whether it's available on PyPI: "
         )
