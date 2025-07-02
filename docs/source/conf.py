@@ -149,7 +149,7 @@ html_context = {
     "github_user": "scikit-package",  # Username
     "github_repo": "scikit-package",  # Repo name
     "github_version": "main",  # Branch
-    "conf_py_path": "/doc/source/",  # Path in repo to the docs folder
+    "conf_py_path": "/docs/source/",  # Path in repo to the docs folder
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme

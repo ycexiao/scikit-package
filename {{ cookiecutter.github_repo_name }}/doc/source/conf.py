@@ -139,7 +139,7 @@ html_context = {
     "github_user": "{{ cookiecutter.github_username_or_orgname }}",
     "github_repo": "{{ cookiecutter.github_repo_name }}",
     "github_version": "main",
-    "conf_py_path": "/doc/source/",
+    "conf_py_path": "/docs/source/",
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme

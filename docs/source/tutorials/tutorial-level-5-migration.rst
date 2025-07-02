@@ -488,7 +488,7 @@ Move documentation files
 
     .. code-block:: bash
 
-        cp -n -r ../doc/source/* ./doc/source
+        cp -n -r ../docs/source/* ./docs/source
 
     .. note::
 
@@ -570,7 +570,7 @@ Move documentation files
         git add news
         git commit -m "skpkg: add news files"
 
-#. Create a PR from ``usernmae/doc`` to ``upstream/migration``.
+#. Create a PR from ``username/doc`` to ``upstream/migration``.
 
     The PR title can be ``skpkg: migrate documentation, README, and public static files``.
 

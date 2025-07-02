@@ -410,14 +410,14 @@ Click ``Run workflow`` and select the ``main`` branch. Your online documentation
 How do I fix the "No module named" error when I render documentation?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-(e.g., ``WARNING: autodoc: failed to import module 'tools' from module 'diffpy.pdfmorph'; the following exception was raised: No module named 'diffpy.utils'``), it can be resolved by adding ``autodoc_mock_imports = [<pkg>]`` to your ``conf.py`` right under imports. This file is located in ``/doc/source/conf.py``.
+(e.g., ``WARNING: autodoc: failed to import module 'tools' from module 'diffpy.pdfmorph'; the following exception was raised: No module named 'diffpy.utils'``), it can be resolved by adding ``autodoc_mock_imports = [<pkg>]`` to your ``conf.py`` right under imports. This file is located in ``/docs/source/conf.py``.
 
 .. _faq-doc-favicon-logo:
 
 How do I add a favicon and logo to the documentation?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In ``doc/source/conf.py``, add the following lines:
+In ``docs/source/conf.py``, add the following lines:
 
 .. code-block:: python
 
