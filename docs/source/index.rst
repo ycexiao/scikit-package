@@ -82,6 +82,7 @@ What are the full benefits when I reach Level 5?
 - Streamline the release process by pushing a Git tag to trigger a sequence of actions: publishing to PyPI and GitHub, updating hosted documentation, and updating the ``CHANGELOG.rst`` file.
 - Host documentation with a public URL using a ``Sphinx`` template. Include live rendering, API documentation, and previews for each pull request.
 - Provide a rich ``README.rst`` template that includes badges, installation instructions, support contacts, and contribution guidelines for your GitHub repository.
+- Set custom default metadata such as authors, project description, license holders, and keywords when creating a new package. Automatically store and reuse the entered metadata to update your package with the latest version of the ``scikit-package`` standards.
 - Set up both local and remote ``pre-commit`` hooks to automate linting of code. This includes checks for `PEP8 <https://peps.python.org/pep-0008/>`_, `PEP 256 <https://peps.python.org/pep-0256/>`_, and static files such as ``.json``, ``.yml``, and ``.md``. Include spelling checks as well.
 - Run ``pytest`` with the latest Python versions, adhering to the `SPEC0 <https://scientific-python.org/specs/spec-0000/>`_ specification, without requiring manual configuration.
 - Support namespace package imports (e.g., ``import <org-name>.<package-name>``) to maintain branding consistency and avoid name collisions.
