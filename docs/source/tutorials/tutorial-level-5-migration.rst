@@ -338,7 +338,7 @@ Move essential files to run local tests
 
         rm src/<package-name>/functions.py
         rm tests/test_functions.py
-        rm doc/source/api/<package-name>.example_package.rst
+        rm docs/source/api/<package-name>.example_package.rst
 
 #. If any files have been added or modified in the way you like, you can add and commit the changes. Otherwise, you can skip this step:
 
@@ -488,26 +488,26 @@ Move documentation files
 
     .. code-block:: bash
 
-        cp -n -r ../doc/source/* ./doc/source
+        cp -n -r ../docs/source/* ./docs/source
 
     .. note::
 
-        If files are moved to a different path like ``doc/manual/source`` (old) to ``doc/source`` (new), open the project in IDE and do a global search (ctrl + shift + f) for ``../`` or ``..`` and modify all relative path instances.
+        If files are moved to a different path like ``docs/manual/source`` (old) to ``docs/source`` (new), open the project in IDE and do a global search (ctrl + shift + f) for ``../`` or ``..`` and modify all relative path instances.
 
-#. Once again, ``scikit-package`` creates template files in the ``doc/source`` folder. If you do not need these files, you can delete them:
-
-    .. code-block:: bash
-
-        rm doc/source/getting-started.rst
-        rm -r doc/source/img/
-        rm -r doc/source/snippets/
-
-#. Some files in ``doc/source`` may have been modified by ``scikit-package``. Manually check these files and decide whether you want to keep the changes made by ``scikit-package`` or not. After doing this, you can add and commit changes (if applicable):
+#. Once again, ``scikit-package`` creates template files in the ``docs/source`` folder. If you do not need these files, you can delete them:
 
     .. code-block:: bash
 
-        git add doc/source
-        git commit -m "skpkg: migrate doc/source files"
+        rm docs/source/getting-started.rst
+        rm -r docs/source/img/
+        rm -r docs/source/snippets/
+
+#. Some files in ``docs/source`` may have been modified by ``scikit-package``. Manually check these files and decide whether you want to keep the changes made by ``scikit-package`` or not. After doing this, you can add and commit changes (if applicable):
+
+    .. code-block:: bash
+
+        git add docs/source
+        git commit -m "skpkg: migrate docs/source files"
 
 #. Ensure the documentation can be built locally:
 
@@ -570,7 +570,7 @@ Move documentation files
         git add news
         git commit -m "skpkg: add news files"
 
-#. Create a PR from ``usernmae/doc`` to ``upstream/migration``.
+#. Create a PR from ``username/doc`` to ``upstream/migration``.
 
     The PR title can be ``skpkg: migrate documentation, README, and public static files``.
 

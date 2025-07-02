@@ -55,7 +55,7 @@ Install your package locally
 Build documentation locally
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``/doc`` is the the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
+``/docs`` is the the Sphinx documentation folder. The documentation will be built locally first and then automatically built and hosted on GitHub Pages when a new release is created.
 
 .. include:: ../snippets/doc-local-build.rst
 
