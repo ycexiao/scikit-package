@@ -1,6 +1,6 @@
 import subprocess
 
-from scikit_package.utils import io
+from scikit_package.utils import io, pypi
 
 
 def run(repo_url):
@@ -8,7 +8,12 @@ def run(repo_url):
     username_or_orgname = repo_url.split("/")[3]
     repo_name = repo_url.split("/")[4]
     tag = io.get_latest_release_tag(username_or_orgname, repo_name)
-    print(f"You are using the latest release version of {tag} in {repo_url}.")
+    if repo_name == "scikit-package-conda-forge":
+        package_name = input(
+            "Enter the package name to check whether it's available on PyPI: "
+        )
+        pypi.check_pypi_package_exists(package_name)
+    print(f"> The latest release version of {tag} of {repo_name} is used.")
     try:
         cmd = ["cookiecutter", repo_url]
         cmd.extend(["--checkout", tag])
