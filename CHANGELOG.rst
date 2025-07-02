@@ -128,7 +128,7 @@ Release notes
 * Use field-list feature in Sphinx to better manage the user inputs in How to cookiecut package section
 * Add automatic linting of .md, .yml, .rst files via prettier hook in ``pre-commit``.
 * Add automatic docstring linting with PEP 257 compliance with ``docformatter`` in ``pre-commit``.
-* Configure ``PYTHON_MAX_VERSION`` and ``PYTHON_MIN_VERSION`` in ``doc/source/conf.py`` to increase maintainability throughout the documentation.
+* Configure ``PYTHON_MAX_VERSION`` and ``PYTHON_MIN_VERSION`` in ``docs/source/conf.py`` to increase maintainability throughout the documentation.
 
 **Changed:**
 

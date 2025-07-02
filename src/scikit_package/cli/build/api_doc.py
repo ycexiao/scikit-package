@@ -11,7 +11,7 @@ def _detect_import_and_module_path():
 
 
 def _generate_api_doc(
-    package_name, package_dir, api_dir=Path("doc/source/api")
+    package_name, package_dir, api_dir=Path("docs/source/api")
 ):
     eq_spacing = "=" * len(f"{package_name} package")
     subpkg = f""":tocdepth: -1
@@ -85,7 +85,7 @@ Submodules
         _generate_api_doc(subpkg_names[idx], path)
 
 
-def _clean_api_dir(api_dir=Path("doc/source/api")):
+def _clean_api_dir(api_dir=Path("docs/source/api")):
     """Delete and recreate the API directory."""
     if api_dir.exists():
         shutil.rmtree(api_dir)

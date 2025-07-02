@@ -282,7 +282,7 @@ How can I preview the documentation in real-time?
 How do I build API .rst files automatically for a standard Python package?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is how you can **automate** the process of generating API documentation for a standard Python package located in the ``doc/source/api`` folder.
+Here is how you can **automate** the process of generating API documentation for a standard Python package located in the ``docs/source/api`` folder.
 
 .. note::
 
@@ -300,7 +300,7 @@ Here is how you can **automate** the process of generating API documentation for
 
 #. Run ``conda install --file requirements/docs.txt`` to install the new dependency.
 
-#. Replace the following code block in your ``doc/source/conf.py`` file from
+#. Replace the following code block in your ``docs/source/conf.py`` file from
 
     .. code-block:: python
 
@@ -340,9 +340,9 @@ Here is how you can **automate** the process of generating API documentation for
 
 #. Run ``sphinx-reload doc`` to build and host the documentation.
 
-    Notice that the ``.rst`` files under ``doc/source/api`` are generated whenever the documentation is re-rendered.
+    Notice that the ``.rst`` files under ``docs/source/api`` are generated whenever the documentation is re-rendered.
 
-#. Add the following block to your ``doc/source/index.rst`` file:
+#. Add the following block to your ``docs/source/index.rst`` file:
 
     .. code-block:: text
 
@@ -373,7 +373,7 @@ How do I build API .rst files for a Python package with a namespace import?
 
         cd <path-to-your-project>
 
-#. Ensure you have the ``API`` section in ``doc/source/index.rst``:
+#. Ensure you have the ``API`` section in ``docs/source/index.rst``:
 
     .. code-block:: text
 
@@ -383,7 +383,7 @@ How do I build API .rst files for a Python package with a namespace import?
 
           Package API <api/package_dir_name>
 
-#. Run the following CLI command to generate ``.rst`` files in ``doc/source/api``:
+#. Run the following CLI command to generate ``.rst`` files in ``docs/source/api``:
 
     .. code-block:: bash
 
@@ -850,7 +850,7 @@ In https://github.com/scikit-package/scikit-package:
 
    * - File
      - Variables to update
-   * - ``doc/source/conf.py``
+   * - ``docs/source/conf.py``
      - ``PYTHON_DEFAULT_MAX_VERSION`` and ``PYTHON_DEFAULT_MIN_VERSION``
 
 In https://github.com/scikit-package/release-scripts:
