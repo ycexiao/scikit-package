@@ -1,8 +1,6 @@
 import pytest
 
-from scikit_package.utils.pypi import (  # Replace with your actual module
-    check_pypi_package_exists,
-)
+from scikit_package.utils.pypi import check_pypi_package_exists
 
 
 def test_check_pypi_package_exists(mocker, capsys):
