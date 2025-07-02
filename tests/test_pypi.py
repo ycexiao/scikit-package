@@ -5,11 +5,28 @@ from scikit_package.utils.pypi import (  # Replace with your actual module
 )
 
 
-def test_package_exists():
-    check_pypi_package_exists("diffpy.pdffit2")
+def test_check_pypi_package_exists(mocker, capsys):
+    mock_response = mocker.Mock()
+    mock_response.status_code = 200
+    mock_response.json.return_value = {"info": {"version": "1.2.3"}}
+    mock_get = mocker.patch(
+        "scikit_package.utils.pypi.requests.get", return_value=mock_response
+    )
+    check_pypi_package_exists("my-package")
+    captured = capsys.readouterr()
+    assert (
+        "> my-package is available on PyPI (latest version: 1.2.3)."
+        in captured.out
+    )
+    mock_get.assert_called_once_with("https://pypi.org/pypi/my-package/json")
 
 
-def test_package_does_not_exist_real():
-    with pytest.raises(ValueError) as e:
-        check_pypi_package_exists("package-does-not-exist")
-    assert "package-does-not-exist is not found on PyPI" in str(e.value)
+def test_check_pypi_package_exists_404(mocker):
+    mock_response = mocker.Mock()
+    mock_response.status_code = 404
+    mock_get = mocker.patch(
+        "scikit_package.utils.pypi.requests.get", return_value=mock_response
+    )
+    with pytest.raises(ValueError, match="my-package is not found on PyPI"):
+        check_pypi_package_exists("my-package")
+    mock_get.assert_called_once_with("https://pypi.org/pypi/my-package/json")
