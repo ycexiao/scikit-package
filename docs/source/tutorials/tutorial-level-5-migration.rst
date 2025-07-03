@@ -514,14 +514,14 @@ Move documentation files
     .. code-block:: bash
 
         conda install --file requirements/docs.txt
-        cd doc && make html && open build/html/index.html
+        cd docs && make html && open build/html/index.html
 
 
 #. Add and commit the changes:
 
     .. code-block:: bash
 
-        git add doc
+        git add docs
         git commit -m "skpkg: migrate documentation"
 
 #. By hand, migrate content over to ``README.rst``.

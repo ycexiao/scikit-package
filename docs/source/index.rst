@@ -78,21 +78,23 @@ Of course, you can start a lightweight package (Level 4) using the ``package cre
 What are the full benefits when I reach Level 5?
 -------------------------------------------------
 
+- **Streamline the release process** by pushing a Git tag to trigger a sequence of actions: publishing to PyPI and GitHub, updating hosted documentation, and updating the ``CHANGELOG.rst`` file. Visit :ref:`release-pypi-github` for more details.
+- **Host documentation with a public URL** using a ``Sphinx`` template as part of the PyPI and GitHub release. Includes live rendering, API documentation, and previews for each pull request.
+- **Set custom default metadata** such as authors, project description, license holders, and keywords when creating a new package. Automatically store and reuse the entered metadata to update your package with the latest version of the ``scikit-package`` standards. To learn more, read :ref:`faq-set-default-prompt-value`.
+- **Support namespace package imports** (e.g., ``import <org-name>.<package-name>``) to maintain branding consistency and avoid name collisions. To learn more, read :ref:`faq-project-setup-namespace`.
 
-- Streamline the release process by pushing a Git tag to trigger a sequence of actions: publishing to PyPI and GitHub, updating hosted documentation, and updating the ``CHANGELOG.rst`` file.
-- Host documentation with a public URL using a ``Sphinx`` template. Include live rendering, API documentation, and previews for each pull request.
+We have also adopted community software and standards in ``scikit-package``:
+
+- Set up both local and remote ``pre-commit`` hooks to automate linting of code. This includes checks for `PEP8 <https://peps.python.org/pep-0008/>`_, `PEP 256 <https://peps.python.org/pep-0256/>`_, and static files such as ``.json``, ``.yml``, and ``.md``. Spelling checks are included as well. To learn more about the hooks provided at each level, read :ref:`faq-pre-commit-levels`.
 - Provide a rich ``README.rst`` template that includes badges, installation instructions, support contacts, and contribution guidelines for your GitHub repository.
-- Set up both local and remote ``pre-commit`` hooks to automate linting of code. This includes checks for `PEP8 <https://peps.python.org/pep-0008/>`_, `PEP 256 <https://peps.python.org/pep-0256/>`_, and static files such as ``.json``, ``.yml``, and ``.md``. Include spelling checks as well.
 - Run ``pytest`` with the latest Python versions, adhering to the `SPEC0 <https://scientific-python.org/specs/spec-0000/>`_ specification, without requiring manual configuration.
-- Support namespace package imports (e.g., ``import <org-name>.<package-name>``) to maintain branding consistency and avoid name collisions.
 
 For technical users, here are some of the advanced features:
 
-- Generate conda-package ``meta.yaml`` with ``package create conda-forge``.
+- Streamline conda package release by updating ``meta.yaml`` with ``package create conda-forge`` after the PyPI and GitHub release. To learn more, read :ref:`release-conda-forge`.
 - Support headless GitHub CI testing for GUI applications.
 - Support non-pure Python package releases with ``cibuildwheel``.
 - Reusable GitHub Actions workflows located in `scikit-package/release-scripts <https://github.com/scikit-package/release-scripts/tree/main/.github/workflows>`_.
-
 
 How do I receive support?
 -------------------------
