@@ -25,6 +25,7 @@
         :target: https://anaconda.org/conda-forge/{{ cookiecutter.conda_pypi_package_dist_name }}
 
 .. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
+        :target: https://github.com/{{ cookiecutter.github_username_or_orgname }}/{{ cookiecutter.github_repo_name }}/pulls
 
 .. |PyPI| image:: https://img.shields.io/pypi/v/{{ cookiecutter.conda_pypi_package_dist_name }}
         :target: https://pypi.org/project/{{ cookiecutter.conda_pypi_package_dist_name }}/
