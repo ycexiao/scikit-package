@@ -4,11 +4,11 @@
 
         conda install --file requirements/docs.txt
 
-#. Enter into the ``doc`` project directory and render documentation:
+#. Enter into the ``docs`` project directory and render documentation:
 
     .. code-block:: bash
 
-        cd doc
+        cd docs
         make html
 
 #. Open the rendered documentation via web browser:
@@ -21,7 +21,7 @@
 
     .. code-block:: bash
 
-        cd doc && make html && open _build/html/index.html && cd ..
+        cd dosc && make html && open _build/html/index.html && cd ..
 
     .. seealso::
 
@@ -29,7 +29,7 @@
 
         .. code-block:: bash
 
-            alias doc='cd doc && make html && open _build/html/index.html && cd ..'
+            alias doc='cd docs && make html && open _build/html/index.html && cd ..'
 
         Apply the changes to your current terminal session:
 
@@ -37,7 +37,7 @@
 
             source ~/.bashrc
 
-        Now, you can simply enter the ``doc`` command in your terminal to build and open the documentation:
+        Now, you can simply enter the ``docs`` command in your terminal to build and open the documentation:
 
         .. code-block:: bash
 
@@ -56,6 +56,6 @@
 
         .. code-block:: bash
 
-            sphinx-reload doc
+            sphinx-reload docs
 
     #. Now, each time you make changes to the documentation, it will be automatically reloaded in your web browser.

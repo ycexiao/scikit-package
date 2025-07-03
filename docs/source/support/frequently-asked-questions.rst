@@ -15,6 +15,8 @@ Pre-commit
 
 ``Pre-commit`` attempts to automatically fix code style issues. The following questions are used to customize the ``pre-commit`` configuration for your project's needs.
 
+.. _faq-pre-commit-levels:
+
 How is pre-commit used in each Level?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
