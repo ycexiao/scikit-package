@@ -83,7 +83,7 @@ What are the full benefits when I reach Level 5?
 - **Set custom default metadata** such as authors, project description, license holders, and keywords when creating a new package. Automatically store and reuse the entered metadata to update your package with the latest version of the ``scikit-package`` standards. To learn more, read :ref:`faq-set-default-prompt-value`.
 - **Support namespace package imports** (e.g., ``import <org-name>.<package-name>``) to maintain branding consistency and avoid name collisions. To learn more, read :ref:`faq-project-setup-namespace`.
 
-We have also adopted community software and standards embedded in ``scikit-package``:
+We have also adopted community software and standards in ``scikit-package``:
 
 - Set up both local and remote ``pre-commit`` hooks to automate linting of code. This includes checks for `PEP8 <https://peps.python.org/pep-0008/>`_, `PEP 256 <https://peps.python.org/pep-0256/>`_, and static files such as ``.json``, ``.yml``, and ``.md``. Spelling checks are included as well. To learn more about the hooks provided at each level, read :ref:`faq-pre-commit-levels`.
 - Provide a rich ``README.rst`` template that includes badges, installation instructions, support contacts, and contribution guidelines for your GitHub repository.
