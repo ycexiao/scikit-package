@@ -25,6 +25,7 @@
         :target: https://anaconda.org/conda-forge/scikit-package
 
 .. |PR| image:: https://img.shields.io/badge/PR-Welcome-29ab47ff
+        :target: https://github.com/scikit-package/scikit-package/pulls
 
 .. |PyPI| image:: https://img.shields.io/pypi/v/scikit-package
         :target: https://pypi.org/project/scikit-package/
