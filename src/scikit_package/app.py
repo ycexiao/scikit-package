@@ -48,6 +48,13 @@ def setup_subparsers(parser):
         ("manuscript", "Create Overleaf LaTeX template of Billinge group."),
     ]
     _add_subcommands(subparsers_create, create_commands, create.package)
+    for _, subparser in subparsers_create.choices.items():
+        subparser.add_argument(
+            "-u",
+            "--update",
+            action="store_true",
+            help="Create the package in the update mode.",
+        )
     # "add" subparser
     parser_add = parser.add_parser(
         "add", help="Add a new file like a news item"
