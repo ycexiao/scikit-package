@@ -1,6 +1,6 @@
 **Added:**
 
-* Add ``app.py`` file for basic CLI.
+* Add ``app.py`` file for basic CLI and add ``--version`` command for ``scikit-package``.
 
 **Changed:**
 
