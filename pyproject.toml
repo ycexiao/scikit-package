@@ -57,8 +57,8 @@ namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
 dependencies = {file = ["requirements/pip.txt"]}
 
 [project.scripts]
-package = "scikit_package.app:main"
-scikit-package = "scikit_package.app:main"
+package = "scikit_package.scikit_package_app:main"
+scikit-package = "scikit_package.scikit_package_app:main"
 
 [tool.codespell]
 exclude-file = ".codespell/ignore_lines.txt"
