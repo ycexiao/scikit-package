@@ -125,10 +125,8 @@ def main():
         version=f"scikit-package {__version__}",
         help="Show the version of scikit-package and exit.",
     )
-
     subparsers = parser.add_subparsers(dest="command", required=True)
     setup_subparsers(subparsers)
-
     args = parser.parse_args()
     args.func(args)
 
