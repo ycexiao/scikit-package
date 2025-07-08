@@ -1,7 +1,5 @@
 import argparse
-import sys
 from argparse import ArgumentParser
-from pathlib import Path
 
 from scikit_package.cli import add, create
 from scikit_package.cli.build import api_doc
@@ -118,37 +116,21 @@ def main():
     >>> package update conda-forge
     >>> package update (Not implemented yet)
     """
-    # CLI commands if 'scikit-package' is ran
-    version_parser = ArgumentParser(add_help=False)
-    version_parser.add_argument("--version", action="store_true")
-    args, remaining = version_parser.parse_known_args()
-    if args.version:
-        print(f"scikit-package {__version__}")
-        print(f"GitHub: {SKPKG_GITHUB_URL}")
-        return
-    prog = Path(sys.argv[0]).name
-    if prog == "scikit-package" and (
-        len(sys.argv) == 1 or sys.argv[1] in ("-h", "--help")
-    ):
-        print(
-            "Error: no command given. Use `package -h` for usage.",
-            file=sys.stderr,
-        )
-        sys.exit(1)
-    # CLI commands if 'package' is ran
     parser = ArgumentParser(
         description="Reduce effort for maintaining and developing packages."
     )
     parser.add_argument(
-        "--version", action="store_true", help="Show version and exit"
+        "--version",
+        action="version",
+        version=f"scikit-package {__version__}",
+        help="Show the version of scikit-package and exit.",
     )
+
     subparsers = parser.add_subparsers(dest="command", required=True)
     setup_subparsers(subparsers)
-    args = parser.parse_args(remaining)
-    if hasattr(args, "func"):
-        args.func(args)
-    else:
-        parser.print_help()
+
+    args = parser.parse_args()
+    args.func(args)
 
 
 if __name__ == "__main__":
