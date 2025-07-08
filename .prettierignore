@@ -1,2 +1,2 @@
-# Ignore jinja2 variables within the cookiecutter project
-{{ cookiecutter.github_repo_name }}
+# Ignore anything inside template placeholders
+{{*/**
