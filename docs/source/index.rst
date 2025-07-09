@@ -145,6 +145,7 @@ The Billinge Group's ``scikit-package`` has been modified from the NSLS-II scien
    tutorials/tutorial-level-5
    tutorials/tutorial-level-4-to-5
    tutorials/tutorial-level-5-migration
+   tutorials/tutorial-scikit-package-manuscript
 
 .. toctree::
    :maxdepth: 2
