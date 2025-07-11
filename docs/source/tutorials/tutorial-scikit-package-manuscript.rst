@@ -45,7 +45,7 @@ Table of contents
 Step 1. Create an environment and install ``scikit-package``
 ------------------------------------------------------------
 
-#. Make sure ``conda`` is installed.
+#. Make sure ``conda`` is installed. Please see :ref:`conda-env-setup-simple` for more information.
 
    .. code-block:: bash
 
@@ -119,7 +119,7 @@ Step 3. Customize the LaTeX repositories
 	cp my-style-file.bst <latex-repo-dir>/
 	cp my-bib-file-1.bib <latex-repo-dir>/
 	cp my-bib-file-2.bib <latex-repo-dir>/
-	cp another-latex-file.tex <latex-repo-dir>/
+	cp my-latex-file.tex <latex-repo-dir>/
 	cp other-file.txt <latex-repo-dir>/
 
 
