@@ -26,7 +26,7 @@ Prerequisites
 To proceed with the following steps, we assume that you
 
 #. know how to use ``conda`` to create an environment and install ``scikit-package`` in the environment. Please see :ref:`conda-env-setup-simple` for more information.
-#. know how to manage repositories on GitHub. Please see the GitHub tutorial `GitHub Hello Horld <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_ for more information.
+#. know how to manage repositories on GitHub. Please see the GitHub tutorial `GitHub Hello World <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_ for more information.
 
 
 Table of contents
