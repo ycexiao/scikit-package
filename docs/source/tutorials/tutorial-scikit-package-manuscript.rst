@@ -1,7 +1,7 @@
 .. _scikit-package-manuscript-tutorials:
 
-Creating your manuscript with ``scikit-package-manuscript``
-===========================================================
+Create your manuscript with ``scikit-package-manuscript``
+=========================================================
 
 Overview
 --------
@@ -10,7 +10,7 @@ This is a tutorial for using ``scikit-package-manuscript``. The following steps 
 
 .. code-block:: bash
 
-		package create manuscript
+	package create manuscript
 
 to create a manuscript directory with a customized LaTeX repository.
 
@@ -18,29 +18,25 @@ to create a manuscript directory with a customized LaTeX repository.
 How does ``scikit-package-manuscript`` benefit the manuscript writing process?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A common way of managing reusable LaTeX files is to do it manually. For users who maintain a large amount of reusable LaTeX files, finding and copying the correct LaTeX snippets into the newly created manuscript can be a tiresome task, especially when different manuscripts need quite different LaTeX snippets and when users have to do it frequently.
-
-
-``scikit-package-manuscript`` is a template in the ``scikit-package`` project which provides a systematic way to organize your reusable LaTeX snippets and simplifies selecting and copying the reusable LaTeX snippets into choosing from pre-defined ``journal_template`` and ``latex_headers_repo_url`` options.
-
+``scikit-package-manuscript`` provides a systematic way to organize your these LaTeX snippets and simplifies finding and copying the reusable LaTeX snippets into choosing from pre-defined journal template and GitHub repository.
 
 Prerequisites
 ^^^^^^^^^^^^^^
+
 To proceed with the following steps, we assume that you
 
-#. Know how to use ``conda`` to create an environment and install ``scikit-package`` in the environment. Please see :ref:`conda-env-setup-simple` for more information.
-#. Know how to manage repositories on GitHub. Please see the GitHub tutorial `GitHub hello world <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_ for more information.
+#. know how to use ``conda`` to create an environment and install ``scikit-package`` in the environment. Please see :ref:`conda-env-setup-simple` for more information.
+#. know how to manage repositories on GitHub. Please see the GitHub tutorial `GitHub Hello Horld <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_ for more information.
 
 
 Table of contents
 ^^^^^^^^^^^^^^^^^
 
-1. :ref:`create-environment-with-scikit-package`
-2. :ref:`try-package-create-manuscript`
-3. :ref:`customize-latex-repo`
+1. :ref:`manuscript-create-the-environment`.
+2. :ref:`manuscript-run-the-command`.
 
 
-.. _create-environment-with-scikit-package:
+.. _manuscript-create-the-environment:
 
 Step 1. Create an environment and install ``scikit-package``
 ------------------------------------------------------------
@@ -66,20 +62,20 @@ Step 1. Create an environment and install ``scikit-package``
 	conda install scikit-package
 
 
-.. _try-package-create-manuscript:
+.. _manuscript-run-the-command:
 
-Step 2. Try ``package create manuscript`` without customization
+Step 2. Run ``package create manuscript`` without customization
 ---------------------------------------------------------------
 
 After Step 1, ``scikit-package-manuscript`` is enabled with a minimal setup.
 
-1. Invoke ``scikit-package-manuscript``
+1. Run ``scikit-package-manuscript``.
 
    .. code-block:: bash
 
 	package create manuscript
 
-2. Answer the following questions
+2. Answer the following questions:
 
     .. include:: ../snippets/user-input-manuscript.rst
 
@@ -90,13 +86,15 @@ After Step 1, ``scikit-package-manuscript`` is enabled with a minimal setup.
 
 3. Done! A manuscript folder named ``project_name`` is created in your working directory.
 
-You can use a different LaTeX repository URL as the input for ``latex_headers_repo_url`` during the process. The flexibility of ``scikit-package-manuscript`` is mainly attributed to that LaTeX repositories can be customized for different manuscripts.
 
+Now you can use ``scikit-package-manuscript`` to create your manuscript in a easy and efficient manner. We highly recommend you to read through :ref:`manuscript-customize-latex-repo` to release the full potential of ``scikit-package-manuscript``.
 
-.. _customize-latex-repo:
+.. _manuscript-customize-latex-repo:
 
-Step 3. Customize the LaTeX repositories
------------------------------------------
+(Recommended) How to customize the LaTeX repositories
+-----------------------------------------------------
+
+The flexibility of ``scikit-package-manuscript`` is mainly attributed to that LaTeX repositories can be customized for different manuscripts. The following steps will help you create a LaTeX repository to be used by ``package create manuscript``
 
 #. Create a GitHub repository and copy the repository URL. Please see :ref:`create-new-github-repo` for more information.
 
@@ -155,12 +153,12 @@ Step 3. Customize the LaTeX repositories
    .. code-block:: bash
 
 	git add .
-	git commit -m '<your-commit-message>'
+	git commit -m 'skpkg: initialize a LaTeX repository'
 	git push origin main
 
 #. Done! You can now run ``package create manuscript`` using this GitHub repository's URL as the input for ``latex_headers_repo_url`` to test it.
 
-   A manuscript folder will be created in the working directory. Files from the GitHub repository will be copied into the manuscript folder. Packages and commands in ``usepackages.txt`` and ``newcommands.txt`` will be inserted after ``\documentclass`` in the main LaTeX file (``manuscript.tex`` by default) in the manuscript folder. The names of all ``.bib``  will be added to the ``\bibliography`` entry in the main LaTeX file.
+A manuscript folder will be created in the working directory. Files from the GitHub repository will be copied into the manuscript folder. Packages and commands in ``usepackages.txt`` and ``newcommands.txt`` will be inserted after ``\documentclass`` in the main LaTeX file (``manuscript.tex`` by default) in the manuscript folder. The names of all ``.bib``  will be added to the ``\bibliography`` entry in the main LaTeX file.
 
 
 How to contribute
