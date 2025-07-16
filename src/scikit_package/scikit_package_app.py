@@ -82,6 +82,8 @@ def setup_subparsers(parser):
         (
             "conda-forge",
             "Update conda-forge recipe meta.yml file after release.",
+            "package",
+            "Update packages.",
         ),
     ]
     _add_subcommands(subparsers_update, update_commands, cf.update)

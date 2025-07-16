@@ -93,7 +93,7 @@ def _list_feedstock(feedstock_path):
     return feedstocks
 
 
-def update(args):
+def update_conda_forge():
     """Update the Python package version and SHA256 hash in a meta.yaml
     file, and create a pull request to the upstream feedstock
     repository.
@@ -138,3 +138,60 @@ def update(args):
         username,
         selected["package_name"],
     )
+
+
+def remove_examples(file_names):
+    """Remove example files in the created package.
+
+    When the 'update' option is passed to cookiecutter, rm_examples will
+    be called in the post_gen_hook in the corresponding template to
+    remove the files defined in that template.
+
+
+    Parameters
+    ----------
+    file_names : list of str
+        A list of files to be removed.
+
+
+    Returns
+    -------
+    None
+    """
+
+    pass
+
+
+def copy_old_packag_files():
+    """Copy the files in the package to be update into the created
+    package.
+
+    When 'update' option is passed to cookiecutter, copy_old_packag_files will
+    be called in the post_gen_hook in the corresponding template to copy the
+    files in the old package into the created package.
+
+    Returns
+    -------
+    None
+    """
+
+
+def update_package():
+    """Update python package.
+
+    Pass the 'update' option to the cookiecutter.
+
+
+    Returns
+    -------
+    None
+    """
+    pass
+
+
+def update(args):
+    subcmd = args.subcommand
+    if subcmd == "conda-forge":
+        update_conda_forge()
+    elif subcmd == "package":
+        update_package()
