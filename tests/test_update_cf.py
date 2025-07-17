@@ -29,3 +29,20 @@ source:
     _update_meta_yaml(str(meta_file), new_version, new_sha256)
     updated_meta = meta_file.read_text()
     assert updated_meta == expected_updated_meta
+
+
+# C1: All the required files exist in the old package dir and there are no
+#   duplicate file names in the target dir. Expect example files are created
+#   and all the required files are safely copied over.
+# C2: All the required files exist in the old package dir but there are
+#   duplicate file names in the target path. Expect example files are created,
+#   files without duplicate name are safely copied over, and files with
+#   duplicate names are skipped.
+def test_update_package():
+    assert False
+
+
+# C1: Some required files are missing in the old package dir. Expect
+#   FileNotFound error.
+def test_update_package_bad():
+    assert False

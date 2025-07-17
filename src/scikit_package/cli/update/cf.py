@@ -140,47 +140,70 @@ def update_conda_forge():
     )
 
 
-def remove_examples(file_names):
-    """Remove example files in the created package.
+def create_examples_files(example_files):
+    """Generate example files in the created package.
 
-    When the 'update' option is passed to cookiecutter, rm_examples will
-    be called in the post_gen_hook in the corresponding template to
-    remove the files defined in that template.
-
+    Create example files in the created package according to the passed file
+    names and contents.
 
     Parameters
     ----------
-    file_names : list of str
-        A list of files to be removed.
-
+    example_files : dict
+      A dict where the keys are example file names and the values are their
+      contents.
 
     Returns
     -------
     None
     """
-
     pass
 
 
-def copy_old_packag_files():
+def copy_old_package_files(
+    dest_dir,
+    source_location=[
+        "src",
+        "tests",
+        "requirements",
+        "AUTHORS.rst",
+        "CHANGELOG.rst",
+        "CODE-OF-CONDUCT.rst",
+        "LICENSE.rst",
+        "README.rst",
+        "pyprojec.toml",
+        ".git",
+        ".codespell",
+        ".github",
+        ".flake",
+        ".isort.cfg",
+        ".gititnore",
+    ],
+):
     """Copy the files in the package to be update into the created
     package.
 
-    When 'update' option is passed to cookiecutter, copy_old_packag_files will
-    be called in the post_gen_hook in the corresponding template to copy the
-    files in the old package into the created package.
+    Safely copy files and directories from the current working dir into
+    dest_path.
+
+    Parameters
+    ----------
+    dest_dir : Path
+        Path to the directory where files are copied to.
+    source_location : list of str
+        Names of the files or directories in the current working dir that
+        should be copied.
 
     Returns
     -------
     None
     """
+    pass
 
 
 def update_package():
     """Update python package.
 
     Pass the 'update' option to the cookiecutter.
-
 
     Returns
     -------
@@ -193,5 +216,5 @@ def update(args):
     subcmd = args.subcommand
     if subcmd == "conda-forge":
         update_conda_forge()
-    elif subcmd == "package":
+    elif subcmd is None:
         update_package()

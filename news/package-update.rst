@@ -1,6 +1,6 @@
 **Added:**
 
-* Add the ``package update package`` command to update existing ``sckit-package`` standard packages.
+* Add the ``package update`` command to update existing ``sckit-package`` standard packages.
 
 **Changed:**
 
