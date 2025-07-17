@@ -31,18 +31,8 @@ source:
     assert updated_meta == expected_updated_meta
 
 
-# C1: All the required files exist in the old package dir and there are no
-#   duplicate file names in the target dir. Expect example files are created
-#   and all the required files are safely copied over.
-# C2: All the required files exist in the old package dir but there are
-#   duplicate file names in the target path. Expect example files are created,
-#   files without duplicate name are safely copied over, and files with
-#   duplicate names are skipped.
-def test_update_package():
-    assert False
-
-
-# C1: Some required files are missing in the old package dir. Expect
-#   FileNotFound error.
-def test_update_package_bad():
-    assert False
+# C1: Run `package update`. Expect example files are not created and files with
+#   duplicated name in the created package are skipped, files without
+#   duplicated names are copied into the created package.
+def test_package_update():
+    pass

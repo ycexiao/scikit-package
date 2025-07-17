@@ -4,37 +4,8 @@ from pathlib import Path
 import pytest
 
 
-@pytest.fixture(scope="session")
-def files_in_old_project():
-    file_names = [
-        "AUTHORS.rst",
-        "CHANGELOG.rst",
-        ".codecov.yml",
-        "CODE-OF-CONDUCT.rst",
-        ".codespell/ignore_lines.txt",
-        "docs/source/index.rst",
-        ".flake8",
-        ".git/index",
-        ".github/ISSUE_TEMPLATE/bug_feature.md",
-        ".gignore",
-        ".isort.cfg",
-        "LICENSE.rst",
-        "MANIFEST.in",
-        "news/TEMPLATE.rst",
-        ".pre-commit-config.yaml",
-        "pyprojec.toml",
-        "README.rst",
-        ".readthedocs.yaml",
-        "requirements/pip.txt",
-        "src/__init__.py",
-        "src/skpkg-package/__init__.py",
-        "tests/test_package.py",
-    ]
-    yield file_names
-
-
 @pytest.fixture
-def user_filesystem(tmp_path, files_in_old_project):
+def user_filesystem(tmp_path):
     base_dir = Path(tmp_path)
     home_dir = base_dir / "home_dir"
     home_dir.mkdir(parents=True, exist_ok=True)
@@ -46,6 +17,14 @@ def user_filesystem(tmp_path, files_in_old_project):
         json.dump(home_config_data, f)
 
     old_package_dir = home_dir / "package-dir"
+    files_in_old_project = [
+        ".git/index",
+        ".pre-commit-config.yaml",
+        "src/__init__.py",
+        "tests/test_package.py",
+        "docs/source/index.rst",
+        "news/TEMPLATE.rst",
+    ]
     for file_name in files_in_old_project:
         file_path = old_package_dir / file_name
         file_path.parent.mkdir(parents=True, exist_ok=True)

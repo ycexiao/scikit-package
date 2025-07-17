@@ -1,5 +1,6 @@
 import os
 import subprocess
+from pathlib import Path
 
 import click
 
@@ -160,44 +161,16 @@ def create_examples_files(example_files):
 
 
 def copy_old_package_files(
-    dest_dir,
-    source_location=[
-        "AUTHORS.rst",
-        "CHANGELOG.rst",
-        ".codecov.yml",
-        "CODE-OF-CONDUCT.rst",
-        ".codespell",
-        "docs",
-        ".flake8",
-        ".git",
-        ".github",
-        ".gignore",
-        ".isort.cfg",
-        "LICENSE.rst",
-        "MANIFEST.in",
-        "news",
-        ".pre-commit-config.yaml",
-        "pyprojec.toml",
-        "README.rst",
-        ".readthedocs.yaml",
-        "requirements",
-        "src",
-        "tests",
-    ],
+    source_dir=Path().cwd().parents[1], dest_dir=Path().cwd().parents[0]
 ):
-    """Copy the files in the package to be update into the created
-    package.
-
-    Safely copy files and directories from the current working dir into
-    dest_path.
+    """Copy all files in source_dir to dest_dir.
 
     Parameters
     ----------
+    source_dir : Path
+        Path to the directory where files are copied from
     dest_dir : Path
         Path to the directory where files are copied to.
-    source_location : list of str
-        Names of the files or directories in the current working dir that
-        should be copied.
 
     Returns
     -------

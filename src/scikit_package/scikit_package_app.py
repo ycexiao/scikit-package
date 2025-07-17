@@ -73,7 +73,7 @@ def setup_subparsers(parser):
     )
     # "update" subparser
     parser_update = parser.add_parser(
-        "update", help="Update a existing scikit-package standard package."
+        "update", help="Update an existing scikit-package standard package."
     )
     subparsers_update = parser_update.add_subparsers(
         dest="subcommand", required=False
