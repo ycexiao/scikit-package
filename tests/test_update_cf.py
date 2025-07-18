@@ -1,3 +1,5 @@
+import os
+import subprocess
 from pathlib import Path
 
 from scikit_package.cli.update.cf import _update_meta_yaml
@@ -34,5 +36,43 @@ source:
 # C1: Run `package update`. Expect example files are not created and files with
 #   duplicated name in the created package are skipped, files without
 #   duplicated names are copied into the created package.
-def test_package_update():
-    pass
+def test_package_update(user_filesystem):
+    old_package_dir = Path(user_filesystem) / "package-dir"
+    # use default values in the prompt
+    env = os.environ.copy()
+    env["HOME"] = str(Path(user_filesystem))
+    subprocess.run(
+        ["package", "update"],
+        cwd=old_package_dir,
+        env=env,
+        input="\n" * 17,
+        text=True,
+    )
+    new_package_dir = old_package_dir / "diffpy.my-project"
+    example_files = [
+        "docs/source/api/diffpy.my-project.example_package.rst",
+        "docs/source/getting-started.rst",
+        "src/diffpy/my-project/functions.py",
+        "tests/test_functions.py",
+    ]
+    for file_name in example_files:
+        example_file = new_package_dir / file_name
+        assert not example_file.exists()
+    # all files are empty
+    files_only_in_old_project = [
+        ".git/index",
+        "tests/test_package.py",
+        "docs/source/index.rst",
+    ]
+    files_with_duplicated_name = [
+        ".pre-commit-config.yaml",
+        "src/__init__.py",
+        "news/TEMPLATE.rst",
+    ]
+    for file_name in files_only_in_old_project:
+        copied_file = new_package_dir / file_name
+        assert copied_file.exists()
+    for file_name in files_with_duplicated_name:
+        skipped_file = new_package_dir / file_name
+        assert skipped_file.exists()
+        assert len(skipped_file.read_txt()) != 0

@@ -1,10 +1,10 @@
 import os
 import subprocess
-from pathlib import Path
 
 import click
 
-from scikit_package.utils import auth, io, pypi
+from scikit_package.cli.create import SKPKG_GITHUB_URL
+from scikit_package.utils import auth, cookie, io, pypi
 from scikit_package.utils.shell import run
 
 
@@ -141,7 +141,7 @@ def update_conda_forge():
     )
 
 
-def create_examples_files(example_files):
+def create_examples_files(target_dir, example_files):
     """Generate example files in the created package.
 
     Create example files in the created package according to the passed file
@@ -149,46 +149,24 @@ def create_examples_files(example_files):
 
     Parameters
     ----------
+    target_dir : Path
+        Path to the target dir where the example files are created.
     example_files : dict
-      A dict where the keys are example file names and the values are their
-      contents.
+        A dict where the keys are example file names and the values are
+        their contents.
 
     Returns
     -------
     None
     """
-    pass
-
-
-def copy_old_package_files(
-    source_dir=Path().cwd().parents[1], dest_dir=Path().cwd().parents[0]
-):
-    """Copy all files in source_dir to dest_dir.
-
-    Parameters
-    ----------
-    source_dir : Path
-        Path to the directory where files are copied from
-    dest_dir : Path
-        Path to the directory where files are copied to.
-
-    Returns
-    -------
-    None
-    """
-    pass
-
-
-def update_package():
-    """Update python package.
-
-    Pass the 'update' option to the cookiecutter.
-
-    Returns
-    -------
-    None
-    """
-    pass
+    if target_dir.exits():
+        raise FileNotFoundError(
+            f"Unable to find the target dir: {str(target_dir)}. "
+            "Please leave an issue on GitHub."
+        )
+    for name, content in example_files.items():
+        file_path = target_dir / name
+        file_path.write_text(content)
 
 
 def update(args):
@@ -196,4 +174,4 @@ def update(args):
     if subcmd == "conda-forge":
         update_conda_forge()
     elif subcmd is None:
-        update_package()
+        cookie.run(SKPKG_GITHUB_URL, update="Yes")
