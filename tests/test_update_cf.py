@@ -38,19 +38,18 @@ source:
 #   duplicated names are copied into the created package.
 def test_package_update(user_filesystem):
     old_package_dir = Path(user_filesystem) / "package-dir"
-    # use default values in the prompt
     env = os.environ.copy()
     env["HOME"] = str(Path(user_filesystem))
-    template = Path().cwd().parent
+    template = Path(__file__).parents[1]
     subprocess.run(
         [
             "cookiecutter",
             str(template),
-            "if_update=Yes",
+            "_if_update=Yes",
         ],
         cwd=old_package_dir,
         env=env,
-        input="\n" * 17,
+        input="\n" * 17,  # use the default value in the prompt
         text=True,
     )
     new_package_dir = old_package_dir / "diffpy.my-project"
@@ -63,7 +62,6 @@ def test_package_update(user_filesystem):
     for file_name in example_files:
         example_file = new_package_dir / file_name
         assert not example_file.exists()
-    # all files are empty
     files_only_in_old_package = {
         ".git/COMMIT_EDITMSG": """
 skpkg: last commit message in skpkg-package

@@ -94,7 +94,7 @@ def copy_all_files(source_dir, target_dir, exists_ok=False):
         if item.is_file() and not item.is_relative_to(target_dir):
             files_in_source_dir.append(item)
     duplicate_files = []
-    for file in files_in_source_dir:
+    for item in files_in_source_dir:
         relative_path = item.relative_to(source_dir)
         dest = target_dir / relative_path
         if dest.exists():
