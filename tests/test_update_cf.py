@@ -41,8 +41,13 @@ def test_package_update(user_filesystem):
     # use default values in the prompt
     env = os.environ.copy()
     env["HOME"] = str(Path(user_filesystem))
+    template = Path().cwd().parent
     subprocess.run(
-        ["package", "update"],
+        [
+            "cookiecutter",
+            str(template),
+            "if_update=Yes",
+        ],
         cwd=old_package_dir,
         env=env,
         input="\n" * 17,
@@ -59,20 +64,36 @@ def test_package_update(user_filesystem):
         example_file = new_package_dir / file_name
         assert not example_file.exists()
     # all files are empty
-    files_only_in_old_project = [
-        ".git/index",
-        "tests/test_package.py",
-        "docs/source/index.rst",
-    ]
-    files_with_duplicated_name = [
-        ".pre-commit-config.yaml",
-        "src/__init__.py",
-        "news/TEMPLATE.rst",
-    ]
-    for file_name in files_only_in_old_project:
+    files_only_in_old_package = {
+        ".git/COMMIT_EDITMSG": """
+skpkg: last commit message in skpkg-package
+""",
+        "docs/source/tutorial.rst": """
+The tutorial for skpkg-package.
+""",
+    }
+    files_with_duplicated_name = {
+        "README.rst": """
+|Icon| |title|_
+===============
+
+.. |title| replace:: title of README.rst in skpkg-package
+""",
+        "docs/source/index.rst": """
+#######
+|title|
+#######
+
+.. |title| replace:: title of skpkg-package documentation
+""",
+    }
+    for file_name, file_content in files_only_in_old_package.items():
         copied_file = new_package_dir / file_name
-        assert copied_file.exists()
-    for file_name in files_with_duplicated_name:
+        actual_content = copied_file.read_text()
+        expected_content = file_content
+        assert actual_content == expected_content
+    for file_name, file_content in files_with_duplicated_name.items():
         skipped_file = new_package_dir / file_name
-        assert skipped_file.exists()
-        assert len(skipped_file.read_txt()) != 0
+        actual_content = skipped_file.read_text()
+        old_file_content = file_content
+        assert actual_content != old_file_content

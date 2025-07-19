@@ -3,6 +3,28 @@ from pathlib import Path
 
 import pytest
 
+files_in_old_project = {
+    ".git/COMMIT_EDITMSG": """
+skpkg: last commit message in skpkg-package
+""",
+    "docs/source/tutorial.rst": """
+The tutorial for skpkg-package.
+""",
+    "README.rst": """
+|Icon| |title|_
+===============
+
+.. |title| replace:: title of README.rst in skpkg-package
+""",
+    "docs/source/index.rst": """
+#######
+|title|
+#######
+
+.. |title| replace:: title of skpkg-package documentation
+""",
+}
+
 
 @pytest.fixture
 def user_filesystem(tmp_path):
@@ -17,17 +39,9 @@ def user_filesystem(tmp_path):
         json.dump(home_config_data, f)
 
     old_package_dir = base_dir / "package-dir"
-    files_only_in_old_project = [
-        ".git/index",
-        "docs/source/index.rst",
-    ]
-    files_with_duplicated_name = [
-        ".pre-commit-config.yaml",
-        "src/__init__.py",
-    ]
-    for file_name in [*files_only_in_old_project, *files_with_duplicated_name]:
+    for file_name, file_content in files_in_old_project.items():
         file_path = old_package_dir / file_name
         file_path.parent.mkdir(parents=True, exist_ok=True)
-        file_path.touch()
+        file_path.write_text(file_content)
 
     yield tmp_path

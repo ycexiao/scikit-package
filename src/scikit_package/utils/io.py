@@ -29,8 +29,39 @@ def write_file(path, lines):
         f.writelines(lines)
 
 
+def create_example_files(target_dir, example_files):
+    """Generate example files in the created package.
+
+    Create example files in the created package according to the passed file
+    names and contents.
+
+    Parameters
+    ----------
+    target_dir : Path
+        Path to the target dir where the example files are created.
+    example_files : dict
+        A dict where the keys are example file names and the values are
+        their contents.
+
+    Returns
+    -------
+    None
+    """
+    if not target_dir.exits():
+        raise FileNotFoundError(
+            f"Unable to find the target dir: {str(target_dir)}. "
+            "Please leave an issue on GitHub."
+        )
+    for name, content in example_files.items():
+        file_path = target_dir / name
+        file_path.write_text(content)
+
+
 def copy_all_files(source_dir, target_dir, exists_ok=False):
     """Copies files from a source directory to a target directory.
+
+    Copy all files from source_dir to target_dir. If target_dir is inside
+    source_dir, only copy files that are not in target_dir.
 
     Parameters
     ===========
@@ -58,27 +89,28 @@ def copy_all_files(source_dir, target_dir, exists_ok=False):
             f"Source directory {str(source_dir)} found "
             "but it contains no files. "
         )
-
+    files_in_source_dir = []
+    for item in source_dir.glob("**/*"):
+        if item.is_file() and not item.is_relative_to(target_dir):
+            files_in_source_dir.append(item)
     duplicate_files = []
-    for item in source_dir.iterdir():
-        dest = target_dir / item.name
+    for file in files_in_source_dir:
+        relative_path = item.relative_to(source_dir)
+        dest = target_dir / relative_path
         if dest.exists():
             duplicate_files.append(item)
     if not exists_ok and len(duplicate_files) != 0:
         duplicate_names = [file.name for file in duplicate_files]
         raise FileExistsError(
-            f"{duplicate_names} already exists in target dir: "
+            f"{duplicate_names} already exists in target dir "
             f"{str(target_dir)}. "
         )
-
-    for item in source_dir.iterdir():
-        if item in duplicate_files:
-            continue
-        dest = target_dir / item.name
-        if item.is_file():
+    for item in files_in_source_dir:
+        if item not in duplicate_files:
+            relative_path = item.relative_to(source_dir)
+            dest = target_dir / relative_path
+            dest.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(item, dest)
-        else:
-            shutil.copytree(item, dest)
     return
 
 

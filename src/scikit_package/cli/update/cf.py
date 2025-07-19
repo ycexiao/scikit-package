@@ -141,37 +141,9 @@ def update_conda_forge():
     )
 
 
-def create_examples_files(target_dir, example_files):
-    """Generate example files in the created package.
-
-    Create example files in the created package according to the passed file
-    names and contents.
-
-    Parameters
-    ----------
-    target_dir : Path
-        Path to the target dir where the example files are created.
-    example_files : dict
-        A dict where the keys are example file names and the values are
-        their contents.
-
-    Returns
-    -------
-    None
-    """
-    if target_dir.exits():
-        raise FileNotFoundError(
-            f"Unable to find the target dir: {str(target_dir)}. "
-            "Please leave an issue on GitHub."
-        )
-    for name, content in example_files.items():
-        file_path = target_dir / name
-        file_path.write_text(content)
-
-
 def update(args):
     subcmd = args.subcommand
     if subcmd == "conda-forge":
         update_conda_forge()
     elif subcmd is None:
-        cookie.run(SKPKG_GITHUB_URL, update="Yes")
+        cookie.run(SKPKG_GITHUB_URL, update=True)
