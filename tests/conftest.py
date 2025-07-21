@@ -62,5 +62,10 @@ def user_filesystem(tmp_path):
         file_path = target_dir_inside_old_package_dir / file_name
         file_path.parent.mkdir(parents=True, exist_ok=True)
         file_path.write_text(file_content)
+    target_dir = base_dir / "target-dir"
+    for file_name, file_content in files_in_new_project.items():
+        file_path = target_dir / file_name
+        file_path.parent.mkdir(parents=True, exist_ok=True)
+        file_path.write_text(file_content)
 
     yield tmp_path

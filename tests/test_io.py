@@ -5,16 +5,18 @@ import pytest
 from scikit_package.utils.io import copy_all_files
 
 
-# C1: Existing source dir and target dir, target dir is inside source
+# C1: Source dir and target dir exist. Some files exist in target have the
+#  the same name as the files in source dir and exists_ok is set to be
+#  True. Expect files exist in target are not overwritten and all other files
+#  from the source dir are copied over.
+# C2: Source dir and target dir exist. Target dir is inside source
 #  dir and exists_ok is set to be True. Expect all other files in source
 #  dir are copied to target dir and the files already exist inside target
 #  dir before the copying are not changed.
 def test_copy_all_files(user_filesystem):
     source_dir = user_filesystem / "package-dir"
-    target_dir = source_dir / "target-dir-inside-package-dir"
-    copy_all_files(source_dir, target_dir, exists_ok=True)
     expected_files = {
-        # files already exists in dest_dir
+        # files already exists in target dir
         ".git/COMMIT_EDITMSG": """
 The file already exists in the new project
 skpkg: last commit message in skpkg-package
@@ -38,6 +40,17 @@ The tutorial for skpkg-package.
 .. |title| replace:: title of skpkg-package documentation
 """,
     }
+    # files with duplicated name exist in target_dir
+    target_dir = user_filesystem / "target-dir"
+    copy_all_files(source_dir, target_dir, exists_ok=True)
+    for file_name, file_content in expected_files.items():
+        file_path = target_dir / file_name
+        actual_content = file_path.read_text()
+        expected_content = file_content
+        assert actual_content == expected_content
+    # target_dir is inside source_dir
+    target_dir = source_dir / "target-dir-inside-package-dir"
+    copy_all_files(source_dir, target_dir, exists_ok=True)
     for file_name, file_content in expected_files.items():
         file_path = target_dir / file_name
         actual_content = file_path.read_text()
