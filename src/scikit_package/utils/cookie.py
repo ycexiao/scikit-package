@@ -19,9 +19,9 @@ def run(repo_url, update=False):
         cmd.extend(["--checkout", tag])
         config_cmd = io.get_config_cmd()
         if update:
-            config_cmd.extend(["_if_update=Yes"])
+            config_cmd.extend(["_is_update=Yes"])
         else:
-            config_cmd.extend(["_if_update=No"])
+            config_cmd.extend(["_is_update=No"])
         cmd.extend(config_cmd)
         subprocess.run(cmd, check=True)
     except subprocess.CalledProcessError as e:

@@ -15,6 +15,6 @@
   "maximum_supported_python_version": "3.13",
   "project_needs_c_code_compiled": ["No", "Yes"],
   "project_has_gui_tests": ["No", "Yes"],
-  "_if_update": "No",
+  "_is_update": "No",
   "_copy_without_render": ["*.html", "*.js", ".github/*"]
 }

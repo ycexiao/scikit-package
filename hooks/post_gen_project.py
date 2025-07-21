@@ -278,5 +278,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-    if "{{ cookiecutter._if_update }}" == "Yes":
+    if "{{ cookiecutter._is_update }}" == "Yes":
         update_package()
