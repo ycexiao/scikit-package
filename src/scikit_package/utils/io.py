@@ -87,7 +87,7 @@ def copy_all_files(source_dir, target_dir, exists_ok=False):
     if not any(source_dir.iterdir()):
         raise FileNotFoundError(
             f"Source directory {str(source_dir)} found "
-            "but it contains no files. "
+            "but it contains no files."
         )
     files_in_source_dir = []
     for item in source_dir.glob("**/*"):
@@ -103,7 +103,7 @@ def copy_all_files(source_dir, target_dir, exists_ok=False):
         duplicate_names = [file.name for file in duplicate_files]
         raise FileExistsError(
             f"{duplicate_names} already exists in target dir "
-            f"{str(target_dir)}. "
+            f"{str(target_dir)}."
         )
     for item in files_in_source_dir:
         if item not in duplicate_files:
