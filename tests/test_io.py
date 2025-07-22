@@ -97,12 +97,11 @@ def test_copy_all_files_bad(user_filesystem):
     target_dir = source_dir / "target-dir-inside-package-dir"
     duplicate_names = ["COMMIT_EDITMSG", "tutorial.rst"]
 
-
-#     with pytest.raises(
-#         FileExistsError,
-#         match=re.escape(
-#             f"{duplicate_names} already exists in target dir "
-#             f"{str(target_dir)}."
-#         ),
-#     ):
-#         copy_all_files(source_dir, target_dir, exists_ok=False)
+    with pytest.raises(
+        FileExistsError,
+        match=re.escape(
+            f"{duplicate_names} already exists in target dir "
+            f"{str(target_dir)}."
+        ),
+    ):
+        copy_all_files(source_dir, target_dir, exists_ok=False)
