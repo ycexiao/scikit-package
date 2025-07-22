@@ -4,8 +4,58 @@ from pathlib import Path
 
 import requests
 
+from scikit_package.utils.io import copy_all_files
+
 # All cookie-cutter hooks run on project root, but good to enforce
 ROOT = Path.cwd()
+
+
+def get_src_file_location_in_submodule(file_name):
+    """Modify filename by replacing the package_dir_name with the module
+    path.
+
+    Replace package_dir_name in file_name with the corresponding module
+    and submodule path, which is obtained by splitting the
+    package_dir_name using the period.
+    """
+    package_name = "{{ cookiecutter.package_dir_name }}"
+    submodule_names = package_name.split(".")
+    submodule_names = [module.strip().lower() for module in submodule_names]
+    file_path_names = file_name.split("/")
+    if file_path_names[1] == package_name:
+        file_path_names = [
+            file_path_names[0],
+            *submodule_names,
+            *file_path_names[2:],
+        ]
+    file_name = "/".join(file_path_names)
+    return file_name
+
+
+def update_package():
+    example_files_not_in_src = [
+        (
+            "docs/source/api/{{ cookiecutter.package_dir_name }}."
+            "example_package.rst"
+        ),
+        "docs/source/getting-started.rst",
+        "tests/test_functions.py",
+    ]
+    example_files_in_src = [
+        "src/{{ cookiecutter.package_dir_name }}/functions.py",
+    ]
+    old_project_dir = Path().cwd().parents[0]
+    current_project_dir = (
+        old_project_dir / "{{ cookiecutter.github_repo_name }}"
+    )
+    copy_all_files(old_project_dir, current_project_dir, exists_ok=True)
+    example_files_in_src = [
+        get_src_file_location_in_submodule(f) for f in example_files_in_src
+    ]
+    example_files = [*example_files_not_in_src, *example_files_in_src]
+    for file in example_files:
+        example_file = current_project_dir / file
+        example_file.unlink()
 
 
 def __gen_init__(module_name):
@@ -228,3 +278,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    if "{{ cookiecutter._is_update }}" == "Yes":
+        update_package()
