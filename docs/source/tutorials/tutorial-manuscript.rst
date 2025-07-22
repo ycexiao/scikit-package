@@ -6,13 +6,20 @@ Create your manuscript with ``scikit-package-manuscript``
 Overview
 --------
 
-This is a tutorial for using ``scikit-package-manuscript``. The following steps can help you to learn to use
+This is a tutorial for using ``scikit-package-manuscript`` template, which provides the command
 
 .. code-block:: bash
 
 	package create manuscript
 
-to create a manuscript directory with a customized LaTeX repository.
+in ``scikit-package`` to create a manuscript directory with a customized LaTeX repository.
+
+The tutorial is divided into two steps.
+
+- You will learn how to create an environment for ``scikit-package`` in :ref:`manuscript-create-the-environment`.
+- You will try the command ``package create manuscript`` and learn the prompt interface in :ref:`manuscript-run-the-command`.
+
+We strongly recommend that you read through :ref:`manuscript-customize-latex-repo` to unleash the full potential of ``scikit-package-mansucript``.
 
 
 How does ``scikit-package-manuscript`` benefit the manuscript writing process?
@@ -27,13 +34,6 @@ To proceed with the following steps, we assume that you
 
 #. know how to use ``conda`` to create an environment and install ``scikit-package`` in the environment. Please see :ref:`conda-env-setup-simple` for more information.
 #. know how to manage repositories on GitHub. Please see the GitHub tutorial `GitHub Hello World <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_ for more information.
-
-
-Table of contents
-^^^^^^^^^^^^^^^^^
-
-1. :ref:`manuscript-create-the-environment`.
-2. :ref:`manuscript-run-the-command`.
 
 
 .. _manuscript-create-the-environment:
@@ -86,8 +86,6 @@ After Step 1, ``scikit-package-manuscript`` is enabled with a minimal setup.
 
 3. Done! A manuscript folder named ``project_name`` is created in your working directory.
 
-
-Now you can use ``scikit-package-manuscript`` to create your manuscript in a easy and efficient manner. We highly recommend you to read through :ref:`manuscript-customize-latex-repo` to release the full potential of ``scikit-package-manuscript``.
 
 .. _manuscript-customize-latex-repo:
 
