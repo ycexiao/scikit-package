@@ -4,6 +4,7 @@ from argparse import ArgumentParser
 from scikit_package.cli import add, create
 from scikit_package.cli.build import api_doc
 from scikit_package.cli.update import cf
+from scikit_package.version import __version__
 
 SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
 
@@ -117,6 +118,12 @@ def main():
     """
     parser = ArgumentParser(
         description="Reduce effort for maintaining and developing packages."
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"scikit-package {__version__}",
+        help="Show the version of scikit-package and exit.",
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
     setup_subparsers(subparsers)

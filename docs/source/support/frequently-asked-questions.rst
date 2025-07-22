@@ -864,6 +864,8 @@ In https://github.com/scikit-package/release-scripts:
      - Key to update
    * - ``.github/workflows/_matrix-and-codecov-on-merge-to-main.yml``
      - ``python_versions``
+   * - ``.github/workflows/_matrix-no-codecov-on-merge-to-main.yml``
+     - ``python_versions``
    * - ``.github/workflows/_publish-docs-on-release.yml``
      - ``python_version``
    * - ``.github/workflows/_check-news-item.yml``
@@ -871,6 +873,8 @@ In https://github.com/scikit-package/release-scripts:
    * - ``.github/workflows/_build-pure-python-package.yml``
      - ``python-version``
    * - ``.github/workflows/_tests-on-pr.yml``
+     - ``python_version``
+   * - ``.github/workflows/_tests-on-pr-no-codecov.yml``
      - ``python_version``
    * - ``.github/workflows/_tests-on-pr-no-codecov-no-headless.yml``
      - ``python-version``
