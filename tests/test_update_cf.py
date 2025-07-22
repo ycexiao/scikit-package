@@ -52,7 +52,7 @@ def test_package_update(user_filesystem, pytestconfig):
         env=env,
         input="\n" * 17,  # use the default value in the prompt
         text=True,
-    )
+    )  # pragma: no cover
 
 
 #     new_package_dir = old_package_dir / "diffpy.my-project"
