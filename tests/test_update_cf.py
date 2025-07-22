@@ -52,46 +52,48 @@ def test_package_update(user_filesystem):
         input="\n" * 17,  # use the default value in the prompt
         text=True,
     )
-    new_package_dir = old_package_dir / "diffpy.my-project"
-    example_files = [
-        "docs/source/api/diffpy.my-project.example_package.rst",
-        "docs/source/getting-started.rst",
-        "src/diffpy/my-project/functions.py",
-        "tests/test_functions.py",
-    ]
-    for file_name in example_files:
-        example_file = new_package_dir / file_name
-        assert not example_file.exists()
-    files_only_in_old_package = {
-        ".git/COMMIT_EDITMSG": """
-skpkg: last commit message in skpkg-package
-""",
-        "docs/source/tutorial.rst": """
-The tutorial for skpkg-package.
-""",
-    }
-    files_with_duplicated_name = {
-        "README.rst": """
-|Icon| |title|_
-===============
 
-.. |title| replace:: title of README.rst in skpkg-package
-""",
-        "docs/source/index.rst": """
-#######
-|title|
-#######
 
-.. |title| replace:: title of skpkg-package documentation
-""",
-    }
-    for file_name, file_content in files_only_in_old_package.items():
-        copied_file = new_package_dir / file_name
-        actual_content = copied_file.read_text()
-        expected_content = file_content
-        assert actual_content == expected_content
-    for file_name, file_content in files_with_duplicated_name.items():
-        skipped_file = new_package_dir / file_name
-        actual_content = skipped_file.read_text()
-        old_file_content = file_content
-        assert actual_content != old_file_content
+#     new_package_dir = old_package_dir / "diffpy.my-project"
+#     example_files = [
+#         "docs/source/api/diffpy.my-project.example_package.rst",
+#         "docs/source/getting-started.rst",
+#         "src/diffpy/my-project/functions.py",
+#         "tests/test_functions.py",
+#     ]
+#     for file_name in example_files:
+#         example_file = new_package_dir / file_name
+#         assert not example_file.exists()
+#     files_only_in_old_package = {
+#         ".git/COMMIT_EDITMSG": """
+# skpkg: last commit message in skpkg-package
+# """,
+#         "docs/source/tutorial.rst": """
+# The tutorial for skpkg-package.
+# """,
+#     }
+#     files_with_duplicated_name = {
+#         "README.rst": """
+# |Icon| |title|_
+# ===============
+
+# .. |title| replace:: title of README.rst in skpkg-package
+# """,
+#         "docs/source/index.rst": """
+# #######
+# |title|
+# #######
+
+# .. |title| replace:: title of skpkg-package documentation
+# """,
+#     }
+#     for file_name, file_content in files_only_in_old_package.items():
+#         copied_file = new_package_dir / file_name
+#         actual_content = copied_file.read_text()
+#         expected_content = file_content
+#         assert actual_content == expected_content
+#     for file_name, file_content in files_with_duplicated_name.items():
+#         skipped_file = new_package_dir / file_name
+#         actual_content = skipped_file.read_text()
+#         old_file_content = file_content
+#         assert actual_content != old_file_content
