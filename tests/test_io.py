@@ -42,21 +42,21 @@ The tutorial for skpkg-package.
 """,
     }
     # # files with duplicated name exist in target_dir
-    # target_dir = user_filesystem / "target-dir"
-    # copy_all_files(source_dir, target_dir, exists_ok=True)
-    # for file_name, file_content in expected_files.items():
-    #     file_path = target_dir / file_name
-    #     actual_content = file_path.read_text()
-    #     expected_content = file_content
-    #     assert actual_content == expected_content
+    target_dir = user_filesystem / "target-dir"
+    copy_all_files(source_dir, target_dir, exists_ok=True)
+    for file_name, file_content in expected_files.items():
+        file_path = target_dir / file_name
+        actual_content = file_path.read_text()
+        expected_content = file_content
+        assert actual_content == expected_content
     # target_dir is inside source_dir
-    # target_dir = source_dir / "target-dir-inside-package-dir"
-    # copy_all_files(source_dir, target_dir, exists_ok=True)
-    # for file_name, file_content in expected_files.items():
-    #     file_path = target_dir / file_name
-    #     actual_content = file_path.read_text()
-    #     expected_content = file_content
-    #     assert actual_content == expected_content
+    target_dir = source_dir / "target-dir-inside-package-dir"
+    copy_all_files(source_dir, target_dir, exists_ok=True)
+    for file_name, file_content in expected_files.items():
+        file_path = target_dir / file_name
+        actual_content = file_path.read_text()
+        expected_content = file_content
+        assert actual_content == expected_content
 
 
 # C1: An non-existing source dir and an existing target dir.
