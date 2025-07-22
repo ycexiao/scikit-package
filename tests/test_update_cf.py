@@ -1,6 +1,6 @@
 # pragma: no cover
-# import os
-# import subprocess
+import os
+import subprocess
 from pathlib import Path
 
 from scikit_package.cli.update.cf import _update_meta_yaml
@@ -37,23 +37,22 @@ source:
 # C1: Run `package update`. Expect example files are not created and files with
 #   duplicated name in the created package are skipped, files without
 #   duplicated names are copied into the created package.
-# def test_package_update(user_filesystem, pytestconfig):
-#     old_package_dir = Path(user_filesystem) / "package-dir"
-#     env = os.environ.copy()
-#     env["HOME"] = str(Path(user_filesystem))
-#     template = pytestconfig.rootpath
-# template = Path(__file__).parents[1]
-# subprocess.run(
-#     [
-#         "cookiecutter",
-#         str(template),
-#         "_is_update=Yes",
-#     ],
-#     cwd=old_package_dir,
-#     env=env,
-#     input="\n" * 17,  # use the default value in the prompt
-#     text=True,
-# )
+def test_package_update(user_filesystem, pytestconfig):
+    old_package_dir = Path(user_filesystem) / "package-dir"
+    env = os.environ.copy()
+    env["HOME"] = str(Path(user_filesystem))
+    template = pytestconfig.rootpath
+    subprocess.run(
+        [
+            "cookiecutter",
+            str(template),
+            "_is_update=Yes",
+        ],
+        cwd=old_package_dir,
+        env=env,
+        input="\n" * 17,  # use the default value in the prompt
+        text=True,
+    )
 
 
 #     new_package_dir = old_package_dir / "diffpy.my-project"
