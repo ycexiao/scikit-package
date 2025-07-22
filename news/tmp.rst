@@ -6,7 +6,7 @@
 
 **Changed:**
 
-* <news item>
+* No news added: Use ``CODE-OF-CONDUCT,rst``, ``requirements/tests.text`` and ``docs`` according to new group standard.
 
 **Deprecated:**
 
