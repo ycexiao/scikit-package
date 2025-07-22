@@ -64,7 +64,7 @@ def copy_all_files(source_dir, target_dir, exists_ok=False):
     source_dir, only copy files that are not in target_dir.
 
     Parameters
-    ===========
+    ----------
     source_dir : Path
         The source dir from which all the files will be copied recursively.
     project_dir : Path
@@ -76,7 +76,7 @@ def copy_all_files(source_dir, target_dir, exists_ok=False):
         copied into target_dir.
 
     Return
-    ======
+    ------
     None
     """
     if not source_dir.exists():
