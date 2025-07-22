@@ -36,11 +36,12 @@ source:
 # C1: Run `package update`. Expect example files are not created and files with
 #   duplicated name in the created package are skipped, files without
 #   duplicated names are copied into the created package.
-def test_package_update(user_filesystem):
+def test_package_update(user_filesystem, pytestconfig):
     old_package_dir = Path(user_filesystem) / "package-dir"
     env = os.environ.copy()
     env["HOME"] = str(Path(user_filesystem))
-    template = Path(__file__).parents[1]
+    template = pytestconfig.rootpath
+    # template = Path(__file__).parents[1]
     subprocess.run(
         [
             "cookiecutter",
