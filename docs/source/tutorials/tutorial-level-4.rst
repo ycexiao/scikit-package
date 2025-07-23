@@ -35,6 +35,8 @@ For Level 4, we assume you have prior experience in developing scientific code i
 Step 1. Create a new package with ``scikit-package``
 ----------------------------------------------------
 
+.. _create-new-github-repo:
+
 Create a new GitHub repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
