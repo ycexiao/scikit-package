@@ -38,13 +38,13 @@ source:
 #   duplicated names are copied into the created package.
 def test_package_update(user_filesystem, pytestconfig):
     old_package_dir = Path(user_filesystem) / "package-dir"
-    template_dir = Path(user_filesystem) / "template-dir"
+    # template_dir = Path(user_filesystem) / "template-dir"
     env = os.environ.copy()
     env["HOME"] = str(Path(user_filesystem))
     subprocess.run(
         [
             "cookiecutter",
-            str(template_dir),
+            "https://github.com/scikit-package/scikit-package",
             "_is_update=Yes",
         ],
         cwd=old_package_dir,
