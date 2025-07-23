@@ -3,7 +3,8 @@ import subprocess
 
 import click
 
-from scikit_package.utils import auth, io, pypi
+from scikit_package.cli.create import SKPKG_GITHUB_URL
+from scikit_package.utils import auth, cookie, io, pypi
 from scikit_package.utils.shell import run
 
 
@@ -93,7 +94,7 @@ def _list_feedstock(feedstock_path):
     return feedstocks
 
 
-def update(args):
+def update_conda_forge():
     """Update the Python package version and SHA256 hash in a meta.yaml
     file, and create a pull request to the upstream feedstock
     repository.
@@ -138,3 +139,11 @@ def update(args):
         username,
         selected["package_name"],
     )
+
+
+def update(args):
+    subcmd = args.subcommand
+    if subcmd == "conda-forge":
+        update_conda_forge()
+    elif subcmd is None:
+        cookie.run(SKPKG_GITHUB_URL, update=True)

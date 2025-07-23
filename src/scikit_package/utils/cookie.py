@@ -3,7 +3,7 @@ import subprocess
 from scikit_package.utils import io, pypi
 
 
-def run(repo_url):
+def run(repo_url, update=False):
     """Run cookiecutter with optional config file."""
     username_or_orgname = repo_url.split("/")[3]
     repo_name = repo_url.split("/")[4]
@@ -18,6 +18,10 @@ def run(repo_url):
         cmd = ["cookiecutter", repo_url]
         cmd.extend(["--checkout", tag])
         config_cmd = io.get_config_cmd()
+        if update:
+            config_cmd.extend(["_is_update=Yes"])
+        else:
+            config_cmd.extend(["_is_update=No"])
         cmd.extend(config_cmd)
         subprocess.run(cmd, check=True)
     except subprocess.CalledProcessError as e:
