@@ -78,7 +78,7 @@ Example
 
 #. Create ``usepackages.txt`` and ``newcommands.txt`` inside the ``~/my-latex-repo-example`` directory.
 
-    ``usepackages.txt`` is used to add commands like ``\usepackage{graphicx}`` into the main LaTeX file. ``newcommands.txt`` is used to add commands like ``\newcommand{\a_command}[1]{\mathrm{#1}}`` into the main LaTeX file. The main LaTeX file is ``manuscript.tex`` in the manuscript folder by default.
+    ``usepackages.txt`` is used to import packages using ``\usepackage{graphicx}`` into the main LaTeX file. ``newcommands.txt`` is used to add commands like ``\newcommand{\a_command}[1]{\mathrm{#1}}`` into the main LaTeX file. The main LaTeX file is ``manuscript.tex`` in the manuscript folder by default.
 
    .. note::
       No LaTeX syntax check is executed during ``package create manuscript``. The content in ``usepackages.txt`` will be inserted after ``\documentclass`` and the content in ``newcommands.txt`` will be inserted after all ``\usepackage`` commands.
