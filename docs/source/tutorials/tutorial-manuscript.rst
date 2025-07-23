@@ -60,7 +60,7 @@ Create a manuscript folder with minimum setup.
 (Recommended) Customize the your LaTeX repositories
 ---------------------------------------------------
 
-The flexibility of ``scikit-package-manuscript`` is mainly attributed to the ability to customize LaTeX repositories for different manuscripts. The following steps will help you create a LaTeX repository to be used by ``package create manuscript``.
+The flexibility of using ``package create manuscript`` to create a manuscript folder is the ability to customize LaTeX repositories for different manuscripts. The following steps will help you create a LaTeX repository to be used by ``package create manuscript``.
 
 Example
 ^^^^^^^
@@ -75,15 +75,6 @@ Example
 
         cd ~
 	git clone <copied-my-latex-repo-example-url>
-
-#. Create the LaTeX files inside the ``~/my-latex-repo-example`` folder. These are the files that will be copied directly into the manuscript folder later.
-
-   .. code-block:: bash
-
-	cd ~/my-latex-repo-example
-	touch my-latex-file.tex
-	touch my-bib-file.bib
-	touch my-other-file.txt
 
 #. Create ``usepackages.txt`` and ``newcommands.txt`` inside the ``~/my-latex-repo-example`` directory.
 
@@ -110,6 +101,17 @@ Example
 	\newcommand{\command_3}[1]{\mathcal{#1}}
 	...
 
+
+#. You can also add any additional files inside the ``~/my-latex-repo-example`` folder. These are the files that will be copied directly into the manuscript folder. e.g.
+
+   .. code-block:: bash
+
+	cd ~/my-latex-repo-example
+	touch my-class-file.cls
+	touch my-style-file.sty
+	touch my-bib-file.bib
+
+
 #. Commit the change and sync the ``my-latex-repo-example`` repository in GitHub.
 
    .. code-block:: bash
@@ -128,7 +130,7 @@ Example
 
 A manuscript folder will be created in the ``~/my-manuscripts``. Files from the ``my-latex-repo-example`` GitHub repo will be copied into the manuscript folder. Packages and commands in ``usepackages.txt`` and ``newcommands.txt`` will be inserted after ``\documentclass`` in the main LaTeX file (``manuscript.tex`` by default) in the manuscript folder. The names of all ``.bib``  will be added to the ``\bibliography`` entry in the main LaTeX file.
 
-In this example, we used a GitHub repository named ``my-latex-repo-example`` to store the LaTeX files. The repository is maintained locally in ``~/my-latex-repo-example`` and five files ``my-latex-file.tex``, ``my-bib-file.bib``, ``my-other-file.txt``, ``usepackages.txt`` and ``newcommands.txt`` are created inside ``my-latex-repo-example``. The name for the repository and its local location can be chosen freely. You can also add, remove, or modify any files in that repository.
+In this example, we used a GitHub repository named ``my-latex-repo-example`` to store the LaTeX files. The repository is maintained locally in ``~/my-latex-repo-example`` and five files ``my-class-file.cls``, ``my-style-file.sty``, ``my-bib-file.bib``, ``usepackages.txt`` and ``newcommands.txt`` are created inside ``my-latex-repo-example``. The name for the repository and its local location can be chosen freely. You can also add, remove, or modify any files in that repository.
 
 Want a new manuscript template?
 ----------------------------------------------------------------------
