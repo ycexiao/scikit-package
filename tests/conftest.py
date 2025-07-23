@@ -70,6 +70,6 @@ def user_filesystem(tmp_path, pytestconfig):
         file_path.write_text(file_content)
 
     template_dir = base_dir / "template-dir"
-    shutil.copytree(pytest.rootpath, template_dir)
+    shutil.copytree(pytestconfig.rootpath, template_dir)
 
     yield tmp_path
