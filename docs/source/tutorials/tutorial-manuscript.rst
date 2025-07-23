@@ -1,31 +1,18 @@
 .. _scikit-package-manuscript-tutorials:
 
-Create your manuscript with ``scikit-package-manuscript``
-=========================================================
+Create a configured LaTeX manuscript folder with ``scikit-package``
+===================================================================
 
 Overview
 --------
 
-This is a tutorial for using ``scikit-package-manuscript`` template, which provides the command
+This is a tutorial for using ``scikit-package`` to create a configured manuscript folder by running the command
 
-.. code-block:: bash
+   .. code-block:: bash
 
 	package create manuscript
 
-in ``scikit-package`` to create a manuscript directory with a customized LaTeX repository.
-
-The tutorial is divided into two steps.
-
-- You will learn how to create an environment for ``scikit-package`` in :ref:`manuscript-create-the-environment`.
-- You will try the command ``package create manuscript`` and learn the prompt interface in :ref:`manuscript-run-the-command`.
-
-We strongly recommend that you read through :ref:`manuscript-customize-latex-repo` to unleash the full potential of ``scikit-package-mansucript``.
-
-
-How does ``scikit-package-manuscript`` benefit the manuscript writing process?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-``scikit-package-manuscript`` provides a systematic way to organize your these LaTeX snippets and simplifies finding and copying the reusable LaTeX snippets into choosing from pre-defined journal template and GitHub repository.
+We strongly recommend that you read through :ref:`manuscript-customize-latex-repo` to unleash the full potential of creating a manuscript folder with ``scikit-package``.
 
 Prerequisites
 ^^^^^^^^^^^^^^
@@ -33,43 +20,27 @@ Prerequisites
 To proceed with the following steps, we assume that you
 
 #. know how to use ``conda`` to create an environment and install ``scikit-package`` in the environment. Please see :ref:`conda-env-setup-simple` for more information.
-#. know how to manage repositories on GitHub. Please see the GitHub tutorial `GitHub Hello World <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_ for more information.
-
-
-.. _manuscript-create-the-environment:
-
-Step 1. Create an environment and install ``scikit-package``
-------------------------------------------------------------
-
-#. Make sure ``conda`` is installed. Please see :ref:`conda-env-setup-simple` for more information.
-
-   .. code-block:: bash
-
-	conda --version
-
-#. Create a new environment and activate it.
-
-   .. code-block:: bash
-
-	conda create -n skpkg-manuscript
-	conda activate skpkg-manuscript
-
-
-#. Install ``scikit-package`` in the environment.
-
-   .. code-block:: bash
-
-	conda install scikit-package
+#. (Optional) know how to manage repositories on GitHub. Please see the GitHub tutorial `GitHub Hello World <https://docs.github.com/en/get-started/start-your-journey/hello-world>`_ for more information.
 
 
 .. _manuscript-run-the-command:
 
-Step 2. Run ``package create manuscript`` without customization
+Create a manuscript folder with minimum setup.
 ---------------------------------------------------------------
+#. Create a ``conda`` environment with ``scikit-package`` installed and activate the environment. Please see :ref:`conda-env-setup-simple` for more information.
 
-After Step 1, ``scikit-package-manuscript`` is enabled with a minimal setup.
+   .. code-block:: bash
 
-1. Run ``scikit-package-manuscript``.
+	conda create -n <project-name>-env scikit-package
+	conda activate <project-name>-env
+
+#. Go to the path where the manuscript folder will be created.
+
+   .. code-block:: bash
+
+	cd <manuscript-folder-parent-folder>
+
+#. Run the command.
 
    .. code-block:: bash
 
@@ -84,7 +55,7 @@ After Step 1, ``scikit-package-manuscript`` is enabled with a minimal setup.
         You may press the "Enter" key to accept the default values for the questions.
 
 
-3. Done! A manuscript folder named ``project_name`` is created in your working directory.
+3. Done! A manuscript folder named ``<project_name>`` is created inside ``<manuscript-folder-parent-folder>``.
 
 
 .. _manuscript-customize-latex-repo:
@@ -92,39 +63,39 @@ After Step 1, ``scikit-package-manuscript`` is enabled with a minimal setup.
 (Recommended) How to customize the LaTeX repositories
 -----------------------------------------------------
 
-The flexibility of ``scikit-package-manuscript`` is mainly attributed to that LaTeX repositories can be customized for different manuscripts. The following steps will help you create a LaTeX repository to be used by ``package create manuscript``
+The flexibility of ``scikit-package-manuscript`` is mainly attributed to the ability to customize LaTeX repositories for different manuscripts. The following steps will help you create a LaTeX repository to be used by ``package create manuscript``.
 
-#. Create a GitHub repository and copy the repository URL. Please see :ref:`create-new-github-repo` for more information.
+Example
+^^^^^^^
 
-#. Create a directory ``<latex-repo-dir>`` to store the LaTeX files and associate the directory with the GitHub repository.
 
-   .. code-block:: bash
 
-	mkdir <latex-repo-dir>
-	cd <latex-repo-dir>
-	git init
-	git remote add origin <coppied-repository-URL>
+#. Create a GitHub repository. Please see :ref:`create-new-github-repo` for more information. As an example, set ``Repository name`` to be ``my-latex-repo-example``, choose the visibility to be ``public``, and select ``None`` for ``.gitignore`` and ``license``. You will be directed to the ``my-latex-repo-example`` page in GitHub after it is created.
 
-#. Copy the files that you want to include in the manuscript folder into the ``<latex-repo-dir>`` directory. During ``package create manuscript``, these files will be copied into the manuscript folder without modifications.
+#. Find the ``Quick setup`` section in the ``my-latex-repo-example`` page, choose the ``HTTPS`` option and copy the URL in the section. The URL will be referred to as ``<copied-my-latex-repo-example-url>`` in the following steps.
 
-   e.g.
+#. Open the terminal and clone the ``my-latex-repo-example`` repository. After the command, a ``my-latex-repo-example`` folder will be created locally.
 
    .. code-block:: bash
 
-	cp my-class-file.cls <latex-repo-dir>/
-	cp my-style-file.bst <latex-repo-dir>/
-	cp my-bib-file-1.bib <latex-repo-dir>/
-	cp my-bib-file-2.bib <latex-repo-dir>/
-	cp my-latex-file.tex <latex-repo-dir>/
-	cp other-file.txt <latex-repo-dir>/
+        cd ~
+	git clone <copied-my-latex-repo-example-url>
 
+#. Create the LaTeX files inside the ``~/my-latex-repo-example`` folder. These are the files that will be copied directly into the manuscript folder later.
 
-#. Create ``usepackages.txt`` and ``newcommands.txt`` in the ``<latex-repo-dir>`` directory.
+   .. code-block:: bash
 
-   ``usepackages.txt`` is used to add commands like ``\usepackage{graphicx}`` into the main LaTeX file. ``newcommands.txt`` is used to add commands like ``\newcommand{\a_command}[1]{\mathrm{#1}}`` into the main LaTeX file. The main LaTeX file is ``manuscript.tex`` in the manuscript folder by default.
+	cd ~/my-latex-repo-example
+	touch my-latex-file.tex
+	touch my-bib-file.bib
+	touch my-other-file.txt
+
+#. Create ``usepackages.txt`` and ``newcommands.txt`` inside the ``~/my-latex-repo-example`` directory.
+
+    ``usepackages.txt`` is used to add commands like ``\usepackage{graphicx}`` into the main LaTeX file. ``newcommands.txt`` is used to add commands like ``\newcommand{\a_command}[1]{\mathrm{#1}}`` into the main LaTeX file. The main LaTeX file is ``manuscript.tex`` in the manuscript folder by default.
 
    .. note::
-      No LaTeX syntax check is executed during ``package create manuscript``. The content in ``usepackages.txt`` is what will be inserted after ``\documentclass`` and the content in ``newcommands.txt`` is what will be inserted after all ``\usepackage``.
+      No LaTeX syntax check is executed during ``package create manuscript``. The content in ``usepackages.txt`` will be inserted after ``\documentclass`` and the content in ``newcommands.txt`` will be inserted after all ``\usepackage`` commands.
 
 
    Example of ``usepackages.txt``
@@ -146,7 +117,7 @@ The flexibility of ``scikit-package-manuscript`` is mainly attributed to that La
 	...
 
 
-#. Commit the change and sync the repository with the one in GitHub.
+#. Commit the change and sync the ``my-latex-repo-example`` repository in GitHub.
 
    .. code-block:: bash
 
@@ -154,12 +125,21 @@ The flexibility of ``scikit-package-manuscript`` is mainly attributed to that La
 	git commit -m 'skpkg: initialize a LaTeX repository'
 	git push origin main
 
-#. Done! You can now run ``package create manuscript`` using this GitHub repository's URL as the input for ``latex_headers_repo_url`` to test it.
+#. Done! To test it, go to the path where a manuscript folder will be created and run ``package create manuscript`` with ``<copied-my-latex-example-url>`` as the input for ``<user_latex_repo_url>``.
 
-A manuscript folder will be created in the working directory. Files from the GitHub repository will be copied into the manuscript folder. Packages and commands in ``usepackages.txt`` and ``newcommands.txt`` will be inserted after ``\documentclass`` in the main LaTeX file (``manuscript.tex`` by default) in the manuscript folder. The names of all ``.bib``  will be added to the ``\bibliography`` entry in the main LaTeX file.
+   .. code-block:: bash
+
+	mkdir ~/my-manuscripts
+	cd ~/my-manuscripts
+	package create manuscript
 
 
-How to contribute
------------------
+A manuscript folder will be created in the ``~/my-manuscripts``. Files from the ``my-latex-repo-example`` GitHub repo will be copied into the manuscript folder. Packages and commands in ``usepackages.txt`` and ``newcommands.txt`` will be inserted after ``\documentclass`` in the main LaTeX file (``manuscript.tex`` by default) in the manuscript folder. The names of all ``.bib``  will be added to the ``\bibliography`` entry in the main LaTeX file.
 
-Please make an issue on `scikit-package-manuscript <https://github.com/scikit-package/scikit-package-manuscript>`_ if you have any new features.
+In this example, we used a GitHub repository named ``my-latex-repo-example`` to store the LaTeX files. The repository is maintained locally in ``~/my-latex-repo-example`` and five files ``my-latex-file.tex``, ``my-bib-file.bib``, ``my-other-file.txt``, ``usepackages.txt`` and ``newcommands.txt`` are created inside ``my-latex-repo-example``. The name for the repository and its local location can be chosen freely. You can also add, remove, or modify any files in that repository.
+
+
+Want a new manuscript template?
+----------------------------------------------------------------------
+
+Feel free to contribute it! You are welcom to create issues and PRs in `scikit-package-manuscript <https://github.com/scikit-package/scikit-package-manuscript>`_.

@@ -10,6 +10,6 @@
       * - journal_template
         - Specifies which journal template to use to create the manuscript.
 	  The default value is ``[1]``, which corresponds to the ``article`` template.
-      * - latex_headers_repo_url
+      * - latex_latex_repo_url
         - The URL to the GitHub repository where the LaTeX files are located. Files with the specified names will be parsed, and the other files will be copied directly into the manuscript folder.
           e.g., ``https://github.com/scikit-package/default-latex-headers.git``
