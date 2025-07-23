@@ -1,9 +1,15 @@
 import json
 import shutil
+import sys
 from pathlib import Path
 
 import pytest
 
+project_root = Path(__file__).resolve().parent.parent
+hooks_dir = project_root / "hooks/"
+sys.path.insert(0, project_root)
+sys.path.insert(0, hooks_dir)
+print(sys.path)
 files_in_old_project = {
     ".git/COMMIT_EDITMSG": """
 skpkg: last commit message in skpkg-package

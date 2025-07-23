@@ -1,5 +1,4 @@
-import os
-import subprocess
+import importlib
 from pathlib import Path
 
 from scikit_package.cli.update.cf import _update_meta_yaml
@@ -33,67 +32,19 @@ source:
     assert updated_meta == expected_updated_meta
 
 
-# C1: Run `package update`. Expect example files are not created and files with
-#   duplicated name in the created package are skipped, files without
-#   duplicated names are copied into the created package.
-def test_package_update(user_filesystem, pytestconfig):
-    old_package_dir = Path(user_filesystem) / "package-dir"
-    # template_dir = Path(user_filesystem) / "template-dir"
-    env = os.environ.copy()
-    env["HOME"] = str(Path(user_filesystem))
-    subprocess.run(
-        [
-            "cookiecutter",
-            "https://github.com/scikit-package/scikit-package",
-            "_is_update=Yes",
-        ],
-        cwd=old_package_dir,
-        env=env,
-        input="\n" * 17,  # use the default value in the prompt
-        text=True,
+# C1: a src file in a namespace package. Expect the it's correct relative path
+# in the submodule is returned.
+def test_get_src_file_location_in_submodule():
+    spec = importlib.util.spec_from_file_location(
+        "post_gen_project",
+        Path(__file__).parents[1] / "hooks" / "post_gen_project.py",
     )
+    post_gen_project = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(post_gen_project)
 
-
-#     new_package_dir = old_package_dir / "diffpy.my-project"
-#     example_files = [
-#         "docs/source/api/diffpy.my-project.example_package.rst",
-#         "docs/source/getting-started.rst",
-#         "src/diffpy/my-project/functions.py",
-#         "tests/test_functions.py",
-#     ]
-#     for file_name in example_files:
-#         example_file = new_package_dir / file_name
-#         assert not example_file.exists()
-#     files_only_in_old_package = {
-#         ".git/COMMIT_EDITMSG": """
-# skpkg: last commit message in skpkg-package
-# """,
-#         "docs/source/tutorial.rst": """
-# The tutorial for skpkg-package.
-# """,
-#     }
-#     files_with_duplicated_name = {
-#         "README.rst": """
-# |Icon| |title|_
-# ===============
-
-# .. |title| replace:: title of README.rst in skpkg-package
-# """,
-#         "docs/source/index.rst": """
-# #######
-# |title|
-# #######
-
-# .. |title| replace:: title of skpkg-package documentation
-# """,
-#     }
-#     for file_name, file_content in files_only_in_old_package.items():
-#         copied_file = new_package_dir / file_name
-#         actual_content = copied_file.read_text()
-#         expected_content = file_content
-#         assert actual_content == expected_content
-#     for file_name, file_content in files_with_duplicated_name.items():
-#         skipped_file = new_package_dir / file_name
-#         actual_content = skipped_file.read_text()
-#         old_file_content = file_content
-#         assert actual_content != old_file_content
+    filename = "src/diffpy.my_project/utils/helper.py"
+    expected_filename = "src/diffpy/my_project/utils/helper.py"
+    actual_filename = post_gen_project.get_src_file_location_in_submodule(
+        filename, "diffpy.my_project"
+    )
+    assert actual_filename == expected_filename
