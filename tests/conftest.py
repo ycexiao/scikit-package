@@ -1,4 +1,5 @@
 import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -37,7 +38,7 @@ The tutorial for skpkg-package.
 
 
 @pytest.fixture
-def user_filesystem(tmp_path):
+def user_filesystem(tmp_path, pytestconfig):
     base_dir = Path(tmp_path)
     home_dir = base_dir / "home_dir"
     home_dir.mkdir(parents=True, exist_ok=True)
@@ -67,5 +68,8 @@ def user_filesystem(tmp_path):
         file_path = target_dir / file_name
         file_path.parent.mkdir(parents=True, exist_ok=True)
         file_path.write_text(file_content)
+
+    template_dir = base_dir / "template-dir"
+    shutil.copytree(pytest.rootpath, template_dir)
 
     yield tmp_path
