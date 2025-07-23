@@ -1,15 +1,8 @@
 import json
-import shutil
-import sys
 from pathlib import Path
 
 import pytest
 
-project_root = Path(__file__).resolve().parent.parent
-hooks_dir = project_root / "hooks/"
-sys.path.insert(0, project_root)
-sys.path.insert(0, hooks_dir)
-print(sys.path)
 files_in_old_project = {
     ".git/COMMIT_EDITMSG": """
 skpkg: last commit message in skpkg-package
@@ -74,8 +67,5 @@ def user_filesystem(tmp_path, pytestconfig):
         file_path = target_dir / file_name
         file_path.parent.mkdir(parents=True, exist_ok=True)
         file_path.write_text(file_content)
-
-    template_dir = base_dir / "template-dir"
-    shutil.copytree(pytestconfig.rootpath, template_dir)
 
     yield tmp_path
