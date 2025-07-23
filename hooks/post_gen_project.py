@@ -10,7 +10,9 @@ from scikit_package.utils.io import copy_all_files
 ROOT = Path.cwd()
 
 
-def get_src_file_location_in_submodule(file_name):
+def get_src_file_location_in_submodule(
+    file_name, package_name="{{ cookiecutter.github_repo_name }}"
+):
     """Modify filename by replacing the package_dir_name with the module
     path.
 
@@ -18,7 +20,6 @@ def get_src_file_location_in_submodule(file_name):
     and submodule path, which is obtained by splitting the
     package_dir_name using the period.
     """
-    package_name = "{{ cookiecutter.package_dir_name }}"
     submodule_names = package_name.split(".")
     submodule_names = [module.strip().lower() for module in submodule_names]
     file_path_names = file_name.split("/")
@@ -60,7 +61,7 @@ def update_package():
 
 def __gen_init__(module_name):
     """Generate __init__.py file for namespace module."""
-    __init__ = f"""#!/usr/bin/env python
+    __init__ = r"""#!/usr/bin/env python
 ##############################################################################
 #
 # (c) {% now 'utc', '%Y' %} The Trustees of Columbia University in the City of New York.
