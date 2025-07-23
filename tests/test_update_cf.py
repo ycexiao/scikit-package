@@ -45,7 +45,7 @@ def test_package_update(user_filesystem):
         [
             "cookiecutter",
             str(template),
-            "_is_update=Yes",
+            "_is_skpkg_update=Yes",
         ],
         cwd=old_package_dir,
         env=env,
