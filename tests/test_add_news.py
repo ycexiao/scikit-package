@@ -2,11 +2,10 @@ import shutil
 from pathlib import Path
 from types import SimpleNamespace
 
-from scikit_package.cli import add
 from scikit_package.cli.add import news_item
 
 
-def _setup_news_test_env(tmp_path):
+def _setup_news_test_env(tmp_path, mocker):
     """Set up a temporary news directory and template file for
     testing."""
     test_news_dir = tmp_path / "news"
@@ -15,23 +14,24 @@ def _setup_news_test_env(tmp_path):
     project_root = Path(__file__).resolve().parents[1]
     real_template_path = project_root / "news" / "TEMPLATE.rst"
     test_template_file = test_news_dir / "TEMPLATE.rst"
-    # Copy the real template to the test directory
     shutil.copy(real_template_path, test_template_file)
-    # Override paths for testing
-    add.NEWS_DIR = str(test_news_dir)
-    add.TEMPLATE_PATH = str(test_template_file)
-    # Mock branch setup
+    # Mock the paths and the branch
+    mocker.patch("scikit_package.cli.add.NEWS_DIR", str(test_news_dir))
+    mocker.patch(
+        "scikit_package.cli.add.TEMPLATE_PATH", str(test_template_file)
+    )
     branch_name = "test-branch"
-    import scikit_package.utils.auth as auth
-
-    auth.get_current_branch = lambda: branch_name
+    mocker.patch(
+        "scikit_package.utils.auth.get_current_branch",
+        return_value=branch_name,
+    )
     news_file = test_news_dir / f"{branch_name}.rst"
     return news_file
 
 
-def test_add_news_item(tmp_path):
+def test_add_news_item(tmp_path, mocker):
     """Test adding a news item to the news file."""
-    news_file = _setup_news_test_env(tmp_path)
+    news_file = _setup_news_test_env(tmp_path, mocker)
     # Mimic `package add --add -m "Add first news."`
     args1 = SimpleNamespace(
         add=True,
@@ -109,9 +109,9 @@ def test_add_news_item(tmp_path):
     assert content_2.strip() == expected_content_2.strip()
 
 
-def test_no_news_item(tmp_path):
+def test_no_news_item(tmp_path, mocker):
     """Test adding "no news" item to the news file."""
-    news_file = _setup_news_test_env(tmp_path)
+    news_file = _setup_news_test_env(tmp_path, mocker)
     # Mimic `package add --no-news -m "Fix small typo."`
     args = SimpleNamespace(
         add=False,
