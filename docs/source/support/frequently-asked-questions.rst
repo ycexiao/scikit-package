@@ -502,7 +502,7 @@ In Level 5, what are the workflows running in each pull request?
 
 #. The second workflow uses ``pre-commit CI``. This workflow checks the incoming code in the PR using ``pre-commit`` hooks and automatically applies fixes when possible. If any fixes are made, an additional commit is created by the ``pre-commit`` app. However, some hooks, such as spell checkers, may still fail even after auto-fixes. In such cases, the CI fails. The user first needs to pull the additional commit made by the ``pre-commit CI``, fix the error manually, and then push a commit to the working branch.
 
-#. The third workflow uses the ``Codecov`` app, which adds a comment to the PR summarizing the changes in code coverage as part of the ``.github/workflows/tests-on-pr.yml`` workflow. This workflow fails if no tests are provided for the new code or if the test coverage percentage decreases below the acceptable threshold. The threshold can be adjusted in the ``.codecov.yml`` file located in the project root directory.
+#. The third workflow uses the ``Codecov`` app, which adds a comment to the PR summarizing the changes in code coverage as part of the ``.github/workflows/tests-on-pr.yml`` workflow. This workflow fails if no tests are provided for the new code or if the test coverage percentage decreases below the acceptable threshold. The threshold can be adjusted in the ``.codecov.yml`` file located in the project root directory. If you have a private repository and Codecov cannot be run, refer to :ref:`faq-private-repo-no-codecov`.
 
 #. The fourth workflow checks for a news file in the PR using ``.github/workflows/check-news-item.yml``. If no news item is included for the proposed changes, this workflow fails and leaves a comment prompting the contributor to submit a new PR with the appropriate news file. Please refer to the best practices section on :ref:`news items <news-item-practice>`.
 
@@ -577,6 +577,44 @@ Here we provide a bit more context on how the ``run:`` commands are used. The ex
           bash user-commands.sh
 
 After this step, the reusable workflow then runs the ``pytest`` command. To see the full reusable workflow file, please visit https://github.com/scikit-package/release-scripts/blob/main/.github/workflows/_tests-on-pr.yml.
+
+.. _faq-private-repo-no-codecov:
+
+I have a private repo and don't have a Codecov paid plan.  Can I modify the CI workflows for this situation?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, the workflows in ``tests-on-pr.yml`` and ``matrix-and-codecov-on-merge-to-main.yml`` will have a section that uploads the code coverage to Codecov, and CI will fail if unsuccessful. Codecov is available for free on public repositories but requires a paid plan to run on private repositories. In the latter case, if you would like to turn off Codecov, we offer an alternative CI workflow that runs the tests without it.
+
+In addition to being able to customize additional commands to be run in the ``run:`` section (see :ref:`faq-github-actions-extra-cli-commands` above), you can also change the workflows that you want your repository to run. By default, ``scikit-package`` will run the ``tests-on-pr.yml`` and ``matrix-and-codecov-on-merge-to-main.yml`` workflows in the ``scikit-package/release-scripts`` repository. It is possible to override this default and run a different workflow for your CI if it is available in ``scikit-package/release-scripts``. For example, for the situation above we offer we offer ``tests-on-pr-no-codecov.yml`` and ``matrix-no-codecov-on-merge-to-main.yml`` which run the tests without Codecov.
+
+To do so, you can modify the script that your workflow files are calling in the ``uses:`` section. Normally, you'd be calling the following in ``tests-on-pr.yml`` and ``matrix-and-codecov-on-merge-to-main.yml``, respectively.
+
+.. code-block:: yaml
+
+  uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
+
+.. code-block:: yaml
+
+  uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
+
+Instead, call the following in ``tests-on-pr.yml`` and ``matrix-and-codecov-on-merge-to-main.yml``, respectively.
+
+.. code-block:: yaml
+
+  uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr-no-codecov.yml@v0
+
+.. code-block:: yaml
+
+  uses: scikit-package/release-scripts/.github/workflows/_matrix-no-codecov-on-merge-to-main.yml@v0
+
+Don't forget to also delete the following section from your workflow files now that we are not uploading to Codecov in the workflows anymore.
+
+.. code-block:: yaml
+
+  secrets:
+    CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+Done! If you have a different situation that our current workflows have not accounted for, please feel free to contribute a new workflow file by making a PR.
 
 .. _faq-dependency-management:
 
