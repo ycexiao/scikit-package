@@ -74,7 +74,7 @@ Create a new project with ``scikit-package``
             ├── LICENSE.rst
             ├── MANIFEST.in
             ├── README.rst
-            ├── doc
+            ├── docs
             ├── news
             ├── pyproject.toml
             ├── requirements
