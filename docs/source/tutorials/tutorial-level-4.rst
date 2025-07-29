@@ -97,7 +97,7 @@ Create a new project with ``scikit-package``
         ├── requirements
         │   ├── conda.txt
         │   ├── pip.txt
-        │   └── test.txt
+        │   └── tests.txt
         ├── src
         │   └── my_package
         │   ├── __init__.py

@@ -70,11 +70,11 @@ Create a new project with ``scikit-package``
         └── <package-name> # (Level 5)
             ├── AUTHORS.rst
             ├── CHANGELOG.rst
-            ├── CODE_OF_CONDUCT.rst
+            ├── CODE-OF-CONDUCT.rst
             ├── LICENSE.rst
             ├── MANIFEST.in
             ├── README.rst
-            ├── doc
+            ├── docs
             ├── news
             ├── pyproject.toml
             ├── requirements
@@ -115,7 +115,7 @@ Migration files from Level 4 to Level 5
 
         cp ../requirements/conda.txt ./requirements/conda.txt
         cp ../requirements/pip.txt ./requirements/pip.txt
-        cp ../requirements/test.txt ./requirements/test.txt
+        cp ../requirements/tests.txt ./requirements/tests.txt
 
 #. At this point, you should be able to install the package locally and test it using your existing conda environment:
 

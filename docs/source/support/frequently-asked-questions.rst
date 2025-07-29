@@ -565,7 +565,7 @@ Here we provide a bit more context on how the ``run:`` commands are used. The ex
       - name: Install ${{ inputs.project }} and requirements
         run: |
           conda install --file requirements/conda.txt
-          conda install --file requirements/test.txt
+          conda install --file requirements/tests.txt
           if ${{ inputs.c_extension }}; then
             conda install --file requirements/build.txt
           fi
@@ -623,14 +623,14 @@ Dependency management
 
 .. _faq-dependency-files:
 
-What are ``docs.txt``, ``test.txt``, ``build.txt``, and ``conda.txt`` files under ``\requirements`` in Level 4 and Level 5?
+What are ``docs.txt``, ``tests.txt``, ``build.txt``, and ``conda.txt`` files under ``\requirements`` in Level 4 and Level 5?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 :pip.txt: list all PyPI packages required to install the package via `pip install <package-name>`.
 
 :conda.txt: list all Conda packages required for running the package in GitHub CI. It should be typically identcal as the ``pip.txt`` file.
 
-:test.txt: packages required for the testing suite to ensure all tests pass.
+:tests.txt: packages required for the testing suite to ensure all tests pass.
 
 :docs.txt: packages required for building the package documentation page.
 

@@ -4,7 +4,7 @@
 
         conda create -n my-package-env python=3.13 \
             --file requirements/conda.txt \
-            --file requirements/test.txt
+            --file requirements/tests.txt
 
 #. Activate the conda environment:
 

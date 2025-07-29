@@ -34,7 +34,7 @@ Please let @sbillinge know that all checks are done and the package is ready for
 <!-- After @sbillinge releases the PyPI package, please check the following when creating a PR for conda-forge release.-->
 
 - [ ] Ensure that the full release has appeared on PyPI successfully.
-- [ ] New package dependencies listed in `conda.txt` and `test.txt` are added to `meta.yaml` in the feedstock.
+- [ ] New package dependencies listed in `conda.txt` and `tests.txt` are added to `meta.yaml` in the feedstock.
 - [ ] Close any open issues on the feedstock. Reach out to @bobleesj if you have questions.
 - [ ] Tag @sbillinge and @bobleesj for conda-forge release.
 

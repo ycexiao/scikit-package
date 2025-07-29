@@ -86,7 +86,7 @@ Hence, in Step 1, we will generate ``meta.yaml`` using the ``scikit-package`` co
 
     :runtime_requirements: Copy from  ``requirements/conda.txt``.
 
-    :testing_requirements: Copy from ``requirements/test.txt``.
+    :testing_requirements: Copy from ``requirements/tests.txt``.
 
 #. ``cd`` into the new directory created by ``scikit-package``.
 
