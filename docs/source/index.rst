@@ -5,6 +5,13 @@ Welcome to the ``scikit-package`` official documentation!
 
 ``scikit-package`` offers tools and practices for the scientific community to make better and more reusable Scientific Python packages and applications.
 
+How to cite ``scikit-package``
+------------------------------
+
+If you use ``scikit-package`` to standardize your Python software, we would like you to cite scikit-package:
+
+  S. Lee and C. Myers and A. Yang and T. Zhang and S. J. L. Billinge, scikit-package - software packaging standards and roadmap for sharing reproducible scientific software (https://arxiv.org/abs/2507.03328)
+
 How does ``scikit-package`` benefit scientists?
 -----------------------------------------------
 

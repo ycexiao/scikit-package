@@ -74,9 +74,9 @@ Are you interested in using ``scikit-package``? Begin with the ``Getting Started
 How to cite ``scikit-package``
 ------------------------------
 
-If you use ``scikit-package`` to standardize your Python software, we would like you to cite scikit-package as follows:
+If you use ``scikit-package`` to standardize your Python software, we would like you to cite scikit-package:
 
-   scikit-package, https://github.com/scikit-package/scikit-package
+  S. Lee and C. Myers and A. Yang and T. Zhang and S. J. L. Billinge, scikit-package - software packaging standards and roadmap for sharing reproducible scientific software (https://arxiv.org/abs/2507.03328)
 
 Acknowledgements
 ----------------
