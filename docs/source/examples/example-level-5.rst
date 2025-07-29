@@ -305,7 +305,7 @@ In our example, **Sir Lancelot** could make a pre-release of the 0.1.0 release b
     $ git tag 0.1.0-rc.0
     $ git push upstream 0.1.0-rc.0
 
-with exactly this format (included dashes and dots). 
+with exactly this format (included dashes and dots).
 
 The default release obtained by typing pip install montypy remains as the existing release, but the pre-release can be installed in a test environment by explicitly specifying the release number, ``pip install montypy==0.1.0-rc.0`` If needed, a second rc release with some problems fixed would be numbered ``0.1.0-rc.1``, and so on.
 

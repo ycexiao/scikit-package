@@ -193,9 +193,9 @@ Setup local CI after migrating essential files
 ----------------------------------------------
 
  With the package now passing all ``pre-commit`` checks and local tests, it is time to start migrating it to the new package structure created by ``scikit-package``. We do this by copying files from the old package into the directory structure created by ``scikit-package``.
- 
+
  The old package was under git control. We have found that the best way to do the migration is to first move the Git database from the existing project directory to the new Level 5 package. This retains the entire git history of the old project, but places it in the new package structure created by ``scikit-package``. After we do this, the git controlled ``flying-circus`` package is now the new package and the files in the old package are no longer under git control, until we move them over.
- 
+
   To move the Git database over, **Sir Robin** executes the below commands:
 
 .. code-block:: bash
