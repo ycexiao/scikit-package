@@ -18,8 +18,11 @@
 #  __all__ = ["__date__", "__git_commit__", "__timestamp__", "__version__"]
 
 # obtain version information
-from importlib.metadata import version
+from importlib.metadata import version, PackageNotFoundError
 
-__version__ = version("scikit_package")
+try:
+    __version__ = version("scikit-learn")
+except PackageNotFoundError:
+    __version__ = "unknown"
 
 # End of file
