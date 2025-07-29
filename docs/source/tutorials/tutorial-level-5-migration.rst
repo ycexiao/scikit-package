@@ -352,7 +352,7 @@ Move essential files to run local tests
    - ``pip.txt``
      Core runtime dependencies needed to use the package.
 
-   - ``test.txt``
+   - ``tests.txt``
      Packages required for running tests and checking coverage.
 
    - ``docs.txt``
@@ -382,7 +382,7 @@ Move essential files to run local tests
 
         conda create -n <package-name>-env python=3.13 \
             --file requirements/conda.txt \
-            --file requirements/test.txt
+            --file requirements/tests.txt
         conda activate <package-name>-env
         pip install -e . --no-deps
         pytest
@@ -534,7 +534,7 @@ Move documentation files
 
     .. code-block:: bash
 
-        git add AUTHORS.rst CHANGELOG.rst CODE_OF_CONDUCT.rst LICENSE.rst
+        git add AUTHORS.rst CHANGELOG.rst CODE-OF-CONDUCT.rst LICENSE.rst
         git commit -m "skpkg: add config files for authors, changelog, code of conduct, license"
         git add MANIFEST.in
         git commit -m "skpkg: add MANIFEST.in"
