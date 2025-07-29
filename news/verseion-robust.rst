@@ -1,6 +1,6 @@
 **Added:**
 
-* Add try-error fallback to __version__
+* No news added: try-error fallback to __version__
 
 **Changed:**
 
