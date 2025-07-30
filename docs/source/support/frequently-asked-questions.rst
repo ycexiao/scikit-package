@@ -446,6 +446,8 @@ How do I do pre-release for conda-forge?
 
 Please refer to the :ref:`How do I do pre-release? <conda-forge-pre-release>` section.
 
+.. _faq-github-actions:
+
 GitHub Actions
 --------------
 
