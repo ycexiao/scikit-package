@@ -94,7 +94,7 @@ def test_copy_all_files_bad(user_filesystem):
     # a file with the same name found in both dirs and exists_ok=False.
     source_dir = user_filesystem / "package-dir"
     target_dir = source_dir / "target-dir-inside-package-dir"
-    duplicate_names = ["COMMIT_EDITMSG", "tutorial.rst"]
+    duplicate_names = sorted(["COMMIT_EDITMSG", "tutorial.rst"])
     with pytest.raises(
         FileExistsError,
         match=re.escape(
