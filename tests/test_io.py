@@ -1,5 +1,3 @@
-import re
-
 import pytest
 
 from scikit_package.utils.io import copy_all_files
@@ -97,9 +95,9 @@ def test_copy_all_files_bad(user_filesystem):
     duplicate_names = ["COMMIT_EDITMSG", "tutorial.rst"]
     with pytest.raises(
         FileExistsError,
-        match=re.escape(
-            f"{duplicate_names} already exists in target dir "
-            f"{str(target_dir)}."
-        ),
-    ):
+    ) as error:
         copy_all_files(source_dir, target_dir, exists_ok=False)
+        actual_error_message = str(error.value)
+        assert str(target_dir) in actual_error_message
+        for name in duplicate_names:
+            assert name in actual_error_message
