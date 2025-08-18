@@ -1,3 +1,5 @@
+import re
+
 import pytest
 
 from scikit_package.utils.io import copy_all_files
@@ -70,7 +72,7 @@ def test_copy_all_files_bad(user_filesystem):
     package_dir = user_filesystem / "package-dir"
     with pytest.raises(
         FileNotFoundError,
-        match=(
+        match=re.escape(
             "Unable to find the source directory: "
             f"{str(non_existing_source_dir)}."
         ),
@@ -82,7 +84,7 @@ def test_copy_all_files_bad(user_filesystem):
     assert empty_source_dir.exists() and (not any(empty_source_dir.iterdir()))
     with pytest.raises(
         FileNotFoundError,
-        match=(
+        match=re.escape(
             f"Source directory {str(empty_source_dir)} found "
             "but it contains no files."
         ),
