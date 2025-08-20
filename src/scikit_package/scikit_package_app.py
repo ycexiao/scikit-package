@@ -12,7 +12,9 @@ SKPKG_GITHUB_URL = "https://github.com/scikit-package/scikit-package"
 def _add_subcommands(subparsers, commands, func, special_args={}):
     """Helper function to add subcommands to a parser."""
     for command, help_text in commands:
-        parser_sub = subparsers.add_parser(command, help=help_text)
+        parser_sub = subparsers.add_parser(
+            command, help=help_text, epilog=help_text
+        )
         if command in special_args:
             special_args[command](parser_sub)
         parser_sub.set_defaults(func=func, subcommand=command)
