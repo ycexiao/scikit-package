@@ -106,6 +106,20 @@ and run the following ::
 
         pip install .
 
+To confirm that the installation was successful, type ::
+
+        python -c "import scikit_package; print(scikit_package.__version__)"
+
+The output should print the latest version displayed on the badges above.
+
+This package also provides command-line utilities. To verify the installation, you can also type ::
+
+        package --version
+
+To view the basic usage and available commands, type ::
+
+        package --h
+
 How to cite ``scikit-package``
 ------------------------------
 

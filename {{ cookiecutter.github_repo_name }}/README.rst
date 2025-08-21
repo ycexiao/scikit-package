@@ -66,10 +66,6 @@ The following creates and activates a new environment named ``{{ cookiecutter.co
         conda create -n {{ cookiecutter.conda_pypi_package_dist_name }}_env {{ cookiecutter.conda_pypi_package_dist_name }}
         conda activate {{ cookiecutter.conda_pypi_package_dist_name }}_env
 
-To confirm that the installation was successful, type ::
-
-        python -c "import {{ cookiecutter.package_dir_name }}; print({{ cookiecutter.package_dir_name }}.__version__)"
-
 The output should print the latest version displayed on the badges above.
 
 If the above does not work, you can use ``pip`` to download and install the latest release from
@@ -83,6 +79,18 @@ If you prefer to install from sources, after installing the dependencies, obtain
 and run the following ::
 
         pip install .
+
+To confirm that the installation was successful, type ::
+
+        python -c "import {{ cookiecutter.package_dir_name }}; print({{ cookiecutter.package_dir_name }}.__version__)"
+
+This package also provides command-line utilities. To verify the installation, you can also type ::
+
+        {{ cookiecutter.conda_pypi_package_dist_name }} --version
+
+To view the basic usage and available commands, type ::
+
+        {{ cookiecutter.conda_pypi_package_dist_name }} -h
 
 Getting Started
 ---------------
