@@ -80,7 +80,7 @@ and run the following ::
 
         pip install .
 
-This package also provides command-line utilities. To check the software has beeen installed correctly, type ::
+This package also provides command-line utilities. To check the software has been installed correctly, type ::
 
         {{ cookiecutter.conda_pypi_package_dist_name }} --version
 
