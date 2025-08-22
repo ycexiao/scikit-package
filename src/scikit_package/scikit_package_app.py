@@ -48,7 +48,7 @@ def setup_subparsers(parser):
         ("system", "Create a system package"),
         ("public", "Create a public package"),
         ("conda-forge", "Create a conda-forge recipe meta.yml file"),
-        ("manuscript", "Create Overleaf LaTeX template of Billinge group."),
+        ("manuscript", "Create a LaTeX manuscript project"),
     ]
     _add_subcommands(subparsers_create, create_commands, create.package)
     # "add" subparser
