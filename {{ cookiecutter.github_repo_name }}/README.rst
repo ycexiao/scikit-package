@@ -80,13 +80,14 @@ and run the following ::
 
         pip install .
 
-To confirm that the installation was successful, type ::
+This package also provides command-line utilities. To conform the installation, type ::
+
+        {{ cookiecutter.conda_pypi_package_dist_name }} --version
+
+You can also type the following command to verify the installation ::
 
         python -c "import {{ cookiecutter.package_dir_name }}; print({{ cookiecutter.package_dir_name }}.__version__)"
 
-This package also provides command-line utilities. To verify the installation, you can also type ::
-
-        {{ cookiecutter.conda_pypi_package_dist_name }} --version
 
 To view the basic usage and available commands, type ::
 
