@@ -4,6 +4,15 @@ Release notes
 
 .. current developments
 
+0.2.1
+=====
+
+**Fixed:**
+
+* Remove the directory ``news/`` dependency to pass the tests.
+* handle package names containing dashes during ``package update``.
+
+
 0.2.0
 =====
 
