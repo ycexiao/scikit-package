@@ -1,6 +1,8 @@
 graft src
 graft tests
 graft requirements
+graft hooks
+graft news
 
 include AUTHORS.rst LICENSE*.rst README.rst
 
