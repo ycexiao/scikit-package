@@ -4,6 +4,43 @@ Release notes
 
 .. current developments
 
+0.2.0
+=====
+
+**Added:**
+
+* Let ``package create <subcommand> -h`` display help text.
+* Add the ``package update`` command to update existing ``sckit-package`` standard packages.
+* Include package build api-doc instruction for namespace import.
+* Use the latest release tag for all entry points of running cookiecutter.
+* Add ``app.py`` file for basic CLI and add ``--version`` command for ``scikit-package``.
+* Add tutorial for ``scikit-package-manuscript``.
+* Add an instruction how to run extra custom CLI commands in test-on-pr and matrix CI.
+* Add instructions for creating a news item by running ``package add news --<news-type> -m "<message>"`` in the documentation.
+* Add ``docformatter`` configuration in ``pyproject.toml``.
+* Add unit tests for updating meta.yaml for package update conda-forge and news item for package add news.
+* Implement ``package add news -a -m "<message>"`` and ``package add no news -m "<message>"`` to streamline news item creation process
+* Implement ``package build api-doc`` CLI to generate API .rst files for namespace support packages.
+* Check the package is available on PyPI right after running package create conda-forge.
+* Allow user to reuse the input in the prompts through project-level config file.
+* Include introductory code snippets under the Getting Started page for first-time users.
+* Correct typos and mistakes in migration portion of documentation.
+* Implement ``package update feedstock`` to streamline making a conda-forge feedstock version update PR after PyPI release.
+* Add instruction on how to use package update conda-forge in the conda-forge release guide
+* Add tutorial in docs for how to call workflow files that don't upload to Codecov.
+* Provide a better help description for ``package add news`` command.
+
+**Fixed:**
+
+* Fix ``pre-commit`` errors in PR template, init file generator, and ``test_functions.py``
+* Use plural names from /doc to /docs and requirements/test.txt to requirements/tests.txt.
+* Use simpler assertions in ``test_copy_all_files_bad``.
+
+**Removed:**
+
+* Remove ``$`` from codeblock in documentation.
+
+
 0.1.0
 =====
 
