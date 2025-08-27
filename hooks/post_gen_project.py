@@ -11,7 +11,7 @@ ROOT = Path.cwd()
 
 
 def get_src_file_location_in_submodule(
-    file_name, package_name="{{ cookiecutter.github_repo_name }}"
+    file_name, package_name="{{ cookiecutter.package_dir_name }}"
 ):
     """Modify filename by replacing the package_dir_name with the module
     path.
@@ -75,13 +75,14 @@ def __gen_init__(module_name):
 # See LICENSE.rst for license information.
 #
 ##############################################################################
-""" # noqa: E999
+"""  # noqa: E999
     return __init__
 
 
 def __gen_setuppy__():
-    base_module_name = "{{ cookiecutter.project_name }}".split('.')[-1].strip()
-    setuppy = """#!/usr/bin/env python
+    base_module_name = "{{ cookiecutter.project_name }}".split(".")[-1].strip()
+    setuppy = (
+        """#!/usr/bin/env python
 
 # Extensions script for {{ cookiecutter.project_name }}
 
@@ -100,7 +101,8 @@ ext_kws = {
         'include_dirs' : [],
 }
 
-""" + f"""def create_extensions():
+"""
+        + f"""def create_extensions():
     \"Initialize Extension objects for the setup function.\"
     ext = Extension('{{ cookiecutter.package_dir_name }}.{base_module_name}',
                     glob.glob('src/extensions/*.cpp'),
@@ -119,6 +121,7 @@ if __name__ == '__main__':
     setup(**setup_args)
 
 """
+    )
     return setuppy
 
 
@@ -146,10 +149,14 @@ def add_supermodules(ROOT, name):
             d_dir.mkdir(parents=False, exist_ok=False)
         # Should never occur as the parent directory is tracked by c_dir
         except FileNotFoundError:
-            print(f"Parent directory {c_dir} not found. This is likely an issue with cookiecutter.")
+            print(
+                f"Parent directory {c_dir} not found. This is likely an issue with cookiecutter."
+            )
         # Should never occur from how we do our naming
         except FileExistsError:
-            print(f"Duplicate directory names {d_dir} found. This is likely an issue with cookiecutter.")
+            print(
+                f"Duplicate directory names {d_dir} found. This is likely an issue with cookiecutter."
+            )
         shutil.move(cp_dir, d_dir)
 
         # Make __init__.py file
@@ -162,6 +169,7 @@ def add_supermodules(ROOT, name):
     # Rename the final destination module
     cp_dir.rename(c_dir / module_names[-1])
 
+
 def wrapper_setup():
     """Generate setup.py file for C extensions."""
     src_dir = ROOT / "src"
@@ -170,15 +178,20 @@ def wrapper_setup():
         ext_dir.mkdir(parents=False, exist_ok=False)
     # Should never occur as the parent directory is src
     except FileNotFoundError:
-        print(f"Parent directory {src_dir} not found. This is likely an issue with cookiecutter.")
+        print(
+            f"Parent directory {src_dir} not found. This is likely an issue with cookiecutter."
+        )
     # Can occur if user names the package extensions
     except FileExistsError:
-        print(f"Duplicate directory names {src_dir} found. You cannot name your project 'extensions*'.")
+        print(
+            f"Duplicate directory names {src_dir} found. You cannot name your project 'extensions*'."
+        )
 
     # Make __init__.py file
     setuppy_file = ROOT / "setup.py"
     with open(setuppy_file, "w") as spfile:
         spfile.write(__gen_setuppy__())
+
 
 def update_workflow():
     """Generate GitHub workflow .yml files with user input."""
@@ -187,38 +200,47 @@ def update_workflow():
     CENTRAL_WORKFLOW_DIR = ".github/workflows/templates"
     LOCAL_WORKFLOW_DIR = ROOT / ".github" / "workflows"
 
-    workflow_input = {"PROJECT": "{{ cookiecutter.project_name }}",
-                      "MAINTAINER_GITHUB_USERNAME": "{{ cookiecutter.maintainer_github_username }}",
-                      "C_EXTENSION": str("{{ cookiecutter.project_needs_c_code_compiled }}"=="Yes").lower(),
-                      "HEADLESS": str("{{ cookiecutter.project_has_gui_tests }}"=="Yes").lower(),
-                      "VERSION": "v0"}
+    workflow_input = {
+        "PROJECT": "{{ cookiecutter.project_name }}",
+        "MAINTAINER_GITHUB_USERNAME": "{{ cookiecutter.maintainer_github_username }}",
+        "C_EXTENSION": str(
+            "{{ cookiecutter.project_needs_c_code_compiled }}" == "Yes"
+        ).lower(),
+        "HEADLESS": str(
+            "{{ cookiecutter.project_has_gui_tests }}" == "Yes"
+        ).lower(),
+        "VERSION": "v0",
+    }
 
     def get_central_workflows():
         """Get GitHub workflows from scikit-package/release-scripts."""
         base_url = f"https://api.github.com/repos/{CENTRAL_REPO_ORG}/{CENTRAL_REPO_NAME}/contents/{CENTRAL_WORKFLOW_DIR}"
         response = requests.get(base_url, timeout=5)
         if response.status_code != 200:
-            raise Exception(f"Failed to fetch central workflows: {response.status_code}")
+            raise Exception(
+                f"Failed to fetch central workflows: {response.status_code}"
+            )
 
         workflows = {}
         for file in response.json():
-            if file['type'] == 'file' and file['name'].endswith('.yml'):
-                content_response = requests.get(file['download_url'], timeout=5)
+            if file["type"] == "file" and file["name"].endswith(".yml"):
+                content_response = requests.get(
+                    file["download_url"], timeout=5
+                )
                 if content_response.status_code == 200:
-                    workflows[file['name']] = content_response.text
+                    workflows[file["name"]] = content_response.text
         return workflows
-
 
     def update_workflow_params(content):
         """Replace placeholder parameters in workflow .yml files with
         user input."""
+
         def replace_match(match):
             key = match.group(1)
             return str(workflow_input[key])
 
         pattern = re.compile(r"\{\{\s*(\w+)\s*/\s*([^\s\}]+)\s*\}\}")
         return pattern.sub(replace_match, content)
-
 
     def update_local_workflows(central_workflows):
         """Replace existing GitHub workflow files with latest from
@@ -252,7 +274,8 @@ def main():
     if "{{ cookiecutter.project_needs_c_code_compiled }}" == "Yes":
         wrapper_setup()
     update_workflow()
-    print(f"""
+    print(
+        f"""
     Congratulations! A new Python project is created!
     Enter the directory with `cd {{cookiecutter.project_name}}`.
 
@@ -263,21 +286,27 @@ def main():
 
     FAQ: https://scikit-package.github.io/scikit-package/frequently-asked-questions
     GitHub issues: https://github.com/scikit-package/scikit-package/issues
-    """)
+    """
+    )
 
     # Dynamically check if the user has selected a non-default Python version
     max_python_version = "3.13"
     min_pyhton_version = "3.11"
 
-    if ("{{ cookiecutter.minimum_supported_python_version }}" != min_pyhton_version
-        or "{{ cookiecutter.maximum_supported_python_version }}" != max_python_version):
+    if (
+        "{{ cookiecutter.minimum_supported_python_version }}"
+        != min_pyhton_version
+        or "{{ cookiecutter.maximum_supported_python_version }}"
+        != max_python_version
+    ):
         print(
             "ACTION REQUIRED (non-default Python versions): You've entered Python versions outside of the default according to "
             "https://scientific-python.org/specs/spec-0000/. Please consider specifying Python versions following the instructions in the link below:\n"
             "\nFAQ: https://scikit-package.github.io/cookiecutter/frequently-asked-questions.html#github-actions\n"
         )
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
     if "{{ cookiecutter._is_skpkg_update }}" == "Yes":
         update_package()
