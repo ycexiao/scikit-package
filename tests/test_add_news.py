@@ -1,3 +1,5 @@
+import shutil
+from pathlib import Path
 from types import SimpleNamespace
 
 from scikit_package.cli.add import news_item
@@ -9,33 +11,10 @@ def _setup_news_test_env(tmp_path, mocker):
     test_news_dir = tmp_path / "news"
     test_news_dir.mkdir()
     # Locate the real TEMPLATE.rst file in the project root
+    project_root = Path(__file__).resolve().parents[1]
+    real_template_path = project_root / "news" / "TEMPLATE.rst"
     test_template_file = test_news_dir / "TEMPLATE.rst"
-    test_template_file.write_text(
-        """**Added:**
-
-* <news item>
-
-**Changed:**
-
-* <news item>
-
-**Deprecated:**
-
-* <news item>
-
-**Removed:**
-
-* <news item>
-
-**Fixed:**
-
-* <news item>
-
-**Security:**
-
-* <news item>
-"""
-    )
+    shutil.copy(real_template_path, test_template_file)
     # Mock the paths and the branch
     mocker.patch("scikit_package.cli.add.NEWS_DIR", str(test_news_dir))
     mocker.patch(
