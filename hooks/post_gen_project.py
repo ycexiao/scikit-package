@@ -49,7 +49,6 @@ def update_package():
     current_project_dir = (
         old_project_dir / "{{ cookiecutter.github_repo_name }}"
     )
-    breakpoint()
     copy_all_files(old_project_dir, current_project_dir, exists_ok=True)
     example_files_in_src = [
         get_src_file_location_in_submodule(f) for f in example_files_in_src
