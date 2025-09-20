@@ -1,7 +1,9 @@
 {
-  "maintainer_name": "{{ cookiecutter.maintainer_name }}",
-  "maintainer_email": "{{ cookiecutter.maintainer_email }}",
-  "maintainer_github_username": "{{ cookiecutter.maintainer_github_username }}",
+  "author_names": "{{ cookiecutter.author_names }}",
+  "author_emails": "{{ cookiecutter.author_emails }}",
+  "maintainer_names": "{{ cookiecutter.maintainer_names }}",
+  "maintainer_emails": "{{ cookiecutter.maintainer_emails }}",
+  "maintainer_github_usernames": "{{ cookiecutter.maintainer_github_usernames }}",
   "contributors": "{{ cookiecutter.contributors }}",
   "license_holders": "{{ cookiecutter.license_holders }}",
   "project_name": "{{ cookiecutter.project_name }}",
