@@ -18,7 +18,8 @@ extended_env = Environment(
 @pytest.mark.parametrize(
     "author_names, author_emails, expected_output",
     [
-        # single author, expected return a list with one dict
+        # single author, expect return str with the form of
+        #   a list with one dict
         (
             "Alice",
             "alice@email.com",
@@ -26,7 +27,8 @@ extended_env = Environment(
   {name='Alice', email='alice@email.com'},
 ]""",
         ),
-        # multiple authors, expected return a list with multiple dicts
+        # multiple authors, expect return str with the form of
+        #   a list with multiple dicts
         (
             "Alice, Bob, Charlie",
             "alice@email.com, bob@email.com, charlie@email.com",
@@ -69,15 +71,15 @@ def test_expand_to_dict_with_name_bad():
 @pytest.mark.parametrize(
     "author_names, author_emails, expected_output",
     [
-        # single author, expected return "Name(email)"
+        # single author, expect return "Name(email)"
         ("Alice", "alice@email.com", "Alice(alice@email.com)"),
-        # two authors, expected return "Name1(email1) and Name2(email2)"
+        # two authors, expect return "Name1(email1) and Name2(email2)"
         (
             "Alice, Bob",
             "alice@email.com, bob@email.com",
             "Alice(alice@email.com) and Bob(bob@email.com)",
         ),
-        # multiple authors, expected return
+        # multiple authors, expect return
         #   "Name1(email1), ..., and Name3(email3)"
         (
             "Alice, Bob, Charlie",
@@ -104,11 +106,11 @@ def test_expand_to_str_with_email(
 @pytest.mark.parametrize(
     "author_names, expected_output",
     [
-        # single author
+        # single author, expect return the name
         ("Alice", "Alice"),
-        # two authors
+        # two authors, expect return "Name1 and Name2"
         ("Alice, Bob", "Alice and Bob"),
-        # multiple authors
+        # multiple authors, expect return "Name1, Name2, and Name3"
         ("Alice, Bob, Charlie", "Alice, Bob, and Charlie"),
     ],
 )
