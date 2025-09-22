@@ -43,6 +43,12 @@ class people_contact_info_Extension(Extension):
         people_contact_info_Extension = (
             f"{names[0].strip()}({emails[0].strip()})"
         )
+        if len(names) == 2:
+            people_contact_info_Extension += (
+                f" and {names[1].strip()}({emails[1].strip()})"
+            )
+            return people_contact_info_Extension
+        # for 3 or more names
         for i in range(1, len(names)):
             if i != len(names) - 1:
                 people_contact_info_Extension += (
@@ -62,4 +68,6 @@ class people_contact_info_Extension(Extension):
         items = [item.strip() for item in items.split(",")]
         if len(items) == 1:
             return items[0]
+        if len(items) == 2:
+            return " and ".join(items)
         return ", ".join(items[:-1]) + ", and " + items[-1]

@@ -18,7 +18,7 @@ extended_env = Environment(
 @pytest.mark.parametrize(
     "author_names, author_emails, expected_output",
     [
-        # single author
+        # single author, expected return a list with one dict
         (
             "Alice",
             "alice@email.com",
@@ -26,7 +26,7 @@ extended_env = Environment(
   {name='Alice', email='alice@email.com'},
 ]""",
         ),
-        # multiple authors
+        # multiple authors, expected return a list with multiple dicts
         (
             "Alice, Bob, Charlie",
             "alice@email.com, bob@email.com, charlie@email.com",
@@ -55,6 +55,7 @@ def test_expand_to_dict_with_name_bad():
     template = extended_env.from_string(
         "{{ author_names | expand_to_dict_with_email(author_emails) }}"
     )
+    # mismatch number of names and emails, expect KeyError
     with pytest.raises(KeyError) as excinfo:
         template.render(
             author_names="Alice, Bob", author_emails="alice@email.com"
@@ -68,12 +69,19 @@ def test_expand_to_dict_with_name_bad():
 @pytest.mark.parametrize(
     "author_names, author_emails, expected_output",
     [
-        # single author
+        # single author, expected return "Name(email)"
         ("Alice", "alice@email.com", "Alice(alice@email.com)"),
-        # multiple authors
+        # two authors, expected return "Name1(email1) and Name2(email2)"
+        (
+            "Alice, Bob",
+            "alice@email.com, bob@email.com",
+            "Alice(alice@email.com) and Bob(bob@email.com)",
+        ),
+        # multiple authors, expected return
+        #   "Name1(email1), ..., and Name3(email3)"
         (
             "Alice, Bob, Charlie",
-            ("alice@email.com, bob@email.com, " "charlie@email.com"),
+            "alice@email.com, bob@email.com, charlie@email.com",
             (
                 "Alice(alice@email.com), Bob(bob@email.com), "
                 "and Charlie(charlie@email.com)"
@@ -98,6 +106,8 @@ def test_expand_to_str_with_email(
     [
         # single author
         ("Alice", "Alice"),
+        # two authors
+        ("Alice, Bob", "Alice and Bob"),
         # multiple authors
         ("Alice, Bob, Charlie", "Alice, Bob, and Charlie"),
     ],
