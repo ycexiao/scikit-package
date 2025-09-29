@@ -17,8 +17,8 @@
         - The maintainer(s)' email address.
           e.g., sbillinge@columbia.edu
       * - maintainer_github_usernames
-        - The maintainer(s)' GitHub username. Usernames should be separated by commas.
-          e.g., sbillinge, bobleesj
+        - The maintainer(s)' GitHub username.
+          e.g., sbillinge
       * - contributors
         - Individuals or groups contributing to the project.
           e.g., Sangjoon Lee, Simon Billinge, Billinge Group members
