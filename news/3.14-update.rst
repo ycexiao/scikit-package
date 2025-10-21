@@ -1,0 +1,23 @@
+**Added:**
+
+* docs: support Python 3.14, remove 3.11
+
+**Changed:**
+
+* <news item>
+
+**Deprecated:**
+
+* <news item>
+
+**Removed:**
+
+* <news item>
+
+**Fixed:**
+
+* <news item>
+
+**Security:**
+
+* <news item>
