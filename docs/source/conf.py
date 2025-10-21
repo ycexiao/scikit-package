@@ -32,8 +32,8 @@ sys.path.insert(0, str(Path("../..").resolve()))
 sys.path.insert(0, str(Path("../../src").resolve()))
 
 # Here provide the default values for the Python version range
-PYTHON_MAX_VERSION = 3.13
-PYTHON_MIN_VERSION = 3.11
+PYTHON_MAX_VERSION = 3.14
+PYTHON_MIN_VERSION = 3.12
 
 # Replace e.g., |PYTHON_MAX_VERSION| with actual value in .rst files
 rst_epilog = f"""

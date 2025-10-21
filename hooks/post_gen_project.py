@@ -292,8 +292,8 @@ def main():
     )
 
     # Dynamically check if the user has selected a non-default Python version
-    max_python_version = "3.13"
-    min_pyhton_version = "3.11"
+    max_python_version = "3.14"
+    min_pyhton_version = "3.12"
 
     if (
         "{{ cookiecutter.minimum_supported_python_version }}"

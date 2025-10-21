@@ -19,7 +19,7 @@ maintainers = [
 description = "A Python package standard and generator for scientific code. Use scikit-package to launch a new project or migrate existing ones to support the latest Python versions and streamline the process of distributing and maintaining your software package."
 keywords = ['Package template', 'open-source software']
 readme = "README.rst"
-requires-python = ">=3.11, <3.14"
+requires-python = ">=3.12, <3.15"
 classifiers = [
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
@@ -30,9 +30,9 @@ classifiers = [
         'Operating System :: Microsoft :: Windows',
         'Operating System :: POSIX',
         'Operating System :: Unix',
-        'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
-        'Programming Language :: Python :: 3.13',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.14',
         'Topic :: Scientific/Engineering :: Physics',
         'Topic :: Scientific/Engineering :: Chemistry',
 ]
