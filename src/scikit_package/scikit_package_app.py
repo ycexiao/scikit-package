@@ -1,7 +1,7 @@
 import argparse
 from argparse import ArgumentParser
 
-from scikit_package.cli import add, create
+from scikit_package.cli import add, create, gh
 from scikit_package.cli.build import api_doc
 from scikit_package.cli.update import cf
 from scikit_package.version import __version__
@@ -102,6 +102,16 @@ def setup_subparsers(parser):
     _add_subcommands(subparsers_build, build_commands, api_doc.build)
     _add_news_flags(parser_news)
     parser_news.set_defaults(func=add.news_item, subcommand="news")
+    # "broadcast" subcommand
+    subparsers_broadcast = parser.add_parser(
+        "broadcast", help="Broadcast package news to GitHub repositories."
+    )
+    subparsers_broadcast.set_defaults(func=gh.broadcast_issue)
+    subparsers_broadcast.add_argument(
+        "issue_url",
+        type=str,
+        help="URL of the issue to broadcast.",
+    )
 
 
 def main():
