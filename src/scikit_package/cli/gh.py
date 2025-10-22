@@ -31,9 +31,6 @@ def _get_issue_content(issue_url):
     api_url, (owner, repo, issue_number) = _get_get_issue_api_from_issue_url(
         issue_url
     )
-    api_url = (
-        f"https://api.github.com/repos/{owner}/{repo}/issues/{issue_number}"
-    )
     response = requests.get(api_url)
     issue_content = None
     if response.status_code == 200:
