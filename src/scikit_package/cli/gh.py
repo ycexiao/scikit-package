@@ -1,5 +1,5 @@
 def _get_issue_content(issue_url):
-    """Get the source repo url and issue content form the issue url.
+    """Fetch the contents of the issue that will be broadcast.
 
     Parameters
     ----------
