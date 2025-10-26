@@ -68,4 +68,5 @@ def _broadcast_issue_to_urls(issue_content, broadcast_urls, dry_run=False):
         1 if dry_run is enabled and no other errors exist.
         <0 if there are errors.
     """
-    return
+    status_flag = -1
+    return status_flag

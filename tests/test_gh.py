@@ -64,20 +64,31 @@ def test_get_issue_content_bad(mocker):
     get_issue_fail_mocker.assert_called_once()
 
 
-def test_broadcast_issue_to_urls():
+def test_broadcast_issue_to_urls(mocker):
     # C1: complete issue_content, a list of target repo urls and
     #   dry_run is True.
     #   Expect status_flag to be 1. Issues are not created in the
     #   target repos.
+    create_issue_mocker = mocker.patch(
+        "requests.post",
+        return_value=SimpleNamespace(status_code=201),
+    )
+    issue_content = {"title": "issue-title", "body": "issue-body"}
+    broadcast_urls = [
+        "https://github.com/user-or-orgname/reponame1",
+        "https://github.com/user-or-orgname/reponame2",
+    ]
+    status_flag = _broadcast_issue_to_urls(
+        issue_content, broadcast_urls, dry_run=True
+    )
+    assert status_flag == 1
+    create_issue_mocker.assert_not_called()
     # C2: complete issue_content, a list of target repo urls, and
     #   dry_run is False.
     #   Expect status_flag to be 0. Issues are created in the target
     #   repos.
-    assert False
-
-
-def test_broadcast_issue_to_urls_bad():
-    # C1: no "title" or "body" key found in the issue_content.
-    #   Expect KeyError.
-    # C2: empty broadcast_urls. Expect ValueError.
-    assert False
+    status_flag = _broadcast_issue_to_urls(
+        issue_content, broadcast_urls, dry_run=False
+    )
+    assert status_flag == 0
+    create_issue_mocker.assert_called()
