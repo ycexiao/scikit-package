@@ -69,24 +69,3 @@ def user_filesystem(tmp_path):
         file_path.write_text(file_content)
 
     yield tmp_path
-
-
-issue_content = {"title": "issue-title", "body": "issue-body"}
-
-
-@pytest.fixture
-def get_issue_mocker(mocker):
-    mocker.patch("request.get", return_value=issue_content)
-
-
-@pytest.fixture
-def get_issue_fail_mocker(mocker):
-    def fail_to_get_issue(issue_url):
-        raise ValueError(
-            f"Can not find the corresponding issue from {issue_url}. "
-            "Please ensure the input url is correct. "
-            "Its format should be https://"
-            "github.com/username/reponame/issues/issue-number"
-        )
-
-    mocker.path("request.get", side_effect=fail_to_get_issue)
