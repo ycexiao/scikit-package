@@ -89,6 +89,7 @@ def _broadcast_issue_to_urls(
         else:
             console.print(f"Skipped broadcasting to {repo_url}.")
             continue
+    failed_urls = list(set(failed_urls))
     return failed_urls
 
 
