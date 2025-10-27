@@ -34,9 +34,8 @@ def test_get_issue_content_bad(mocker):
         ValueError,
         match=(
             f"{issue_url} is not a valid url to be parsed. "
-            "Please input the url of the issue to be broadcasted. "
-            "Its format should be https://"
-            "github.com/username/reponame/issues/issue-number"
+            "Please ensure the input url is with a format like "
+            "https://github.com/username/reponame/issues/issue-number"
         ),
     ):
         source_repo_url, issue_content = _get_issue_content(issue_url)
@@ -55,9 +54,8 @@ def test_get_issue_content_bad(mocker):
         ValueError,
         match=(
             f"Can not find the corresponding issue from {issue_url}. "
-            "Please ensure the input url is correct. "
-            "Its format should be https://"
-            "github.com/username/reponame/issues/issue-number"
+            "Please ensure the input url is with a format like "
+            "https://github.com/username/reponame/issues/issue-number"
         ),
     ):
         source_repo_url, issue_content = _get_issue_content(issue_url)
@@ -69,6 +67,10 @@ def test_broadcast_issue_to_urls(mocker):
     #   dry_run is True.
     #   Expect failed_urls to be empty. Issues are not created in the
     #   target repos.
+    mocker.patch(
+        "rich.prompt.Confirm.ask",
+        return_value=True,
+    )
     create_issue_mocker = mocker.patch(
         "requests.post",
         return_value=SimpleNamespace(status_code=201),
@@ -78,22 +80,25 @@ def test_broadcast_issue_to_urls(mocker):
         "https://github.com/user-or-orgname/reponame1",
         "https://github.com/user-or-orgname/reponame2",
     ]
-    failed_urls = _broadcast_issue_to_urls(
-        issue_content, broadcast_urls, dry_run=True
+    actual_failed_urls = _broadcast_issue_to_urls(
+        issue_content, broadcast_urls, gh_token="dummy_token", dry_run=True
     )
     create_issue_mocker.assert_not_called()
-    # C3: complete issue_content, a list of target repo urls, and
+    expected_failed_urls = broadcast_urls
+    assert set(actual_failed_urls) == set(expected_failed_urls)
+    # C2: complete issue_content, a list of target repo urls, and
     #   dry_run is False.
     #   Expect failed_urls to be empty. Issues are created in the target
     #   repos.
-    failed_urls = _broadcast_issue_to_urls(
-        issue_content, broadcast_urls, dry_run=False
+    actual_failed_urls = _broadcast_issue_to_urls(
+        issue_content, broadcast_urls, gh_token="dummy_token", dry_run=False
     )
-
     create_issue_mocker.assert_called()
-    # C2: complete issue_content, all urls are invalid.
+    expected_failed_urls = []
+    assert actual_failed_urls == expected_failed_urls
+    # C3: complete issue_content, all urls are invalid.
     #   Expect non empty failed_urls.
-    create_issue_mocker_failed = mocker.patch(
+    create_issue_failed_mocker = mocker.patch(
         "requests.post",
         return_value=SimpleNamespace(status_code=404),
     )
@@ -101,6 +106,9 @@ def test_broadcast_issue_to_urls(mocker):
         "https://github.com/user-or-orgname/invalid-repo1",
         "https://github.com/user-or-orgname/invalid-repo2",
     ]
-    failed_urls = _broadcast_issue_to_urls(issue_content, broadcast_urls)
-    create_issue_mocker_failed.assert_called()
-    assert set(failed_urls) == set(broadcast_urls)
+    actual_failed_urls = _broadcast_issue_to_urls(
+        issue_content, broadcast_urls, gh_token="dummy_token"
+    )
+    create_issue_failed_mocker.assert_called()
+    expected_failed_urls = broadcast_urls
+    assert set(actual_failed_urls) == set(expected_failed_urls)
