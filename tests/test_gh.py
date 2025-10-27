@@ -67,7 +67,7 @@ def test_get_issue_content_bad(mocker):
 def test_broadcast_issue_to_urls(mocker):
     # C1: complete issue_content, a list of target repo urls and
     #   dry_run is True.
-    #   Expect status_flag to be 1. Issues are not created in the
+    #   Expect failed_urls to be empty. Issues are not created in the
     #   target repos.
     create_issue_mocker = mocker.patch(
         "requests.post",
@@ -78,17 +78,29 @@ def test_broadcast_issue_to_urls(mocker):
         "https://github.com/user-or-orgname/reponame1",
         "https://github.com/user-or-orgname/reponame2",
     ]
-    status_flag = _broadcast_issue_to_urls(
+    failed_urls = _broadcast_issue_to_urls(
         issue_content, broadcast_urls, dry_run=True
     )
-    assert status_flag == 1
     create_issue_mocker.assert_not_called()
-    # C2: complete issue_content, a list of target repo urls, and
+    # C3: complete issue_content, a list of target repo urls, and
     #   dry_run is False.
-    #   Expect status_flag to be 0. Issues are created in the target
+    #   Expect failed_urls to be empty. Issues are created in the target
     #   repos.
-    status_flag = _broadcast_issue_to_urls(
+    failed_urls = _broadcast_issue_to_urls(
         issue_content, broadcast_urls, dry_run=False
     )
-    assert status_flag == 0
+
     create_issue_mocker.assert_called()
+    # C2: complete issue_content, all urls are invalid.
+    #   Expect non empty failed_urls.
+    create_issue_mocker_failed = mocker.patch(
+        "requests.post",
+        return_value=SimpleNamespace(status_code=404),
+    )
+    broadcast_urls = [
+        "https://github.com/user-or-orgname/invalid-repo1",
+        "https://github.com/user-or-orgname/invalid-repo2",
+    ]
+    failed_urls = _broadcast_issue_to_urls(issue_content, broadcast_urls)
+    create_issue_mocker_failed.assert_called()
+    assert set(failed_urls) == set(broadcast_urls)
