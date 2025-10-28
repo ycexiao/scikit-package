@@ -2,8 +2,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from scikit_package.cli.gh import _broadcast_issue_to_urls  # noqa: F401
-from scikit_package.cli.gh import _get_issue_content
+from scikit_package.cli.gh import _broadcast_issue_to_urls, _get_issue_content
 
 
 def test_get_issue_content(mocker):
@@ -62,53 +61,117 @@ def test_get_issue_content_bad(mocker):
     get_issue_fail_mocker.assert_called_once()
 
 
-def test_broadcast_issue_to_urls(mocker):
-    # C1: complete issue_content, a list of target repo urls and
-    #   dry_run is True.
-    #   Expect failed_urls to be empty. Issues are not created in the
-    #   target repos.
-    mocker.patch(
-        "rich.prompt.Confirm.ask",
-        return_value=True,
-    )
+@pytest.mark.parametrize(
+    (
+        "broadcast_urls,expected_non_gh_urls,expected_failed_urls,"
+        "dry_run, create_issue_return_value, called_mockers"
+    ),
+    [
+        # C1: a list of target repo urls and dry_run is True.
+        #   Expect non_gh_urls, failed_gh_urls to be empty, and only
+        #   dry_run_mocker is called.
+        (
+            [
+                "https://github.com/user-or-orgname/reponame1",
+                "https://github.com/user-or-orgname/reponame2",
+            ],
+            [],
+            [],
+            True,
+            SimpleNamespace(status_code=201),
+            [
+                "dry_run_mocker",
+            ],
+        ),
+        # C2: a list of target repo urls, and dry_run is False.
+        #   Expect non_gh_urls, failed_gh_urls to be empty, and only
+        #   create_issue_mocker is called.
+        (
+            [
+                "https://github.com/user-or-orgname/reponame1",
+                "https://github.com/user-or-orgname/reponame2",
+            ],
+            [],
+            [],
+            False,
+            SimpleNamespace(status_code=201),
+            [
+                "create_issue_mocker",
+            ],
+        ),
+        # C3: One URL is not with a format of GH repo, another URL is with
+        #   a format of GH repo but doesn't point to a valid GH repo,
+        #   dry_run is True.
+        #   Expect non empty non_gh_urls, empty failed_urls, and only
+        #   dry_run_mocker is called.
+        (
+            [
+                "https://not-github.com/user-or-orgname/reponame2",
+                "https://github.com/nonexisting/nonexisting",
+            ],
+            ["https://not-github.com/user-or-orgname/reponame2"],
+            [],
+            True,
+            SimpleNamespace(status_code=404),
+            [
+                "dry_run_mocker",
+            ],
+        ),
+        # C3: One URL is not with a format of GH repo, another URL is with
+        #   a format of GH repo but doesn't point to a valid GH repo,
+        #   dry_run is False.
+        #   Expect non empty non_gh_urls, empty failed_urls, and only
+        #   create_issue_mocker is called.
+        (
+            [
+                "https://not-github.com/user-or-orgname/reponame2",
+                "https://github.com/nonexisting/nonexisting",
+            ],
+            ["https://not-github.com/user-or-orgname/reponame2"],
+            ["https://github.com/nonexisting/nonexisting"],
+            False,
+            SimpleNamespace(status_code=404),
+            [
+                "create_issue_mocker",
+            ],
+        ),
+    ],
+)
+def test_broadcast_issue_to_urls(
+    mocker,
+    broadcast_urls,
+    expected_non_gh_urls,
+    expected_failed_urls,
+    dry_run,
+    create_issue_return_value,
+    called_mockers,
+):
     create_issue_mocker = mocker.patch(
         "requests.post",
-        return_value=SimpleNamespace(status_code=201),
+        return_value=create_issue_return_value,
+    )
+    dry_run_mocker = mocker.patch(
+        "scikit_package.cli.gh._print_dry_run_message",
+        return_value=None,
     )
     issue_content = {"title": "issue-title", "body": "issue-body"}
-    broadcast_urls = [
-        "https://github.com/user-or-orgname/reponame1",
-        "https://github.com/user-or-orgname/reponame2",
-    ]
-    actual_failed_urls = _broadcast_issue_to_urls(
-        issue_content, broadcast_urls, gh_token="dummy_token", dry_run=True
+    actual_non_gh_urls, actual_failed_urls, actual_dry_run = (
+        _broadcast_issue_to_urls(
+            issue_content,
+            broadcast_urls,
+            gh_token="dummy_token",
+            dry_run=dry_run,
+        )
     )
-    create_issue_mocker.assert_not_called()
-    expected_failed_urls = broadcast_urls
+    mockers = {
+        "create_issue_mocker": create_issue_mocker,
+        "dry_run_mocker": dry_run_mocker,
+    }
+    for mocker_name, mocker_instance in mockers.items():
+        if mocker_name in called_mockers:
+            assert mocker_instance.call_count >= 1
+        else:
+            mocker_instance.assert_not_called()
+    assert set(actual_non_gh_urls) == set(expected_non_gh_urls)
     assert set(actual_failed_urls) == set(expected_failed_urls)
-    # C2: complete issue_content, a list of target repo urls, and
-    #   dry_run is False.
-    #   Expect failed_urls to be empty. Issues are created in the target
-    #   repos.
-    actual_failed_urls = _broadcast_issue_to_urls(
-        issue_content, broadcast_urls, gh_token="dummy_token", dry_run=False
-    )
-    create_issue_mocker.assert_called()
-    expected_failed_urls = []
-    assert actual_failed_urls == expected_failed_urls
-    # C3: complete issue_content, all urls are invalid.
-    #   Expect non empty failed_urls.
-    create_issue_failed_mocker = mocker.patch(
-        "requests.post",
-        return_value=SimpleNamespace(status_code=404),
-    )
-    broadcast_urls = [
-        "https://github.com/user-or-orgname/invalid-repo1",
-        "https://github.com/user-or-orgname/invalid-repo2",
-    ]
-    actual_failed_urls = _broadcast_issue_to_urls(
-        issue_content, broadcast_urls, gh_token="dummy_token"
-    )
-    create_issue_failed_mocker.assert_called()
-    expected_failed_urls = broadcast_urls
-    assert set(actual_failed_urls) == set(expected_failed_urls)
+    assert actual_dry_run is dry_run
