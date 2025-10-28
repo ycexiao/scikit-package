@@ -62,8 +62,10 @@ def _broadcast_issue_to_urls(issue_content, repo_urls, gh_token, dry_run=True):
 
     Returns
     -------
-    failed_urls: list of str
-        The list of repo urls where the issue creation failed.
+    non_gh_urls: list of str
+        The list of non-GitHub repo urls.
+    failed_gh_urls: list of str
+        The list of GhitHub repo urls where issue creation failed.
     """
     data = {
         "title": issue_content["title"],
@@ -105,10 +107,6 @@ def _get_post_api_url(repo_url):
     -------
     api_url : str
         The GitHub API URL for posting issues.
-    owner : str
-        The user name or organization name of the repository.
-    repo : str
-        The name of the repository.
     """
     assert repo_url.startswith("https://github.com/")
     parsed = urlparse(repo_url)
