@@ -85,10 +85,7 @@ def _broadcast_issue_to_urls(issue_content, repo_urls, gh_token, dry_run=True):
             continue
         if not dry_run:
             response = requests.post(api_url, json=data, headers=headers)
-            if (
-                response.status_code != 201
-                and repo_urls[i] not in failed_gh_urls
-            ):
+            if response.status_code != 201:
                 failed_gh_urls.append(repo_urls[i])
     if dry_run:
         _print_dry_run_message(non_gh_urls)
