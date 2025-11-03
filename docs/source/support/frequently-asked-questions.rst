@@ -472,40 +472,42 @@ for GitHub CI workflows by specifying them directly in the workflow files:
 
 .. code-block:: yaml
 
-   jobs:
-    tests-on-pr:
+    jobs:
+      tests-on-pr:
         uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
-      with:
-        project: package-name
-        c_extension: false
-        headless: false
-        python_version: 3.12
-      secrets:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        with:
+          project: scikit-package
+          c_extension: false
+          headless: false
+          python_version: 3.12
+        secrets:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 2. Add ``python_version`` in ``.github/workflows/_publish-docs-on-release.yml``:
 
 .. code-block:: yaml
 
-   jobs:
-    docs:
-      uses: scikit-package/release-scripts/.github/workflows/_publish-docs-on-release.yml@v0
-      with:
-        project: package-name
-        c_extension: false
-        headless: false
-        python_version: 3.12
+    jobs:
+      docs:
+        uses: scikit-package/release-scripts/.github/workflows/_publish-docs-on-release.yml@v0
+        with:
+          project: scikit-package
+          c_extension: false
+          headless: false
+          python_version: 3.12
 
 3. Add ``python_versions`` in ``.github/workflows/_matrix-and-codecov-on-merge-to-main.yml``:
 
 .. code-block:: yaml
 
-   jobs:
-    matrix-coverage:
-      uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
-      with:
-        ...
-        python_versions: "3.11,3.12"
+    jobs:
+      matrix-coverage:
+        uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
+        with:
+          project: scikit-package
+          c_extension: false
+          headless: false
+          python_versions: "3.11,3.12"
 
 If no Python versions are provided in either ``pyproject.toml`` or the workflow
 files, the default Python version used in GitHub CI is |PYTHON_MAX_VERSION|.
