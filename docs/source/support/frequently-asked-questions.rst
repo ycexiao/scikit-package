@@ -453,49 +453,62 @@ GitHub Actions
 
 .. _faq-github-actions-python-versions:
 
-In Level 5, How do I set different Python versions for GitHub CI?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In Level 5, how do I set different Python versions for GitHub CI?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Python |PYTHON_MAX_VERSION| is the current default Python version in ``.github/workflows/tests-on-pr.yml`` and ``.github/workflows/publish-docs-on-release.yml``. Python |PYTHON_MIN_VERSION| to |PYTHON_MAX_VERSION| are used in ``.github/workflows/matrix-and-codecov-on-merge-to-main.yml``. To override the defaults, modify the three ``.yml`` files mentioned above in ``.github/workflows/`` as shown below:
+By default, GitHub CI uses the Python versions declared in the
+``Programming Language :: Python ::`` classifiers in ``pyproject.toml``.
+
+.. code-block:: toml
+
+  'Programming Language :: Python :: 3.12'
+  'Programming Language :: Python :: 3.13'
+  'Programming Language :: Python :: 3.14'
+
+You may override the Python versions above (those in ``pyproject.toml``)
+for GitHub CI workflows by specifying them directly in the workflow files:
 
 1. Add ``python_version`` in ``.github/workflows/tests-on-pr.yml``:
 
 .. code-block:: yaml
 
    jobs:
-    tests-on-pr:
-      uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
-    with:
-      project: package-name
-      c_extension: false
-      headless: false
-      python_version: 3.12
-    secrets:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+   tests-on-pr:
+       uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
+     with:
+       project: package-name
+       c_extension: false
+       headless: false
+       python_version: 3.12
+     secrets:
+       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
 2. Add ``python_version`` in ``.github/workflows/_publish-docs-on-release.yml``:
 
 .. code-block:: yaml
 
    jobs:
-    docs:
-      uses: scikit-package/release-scripts/.github/workflows/_tests-on-pr.yml@v0
-    with:
-      project: package-name
-      c_extension: false
-      headless: false
-      python_version: 3.12
+   docs:
+     uses: scikit-package/release-scripts/.github/workflows/_publish-docs-on-release.yml@v0
+     with:
+       project: package-name
+       c_extension: false
+       headless: false
+       python_version: 3.12
 
 3. Add ``python_versions`` in ``.github/workflows/_matrix-and-codecov-on-merge-to-main.yml``:
 
 .. code-block:: yaml
 
    jobs:
-    matrix-coverage:
-      uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
-    with:
-      ...
-      python_versions: "3.11, 3.12"
+   matrix-coverage:
+     uses: scikit-package/release-scripts/.github/workflows/_matrix-and-codecov-on-merge-to-main.yml@v0
+     with:
+       ...
+       python_versions: "3.11,3.12"
+
+If no Python versions are provided in either ``pyproject.toml`` or the workflow
+files, the default Python version used in GitHub CI is |PYTHON_MAX_VERSION|.
 
 In Level 5, what are the workflows running in each pull request?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
