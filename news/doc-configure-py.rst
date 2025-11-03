@@ -1,6 +1,6 @@
 **Added:**
 
-* Enable configuring Python verisons either in pyproject.toml or GitHub workflow .yml files.
+* Enable configuring Python versions either in pyproject.toml or GitHub workflow .yml files.
 
 **Changed:**
 
