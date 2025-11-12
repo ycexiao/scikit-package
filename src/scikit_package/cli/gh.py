@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -7,8 +8,36 @@ from urllib.parse import urlparse
 
 import requests
 import yaml
+from requests.exceptions import JSONDecodeError
 
 from scikit_package.utils.io import get_config_value
+
+
+def broadcast_issue_to_repos(args):
+    """Broadcast a GitHub issue to multiple repositories."""
+    source_repo_url, issue_content = _get_issue_content(args.issue_url)
+    groups_dict, repos_dict = _get_broadcast_repos_dict(args.url_to_repo_info)
+    broadcast_urls = _get_broadcast_urls(
+        args.group_name, groups_dict, repos_dict
+    )
+    if source_repo_url in broadcast_urls:
+        print("Excluding the source repository from the broadcast list.")
+        broadcast_urls.remove(source_repo_url)
+    gh_token = os.environ.get("GITHUB_TOKEN", None)
+    if gh_token is None:
+        raise EnvironmentError(
+            "GITHUB_TOKEN environment variable is not set. "
+            "Please set it to a valid GitHub token with "
+            "permissions to create issues in the target repositories."
+        )
+    dry_run = True
+    dry_run = not (args.dry_run == "n")
+    return _broadcast_issue_to_urls(
+        issue_content,
+        broadcast_urls,
+        gh_token,
+        dry_run,
+    )
 
 
 def _get_issue_content(issue_url):
@@ -129,7 +158,11 @@ def _get_broadcast_repos_dict(url_to_repo_info=None):
     def _load_json_or_yaml_from_repo(repo_url, file_stems):
         with TemporaryDirectory() as tmpdir:
             tmp_path = Path(tmpdir)
-            subprocess.run(["git", "clone", repo_url, str(tmp_path)])
+            subprocess.run(
+                ["git", "clone", repo_url, str(tmp_path)],
+                capture_output=True,
+                text=True,
+            )
             return _load_json_or_yaml_from_dir(tmp_path, file_stems)
 
     def is_github_repo_url(url: str) -> bool:
@@ -285,6 +318,8 @@ def _broadcast_issue_to_urls(issue_content, repo_urls, gh_token, dry_run=True):
         The list of non-GitHub repo urls.
     failed_gh_urls: list of str
         The list of GhitHub repo urls where issue creation failed.
+    dry_run: bool
+        Whether it is in dry-run mode.
     """
     data = {
         "title": issue_content["title"],
@@ -295,29 +330,59 @@ def _broadcast_issue_to_urls(issue_content, repo_urls, gh_token, dry_run=True):
         "Accept": "application/vnd.github.v3+json",
     }
     non_gh_urls = []
-    failed_gh_urls = []
     for i in range(len(repo_urls)):
         try:
-            api_url = _get_post_api_url(repo_urls[i])
+            api_url = _get_api_url(repo_urls[i])
         except (IndexError, AssertionError):
             non_gh_urls.append(repo_urls[i])
-            continue
-        if not dry_run:
+    repo_urls = [url for url in repo_urls if url not in non_gh_urls]
+    if dry_run:
+        might_fail_gh_urls_info = []
+        might_succeed_gh_urls = []
+        for i in range(len(repo_urls)):
+            api_url = _get_api_url(repo_urls[i], endpoint="repo")
+            response = requests.get(api_url)
+            try:
+                assert response.status_code == 200
+                assert response.json().get("owner", False)
+                might_succeed_gh_urls.append(repo_urls[i])
+            except (AssertionError, JSONDecodeError):
+                might_fail_gh_urls_info.append((repo_urls[i], response))
+    else:
+        failed_gh_urls_info = []
+        success_gh_urls = []
+        for i in range(len(repo_urls)):
+            api_url = _get_api_url(repo_urls[i], endpoint="issues")
             response = requests.post(api_url, json=data, headers=headers)
             if response.status_code != 201:
-                failed_gh_urls.append(repo_urls[i])
+                failed_gh_urls_info.append((repo_urls[i], response))
+            else:
+                success_gh_urls.append(repo_urls[i])
     if dry_run:
-        _print_dry_run_message(non_gh_urls)
-    return non_gh_urls, failed_gh_urls, dry_run
+        _print_dry_run_message(
+            non_gh_urls,
+            might_fail_gh_urls_info,
+            might_succeed_gh_urls,
+        )
+        might_fail_gh_urls = [url for url, _ in might_fail_gh_urls_info]
+        return non_gh_urls, might_fail_gh_urls, dry_run
+    else:
+        _print_no_dry_run_message(
+            non_gh_urls, failed_gh_urls_info, success_gh_urls
+        )
+        failed_gh_urls = [url for url, _ in failed_gh_urls_info]
+        return non_gh_urls, failed_gh_urls, dry_run
 
 
-def _get_post_api_url(repo_url):
-    """Get the GitHub API URL for posting issues to a repository.
+def _get_api_url(repo_url, endpoint="issues"):
+    """Get the GitHub API URL for a given repository URL and endpoint.
 
     Parameters
     ----------
     repo_url : str
         The URL of the target GitHub repository.
+    endpoint : {"issues", "repo"}, str, optional
+        The API endpoint to access. Default is "issues".
 
     Returns
     -------
@@ -329,9 +394,57 @@ def _get_post_api_url(repo_url):
     path_parts = parsed.path.strip("/").split("/")
     owner = path_parts[0]
     repo = path_parts[1]
-    api_url = f"https://api.github.com/repos/{owner}/{repo}/issues"
+    if endpoint == "issues":
+        api_url = f"https://api.github.com/repos/{owner}/{repo}/issues"
+    elif endpoint == "repo":
+        api_url = f"https://api.github.com/repos/{owner}/{repo}"
+    else:
+        raise ValueError(f"Unsupported endpoint: {endpoint}")
     return api_url
 
 
-def _print_dry_run_message(none_gh_urls=[]):
-    pass
+def _print_dry_run_message(
+    non_gh_urls, might_fail_gh_urls_info, might_succeed_gh_urls
+):
+    print(
+        "Dry-run mode: No issues will be created. "
+        "To create issues, rerun with the '--dry-run n' option."
+    )
+    if len(non_gh_urls) > 0:
+        print("The following non-GitHub repository URLs will be skipped:")
+        for url in non_gh_urls:
+            print(f"  - {url}")
+    if len(might_fail_gh_urls_info) > 0:
+        print(
+            "Issue might fail to be created in the following GitHub "
+            "repositories:"
+        )
+        for url, response in might_fail_gh_urls_info:
+            print(f"  - [{response.status_code} {response.reason}] {url}")
+    if len(might_succeed_gh_urls) > 0:
+        print(
+            "Issues would be created in the following GitHub " "repositories:"
+        )
+        for url in might_succeed_gh_urls:
+            print(f"  - {url}")
+
+
+def _print_no_dry_run_message(
+    non_gh_urls, failed_gh_urls_info, success_gh_urls
+):
+    print("Dry-run mode disabled: Issues will be created. ")
+    if len(non_gh_urls) > 0:
+        print("The following non-GitHub repository URLs will be skipped:")
+        for url in non_gh_urls:
+            print(f"  - {url}")
+    if len(failed_gh_urls_info) > 0:
+        print("Failed to create issue in the following GitHub repositories:")
+        for url, response in failed_gh_urls_info:
+            print(f"  - [{response.status_code} {response.reason}] {url}")
+    if len(success_gh_urls) > 0:
+        print(
+            "Successfully created issues in the following "
+            "GitHub repositories:"
+        )
+        for url in success_gh_urls:
+            print(f"  - {url}")

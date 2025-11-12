@@ -3,6 +3,7 @@ from argparse import ArgumentParser
 
 from scikit_package.cli import add, create
 from scikit_package.cli.build import api_doc
+from scikit_package.cli.gh import broadcast_issue_to_repos
 from scikit_package.cli.update import cf
 from scikit_package.version import __version__
 
@@ -34,6 +35,40 @@ def _add_news_flags(p):
         "--no-news",
         action="store_true",
         help="Inform a brief reason why no news item is needed.",
+    )
+
+
+def _add_broadcast_args(p):
+    p.add_argument(
+        "issue_url",
+        type=str,
+        help="The URL of the issue to be broadcasted.",
+    )
+    p.add_argument(
+        "group_name",
+        type=str,
+        help="The name of the group of repositories to broadcast to.",
+    )
+    p.add_argument(
+        "--url-to-repo-info",
+        type=str,
+        help=(
+            "The path or url to a JSON/YAML files "
+            "containing repository info. When not provided, "
+            "the command will search the current working directory first, "
+            "then the directory specified by ~/.skpkgrc "
+            "(default: none)."
+        ),
+    )
+    p.add_argument(
+        "--dry-run",
+        choices=["y", "n"],
+        default="y",
+        help=(
+            "Specify whether to run in dry-run mode (y/n). In this mode, the "
+            "process is simulated and no issues are created in the target "
+            "repositories (default: y)."
+        ),
     )
 
 
@@ -102,6 +137,12 @@ def setup_subparsers(parser):
     _add_subcommands(subparsers_build, build_commands, api_doc.build)
     _add_news_flags(parser_news)
     parser_news.set_defaults(func=add.news_item, subcommand="news")
+
+    parser_broadcast = parser.add_parser(
+        "broadcast", help="Broadcast a issue to many GitHub repositories."
+    )
+    _add_broadcast_args(parser_broadcast)
+    parser_broadcast.set_defaults(func=broadcast_issue_to_repos)
 
 
 def main():
