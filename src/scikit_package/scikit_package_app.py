@@ -142,10 +142,15 @@ def setup_subparsers(parser):
         "broadcast",
         help="Broadcast an issue to a list of GitHub repositories.",
         description=(
-            "The issue is specified by its URL and repositories is specified "
-            "by customized options defined in groups.json and repos.json. "
+            "The issue is specified by its URL, and the repositories are "
+            "specified by custom options defined in groups.json and "
+            "repos.json. If --url-to-repo-info is provided, "
+            "scikit-package will attempt to locate these files in the "
+            "specified GitHub repository. Otherwise, it will look for "
+            "them in the current working directory and in the "
+            "url_to_repo_info entry of ~/.skpkgrc. "
             "See https://scikit-package.github.io/scikit-package/"
-            "additional-functionalities/broadcast.html for details\n"
+            "additional-functionalities/broadcast.html for details.\n"
         )
         + """Example of repos.json:
 {
@@ -159,6 +164,8 @@ Example of groups.json:
     "even_group" : ["<repo2>", "<repo4>"],
     "odd_group" : ["<repo1>", "<repo3>"]
 }
+Example of usage:
+    package broadcast <issue-url> even_group
 """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
