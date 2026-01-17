@@ -42,7 +42,7 @@ def _add_broadcast_args(p):
     p.add_argument(
         "issue_url",
         type=str,
-        help="The URL of the issue to be broadcasted.",
+        help="The URL of the issue to be broadcast.",
     )
     p.add_argument(
         "group_name",
@@ -141,6 +141,26 @@ def setup_subparsers(parser):
     parser_broadcast = parser.add_parser(
         "broadcast",
         help="Broadcast an issue to a list of GitHub repositories.",
+        description=(
+            "The issue is specified by its URL and repositories is specified "
+            "by customized options defined in groups.json and repos.json. "
+            "See https://scikit-package.github.io/scikit-package/"
+            "additional-functionalities/broadcast.html for details\n"
+        )
+        + """Example of repos.json:
+{
+    "<repo1>": "https://github.come/<org-name>/<repo1>",
+    "<repo2>": "https://github.come/<org-name>/<repo2>",
+    "<repo3>": "https://github.come/<org-name>/<repo3>",
+    "<repo4>": "https://github.come/<org-name>/<repo4>"
+}
+Example of groups.json:
+{
+    "even_group" : ["<repo2>", "<repo4>"],
+    "odd_group" : ["<repo1>", "<repo3>"]
+}
+""",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     _add_broadcast_args(parser_broadcast)
     parser_broadcast.set_defaults(func=broadcast_issue_to_repos)
