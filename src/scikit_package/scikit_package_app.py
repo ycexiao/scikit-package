@@ -42,7 +42,7 @@ def _add_broadcast_args(p):
     p.add_argument(
         "issue_url",
         type=str,
-        help="The URL of the issue to be broadcasted.",
+        help="The URL of the issue to be broadcast.",
     )
     p.add_argument(
         "group_name",
@@ -139,7 +139,35 @@ def setup_subparsers(parser):
     parser_news.set_defaults(func=add.news_item, subcommand="news")
 
     parser_broadcast = parser.add_parser(
-        "broadcast", help="Broadcast a issue to many GitHub repositories."
+        "broadcast",
+        help="Broadcast an issue to a list of GitHub repositories.",
+        description=(
+            "The issue is specified by its URL, and the repositories are "
+            "specified by custom options defined in groups.json and "
+            "repos.json. If --url-to-repo-info is provided, "
+            "scikit-package will attempt to locate these files in the "
+            "specified GitHub repository. Otherwise, it will look for "
+            "them in the current working directory and in the "
+            "url_to_repo_info entry of ~/.skpkgrc. "
+            "See https://scikit-package.github.io/scikit-package/"
+            "additional-functionalities/broadcast.html for details.\n"
+        )
+        + """Example of repos.json:
+{
+    "<repo1>": "https://github.come/<org-name>/<repo1>",
+    "<repo2>": "https://github.come/<org-name>/<repo2>",
+    "<repo3>": "https://github.come/<org-name>/<repo3>",
+    "<repo4>": "https://github.come/<org-name>/<repo4>"
+}
+Example of groups.json:
+{
+    "even_group" : ["<repo2>", "<repo4>"],
+    "odd_group" : ["<repo1>", "<repo3>"]
+}
+Example of usage:
+    package broadcast <issue-url> even_group
+""",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     _add_broadcast_args(parser_broadcast)
     parser_broadcast.set_defaults(func=broadcast_issue_to_repos)
