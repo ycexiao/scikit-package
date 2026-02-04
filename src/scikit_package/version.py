@@ -21,7 +21,7 @@
 from importlib.metadata import PackageNotFoundError, version
 
 try:
-    __version__ = version("scikit-learn")
+    __version__ = version("scikit-package")
 except PackageNotFoundError:
     __version__ = "unknown"
 
