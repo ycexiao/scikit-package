@@ -24,21 +24,19 @@ def resolve_namespace_package_name(
     return submodule_names
 
 
-def update_package():
+def update_package(
+    github_repo_name="{{ cookiecutter.github_repo_name }}",
+    package_dir_name="{{ cookiecutter.package_dir_name }}",
+):
     """Copy all files from the old project directory to the new project
     directory, then remove example files."""
     # copy files from old project dir
     old_project_dir = Path().cwd().parents[0]
-    current_project_dir = (
-        old_project_dir / "{{ cookiecutter.github_repo_name }}"
-    )
+    current_project_dir = old_project_dir / github_repo_name
     copy_all_files(old_project_dir, current_project_dir, exists_ok=True)
     # remove example files
     example_files_not_in_src = [
-        (
-            "docs/source/api/{{ cookiecutter.package_dir_name }}."
-            "example_package.rst"
-        ),
+        f"docs/source/api/{package_dir_name}.example_package.rst",
         "docs/source/getting-started.rst",
         "tests/test_functions.py",
         "docs/source/img/scikit-package-logo-text.png",
@@ -47,9 +45,7 @@ def update_package():
     example_files_in_src = [
         "functions.py",
     ]
-    submodule_names = resolve_namespace_package_name(
-        "{{ cookiecutter.package_dir_name }}"
-    )
+    submodule_names = resolve_namespace_package_name(package_dir_name)
     example_files_in_src = [
         f"src/{'/'.join(submodule_names)}/{f}" for f in example_files_in_src
     ]
