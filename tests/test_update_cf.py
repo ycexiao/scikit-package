@@ -1,6 +1,8 @@
 import importlib
 from pathlib import Path
 
+import pytest
+
 from scikit_package.cli.update.cf import _update_meta_yaml
 
 
@@ -32,9 +34,15 @@ source:
     assert updated_meta == expected_updated_meta
 
 
-# C1: a src file in a namespace package. Expect the it's correct relative path
-# in the submodule is returned.
-def test_get_src_file_location_in_submodule():
+@pytest.mark.parametrize(
+    "package_name, expected_submodules",
+    [
+        ("my_project", ["my_project"]),
+        ("my_project.submodule", ["my_project", "submodule"]),
+        ("diffpy.my_project.submodule", ["diffpy", "my_project", "submodule"]),
+    ],
+)
+def test_resolve_namespace_package_name(package_name, expected_submodules):
     spec = importlib.util.spec_from_file_location(
         "post_gen_project",
         Path(__file__).parents[1] / "hooks" / "post_gen_project.py",
@@ -42,9 +50,7 @@ def test_get_src_file_location_in_submodule():
     post_gen_project = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(post_gen_project)
 
-    filename = "src/diffpy.my_project/utils/helper.py"
-    expected_filename = "src/diffpy/my_project/utils/helper.py"
-    actual_filename = post_gen_project.get_src_file_location_in_submodule(
-        filename, "diffpy.my_project"
+    actual_submodules = post_gen_project.resolve_namespace_package_name(
+        package_name
     )
-    assert actual_filename == expected_filename
+    assert actual_submodules == expected_submodules
