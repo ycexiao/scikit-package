@@ -1,25 +1,21 @@
 from types import SimpleNamespace
 
 import pytest
-import requests
 
 from scikit_package.cli.add import news_item
 
 
-def _setup_news_test_env(tmp_path, mocker):
+def _setup_news_test_env(tmp_path, mocker, template_news):
     """Set up a temporary news directory and template file for
     testing."""
     test_news_dir = tmp_path / "news"
     test_news_dir.mkdir()
     # Locate the real TEMPLATE.rst file in the project root
-    template_file_gh_url = (
-        "https://raw.githubusercontent.com/scikit-package/"
-        "scikit-package/main/news/TEMPLATE.rst"
-    )
-    response = requests.get(template_file_gh_url, timeout=(3.0, 5.0))
-    response.raise_for_status()
+    found_template, template_content = template_news
+    if not found_template:
+        pytest.skip("Cannot fetch TEMPLATE.rst from GitHub.")
     test_template_file = test_news_dir / "TEMPLATE.rst"
-    test_template_file.write_text(response.text)
+    test_template_file.write_text(template_content)
     # Mock the paths and the branch
     mocker.patch("scikit_package.cli.add.NEWS_DIR", str(test_news_dir))
     mocker.patch(
@@ -34,12 +30,9 @@ def _setup_news_test_env(tmp_path, mocker):
     return news_file
 
 
-def test_add_news_item(tmp_path, mocker):
+def test_add_news_item(tmp_path, mocker, template_news):
     """Test adding a news item to the news file."""
-    try:
-        news_file = _setup_news_test_env(tmp_path, mocker)
-    except requests.RequestException as exc:
-        pytest.skip(f"Cannot fetch `TEMPLATE.rst` from GitHub: {exc}")
+    news_file = _setup_news_test_env(tmp_path, mocker, template_news)
     # Mimic `package add --add -m "Add first news."`
     args1 = SimpleNamespace(
         add=["Add first news."],
@@ -117,12 +110,9 @@ def test_add_news_item(tmp_path, mocker):
     assert content_2.strip() == expected_content_2.strip()
 
 
-def test_no_news_item(tmp_path, mocker):
+def test_no_news_item(tmp_path, mocker, template_news):
     """Test adding "no news" item to the news file."""
-    try:
-        news_file = _setup_news_test_env(tmp_path, mocker)
-    except requests.RequestException as exc:
-        pytest.skip(f"Cannot fetch `TEMPLATE.rst` from GitHub: {exc}")
+    news_file = _setup_news_test_env(tmp_path, mocker, template_news)
     # Mimic `package add --no-news "Fix small typo."`
     args = SimpleNamespace(
         add=None,

@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 import pytest
+import requests
 import yaml
 
 files_in_old_project = {
@@ -133,3 +134,18 @@ def user_filesystem(tmp_path):
         json.dump(another_repos_dict, repos_file)
 
     yield tmp_path
+
+
+@pytest.fixture
+def template_news():
+    template_file_gh_url = (
+        "https://raw.githubusercontent.com/scikit-package/"
+        "scikit-package/main/news/TEMPLATE.rst"
+    )
+    try:
+        response = requests.get(template_file_gh_url, timeout=(3.0, 5.0))
+        response.raise_for_status()
+        content = response.text
+        yield True, content
+    except requests.RequestException:
+        yield False, None
