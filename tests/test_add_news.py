@@ -1,6 +1,7 @@
-import shutil
-from pathlib import Path
 from types import SimpleNamespace
+
+import pytest
+import requests
 
 from scikit_package.cli.add import news_item
 
@@ -11,10 +12,14 @@ def _setup_news_test_env(tmp_path, mocker):
     test_news_dir = tmp_path / "news"
     test_news_dir.mkdir()
     # Locate the real TEMPLATE.rst file in the project root
-    project_root = Path(__file__).resolve().parents[1]
-    real_template_path = project_root / "news" / "TEMPLATE.rst"
+    template_file_gh_url = (
+        "https://raw.githubusercontent.com/scikit-package/"
+        "scikit-package/main/news/TEMPLATE.rst"
+    )
+    response = requests.get(template_file_gh_url, timeout=(3.0, 5.0))
+    response.raise_for_status()
     test_template_file = test_news_dir / "TEMPLATE.rst"
-    shutil.copy(real_template_path, test_template_file)
+    test_template_file.write_text(response.text)
     # Mock the paths and the branch
     mocker.patch("scikit_package.cli.add.NEWS_DIR", str(test_news_dir))
     mocker.patch(
@@ -31,7 +36,10 @@ def _setup_news_test_env(tmp_path, mocker):
 
 def test_add_news_item(tmp_path, mocker):
     """Test adding a news item to the news file."""
-    news_file = _setup_news_test_env(tmp_path, mocker)
+    try:
+        news_file = _setup_news_test_env(tmp_path, mocker)
+    except requests.RequestException as exc:
+        pytest.skip(f"Cannot fetch `TEMPLATE.rst` from GitHub: {exc}")
     # Mimic `package add --add -m "Add first news."`
     args1 = SimpleNamespace(
         add=["Add first news."],
@@ -111,7 +119,10 @@ def test_add_news_item(tmp_path, mocker):
 
 def test_no_news_item(tmp_path, mocker):
     """Test adding "no news" item to the news file."""
-    news_file = _setup_news_test_env(tmp_path, mocker)
+    try:
+        news_file = _setup_news_test_env(tmp_path, mocker)
+    except requests.RequestException as exc:
+        pytest.skip(f"Cannot fetch `TEMPLATE.rst` from GitHub: {exc}")
     # Mimic `package add --no-news "Fix small typo."`
     args = SimpleNamespace(
         add=None,
