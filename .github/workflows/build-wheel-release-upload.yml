@@ -8,11 +8,12 @@ on:
 
 jobs:
   build-release:
-    uses: scikit-package/release-scripts/.github/workflows/_build-wheel-release-upload.yml@v0
+    uses: ycexiao/release-scripts/.github/workflows/_build-wheel-release-upload.yml@v0
     with:
       project: scikit-package
       c_extension: false
-      maintainer_GITHUB_username: sbillinge
+      maintainer_GITHUB_username: ycexiao
+      pip_packages: 'chaco, icecream'
     secrets:
       PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
       PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
