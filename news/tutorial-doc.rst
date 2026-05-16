@@ -1,6 +1,6 @@
 **Added:**
 
-* No news added: Chore: develop _get_issue_content required for package broadcast <issue-url>
+* No news added: Update a quick _build to build
 
 **Changed:**
 

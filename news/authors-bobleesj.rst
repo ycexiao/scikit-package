@@ -1,6 +1,6 @@
 **Added:**
 
-* No news added: Add descriptions for multiple authors and multiple maintainers.
+* No news added: update sbillinge and bobleesj emails
 
 **Changed:**
 

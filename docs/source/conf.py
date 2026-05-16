@@ -18,8 +18,8 @@ import time
 from importlib.metadata import version
 from pathlib import Path
 
+# Attempt to import the version dynamically from GitHub tag.
 try:
-
     fullversion = version("scikit_package")
 except Exception:
     fullversion = "No version found. The correct version will appear in the released version."
@@ -42,7 +42,7 @@ rst_epilog = f"""
 """
 
 # abbreviations
-ab_authors = "Billinge Group members and community contributors"
+ab_authors = "Sangjoon Lee, Simon Billinge, Billinge Group members"
 
 # -- General configuration ------------------------------------------------
 
@@ -60,7 +60,7 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx_rtd_theme",
     "sphinx_copybutton",
-    "m2r",
+    "m2r2",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -79,7 +79,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "scikit-package"
-copyright = "%Y, The Trustees of Columbia University in the City of New York"
+copyright = "%Y, scikit-package contributors"
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -145,11 +145,11 @@ nitpicky = True
 html_theme = "sphinx_rtd_theme"
 
 html_context = {
-    "display_github": True,  # Integrate GitHub
-    "github_user": "scikit-package",  # Username
-    "github_repo": "scikit-package",  # Repo name
-    "github_version": "main",  # Branch
-    "conf_py_path": "/docs/source/",  # Path in repo to the docs folder
+    "display_github": True,
+    "github_user": "scikit-package",
+    "github_repo": "scikit-package",
+    "github_version": "main",
+    "conf_py_path": "/docs/source/",
 }
 
 # Theme options are theme-specific and customize the look and feel of a theme

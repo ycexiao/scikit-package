@@ -1,6 +1,6 @@
 **Added:**
 
-* Enable configuring Python versions either in pyproject.toml or GitHub workflow .yml files.
+* <news item>
 
 **Changed:**
 
@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* <news item>
+* fix post_gen hook: fall back to template default for unknown workflow_input keys
 
 **Security:**
 

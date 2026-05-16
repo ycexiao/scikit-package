@@ -1,6 +1,6 @@
 **Added:**
 
-* Support setting multiple authors and maintainers.
+* <news item>
 
 **Changed:**
 
@@ -16,7 +16,7 @@
 
 **Fixed:**
 
-* <news item>
+* Fixed running single `docs-on-dispatch` workflow on Github Action
 
 **Security:**
 

@@ -314,7 +314,7 @@ Here is how you can **automate** the process of generating API documentation for
             "sphinx.ext.intersphinx",
             "sphinx_rtd_theme",
             "sphinx_copybutton",
-            "m2r",
+            "m2r2",
         ]
 
     to
@@ -329,7 +329,7 @@ Here is how you can **automate** the process of generating API documentation for
             "sphinx.ext.intersphinx",
             "sphinx_rtd_theme",
             "sphinx_copybutton",
-            "m2r",
+            "m2r2",
         ]
 
         # Configure where to find the source code and write API .rst files
@@ -890,6 +890,39 @@ Add a description of the edits made in this PR. This should be a user-facing hig
 Maintaining ``scikit-package``
 ------------------------------
 
+How can I locally install ``scikit-package`` with edits I've made to the source code?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``package update`` and ``package create public`` commands automatically reuse templates saved locally to
+``~/.cookiecutters/``. If you have made local edits to these commands and want to use/test them,
+begin by moving into the ``scikit-package`` repository on your local machine and locally install
+the package,
+
+.. code-block:: bash
+
+    cd path/to/local/scikit-package
+    pip install .
+
+Then remove the existing template in the ``.cookiecutters/`` directory and
+copy the current version of the ``scikit-package`` repository to the ``.cookiecutters/`` directory,
+
+.. code-block:: bash
+
+  rm -rf ~/.cookiecutters/scikit-package
+  cp -R . ~/.cookiecutters/scikit-package
+
+If you want to test a git version of the template, you can also ``git clone``
+the repository to the ``.cookiecutters/`` directory,
+
+.. code-block:: bash
+
+  rm -rf ~/.cookiecutters/scikit-package
+  git clone https://github.com/scikit-package/scikit-package ~/.cookiecutters/scikit-package
+
+Then run ``package create`` or ``package update`` command and
+reply ``n`` to the first prompt asking you to redownload.
+
+
 When should we expect different Python versions to be supported in the GitHub workflows?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -910,26 +943,5 @@ In https://github.com/scikit-package/scikit-package:
    * - ``docs/source/conf.py``
      - ``PYTHON_DEFAULT_MAX_VERSION`` and ``PYTHON_DEFAULT_MIN_VERSION``
 
-In https://github.com/scikit-package/release-scripts:
-
-.. list-table::
-   :header-rows: 1
-
-   * - Workflow file
-     - Key to update
-   * - ``.github/workflows/_matrix-and-codecov-on-merge-to-main.yml``
-     - ``python_versions``
-   * - ``.github/workflows/_matrix-no-codecov-on-merge-to-main.yml``
-     - ``python_versions``
-   * - ``.github/workflows/_publish-docs-on-release.yml``
-     - ``python_version``
-   * - ``.github/workflows/_check-news-item.yml``
-     - ``python_version``
-   * - ``.github/workflows/_build-pure-python-package.yml``
-     - ``python-version``
-   * - ``.github/workflows/_tests-on-pr.yml``
-     - ``python_version``
-   * - ``.github/workflows/_tests-on-pr-no-codecov.yml``
-     - ``python_version``
-   * - ``.github/workflows/_tests-on-pr-no-codecov-no-headless.yml``
-     - ``python-version``
+In https://github.com/scikit-package/release-scripts, please modify the following file
+``.github/workflows/_get-python-versions.yml`` for new fallback Python versions.

@@ -1,6 +1,6 @@
 **Added:**
 
-* No news added: Add documentation for `package broadcast`.
+* No news added: Update the documentation.
 
 **Changed:**
 

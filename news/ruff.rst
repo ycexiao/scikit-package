@@ -1,10 +1,10 @@
 **Added:**
 
-* Add package broadcast <issue-url> to broadcast a issue to multiple GitHub repositories.
+* <news item>
 
 **Changed:**
 
-* <news item>
+* Changed `pre-commit` workflow from docformatter to ruff
 
 **Deprecated:**
 

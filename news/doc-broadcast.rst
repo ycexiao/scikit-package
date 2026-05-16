@@ -1,6 +1,6 @@
 **Added:**
 
-* No news needed.
+* No news added: Add instructions about using ``package broadcast`` in macOS.
 
 **Changed:**
 
