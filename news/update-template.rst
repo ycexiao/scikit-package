@@ -1,6 +1,6 @@
 **Added:**
 
-* No news added: Update `docformatter` in template.
+* No news added: Update ``docformatter`` in template.
 
 **Changed:**
 
